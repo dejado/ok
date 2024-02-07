@@ -158,8 +158,9 @@ namespace SuJinChemicalMES
                 }
             }
 
+        private void Input_grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
-        
+        }
     }
 }

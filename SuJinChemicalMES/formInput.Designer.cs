@@ -43,6 +43,9 @@ namespace SuJinChemicalMES
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Input_grid = new System.Windows.Forms.DataGridView();
+            this.Re_bt = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.InputOk_bt = new System.Windows.Forms.Button();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,9 +55,6 @@ namespace SuJinChemicalMES
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Re_bt = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.InputOk_bt = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Input_grid)).BeginInit();
             this.SuspendLayout();
@@ -245,6 +245,44 @@ namespace SuJinChemicalMES
             this.Input_grid.RowTemplate.Height = 30;
             this.Input_grid.Size = new System.Drawing.Size(1078, 336);
             this.Input_grid.TabIndex = 23;
+            this.Input_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Input_grid_CellContentClick);
+            // 
+            // Re_bt
+            // 
+            this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Re_bt.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Re_bt.Location = new System.Drawing.Point(931, 211);
+            this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.Re_bt.Name = "Re_bt";
+            this.Re_bt.Size = new System.Drawing.Size(145, 35);
+            this.Re_bt.TabIndex = 25;
+            this.Re_bt.Text = "새로고침";
+            this.Re_bt.UseVisualStyleBackColor = true;
+            this.Re_bt.Click += new System.EventHandler(this.Re_bt_Click);
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(15, 211);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(117, 30);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "자재현황";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // InputOk_bt
+            // 
+            this.InputOk_bt.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.InputOk_bt.Location = new System.Drawing.Point(874, 20);
+            this.InputOk_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.InputOk_bt.Name = "InputOk_bt";
+            this.InputOk_bt.Size = new System.Drawing.Size(210, 36);
+            this.InputOk_bt.TabIndex = 26;
+            this.InputOk_bt.Text = "수입검사등록";
+            this.InputOk_bt.UseVisualStyleBackColor = true;
+            this.InputOk_bt.Click += new System.EventHandler(this.InputOk_bt_Click);
             // 
             // Column4
             // 
@@ -311,43 +349,6 @@ namespace SuJinChemicalMES
             this.Column2.Name = "Column2";
             this.Column2.Width = 150;
             // 
-            // Re_bt
-            // 
-            this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.Re_bt.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Re_bt.Location = new System.Drawing.Point(931, 211);
-            this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.Re_bt.Name = "Re_bt";
-            this.Re_bt.Size = new System.Drawing.Size(145, 35);
-            this.Re_bt.TabIndex = 25;
-            this.Re_bt.Text = "새로고침";
-            this.Re_bt.UseVisualStyleBackColor = true;
-            this.Re_bt.Click += new System.EventHandler(this.Re_bt_Click);
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Font = new System.Drawing.Font("굴림", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(15, 211);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(117, 30);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "자재현황";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // InputOk_bt
-            // 
-            this.InputOk_bt.Font = new System.Drawing.Font("굴림", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.InputOk_bt.Location = new System.Drawing.Point(874, 20);
-            this.InputOk_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.InputOk_bt.Name = "InputOk_bt";
-            this.InputOk_bt.Size = new System.Drawing.Size(210, 36);
-            this.InputOk_bt.TabIndex = 26;
-            this.InputOk_bt.Text = "수입검사등록";
-            this.InputOk_bt.UseVisualStyleBackColor = true;
-            this.InputOk_bt.Click += new System.EventHandler(this.InputOk_bt_Click);
-            // 
             // formInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -385,6 +386,9 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView Input_grid;
+        private System.Windows.Forms.Button Re_bt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button InputOk_bt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewComboBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -394,8 +398,5 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button Re_bt;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button InputOk_bt;
     }
 }

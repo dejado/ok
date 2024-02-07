@@ -46,6 +46,8 @@ namespace SuJinChemicalMES
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Wokrview = new FontAwesome.Sharp.IconButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.Workmain = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Plan = new FontAwesome.Sharp.IconButton();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -65,6 +67,7 @@ namespace SuJinChemicalMES
             this.pnQC.SuspendLayout();
             this.menuContainer.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.pnOut.SuspendLayout();
@@ -74,7 +77,7 @@ namespace SuJinChemicalMES
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackColor = System.Drawing.Color.GreenYellow;
             this.panel1.Controls.Add(this.btnMinimize);
             this.panel1.Controls.Add(this.btnMaximize);
             this.panel1.Controls.Add(this.btnExit);
@@ -85,6 +88,7 @@ namespace SuJinChemicalMES
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 42);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // btnMinimize
             // 
@@ -189,9 +193,9 @@ namespace SuJinChemicalMES
             // 
             this.Main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Main.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Main.ForeColor = System.Drawing.Color.White;
+            this.Main.ForeColor = System.Drawing.Color.GreenYellow;
             this.Main.IconChar = FontAwesome.Sharp.IconChar.House;
-            this.Main.IconColor = System.Drawing.Color.White;
+            this.Main.IconColor = System.Drawing.Color.GreenYellow;
             this.Main.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Main.IconSize = 32;
             this.Main.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -217,9 +221,9 @@ namespace SuJinChemicalMES
             // 
             this.Input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Input.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Input.ForeColor = System.Drawing.Color.White;
+            this.Input.ForeColor = System.Drawing.Color.GreenYellow;
             this.Input.IconChar = FontAwesome.Sharp.IconChar.LayerGroup;
-            this.Input.IconColor = System.Drawing.Color.White;
+            this.Input.IconColor = System.Drawing.Color.GreenYellow;
             this.Input.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Input.IconSize = 32;
             this.Input.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,9 +249,9 @@ namespace SuJinChemicalMES
             // 
             this.Qc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Qc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Qc.ForeColor = System.Drawing.Color.White;
+            this.Qc.ForeColor = System.Drawing.Color.GreenYellow;
             this.Qc.IconChar = FontAwesome.Sharp.IconChar.Microscope;
-            this.Qc.IconColor = System.Drawing.Color.White;
+            this.Qc.IconColor = System.Drawing.Color.GreenYellow;
             this.Qc.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Qc.IconSize = 32;
             this.Qc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -265,12 +269,13 @@ namespace SuJinChemicalMES
             // 
             this.menuContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
             this.menuContainer.Controls.Add(this.panel3);
+            this.menuContainer.Controls.Add(this.panel2);
             this.menuContainer.Controls.Add(this.panel6);
             this.menuContainer.Controls.Add(this.panel7);
             this.menuContainer.Location = new System.Drawing.Point(0, 183);
             this.menuContainer.Margin = new System.Windows.Forms.Padding(0);
             this.menuContainer.Name = "menuContainer";
-            this.menuContainer.Size = new System.Drawing.Size(233, 144);
+            this.menuContainer.Size = new System.Drawing.Size(233, 45);
             this.menuContainer.TabIndex = 4;
             // 
             // panel3
@@ -286,26 +291,55 @@ namespace SuJinChemicalMES
             // 
             this.Wokrview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Wokrview.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Wokrview.ForeColor = System.Drawing.Color.White;
+            this.Wokrview.ForeColor = System.Drawing.Color.GreenYellow;
             this.Wokrview.IconChar = FontAwesome.Sharp.IconChar.Industry;
-            this.Wokrview.IconColor = System.Drawing.Color.White;
+            this.Wokrview.IconColor = System.Drawing.Color.GreenYellow;
             this.Wokrview.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Wokrview.IconSize = 32;
             this.Wokrview.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Wokrview.Location = new System.Drawing.Point(-4, -19);
             this.Wokrview.Name = "Wokrview";
             this.Wokrview.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Wokrview.Size = new System.Drawing.Size(253, 84);
+            this.Wokrview.Size = new System.Drawing.Size(254, 84);
             this.Wokrview.TabIndex = 4;
             this.Wokrview.Text = "           생산";
             this.Wokrview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Wokrview.UseVisualStyleBackColor = false;
             this.Wokrview.Click += new System.EventHandler(this.menu_Click);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.Workmain);
+            this.panel2.Location = new System.Drawing.Point(0, 45);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(233, 45);
+            this.panel2.TabIndex = 5;
+            // 
+            // Workmain
+            // 
+            this.Workmain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.Workmain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Workmain.ForeColor = System.Drawing.Color.White;
+            this.Workmain.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.Workmain.IconColor = System.Drawing.Color.White;
+            this.Workmain.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Workmain.IconSize = 25;
+            this.Workmain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Workmain.Location = new System.Drawing.Point(-4, -19);
+            this.Workmain.Name = "Workmain";
+            this.Workmain.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Workmain.Size = new System.Drawing.Size(253, 84);
+            this.Workmain.TabIndex = 4;
+            this.Workmain.Text = "           생산 메인";
+            this.Workmain.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Workmain.UseVisualStyleBackColor = false;
+            this.Workmain.Click += new System.EventHandler(this.Workmain_Click);
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.Plan);
-            this.panel6.Location = new System.Drawing.Point(0, 45);
+            this.panel6.Location = new System.Drawing.Point(0, 90);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(233, 45);
@@ -334,7 +368,7 @@ namespace SuJinChemicalMES
             // panel7
             // 
             this.panel7.Controls.Add(this.Inventory);
-            this.panel7.Location = new System.Drawing.Point(0, 90);
+            this.panel7.Location = new System.Drawing.Point(0, 135);
             this.panel7.Margin = new System.Windows.Forms.Padding(0);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(233, 45);
@@ -363,7 +397,7 @@ namespace SuJinChemicalMES
             // pnOut
             // 
             this.pnOut.Controls.Add(this.Output);
-            this.pnOut.Location = new System.Drawing.Point(3, 330);
+            this.pnOut.Location = new System.Drawing.Point(3, 231);
             this.pnOut.Name = "pnOut";
             this.pnOut.Size = new System.Drawing.Size(233, 45);
             this.pnOut.TabIndex = 5;
@@ -372,9 +406,9 @@ namespace SuJinChemicalMES
             // 
             this.Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Output.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output.ForeColor = System.Drawing.Color.White;
+            this.Output.ForeColor = System.Drawing.Color.GreenYellow;
             this.Output.IconChar = FontAwesome.Sharp.IconChar.BoxesAlt;
-            this.Output.IconColor = System.Drawing.Color.White;
+            this.Output.IconColor = System.Drawing.Color.GreenYellow;
             this.Output.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Output.IconSize = 32;
             this.Output.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -391,7 +425,7 @@ namespace SuJinChemicalMES
             // pnChart
             // 
             this.pnChart.Controls.Add(this.Chart);
-            this.pnChart.Location = new System.Drawing.Point(3, 381);
+            this.pnChart.Location = new System.Drawing.Point(3, 282);
             this.pnChart.Name = "pnChart";
             this.pnChart.Size = new System.Drawing.Size(233, 45);
             this.pnChart.TabIndex = 6;
@@ -400,9 +434,9 @@ namespace SuJinChemicalMES
             // 
             this.Chart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Chart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Chart.ForeColor = System.Drawing.Color.White;
+            this.Chart.ForeColor = System.Drawing.Color.GreenYellow;
             this.Chart.IconChar = FontAwesome.Sharp.IconChar.ChartPie;
-            this.Chart.IconColor = System.Drawing.Color.White;
+            this.Chart.IconColor = System.Drawing.Color.GreenYellow;
             this.Chart.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Chart.IconSize = 32;
             this.Chart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -419,7 +453,7 @@ namespace SuJinChemicalMES
             // pnSystem
             // 
             this.pnSystem.Controls.Add(this.Systemmain);
-            this.pnSystem.Location = new System.Drawing.Point(3, 432);
+            this.pnSystem.Location = new System.Drawing.Point(3, 333);
             this.pnSystem.Name = "pnSystem";
             this.pnSystem.Size = new System.Drawing.Size(233, 45);
             this.pnSystem.TabIndex = 7;
@@ -428,9 +462,9 @@ namespace SuJinChemicalMES
             // 
             this.Systemmain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
             this.Systemmain.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Systemmain.ForeColor = System.Drawing.Color.White;
+            this.Systemmain.ForeColor = System.Drawing.Color.GreenYellow;
             this.Systemmain.IconChar = FontAwesome.Sharp.IconChar.Tools;
-            this.Systemmain.IconColor = System.Drawing.Color.White;
+            this.Systemmain.IconColor = System.Drawing.Color.GreenYellow;
             this.Systemmain.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.Systemmain.IconSize = 32;
             this.Systemmain.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -464,6 +498,8 @@ namespace SuJinChemicalMES
             this.IsMdiContainer = true;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.sidebar.ResumeLayout(false);
@@ -472,6 +508,7 @@ namespace SuJinChemicalMES
             this.pnQC.ResumeLayout(false);
             this.menuContainer.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.pnOut.ResumeLayout(false);
@@ -511,6 +548,8 @@ namespace SuJinChemicalMES
         private FontAwesome.Sharp.IconButton btnExit;
         private FontAwesome.Sharp.IconButton btnMaximize;
         private FontAwesome.Sharp.IconButton btnMinimize;
+        private System.Windows.Forms.Panel panel2;
+        private FontAwesome.Sharp.IconButton Workmain;
     }
 }
 
