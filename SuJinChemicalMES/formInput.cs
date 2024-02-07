@@ -26,16 +26,16 @@ namespace SuJinChemicalMES
             Input_grid.Rows.Clear();
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=mes;Uid=MES;Pwd=mesProgram128!;");
+                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=kim;Uid=MES;Pwd=kim123!;");
                 //SQL 서버와 연결, database=스키마 이름
                 connection.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT * from input ORDER BY input_date ASC";
+                string Query = "SELECT * from inpu";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand command = new MySqlCommand(Query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
-
+               
                 while (reader.Read())
                 {
                     Input_grid.Rows.Add(reader["output_date"], reader["company"],
