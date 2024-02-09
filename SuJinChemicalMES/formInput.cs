@@ -27,7 +27,7 @@ namespace SuJinChemicalMES
             Input_grid.Rows.Clear();
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=kim;Pwd=kim123!;");
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=material;Uid=test;Pwd=123;");
                 //SQL 서버와 연결, database=스키마 이름
                 connection.Open();
                 //SQL 서버 연결
@@ -134,7 +134,7 @@ namespace SuJinChemicalMES
             
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=kim;Pwd=kim123!;");
+                MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=material;Uid=test;Pwd=123;");
                 connection.Open();
 
                 // 동적 쿼리 생성
@@ -172,7 +172,7 @@ namespace SuJinChemicalMES
                 Input_grid.Rows.Clear();
                 try
                 {
-                    MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=kim;Pwd=kim123!;");
+                    MySqlConnection connection = new MySqlConnection("Server=127.0.0.1;Database=material;Uid=test;Pwd=123;");
                     connection.Open();
 
                     // 동적 쿼리 생성
