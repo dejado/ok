@@ -20,6 +20,13 @@ namespace SuJinChemicalMES
         private void formInventory_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView2.RowHeadersVisible = false;
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

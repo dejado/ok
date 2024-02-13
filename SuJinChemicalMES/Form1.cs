@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using System.Runtime.InteropServices;
 
 namespace SuJinChemicalMES
 {
@@ -23,10 +24,18 @@ namespace SuJinChemicalMES
         formChart chart;
         formSystem systemmain;
 
+        
+
+        
+
         public Form1()
         {
             InitializeComponent();
             mdiProp();
+            this.MouseDown += new MouseEventHandler(Form1_MouseDown); // 이 부분을 추가
+            panel1.MouseDown += new MouseEventHandler(Form1_MouseDown); // 페널에도 동일한 이벤트 핸들러를 추가
+
+            this.MouseMove += new MouseEventHandler(Form1_MouseMove);
         }
         bool menuExpand = false;
         private void mdiProp()
@@ -43,7 +52,7 @@ namespace SuJinChemicalMES
             if (menuExpand == false)
             {
                 menuContainer.Height += 10;
-                if (menuContainer.Height >= 135) {
+                if (menuContainer.Height >= 176) {
                     menuTransition.Stop();
                     menuExpand = true;
                 }
@@ -61,18 +70,7 @@ namespace SuJinChemicalMES
 
         private void menu_Click(object sender, EventArgs e)
         {
-            if (workview == null)
-            {
-                workview = new formWork();
-                workview.FormClosed += Workview_FormClosed;
-                workview.MdiParent = this;
-                workview.Dock = DockStyle.Fill;
-                workview.Show();
-            }
-            else
-            {
-                workview.Activate();
-            }
+            menuTransition.Start();
         }
 
         private void Workview_FormClosed(object sender, FormClosedEventArgs e)
@@ -309,6 +307,53 @@ namespace SuJinChemicalMES
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void Workmain_Click(object sender, EventArgs e)
+        {
+            if (workview == null)
+            {
+                workview = new formWork();
+                workview.FormClosed += Workview_FormClosed;
+                workview.MdiParent = this;
+                workview.Dock = DockStyle.Fill;
+                workview.Show();
+            }
+            else
+            {
+                workview.Activate();
+            }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        [DllImportAttribute("user32.dll")]
+        private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        private static extern bool ReleaseCapture();
+        [DllImportAttribute("user32.dll")]
+        private static extern bool SetCursorPos(int X, int Y);
+
+        const int WM_NCLBUTTONDOWN = 0xA1;
+        const int HT_CAPTION = 0x2;
+        //const int WM_SYSCOMMAND = 0x0112;
+        //const int SC_SIZE = 0xF000;
+
+        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+            
         }
     }
 }
