@@ -127,7 +127,7 @@ namespace SuJinChemicalMES
 
         private void formAddproduct_Load(object sender, EventArgs e)
         {
-            1
+            
         }
     }
 }

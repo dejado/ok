@@ -40,13 +40,7 @@ namespace SuJinChemicalMES
             // 필요에 따라 추가적인 텍스트박스에 대한 할당을 진행합니다.
             */
 
-            DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
-
-            // 선택된 행의 각 셀의 데이터를 TextBox에 할당합니다.
-            label310.Text = selectedRow.Cells["Column310"].Value.ToString();
-            label311.Text = selectedRow.Cells["Column311"].Value.ToString();
-            label312.Text = selectedRow.Cells["Column312"].Value.ToString();
-            label313.Text = selectedRow.Cells["Column313"].Value.ToString();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -59,15 +53,31 @@ namespace SuJinChemicalMES
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            dataGridView2.Rows.Add("토리콤", "235555", "NHO3", "질산", "90L");
+            //dataGridView2.Rows.Add("토리콤", "235555", "NHO3", "질산", "90L");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView2.Rows.Add("토리콤", "230207001", "H2SO4", "황산", "120L");
+            //dataGridView2.Rows.Add("토리콤", "230207001", "H2SO4", "황산", "120L");
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Add("토리콤", "235555", "NHO3", "질산", "90L");
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Add("토리콤", "230207001", "H2SO4", "황산", "120L");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
         {
             string comboBox1Text = comboBox1.Text;
             string combobox4Text = comboBox4.Text;
@@ -80,17 +90,17 @@ namespace SuJinChemicalMES
 
             dataGridView1.Rows.Add(comboBox1Text, combobox4Text, combobox3Text, combobox6Text, "1.2 ph", "99%", "1%", combobox5Text, combobox2Text);
 
-
         }
 
-        private void button1_Click_2(object sender, EventArgs e)
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridView2.Rows.Add("토리콤", "235555", "NHO3", "질산", "90L");
-        }
+                DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            dataGridView2.Rows.Add("토리콤", "230207001", "H2SO4", "황산", "120L");
+            // 선택된 행의 각 셀의 데이터를 TextBox에 할당합니다.
+            label310.Text = selectedRow.Cells["Column310"].Value.ToString();
+            label311.Text = selectedRow.Cells["Column311"].Value.ToString();
+            label312.Text = selectedRow.Cells["Column312"].Value.ToString();
+            label313.Text = selectedRow.Cells["Column313"].Value.ToString();
         }
     }
 }

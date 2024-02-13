@@ -245,6 +245,7 @@ namespace SuJinChemicalMES
             this.dataGridView2.RowTemplate.Height = 27;
             this.dataGridView2.Size = new System.Drawing.Size(606, 225);
             this.dataGridView2.TabIndex = 6;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
             // 
             // Column310
             // 
@@ -404,6 +405,7 @@ namespace SuJinChemicalMES
             this.button3.TabIndex = 38;
             this.button3.Text = "등록";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // comboBox5
             // 

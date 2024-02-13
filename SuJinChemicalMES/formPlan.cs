@@ -111,18 +111,7 @@ namespace SuJinChemicalMES
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // 라벨에서 데이터 가져오기
-            string label15Text = label15.Text;
-            string label16Text = label16.Text;
-            string label17Text = label17.Text;
-            string label18Text = label18.Text;
-            string combobox1Text = comboBox1.Text;
-            string label19Text = label19.Text;
-            string textbox1Text = textBox1.Text;
-            string combobox2Text = comboBox2.Text;
-
-            // 그리드뷰에 행 추가
-            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+            
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -138,6 +127,22 @@ namespace SuJinChemicalMES
         private void button2_Click_1(object sender, EventArgs e)
         {
             dataGridView2.Rows.Add("A20230207001", "235555", "UPS_31", "Target guide (타켓 가이드)", "90", "2023-02-21");
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            // 라벨에서 데이터 가져오기
+            string label15Text = label15.Text;
+            string label16Text = label16.Text;
+            string label17Text = label17.Text;
+            string label18Text = label18.Text;
+            string combobox1Text = comboBox1.Text;
+            string label19Text = label19.Text;
+            string textbox1Text = textBox1.Text;
+            string combobox2Text = comboBox2.Text;
+
+            // 그리드뷰에 행 추가
+            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
         }
     }
 }
