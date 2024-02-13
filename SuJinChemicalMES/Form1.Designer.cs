@@ -497,6 +497,7 @@ namespace SuJinChemicalMES
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);

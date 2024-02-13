@@ -24,9 +24,9 @@ namespace SuJinChemicalMES
         formChart chart;
         formSystem systemmain;
 
-        
 
-        
+
+
 
         public Form1()
         {
@@ -41,18 +41,19 @@ namespace SuJinChemicalMES
         private void mdiProp()
         {
             this.SetBevel(false);
-            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232,234,237);
+            Controls.OfType<MdiClient>().FirstOrDefault().BackColor = Color.FromArgb(232, 234, 237);
         }
 
-        
-            
-            
+
+
+
         private void menuTransition_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
             {
                 menuContainer.Height += 10;
-                if (menuContainer.Height >= 176) {
+                if (menuContainer.Height >= 176)
+                {
                     menuTransition.Stop();
                     menuExpand = true;
                 }
@@ -60,7 +61,7 @@ namespace SuJinChemicalMES
             else
             {
                 menuContainer.Height -= 10;
-                if(menuContainer.Height <= 45)
+                if (menuContainer.Height <= 45)
                 {
                     menuTransition.Stop();
                     menuExpand = false;
@@ -84,7 +85,7 @@ namespace SuJinChemicalMES
             if (sidebarExpand)
             {
                 sidebar.Width -= 5;
-                if (sidebar.Width <=60)
+                if (sidebar.Width <= 60)
                 {
                     sidebarExpand = false;
                     sidebarTransition.Stop();
@@ -99,7 +100,7 @@ namespace SuJinChemicalMES
                 }
             }
 
-         
+
             else
             {
                 sidebar.Width += 5;
@@ -135,7 +136,8 @@ namespace SuJinChemicalMES
                 main.Dock = DockStyle.Fill;
                 main.Show();
             }
-            else {
+            else
+            {
                 main.Activate();
             }
         }
@@ -148,14 +150,16 @@ namespace SuJinChemicalMES
 
         private void Plan_Click(object sender, EventArgs e)
         {
-            if (plan == null) {
+            if (plan == null)
+            {
                 plan = new formPlan();
                 plan.FormClosed += Plan_FormClosed;
                 plan.MdiParent = this;
                 plan.Dock = DockStyle.Fill;
                 plan.Show();
             }
-            else {
+            else
+            {
                 plan.Activate();
             }
         }
@@ -353,7 +357,7 @@ namespace SuJinChemicalMES
 
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
-            
+
         }
     }
 }
