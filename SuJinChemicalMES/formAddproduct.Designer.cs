@@ -346,6 +346,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(this.button9);
             this.Name = "formAddproduct";
             this.Text = "formAddproduct";
+            this.Load += new System.EventHandler(this.formAddproduct_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

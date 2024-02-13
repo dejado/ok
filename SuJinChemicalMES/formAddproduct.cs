@@ -124,5 +124,10 @@ namespace SuJinChemicalMES
             formAddproductOkay formAddproductOkay = new formAddproductOkay();
             formAddproductOkay.Show();
         }
+
+        private void formAddproduct_Load(object sender, EventArgs e)
+        {
+            1
+        }
     }
 }
