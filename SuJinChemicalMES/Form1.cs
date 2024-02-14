@@ -16,7 +16,7 @@ namespace SuJinChemicalMES
     {
         formMain main;
         formInput input;
-        //formQc qc;
+        formQc qc;
         formWork workview;
         formPlan plan;
         formInventory inventory;
@@ -191,7 +191,7 @@ namespace SuJinChemicalMES
         {
             input = null;
         }
-        /*
+        
         private void Qc_Click(object sender, EventArgs e)
         {
             if (qc == null)
@@ -212,7 +212,7 @@ namespace SuJinChemicalMES
         {
             input = null;
         }
-        */
+        
         private void Inventory_Click(object sender, EventArgs e)
         {
             if (inventory == null)

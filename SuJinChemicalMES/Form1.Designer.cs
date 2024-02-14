@@ -284,7 +284,7 @@ namespace SuJinChemicalMES
             this.Qc.Text = "           품질";
             this.Qc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Qc.UseVisualStyleBackColor = false;
-            //this.Qc.Click += new System.EventHandler(this.Qc_Click);
+            this.Qc.Click += new System.EventHandler(this.Qc_Click);
             // 
             // menuContainer
             // 

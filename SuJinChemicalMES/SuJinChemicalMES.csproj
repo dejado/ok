@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formQc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formQc.Designer.cs">
+      <DependentUpon>formQc.cs</DependentUpon>
+    </Compile>
     <Compile Include="formSystem1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPlan.resx">
       <DependentUpon>formPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formQc.resx">
+      <DependentUpon>formQc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem1.resx">
       <DependentUpon>formSystem1.cs</DependentUpon>
