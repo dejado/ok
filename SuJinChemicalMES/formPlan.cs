@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SuJinChemicalMES
 {
     public partial class formPlan : Form
     {
+        private string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+
         public formPlan()
         {
             InitializeComponent();
@@ -26,6 +29,7 @@ namespace SuJinChemicalMES
             this.ControlBox = false;
             dataGridView1.RowHeadersVisible = false;
             dataGridView2.RowHeadersVisible = false;
+            BindDataGridView();
             //this.dataGridView1.Font = new Font("SegoeUI", 10, FontStyle.Bold);
         }
 
@@ -57,7 +61,45 @@ namespace SuJinChemicalMES
 
         }
 
+        private void BindDataGridView()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    // MySQL 데이터베이스 연결
+                    connection.Open();
 
+                    // 쿼리 작성
+                    string query = "SELECT oder_number AS '발주서번호', lot_no AS 'Lot No.', product_code AS '제품코드', product_name AS '제품명', expected_production_quantity AS '수량', due_date AS '납기일' FROM oder_registration";
+
+                    // 쿼리 실행
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            // DataGridView에 데이터 추가
+                            while (reader.Read())
+                            {
+                                dataGridView2.Rows.Add(
+                                    reader["발주서번호"].ToString(),
+                                    reader["Lot No."].ToString(),
+                                    reader["제품코드"].ToString(),
+                                    reader["제품명"].ToString(),
+                                    reader["수량"].ToString(),
+                                    reader["납기일"].ToString()
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // 오류 처리
+                MessageBox.Show("데이터 로드 중 오류 발생: " + ex.Message);
+            }
+        }
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
@@ -143,6 +185,21 @@ namespace SuJinChemicalMES
 
             // 그리드뷰에 행 추가
             dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+        }
+
+        private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -13,6 +13,8 @@ namespace SuJinChemicalMES
 {
     public partial class formInventory : Form
     {
+        private string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+
         public formInventory()
         {
             InitializeComponent();
@@ -20,11 +22,47 @@ namespace SuJinChemicalMES
 
         private void formInventory_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView2.RowHeadersVisible = false;
+            // 폼 로드 시 데이터그리드뷰에 MySQL 데이터 바인딩
+            BindDataGridView();
         }
+        private void BindDataGridView()
+        {
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    // MySQL 데이터베이스 연결
+                    connection.Open();
 
+                    // 쿼리 작성
+                    string query = "SELECT company, lot_no, product_code, product_name, quantity FROM incoming";
+
+                    // 쿼리 실행
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            // DataGridView에 데이터 추가
+                            while (reader.Read())
+                            {
+                                dataGridView2.Rows.Add(
+                                    reader["company"].ToString(),
+                                    reader["lot_no"].ToString(),
+                                    reader["product_code"].ToString(),
+                                    reader["product_name"].ToString(),
+                                    reader["quantity"].ToString()
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // 오류 처리
+                MessageBox.Show("데이터 로드 중 오류 발생: " + ex.Message);
+            }
+        }
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             /*
