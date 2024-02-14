@@ -1,7 +1,7 @@
 ﻿
 namespace SuJinChemicalMES
 {
-    partial class formQc
+    partial class formSystem1
     {
         /// <summary>
         /// Required designer variable.
@@ -39,20 +39,20 @@ namespace SuJinChemicalMES
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1263, 758);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "품질";
+            this.label1.TabIndex = 2;
+            this.label1.Text = "발주서 등록";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // formQc
+            // formSystem1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "formQc";
-            this.Text = "formQc";
-            this.Load += new System.EventHandler(this.formQc_Load);
+            this.Name = "formSystem1";
+            this.Text = "aaaa";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formSystem1_FormClosed);
             this.ResumeLayout(false);
 
         }

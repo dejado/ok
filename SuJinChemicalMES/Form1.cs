@@ -22,7 +22,12 @@ namespace SuJinChemicalMES
         formInventory inventory;
         formOutput output;
         formChart chart;
-        formSystem systemmain;
+        formSystem1 system1;
+        formSystem2 system2;
+        formSystem3 system3;
+        formSystem4 system4;
+
+        //formSystem systemmain;
 
 
 
@@ -74,10 +79,7 @@ namespace SuJinChemicalMES
             menuTransition.Start();
         }
 
-        private void Workview_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            workview.Activate();
-        }
+        
 
         bool sidebarExpand = true;
         private void sidebarTransition_Tick(object sender, EventArgs e)
@@ -276,6 +278,8 @@ namespace SuJinChemicalMES
 
         private void Systemmain_Click(object sender, EventArgs e)
         {
+            menuTransition2.Start();
+            /*
             if (systemmain == null)
             {
                 systemmain = new formSystem();
@@ -288,11 +292,12 @@ namespace SuJinChemicalMES
             {
                 systemmain.Activate();
             }
+            */
         }
 
         private void Systemmain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            systemmain = null;
+            //systemmain = null;
         }
 
         private void mesclose_Click(object sender, EventArgs e)
@@ -328,6 +333,10 @@ namespace SuJinChemicalMES
                 workview.Activate();
             }
         }
+        private void Workview_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            workview.Activate();
+        }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -358,6 +367,115 @@ namespace SuJinChemicalMES
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        bool menuExpand2 = false;
+        private void menuTransition2_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand2 == false)
+            {
+                pnSystem.Height += 10;
+                if (pnSystem.Height >= 225)
+                {
+                    menuTransition2.Stop();
+                    menuExpand2 = true;
+                }
+            }
+            else
+            {
+                pnSystem.Height -= 10;
+                if (pnSystem.Height <= 45)
+                {
+                    menuTransition2.Stop();
+                    menuExpand2 = false;
+                }
+            }
+        }
+
+        private void System1_Click(object sender, EventArgs e)
+        {
+            if (system1 == null)
+            {
+                system1 = new formSystem1();
+                system1.FormClosed += Workview_FormClosed;
+                system1.MdiParent = this;
+                system1.Dock = DockStyle.Fill;
+                system1.Show();
+            }
+            else
+            {
+                system1.Activate();
+            }
+
+        }
+        private void System1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            system1 = null;
+        }
+
+        private void System2_Click(object sender, EventArgs e)
+        {
+            if (system2 == null)
+            {
+                system2 = new formSystem2();
+                system2.FormClosed += Workview_FormClosed;
+                system2.MdiParent = this;
+                system2.Dock = DockStyle.Fill;
+                system2.Show();
+            }
+            else
+            {
+                system2.Activate();
+            }
+        }
+        private void System2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            system2 = null;
+        }
+
+        private void System3_Click(object sender, EventArgs e)
+        {
+            if (system3 == null)
+            {
+                system3 = new formSystem3();
+                system3.FormClosed += Workview_FormClosed;
+                system3.MdiParent = this;
+                system3.Dock = DockStyle.Fill;
+                system3.Show();
+            }
+            else
+            {
+                system3.Activate();
+            }
+        }
+        private void System3_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            system3 = null;
+        }
+
+        private void System4_Click(object sender, EventArgs e)
+        {
+            if (system4 == null)
+            {
+                system4 = new formSystem4();
+                system4.FormClosed += Workview_FormClosed;
+                system4.MdiParent = this;
+                system4.Dock = DockStyle.Fill;
+                system4.Show();
+            }
+            else
+            {
+                system4.Activate();
+            }
+        }
+        private void System4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            system4 = null;
         }
     }
 }

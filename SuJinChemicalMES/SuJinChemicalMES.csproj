@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formSystem1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSystem1.Designer.cs">
+      <DependentUpon>formSystem1.cs</DependentUpon>
+    </Compile>
     <Compile Include="ex.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -184,6 +190,24 @@
     <Compile Include="formSystem.Designer.cs">
       <DependentUpon>formSystem.cs</DependentUpon>
     </Compile>
+    <Compile Include="formSystem2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSystem2.Designer.cs">
+      <DependentUpon>formSystem2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formSystem3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSystem3.Designer.cs">
+      <DependentUpon>formSystem3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formSystem4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formSystem4.Designer.cs">
+      <DependentUpon>formSystem4.cs</DependentUpon>
+    </Compile>
     <Compile Include="formWork.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,8 +253,20 @@
     <EmbeddedResource Include="formQc.resx">
       <DependentUpon>formQc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formSystem1.resx">
+      <DependentUpon>formSystem1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formSystem.resx">
       <DependentUpon>formSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSystem2.resx">
+      <DependentUpon>formSystem2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSystem3.resx">
+      <DependentUpon>formSystem3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formSystem4.resx">
+      <DependentUpon>formSystem4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formWork.resx">
       <DependentUpon>formWork.cs</DependentUpon>

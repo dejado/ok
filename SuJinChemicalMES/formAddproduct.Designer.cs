@@ -344,6 +344,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button9);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formAddproduct";
             this.Text = "formAddproduct";
             this.Load += new System.EventHandler(this.formAddproduct_Load);
