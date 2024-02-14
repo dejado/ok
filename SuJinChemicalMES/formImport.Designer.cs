@@ -1,7 +1,7 @@
 ﻿
 namespace SuJinChemicalMES
 {
-    partial class formQc
+    partial class formImport
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +36,23 @@ namespace SuJinChemicalMES
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("굴림", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(592, 349);
+            this.label1.Location = new System.Drawing.Point(579, 358);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 44);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "품질";
+            this.label1.Size = new System.Drawing.Size(205, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "수입 검사";
             // 
-            // formQc
+            // formImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "formQc";
-            this.Text = "formQc";
+            this.Name = "formImport";
+            this.Text = "formImport";
+            this.Load += new System.EventHandler(this.formImport_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

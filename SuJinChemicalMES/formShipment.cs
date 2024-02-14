@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace SuJinChemicalMES
 {
-    public partial class formQc : Form
+    public partial class formShipment : Form
     {
-        public formQc()
+        public formShipment()
         {
             InitializeComponent();
+        }
+
+        private void formShipment_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
         }
     }
 }

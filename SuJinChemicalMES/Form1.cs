@@ -16,7 +16,6 @@ namespace SuJinChemicalMES
     {
         formMain main;
         formInput input;
-        formQc qc;
         formWork workview;
         formPlan plan;
         formInventory inventory;
@@ -26,6 +25,8 @@ namespace SuJinChemicalMES
         formSystem2 system2;
         formSystem3 system3;
         formSystem4 system4;
+        formImport import;
+        formShipment shipment;
 
         //formSystem systemmain;
 
@@ -42,7 +43,7 @@ namespace SuJinChemicalMES
 
             this.MouseMove += new MouseEventHandler(Form1_MouseMove);
         }
-        bool menuExpand = false;
+       
         private void mdiProp()
         {
             this.SetBevel(false);
@@ -51,7 +52,7 @@ namespace SuJinChemicalMES
 
 
 
-
+        bool menuExpand = false;
         private void menuTransition_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
@@ -65,21 +66,31 @@ namespace SuJinChemicalMES
             }
             else
             {
-                menuContainer.Height -= 10;
+                
                 if (menuContainer.Height <= 45)
                 {
                     menuTransition.Stop();
                     menuExpand = false;
                 }
+                else menuContainer.Height -= 10;
             }
         }
 
         private void menu_Click(object sender, EventArgs e)
         {
+            menuExpand2 = true;
+            menuExpand3 = true;
+            menuExpand4 = true;
+            sidebarExpand = false;
             menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
         }
 
-        
+
 
         bool sidebarExpand = true;
         private void sidebarTransition_Tick(object sender, EventArgs e)
@@ -87,37 +98,51 @@ namespace SuJinChemicalMES
             if (sidebarExpand)
             {
                 sidebar.Width -= 5;
-                if (sidebar.Width <= 60)
+                if (sidebar.Width <= 70)
                 {
                     sidebarExpand = false;
                     sidebarTransition.Stop();
-
+                    
                     pnMain.Width = sidebar.Width;
-                    pnIn.Width = sidebar.Width;
+                    pnMeterial.Width = sidebar.Width;
                     pnQC.Width = sidebar.Width;
                     menuContainer.Width = sidebar.Width;
-                    pnOut.Width = sidebar.Width;
+                    
                     pnChart.Width = sidebar.Width;
                     pnSystem.Width = sidebar.Width;
+                    
                 }
             }
 
 
             else
             {
-                sidebar.Width += 5;
                 if (sidebar.Width >= 237)
                 {
                     sidebarExpand = true;
                     sidebarTransition.Stop();
-
+                    /*
                     pnMain.Width = sidebar.Width;
-                    pnIn.Width = sidebar.Width;
+                    pnMeterial.Width = sidebar.Width;
                     pnQC.Width = sidebar.Width;
                     menuContainer.Width = sidebar.Width;
-                    pnOut.Width = sidebar.Width;
                     pnChart.Width = sidebar.Width;
                     pnSystem.Width = sidebar.Width;
+                    */
+
+                }
+                else
+                {
+                    
+                    sidebar.Width +=5;
+                    
+                    pnMain.Width += 5;
+                    pnMeterial.Width += 5;
+                    pnQC.Width += 5;
+                    menuContainer.Width += 5;
+                    pnChart.Width += 5;
+                    pnSystem.Width +=5; 
+                    
                 }
             }
 
@@ -125,11 +150,32 @@ namespace SuJinChemicalMES
 
         private void btnham_Click(object sender, EventArgs e)
         {
+            menuExpand = true;
+            menuExpand2 = true;
+            menuExpand3 = true;
+            menuExpand4 = true;
+            menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
             sidebarTransition.Start();
         }
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
+
+            //menuTransition10.Start();
+            menuExpand = true;
+            menuExpand2 = true;
+            menuExpand3 = true;
+            menuExpand4 = true;
+            sidebarExpand = false;
+            menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
             if (main == null)
             {
                 main = new formMain();
@@ -142,6 +188,7 @@ namespace SuJinChemicalMES
             {
                 main.Activate();
             }
+            
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -173,6 +220,17 @@ namespace SuJinChemicalMES
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
+            menuExpand = true;
+            menuExpand2 = true;
+            menuExpand3 = true;
+            sidebarExpand = false;
+            menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
+            /*
             if (input == null)
             {
                 input = new formInput();
@@ -185,15 +243,22 @@ namespace SuJinChemicalMES
             {
                 input.Activate();
             }
-        }
-
-        private void Input_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            input = null;
+            */
         }
         
         private void Qc_Click(object sender, EventArgs e)
         {
+            menuExpand = true;
+            menuExpand2 = true;
+            menuExpand4 = true;
+            sidebarExpand = false;
+            menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
+            /*
             if (qc == null)
             {
                 qc = new formQc();
@@ -206,6 +271,7 @@ namespace SuJinChemicalMES
             {
                 qc.Activate();
             }
+            */
         }
 
         private void Qc_FormClosed(object sender, FormClosedEventArgs e)
@@ -236,6 +302,7 @@ namespace SuJinChemicalMES
 
         private void Output_Click(object sender, EventArgs e)
         {
+            /*
             if (output == null)
             {
                 output = new formOutput();
@@ -243,20 +310,28 @@ namespace SuJinChemicalMES
                 output.MdiParent = this;
                 output.Dock = DockStyle.Fill;
                 output.Show();
+            
             }
             else
             {
                 output.Activate();
             }
-        }
-
-        private void Output_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            output = null;
+            */
         }
 
         private void Chart_Click(object sender, EventArgs e)
         {
+            menuExpand = true;
+            menuExpand2 = true;
+            menuExpand3 = true;
+            menuExpand4 = true;
+            sidebarExpand = false;
+            menuTransition.Start();
+            menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
             if (chart == null)
             {
                 chart = new formChart();
@@ -278,7 +353,16 @@ namespace SuJinChemicalMES
 
         private void Systemmain_Click(object sender, EventArgs e)
         {
+            menuExpand = true;
+            menuExpand3 = true;
+            menuExpand4 = true;
+            sidebarExpand = false;
+            menuTransition.Start();
             menuTransition2.Start();
+            menuTransition3.Start();
+            menuTransition4.Start();
+            sidebarTransition.Start();
+
             /*
             if (systemmain == null)
             {
@@ -388,12 +472,12 @@ namespace SuJinChemicalMES
             }
             else
             {
-                pnSystem.Height -= 10;
                 if (pnSystem.Height <= 45)
                 {
                     menuTransition2.Stop();
                     menuExpand2 = false;
                 }
+                else pnSystem.Height -= 10;
             }
         }
 
@@ -476,6 +560,186 @@ namespace SuJinChemicalMES
         private void System4_FormClosed(object sender, FormClosedEventArgs e)
         {
             system4 = null;
+        }
+
+        bool menuExpand3 = false;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand3 == false)
+            {
+                pnQC.Height += 10;
+                if (pnQC.Height >= 135)
+                {
+                    menuTransition3.Stop();
+                    menuExpand3 = true;
+                }
+            }
+            else
+            {
+                if (pnQC.Height <= 45)
+                {
+                    menuTransition3.Stop();
+                    menuExpand3 = false;
+                }
+                else pnQC.Height -= 10;
+            }
+        }
+
+        private void Import_Click(object sender, EventArgs e)
+        {
+            if (import == null)
+            {
+                import = new formImport();
+                import.FormClosed += Import_FormClosed;
+                import.MdiParent = this;
+                import.Dock = DockStyle.Fill;
+                import.Show();
+            }
+            else
+            {
+                import.Activate();
+            }
+        }
+        private void Import_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            import.Activate();
+        }
+
+        bool menuExpand4 = false;
+        private void menuTransition4_Tick(object sender, EventArgs e)
+        {
+            if (menuExpand4 == false)
+            {
+                pnMeterial.Height += 10;
+                if (pnMeterial.Height >= 135
+                    )
+                {
+                    menuTransition4.Stop();
+                    menuExpand4 = true;
+                }
+            }
+            else
+            {
+                if (pnMeterial.Height <= 45)
+                {
+                    menuTransition4.Stop();
+                    menuExpand4 = false;
+                }
+                else pnMeterial.Height -= 10;
+            }
+        }
+
+        private void Store_Click(object sender, EventArgs e)
+        {
+            if (input == null)
+            {
+                input = new formInput();
+                input.FormClosed += Store_FormClosed;
+                input.MdiParent = this;
+                input.Dock = DockStyle.Fill;
+                input.Show();
+            }
+            else
+            {
+                input.Activate();
+            }
+        }
+        private void Store_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            input.Activate();
+        }
+
+        private void Shipment_Click(object sender, EventArgs e)
+        {
+            if (shipment == null)
+            {
+                shipment = new formShipment();
+                shipment.FormClosed += Shipment_FormClosed;
+                shipment.MdiParent = this;
+                shipment.Dock = DockStyle.Fill;
+                shipment.Show();
+            }
+            else
+            {
+                shipment.Activate();
+            }
+        }
+        private void Shipment_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            shipment.Activate();
+        }
+
+        private void Release_Click(object sender, EventArgs e)
+        {
+            if (output == null)
+            {
+                output = new formOutput();
+                output.FormClosed += Release_FormClosed;
+                output.MdiParent = this;
+                output.Dock = DockStyle.Fill;
+                output.Show();
+            }
+            else
+            {
+                output.Activate();
+            }
+        }
+        private void Release_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            output.Activate();
+        }
+
+        
+        private void menuTransition10_Tick(object sender, EventArgs e)
+        {
+
+
+            
+        }
+
+        private void sidebar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Input_Click(object sender, EventArgs e)
+        {
+            if (input == null)
+            {
+                input = new formInput();
+                input.FormClosed += Input_FormClosed;
+                input.MdiParent = this;
+                input.Dock = DockStyle.Fill;
+                input.Show();
+            }
+            else
+            {
+                input.Activate();
+            }
+        }
+        private void Input_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            input.Activate();
+        }
+
+        private void Output_Click_1(object sender, EventArgs e)
+        {
+            if (output == null)
+            {
+                output = new formOutput();
+                output.FormClosed += Output_FormClosed;
+                output.MdiParent = this;
+                output.Dock = DockStyle.Fill;
+                output.Show();
+            }
+            else
+            {
+                output.Activate();
+            }
+        }
+        private void Output_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            output.Activate();
         }
     }
 }

@@ -16,5 +16,10 @@ namespace SuJinChemicalMES
         {
             InitializeComponent();
         }
+
+        private void formSystem4_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+        }
     }
 }

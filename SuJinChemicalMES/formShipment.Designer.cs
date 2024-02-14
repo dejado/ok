@@ -1,7 +1,7 @@
 ﻿
 namespace SuJinChemicalMES
 {
-    partial class formSystem4
+    partial class formShipment
     {
         /// <summary>
         /// Required designer variable.
@@ -38,11 +38,11 @@ namespace SuJinChemicalMES
             this.label1.Font = new System.Drawing.Font("굴림", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(579, 358);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 43);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "시스템 관리";
+            this.label1.Size = new System.Drawing.Size(205, 43);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "출하 검사";
             // 
-            // formSystem4
+            // formShipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -50,9 +50,9 @@ namespace SuJinChemicalMES
             this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "formSystem4";
-            this.Text = "formSystem4";
-            this.Load += new System.EventHandler(this.formSystem4_Load);
+            this.Name = "formShipment";
+            this.Text = "formShipment";
+            this.Load += new System.EventHandler(this.formShipment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace SuJinChemicalMES
 {
-    public partial class formOutputOkay : Form
+    public partial class formImport : Form
     {
-        public formOutputOkay()
+        public formImport()
         {
             InitializeComponent();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void formImport_Load(object sender, EventArgs e)
         {
-            this.Close();
+            this.ControlBox = false;
         }
     }
 }

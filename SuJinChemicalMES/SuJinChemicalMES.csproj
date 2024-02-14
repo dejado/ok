@@ -105,11 +105,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="formQc.cs">
+    <Compile Include="formImport.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formQc.Designer.cs">
-      <DependentUpon>formQc.cs</DependentUpon>
+    <Compile Include="formImport.Designer.cs">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formInput.Designer.cs">
+      <DependentUpon>formInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formOutput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formOutput.Designer.cs">
+      <DependentUpon>formOutput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formShipment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formShipment.Designer.cs">
+      <DependentUpon>formShipment.cs</DependentUpon>
     </Compile>
     <Compile Include="formSystem1.cs">
       <SubType>Form</SubType>
@@ -124,35 +142,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="formAddproduct.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formAddproduct.Designer.cs">
-      <DependentUpon>formAddproduct.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formAddproductOkay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formAddproductOkay.Designer.cs">
-      <DependentUpon>formAddproductOkay.cs</DependentUpon>
-    </Compile>
     <Compile Include="formChart.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formChart.Designer.cs">
       <DependentUpon>formChart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formInput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formInput.Designer.cs">
-      <DependentUpon>formInput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formInputOkay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formInputOkay.Designer.cs">
-      <DependentUpon>formInputOkay.cs</DependentUpon>
     </Compile>
     <Compile Include="formInventory.cs">
       <SubType>Form</SubType>
@@ -166,29 +160,11 @@
     <Compile Include="formMain.Designer.cs">
       <DependentUpon>formMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="formOutput.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formOutput.Designer.cs">
-      <DependentUpon>formOutput.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formOutputOkay.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formOutputOkay.Designer.cs">
-      <DependentUpon>formOutputOkay.cs</DependentUpon>
-    </Compile>
     <Compile Include="formPlan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formPlan.Designer.cs">
       <DependentUpon>formPlan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="formSystem.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="formSystem.Designer.cs">
-      <DependentUpon>formSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="formSystem2.cs">
       <SubType>Form</SubType>
@@ -220,20 +196,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formAddproduct.resx">
-      <DependentUpon>formAddproduct.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formAddproductOkay.resx">
-      <DependentUpon>formAddproductOkay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formChart.resx">
       <DependentUpon>formChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formImport.resx">
+      <DependentUpon>formImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formInput.resx">
       <DependentUpon>formInput.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formInputOkay.resx">
-      <DependentUpon>formInputOkay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formInventory.resx">
       <DependentUpon>formInventory.cs</DependentUpon>
@@ -244,20 +214,14 @@
     <EmbeddedResource Include="formOutput.resx">
       <DependentUpon>formOutput.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formOutputOkay.resx">
-      <DependentUpon>formOutputOkay.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="formPlan.resx">
       <DependentUpon>formPlan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formQc.resx">
-      <DependentUpon>formQc.cs</DependentUpon>
+    <EmbeddedResource Include="formShipment.resx">
+      <DependentUpon>formShipment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem1.resx">
       <DependentUpon>formSystem1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="formSystem.resx">
-      <DependentUpon>formSystem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem2.resx">
       <DependentUpon>formSystem2.cs</DependentUpon>
