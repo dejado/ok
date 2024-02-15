@@ -21,7 +21,7 @@ namespace SuJinChemicalMES
         formInventory inventory;
         formOutput output;
         formChart chart;
-        formSystem1 system1;
+        formOrder system1;
         formAddproduct system2;
         formRecipe system3;
         formSystem4 system4;
@@ -485,7 +485,7 @@ namespace SuJinChemicalMES
         {
             if (system1 == null)
             {
-                system1 = new formSystem1();
+                system1 = new formOrder();
                 system1.FormClosed += Workview_FormClosed;
                 system1.MdiParent = this;
                 system1.Dock = DockStyle.Fill;
