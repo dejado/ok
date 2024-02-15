@@ -71,7 +71,7 @@ namespace SuJinChemicalMES
                     connection.Open();
 
                     // 쿼리 작성
-                    string query = "SELECT oder_number AS '발주서번호', lot_no AS 'Lot No.', product_code AS '제품코드', product_name AS '제품명', expected_production_quantity AS '수량', due_date AS '납기일' FROM oder_registration";
+                    string query = "SELECT order_number AS '발주서번호', lot_no AS 'Lot No.', product_code AS '제품코드', product_name AS '제품명', expected_production_quantity AS '수량', due_date AS '납기일' FROM order_registration";
 
                     // 쿼리 실행
                     using (MySqlCommand command = new MySqlCommand(query, connection))

@@ -35,7 +35,7 @@ namespace SuJinChemicalMES
                     connection.Open();
 
                     // 쿼리 작성
-                    string query = "SELECT company, lot_no, product_code, product_name, quantity FROM incoming";
+                    string query = "SELECT company, lot_no, product_code, product_name, quantity FROM incoming WHERE location = '부자재IB'";
 
                     // 쿼리 실행
                     using (MySqlCommand command = new MySqlCommand(query, connection))

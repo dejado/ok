@@ -23,7 +23,7 @@ namespace SuJinChemicalMES
         formChart chart;
         formSystem1 system1;
         formAddproduct system2;
-        formSystem3 system3;
+        formRecipe system3;
         formSystem4 system4;
         formImport import;
         formShipment shipment;
@@ -526,7 +526,7 @@ namespace SuJinChemicalMES
         {
             if (system3 == null)
             {
-                system3 = new formSystem3();
+                system3 = new formRecipe();
                 system3.FormClosed += Workview_FormClosed;
                 system3.MdiParent = this;
                 system3.Dock = DockStyle.Fill;

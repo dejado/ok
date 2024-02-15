@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SuJinChemicalMES
 {
-    public partial class formSystem3 : Form     //레시피 등록
+    public partial class formRecipe : Form     //레시피 등록
     {
-        public formSystem3()
+        public formRecipe()
         {
             InitializeComponent();
         }

@@ -178,11 +178,11 @@
     <Compile Include="formAddproduct.Designer.cs">
       <DependentUpon>formAddproduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSystem3.cs">
+    <Compile Include="formRecipe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSystem3.Designer.cs">
-      <DependentUpon>formSystem3.cs</DependentUpon>
+    <Compile Include="formRecipe.Designer.cs">
+      <DependentUpon>formRecipe.cs</DependentUpon>
     </Compile>
     <Compile Include="formSystem4.cs">
       <SubType>Form</SubType>
@@ -235,8 +235,8 @@
     <EmbeddedResource Include="formAddproduct.resx">
       <DependentUpon>formAddproduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSystem3.resx">
-      <DependentUpon>formSystem3.cs</DependentUpon>
+    <EmbeddedResource Include="formRecipe.resx">
+      <DependentUpon>formRecipe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem4.resx">
       <DependentUpon>formSystem4.cs</DependentUpon>
