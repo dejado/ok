@@ -105,6 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="formAddproductOkay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddproductOkay.Designer.cs">
+      <DependentUpon>formAddproductOkay.cs</DependentUpon>
+    </Compile>
     <Compile Include="formImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,11 +172,11 @@
     <Compile Include="formPlan.Designer.cs">
       <DependentUpon>formPlan.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSystem2.cs">
+    <Compile Include="formAddproduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formSystem2.Designer.cs">
-      <DependentUpon>formSystem2.cs</DependentUpon>
+    <Compile Include="formAddproduct.Designer.cs">
+      <DependentUpon>formAddproduct.cs</DependentUpon>
     </Compile>
     <Compile Include="formSystem3.cs">
       <SubType>Form</SubType>
@@ -195,6 +201,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAddproductOkay.resx">
+      <DependentUpon>formAddproductOkay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formChart.resx">
       <DependentUpon>formChart.cs</DependentUpon>
@@ -223,8 +232,8 @@
     <EmbeddedResource Include="formSystem1.resx">
       <DependentUpon>formSystem1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formSystem2.resx">
-      <DependentUpon>formSystem2.cs</DependentUpon>
+    <EmbeddedResource Include="formAddproduct.resx">
+      <DependentUpon>formAddproduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem3.resx">
       <DependentUpon>formSystem3.cs</DependentUpon>
