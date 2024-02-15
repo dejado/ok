@@ -124,7 +124,17 @@ namespace SuJinChemicalMES
             string combobox5Text = comboBox5.Text;
             string combobox2Text = comboBox2.Text;
 
-
+            // DataGridView의 각 행을 순회하면서 체크된 행의 데이터를 MySQL 테이블로 전송합니다.
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // 현재 순회 중인 행의 0번째 열의 값을 가져오기
+                string cellValue = row.Cells[0].Value?.ToString();
+                if (comboBox1.Text.Equals(cellValue))
+                {
+                    MessageBox.Show("이미 사용된 베스입니다.");
+                    return;
+                }    
+            }
 
             dataGridView1.Rows.Add(comboBox1Text, combobox4Text, combobox3Text, combobox6Text, "1.2 ph", "99%", "1%", combobox5Text, combobox2Text);
 
