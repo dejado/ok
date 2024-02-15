@@ -272,11 +272,12 @@ namespace SuJinChemicalMES
             // 
             // button4
             // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button4.Location = new System.Drawing.Point(1104, 43);
+            this.button4.Location = new System.Drawing.Point(1099, 43);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 47);
+            this.button4.Size = new System.Drawing.Size(106, 47);
             this.button4.TabIndex = 5;
             this.button4.Text = "삭제";
             this.button4.UseVisualStyleBackColor = true;
@@ -284,11 +285,12 @@ namespace SuJinChemicalMES
             // 
             // button3
             // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button3.Location = new System.Drawing.Point(1009, 43);
+            this.button3.Location = new System.Drawing.Point(988, 43);
             this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 47);
+            this.button3.Size = new System.Drawing.Size(106, 47);
             this.button3.TabIndex = 4;
             this.button3.Text = "수정";
             this.button3.UseVisualStyleBackColor = true;
@@ -309,11 +311,12 @@ namespace SuJinChemicalMES
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.button1.Location = new System.Drawing.Point(914, 43);
+            this.button1.Location = new System.Drawing.Point(877, 43);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 47);
+            this.button1.Size = new System.Drawing.Size(106, 47);
             this.button1.TabIndex = 0;
             this.button1.Text = "조회";
             this.button1.UseVisualStyleBackColor = true;
@@ -343,6 +346,8 @@ namespace SuJinChemicalMES
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.Color.White;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button9.Location = new System.Drawing.Point(1055, 21);
             this.button9.Margin = new System.Windows.Forms.Padding(2);
@@ -350,7 +355,7 @@ namespace SuJinChemicalMES
             this.button9.Size = new System.Drawing.Size(182, 49);
             this.button9.TabIndex = 44;
             this.button9.Text = "제품 등록";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click_1);
             // 
             // formAddproduct

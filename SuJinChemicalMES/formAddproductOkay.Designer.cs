@@ -189,6 +189,7 @@ namespace SuJinChemicalMES
             // 
             // button7
             // 
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button7.Location = new System.Drawing.Point(1024, 14);
             this.button7.Margin = new System.Windows.Forms.Padding(2);
@@ -201,6 +202,7 @@ namespace SuJinChemicalMES
             // 
             // button6
             // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.button6.Location = new System.Drawing.Point(877, 14);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
@@ -346,6 +348,7 @@ namespace SuJinChemicalMES
             // 
             // button10
             // 
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button10.Location = new System.Drawing.Point(987, 12);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
@@ -379,6 +382,7 @@ namespace SuJinChemicalMES
             // 
             // button2
             // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button2.Location = new System.Drawing.Point(1056, 56);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
@@ -391,6 +395,7 @@ namespace SuJinChemicalMES
             // 
             // button1
             // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button1.Location = new System.Drawing.Point(967, 56);
             this.button1.Margin = new System.Windows.Forms.Padding(2);

@@ -51,7 +51,7 @@ namespace SuJinChemicalMES
             }
 
             // 버튼 텍스트를 수정합니다.
-            button3.Text = editMode ? "수정 완료" : "수정";
+            button3.Text = editMode ? "수정완료" : "수정";
 
             // 수정 완료 시 MySQL 데이터베이스를 업데이트합니다.
             if (!editMode)
