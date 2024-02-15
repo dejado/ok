@@ -129,6 +129,12 @@
     <Compile Include="formOutput.Designer.cs">
       <DependentUpon>formOutput.cs</DependentUpon>
     </Compile>
+    <Compile Include="formRecipeOkay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formRecipeOkay.Designer.cs">
+      <DependentUpon>formRecipeOkay.cs</DependentUpon>
+    </Compile>
     <Compile Include="formShipment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formPlan.resx">
       <DependentUpon>formPlan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formRecipeOkay.resx">
+      <DependentUpon>formRecipeOkay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formShipment.resx">
       <DependentUpon>formShipment.cs</DependentUpon>
