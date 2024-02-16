@@ -110,7 +110,7 @@ namespace SuJinChemicalMES
         private void button10_Click(object sender, EventArgs e)
         {
             // MySQL 연결 문자열 설정
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+            string connectionString = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
