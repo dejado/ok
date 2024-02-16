@@ -67,7 +67,7 @@ namespace SuJinChemicalMES
             }
         }
 
-        private void SearchData(string productName)
+        private void SearchData(string partialProductName)
         {
             try
             {
@@ -75,9 +75,13 @@ namespace SuJinChemicalMES
                 {
                     connection.Open();
 
-                    string query = "SELECT product_code, product_name FROM managerproduct.product_registration WHERE product_name = @productName";
+                    // 부분 일치하는 제품명을 검색하는 SQL 쿼리를 작성합니다.
+                    string query = "SELECT product_code, product_name FROM managerproduct.product_registration WHERE product_name LIKE @partialProductName";
+
                     MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@productName", productName);
+
+                    // 부분 일치하는 제품명을 파라미터로 전달합니다.
+                    command.Parameters.AddWithValue("@partialProductName", "%" + partialProductName + "%");
 
                     DataTable dataTable = new DataTable();
                     dataTable.Load(command.ExecuteReader());
