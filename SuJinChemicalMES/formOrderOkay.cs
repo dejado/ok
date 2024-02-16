@@ -66,12 +66,13 @@ namespace SuJinChemicalMES
                         string productName = row.Cells[4].Value.ToString();
                         string lotNo = row.Cells[5].Value.ToString();
                         string quantity = row.Cells[6].Value.ToString();
+                        string registration_date = row.Cells[7].Value.ToString();
                         string dueDate = row.Cells[8].Value.ToString();
                         string registrant = row.Cells[9].Value.ToString();
                         string status = row.Cells[10].Value.ToString();
 
                         // MySQL 쿼리문 실행
-                        string query = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, due_date, registrant, status) VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @dueDate, @registrant, @status)";
+                        string query = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @dueDate, @registrant, @status)";
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@orderNumber", orderNumber);
                         command.Parameters.AddWithValue("@supplier", supplier);
@@ -79,6 +80,7 @@ namespace SuJinChemicalMES
                         command.Parameters.AddWithValue("@productName", productName);
                         command.Parameters.AddWithValue("@lotNo", lotNo);
                         command.Parameters.AddWithValue("@quantity", quantity);
+                        command.Parameters.AddWithValue("@registration_date", registration_date);
                         command.Parameters.AddWithValue("@dueDate", DateTime.Parse(dueDate));
                         command.Parameters.AddWithValue("@registrant", registrant);
                         command.Parameters.AddWithValue("@status", status);
@@ -252,6 +254,21 @@ namespace SuJinChemicalMES
 
             // dateTimePicker2에는 dateTimePicker1에서 선택된 날짜에 14일을 더한 날짜를 기본값으로 설정
             dateTimePicker2.Value = dateTimePicker1.Value.AddDays(14);
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox4_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

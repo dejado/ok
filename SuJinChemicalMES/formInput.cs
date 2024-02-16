@@ -64,7 +64,7 @@ namespace SuJinChemicalMES
 
                         InputOk_grid.Rows.Add(false, null, reader2["progress"], reader2["test_results"], reader2["company"],
                             reader2["product_code"], reader2["product_name"], reader2["lot_no"], reader2["quantity"],
-                            reader2["registration_date_import"], reader2["registrant_import"], reader2["cause_of_defect"]);
+                            reader2["registration_date_import"], reader2["registrant_import"]);
                     }
                 }
             }
