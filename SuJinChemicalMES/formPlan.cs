@@ -15,7 +15,6 @@ namespace SuJinChemicalMES
     {
         private string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
 
-     
         public formPlan()
         {
             InitializeComponent();
@@ -32,10 +31,8 @@ namespace SuJinChemicalMES
             dataGridView2.RowHeadersVisible = false;
             BindDataGridView();
             //this.dataGridView1.Font = new Font("SegoeUI", 10, FontStyle.Bold);
-            
         }
-       
-      
+
         static void ConsolSize(string[] args)
         {
             // 콘솔 창의 너비와 높이를 설정
@@ -156,7 +153,7 @@ namespace SuJinChemicalMES
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void label20_Click(object sender, EventArgs e)
@@ -187,7 +184,17 @@ namespace SuJinChemicalMES
             string combobox2Text = comboBox2.Text;
 
             // 그리드뷰에 행 추가
-            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+
+            if (string.IsNullOrEmpty(combobox1Text) || combobox1Text.Equals("(베스없음)"))
+            {
+                MessageBox.Show("선택된 베스가 없습니다.");
+                return; // 선택된 베스가 없으므로 이후 로직 실행 중단
+            }
+            else
+            {
+                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+                FormDataShare.AddData(combobox1Text);
+            }
         }
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -205,19 +212,23 @@ namespace SuJinChemicalMES
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBox1_Click(object sender, EventArgs e)
         {
 
         }
 
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
-
             comboBox1.Items.Clear();
             foreach (string data in FormDataShare.GetData())
             {
                 comboBox1.Items.Add(data);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
     public static class FormDataShare
@@ -245,5 +256,4 @@ namespace SuJinChemicalMES
             return dataList;
         }
     }
-
 }
