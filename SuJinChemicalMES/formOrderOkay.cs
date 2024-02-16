@@ -52,7 +52,7 @@ namespace SuJinChemicalMES
             }
 
             // MySQL 연결 문자열
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+            string connectionString = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
 
             // MySQL 연결
             using (MySqlConnection connection = new MySqlConnection(connectionString))

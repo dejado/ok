@@ -27,7 +27,7 @@ namespace SuJinChemicalMES
             InputOk_grid.Rows.Clear();
 
             // 첫 번째 MySQL 연결
-            string connectionIncoming = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+            string connectionIncoming = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection1 = new MySqlConnection(connectionIncoming))
             {
                 connection1.Open();
@@ -47,7 +47,7 @@ namespace SuJinChemicalMES
                 }
 
                 // 두 번째 MySQL 연결
-                string connectionInspection = "Server=10.10.32.82;Database=quality;Uid=team;Pwd=team1234;";
+                string connectionInspection = "Server=192.168.0.8;Database=quality;Uid=team;Pwd=team1234;";
                 using (MySqlConnection connection2 = new MySqlConnection(connectionInspection))
                 {
                     connection2.Open();
@@ -106,7 +106,7 @@ namespace SuJinChemicalMES
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
+                MySqlConnection connection = new MySqlConnection("Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;");
                 connection.Open();
 
                 // 데이터베이스에서 필요한 정보를 가져올 SQL 쿼리 작성
@@ -169,7 +169,7 @@ namespace SuJinChemicalMES
 
         public void DeleteInput(string LotNum)
         {
-            string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+            string cnn = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름
@@ -212,7 +212,7 @@ namespace SuJinChemicalMES
 
         private void InputRe_bt_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+            string connectionString = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -269,7 +269,7 @@ namespace SuJinChemicalMES
         }
         public void DeleteInsert(string LotNum)
         {
-            string cnn = "Server=10.10.32.82;Database=quality;Uid=team;Pwd=team1234;";
+            string cnn = "Server=192.168.0.8;Database=quality;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름
@@ -309,7 +309,7 @@ namespace SuJinChemicalMES
 
         public void ChangeLocation(string Lot, string Location)
         {
-            MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
+            MySqlConnection connection = new MySqlConnection("Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
 

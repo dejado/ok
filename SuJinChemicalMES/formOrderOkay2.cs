@@ -9,7 +9,7 @@ namespace SuJinChemicalMES
     public partial class formOrderOkay2 : Form
     {
         // MySQL 연결 문자열
-        private string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+        private string connectionString = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
 
         private formOrderOkay formOrderOkayInstance; // formOrderOkay 인스턴스를 저장하기 위한 변수
 
@@ -49,39 +49,8 @@ namespace SuJinChemicalMES
             }
         }
 
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
-                string productCode = row.Cells["product_code"].Value.ToString();
-                string productName = row.Cells["product_name"].Value.ToString();
 
-                // formOrderOkay 폼의 인스턴스를 가져옵니다.
-                formOrderOkay formOrderOkayInstance = Application.OpenForms.OfType<formOrderOkay>().FirstOrDefault();
 
-                // formOrderOkay 폼의 인스턴스가 존재하지 않으면 새로 생성합니다.
-                if (formOrderOkayInstance == null)
-                {
-                    formOrderOkayInstance = new formOrderOkay();
-                }
-
-                // formOrderOkay 폼의 텍스트박스에 값을 설정합니다.
-                formOrderOkayInstance.TextBox3.Text = productCode;
-                formOrderOkayInstance.TextBox4.Text = productName;
-
-                // formOrderOkay 폼을 보여줍니다.
-                formOrderOkayInstance.Show();
-
-                // 현재 폼(formOrderOkay2)을 닫습니다.
-                this.Close();
-            }
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -135,7 +104,12 @@ namespace SuJinChemicalMES
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // 데이터그리드뷰에서 선택한 행을 가져옵니다.
+            // DataGridView에서 선택한 행을 가져옵니다. 선택한 행이 없으면 함수를 종료합니다.
+            if (dataGridView2.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
             DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
 
             // 선택한 행의 데이터를 가져와서 텍스트박스에 설정합니다.
@@ -158,6 +132,15 @@ namespace SuJinChemicalMES
 
             // 현재 폼을 닫습니다.
             this.Close();
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow clickedRow = dataGridView2.Rows[e.RowIndex];
+                clickedRow.Selected = true;
+            }
         }
     }
 }

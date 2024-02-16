@@ -13,7 +13,7 @@ namespace SuJinChemicalMES
 {
     public partial class formPlan : Form
     {
-        private string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+        private string connectionString = "Server=192.168.0.8;Database=managerproduct;Uid=team;Pwd=team1234;";
 
         public formPlan()
         {
