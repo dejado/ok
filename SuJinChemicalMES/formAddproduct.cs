@@ -114,7 +114,7 @@ namespace SuJinChemicalMES
         private void button9_Click_1(object sender, EventArgs e)
         {
             formAddproductOkay formAddproductOkay = new formAddproductOkay();
-            formAddproductOkay.Show();
+            formAddproductOkay.ShowDialog(this);
         }
 
         private void button1_Click_1(object sender, EventArgs e)

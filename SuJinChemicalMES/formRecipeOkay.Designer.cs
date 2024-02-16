@@ -447,7 +447,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel1);
             this.Name = "formRecipeOkay";
-            this.Text = "formRecipeOkay";
+            this.Text = "레시피 등록";
             this.Load += new System.EventHandler(this.formRecipeOkay_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
