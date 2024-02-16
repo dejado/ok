@@ -174,6 +174,7 @@ namespace SuJinChemicalMES
                 UpdateMySQLDatabase();
             }
         }
+
         private void UpdateMySQLDatabase()
         {
             // MySQL 연결 문자열 설정
@@ -203,7 +204,7 @@ namespace SuJinChemicalMES
                         string status = row.Cells[9].Value.ToString();
 
                         // SQL 쿼리 작성
-                        string query = $"UPDATE order_registration SET supplier = '{supplier}', product_code = '{productCode}', product_name = '{productName}', lot_no = '{lotNo}', expected_production_quantity = '{expectedQuantity}', due_date = '{dueDate}', registrant = '{registrant}', status = '{status}' WHERE oder_number = '{orderNumber}'";
+                        string query = $"UPDATE order_registration SET supplier = '{supplier}', product_code = '{productCode}', product_name = '{productName}', lot_no = '{lotNo}', expected_production_quantity = '{expectedQuantity}', due_date = '{dueDate}', registrant = '{registrant}', status = '{status}' WHERE order_number = '{orderNumber}'";
 
                         // 쿼리 실행
                         using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -212,6 +213,25 @@ namespace SuJinChemicalMES
                         }
                     }
                 }
+
+                // 수정된 데이터를 MySQL에서 가져와서 DataGridView에 반영합니다.
+                LoadDataIntoDataGridView();
+            }
+        }
+
+        private void LoadDataIntoDataGridView()
+        {
+            // MySQL 연결 문자열 설정
+            string connectionString = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
+
+            // 데이터를 가져와서 DataGridView에 로드합니다.
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM order_registration";
+                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                dataGridView2.DataSource = table;
             }
         }
 

@@ -64,32 +64,51 @@ namespace SuJinChemicalMES
                     // 데이터그리드뷰2의 각 행을 MySQL 테이블에 전송
                     foreach (DataGridViewRow row in dataGridView2.Rows)
                     {
-                        string orderNumber = row.Cells[1].Value.ToString();
-                        string supplier = row.Cells[2].Value.ToString();
-                        string productCode = row.Cells[3].Value.ToString();
-                        string productName = row.Cells[4].Value.ToString();
-                        string lotNo = row.Cells[5].Value.ToString();
-                        string quantity = row.Cells[6].Value.ToString();
-                        string registration_date = row.Cells[7].Value.ToString();
-                        string dueDate = row.Cells[8].Value.ToString();
-                        string registrant = row.Cells[9].Value.ToString();
-                        string status = row.Cells[10].Value.ToString();
+                        if (!row.IsNewRow) // 새로 추가된 행이 아닌 경우에만 처리
+                        {
+                            string orderNumber = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
 
-                        // MySQL 쿼리문 실행
-                        string query = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @dueDate, @registrant, @status)";
-                        MySqlCommand command = new MySqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@orderNumber", orderNumber);
-                        command.Parameters.AddWithValue("@supplier", supplier);
-                        command.Parameters.AddWithValue("@productCode", productCode);
-                        command.Parameters.AddWithValue("@productName", productName);
-                        command.Parameters.AddWithValue("@lotNo", lotNo);
-                        command.Parameters.AddWithValue("@quantity", quantity);
-                        command.Parameters.AddWithValue("@registration_date", registration_date);
-                        command.Parameters.AddWithValue("@dueDate", DateTime.Parse(dueDate));
-                        command.Parameters.AddWithValue("@registrant", registrant);
-                        command.Parameters.AddWithValue("@status", status);
+                            // 이미 등록된 발주서번호인지 확인
+                            string checkQuery = "SELECT COUNT(*) FROM order_registration WHERE order_number = @orderNumber";
+                            MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                            checkCommand.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            int count = Convert.ToInt32(checkCommand.ExecuteScalar());
 
-                        command.ExecuteNonQuery();
+                            if (count > 0)
+                            {
+                                // 이미 등록된 발주서번호가 있음을 알림
+                                MessageBox.Show("이미 등록된 발주서번호입니다: " + orderNumber, "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // 등록되지 않은 발주서번호인 경우 MySQL 쿼리문 실행
+                            string supplier = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
+                            string productCode = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
+                            string productName = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : string.Empty;
+                            string lotNo = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : string.Empty;
+                            string quantity = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : string.Empty;
+                            string registration_date = row.Cells[7].Value != null ? row.Cells[7].Value.ToString() : string.Empty;
+                            string dueDate = row.Cells[8].Value != null ? row.Cells[8].Value.ToString() : string.Empty;
+                            string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
+                            string status = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
+
+                            // MySQL 쿼리문 실행
+                            string insertQuery = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                                                 "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
+                            MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                            command.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            command.Parameters.AddWithValue("@supplier", supplier);
+                            command.Parameters.AddWithValue("@productCode", productCode);
+                            command.Parameters.AddWithValue("@productName", productName);
+                            command.Parameters.AddWithValue("@lotNo", lotNo);
+                            command.Parameters.AddWithValue("@quantity", quantity);
+                            command.Parameters.AddWithValue("@registration_date", registration_date);
+                            command.Parameters.AddWithValue("@dueDate", dueDate);
+                            command.Parameters.AddWithValue("@registrant", registrant);
+                            command.Parameters.AddWithValue("@status", status);
+
+                            command.ExecuteNonQuery();
+                        }
                     }
 
                     MessageBox.Show("데이터가 성공적으로 전송되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -100,6 +119,7 @@ namespace SuJinChemicalMES
                 }
             }
         }
+
 
 
         private void DateTimePicker1_ValueChanged(object sender, EventArgs e)
