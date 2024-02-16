@@ -420,7 +420,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(this.panel1);
             this.Name = "formAddproductOkay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "레시피 등록";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);

@@ -464,7 +464,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.panel1);
             this.Name = "formOrderOkay";
-            this.Text = "formOrderOkay";
+            this.Text = "발주서 등록";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
