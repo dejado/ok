@@ -139,7 +139,7 @@ namespace SuJinChemicalMES
 
             dataGridView1.Rows.Add(comboBox1Text, combobox4Text, combobox3Text, combobox6Text, "1.2 ph", "99%", "1%", combobox5Text, combobox2Text);
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (DataGridViewRow row in dataGridView1.Rows)     // [1-1] 버튼 클릭시 dataGrid 0열에 베스번호를 formPlan으로 보내준다
             {
                 if (!row.IsNewRow && row.Cells[0].Value != null)
                 {
