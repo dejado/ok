@@ -129,6 +129,12 @@
     <Compile Include="formOrderOkay.Designer.cs">
       <DependentUpon>formOrderOkay.cs</DependentUpon>
     </Compile>
+    <Compile Include="formOrderOkay2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formOrderOkay2.Designer.cs">
+      <DependentUpon>formOrderOkay2.cs</DependentUpon>
+    </Compile>
     <Compile Include="formOutput.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formOrderOkay.resx">
       <DependentUpon>formOrderOkay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formOrderOkay2.resx">
+      <DependentUpon>formOrderOkay2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formOutput.resx">
       <DependentUpon>formOutput.cs</DependentUpon>

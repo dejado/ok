@@ -18,6 +18,10 @@ namespace SuJinChemicalMES
             InitializeComponent();
         }
 
+        public TextBox TextBox3 => textBox3;
+        public TextBox TextBox4 => textBox4;
+
+
         private void button6_Click(object sender, EventArgs e)
         {
             bool anyChecked = false; // 체크된 행이 있는지 여부를 나타내는 변수
@@ -258,7 +262,8 @@ namespace SuJinChemicalMES
 
         private void button10_Click_1(object sender, EventArgs e)
         {
-
+            formOrderOkay2 form = new formOrderOkay2();
+            form.ShowDialog();
         }
 
         private void textBox3_TextChanged_1(object sender, EventArgs e)
@@ -267,6 +272,11 @@ namespace SuJinChemicalMES
         }
 
         private void textBox4_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formOrderOkay_Load_1(object sender, EventArgs e)
         {
 
         }
