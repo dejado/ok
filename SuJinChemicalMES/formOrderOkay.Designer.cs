@@ -89,7 +89,7 @@
             this.dataGridView2.Location = new System.Drawing.Point(12, 181);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 62;
+            this.dataGridView2.RowHeadersWidth = 4;
             this.dataGridView2.RowTemplate.Height = 30;
             this.dataGridView2.Size = new System.Drawing.Size(1011, 339);
             this.dataGridView2.TabIndex = 69;
@@ -271,7 +271,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox1.Location = new System.Drawing.Point(105, 13);
+            this.textBox1.Location = new System.Drawing.Point(105, 14);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(92, 23);
@@ -290,7 +290,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(589, 49);
+            this.dateTimePicker2.Location = new System.Drawing.Point(587, 50);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(176, 21);
@@ -303,14 +303,14 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(494, 50);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 22);
+            this.label2.Size = new System.Drawing.Size(94, 23);
             this.label2.TabIndex = 56;
             this.label2.Text = "납기요청일";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(306, 51);
+            this.dateTimePicker1.Location = new System.Drawing.Point(304, 50);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(176, 21);
@@ -321,12 +321,12 @@
             this.label3.BackColor = System.Drawing.Color.LightCyan;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(213, 50);
+            this.label3.Location = new System.Drawing.Point(211, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 22);
+            this.label3.Size = new System.Drawing.Size(94, 23);
             this.label3.TabIndex = 54;
             this.label3.Text = "등록일";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -335,10 +335,10 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 22);
+            this.label1.Size = new System.Drawing.Size(94, 23);
             this.label1.TabIndex = 53;
             this.label1.Text = "발주서 번호";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label18
             // 
@@ -347,15 +347,15 @@
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(12, 50);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(96, 22);
+            this.label18.Size = new System.Drawing.Size(94, 23);
             this.label18.TabIndex = 52;
             this.label18.Text = "요청수량";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox3.Location = new System.Drawing.Point(526, 13);
+            this.textBox3.Location = new System.Drawing.Point(523, 14);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(93, 23);
@@ -366,7 +366,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox2.Location = new System.Drawing.Point(306, 13);
+            this.textBox2.Location = new System.Drawing.Point(304, 14);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(112, 23);
@@ -376,10 +376,10 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox4.Location = new System.Drawing.Point(726, 13);
+            this.textBox4.Location = new System.Drawing.Point(724, 14);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(94, 23);
+            this.textBox4.Size = new System.Drawing.Size(128, 23);
             this.textBox4.TabIndex = 4;
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged_1);
@@ -389,17 +389,17 @@
             this.label5.BackColor = System.Drawing.Color.LightCyan;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(432, 13);
+            this.label5.Location = new System.Drawing.Point(430, 14);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 22);
+            this.label5.Size = new System.Drawing.Size(94, 23);
             this.label5.TabIndex = 50;
             this.label5.Text = "제품코드";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button10
             // 
             this.button10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button10.Location = new System.Drawing.Point(824, 11);
+            this.button10.Location = new System.Drawing.Point(862, 12);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(71, 26);
@@ -413,30 +413,30 @@
             this.label8.BackColor = System.Drawing.Color.LightCyan;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(211, 13);
+            this.label8.Location = new System.Drawing.Point(211, 14);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(96, 22);
+            this.label8.Size = new System.Drawing.Size(94, 23);
             this.label8.TabIndex = 40;
             this.label8.Text = "납품처";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
             this.label14.BackColor = System.Drawing.Color.LightCyan;
             this.label14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(633, 13);
+            this.label14.Location = new System.Drawing.Point(631, 14);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 22);
+            this.label14.Size = new System.Drawing.Size(94, 23);
             this.label14.TabIndex = 44;
             this.label14.Text = "제품명";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button2.Location = new System.Drawing.Point(926, 41);
+            this.button2.Location = new System.Drawing.Point(926, 43);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 30);
@@ -449,7 +449,7 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.button1.Location = new System.Drawing.Point(848, 41);
+            this.button1.Location = new System.Drawing.Point(848, 43);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(74, 30);
