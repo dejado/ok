@@ -417,6 +417,9 @@ namespace SuJinChemicalMES
 
         }
 
-       
+        private void Quantity_Lb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
