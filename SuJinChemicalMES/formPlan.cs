@@ -184,17 +184,30 @@ namespace SuJinChemicalMES
             string combobox2Text = comboBox2.Text;
 
             // 그리드뷰에 행 추가
-
-            if (string.IsNullOrEmpty(combobox1Text) || combobox1Text.Equals("(베스없음)"))
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                MessageBox.Show("선택된 베스가 없습니다.");
-                return; // 선택된 베스가 없으므로 이후 로직 실행 중단
+                if (string.IsNullOrEmpty(combobox1Text) || combobox1Text.Equals("(베스없음)"))
+                {
+                    MessageBox.Show("선택된 베스가 없습니다.");
+                    return; // 선택된 베스가 없으므로 이후 로직 실행 중단
+                }
+                else
+                {
+                    
+                }
             }
-            else
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
-                FormDataShare.AddData(combobox1Text);
+                // 현재 순회 중인 행의 0번째 열의 값을 가져오기
+                string cellValue = row.Cells[4].Value?.ToString();
+                if (comboBox1.Text.Equals(cellValue))
+                {
+                    MessageBox.Show("이미 사용된 베스입니다.");
+                    return;
+                }
             }
+            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+            //FormDataShare.AddData(combobox1Text);
         }
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -220,7 +233,7 @@ namespace SuJinChemicalMES
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
             comboBox1.Items.Clear();
-            foreach (string data in FormDataShare.GetData())
+            foreach (string data in FormDataShare.GetData())        //[1-2] combobox1 클릭시 데이터갱신
             {
                 comboBox1.Items.Add(data);
             }
@@ -231,7 +244,7 @@ namespace SuJinChemicalMES
 
         }
     }
-    public static class FormDataShare
+    public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수
     {
         private static List<string> dataList = new List<string>();
 
