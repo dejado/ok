@@ -15,6 +15,7 @@ namespace SuJinChemicalMES
     {
         private string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
 
+     
         public formPlan()
         {
             InitializeComponent();
@@ -31,8 +32,10 @@ namespace SuJinChemicalMES
             dataGridView2.RowHeadersVisible = false;
             BindDataGridView();
             //this.dataGridView1.Font = new Font("SegoeUI", 10, FontStyle.Bold);
+            
         }
-
+       
+      
         static void ConsolSize(string[] args)
         {
             // 콘솔 창의 너비와 높이를 설정
@@ -201,5 +204,46 @@ namespace SuJinChemicalMES
         {
 
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+            comboBox1.Items.Clear();
+            foreach (string data in FormDataShare.GetData())
+            {
+                comboBox1.Items.Add(data);
+            }
+        }
     }
+    public static class FormDataShare
+    {
+        private static List<string> dataList = new List<string>();
+
+        public static void AddData(string data)
+        {
+            // 데이터가 중복되지 않는 경우에만 추가
+            if (!dataList.Contains(data))
+            {
+                dataList.Add(data);
+            }
+
+            // 추가된 데이터를 확인하기 위해 출력
+            Console.WriteLine("FormDataShare 데이터 수: " + dataList.Count);
+            foreach (string d in dataList)
+            {
+                Console.WriteLine(d);
+            }
+        }
+
+        public static List<string> GetData()
+        {
+            return dataList;
+        }
+    }
+
 }

@@ -117,6 +117,7 @@ namespace SuJinChemicalMES
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+
             string comboBox1Text = comboBox1.Text;
             string combobox4Text = comboBox4.Text;
             string combobox3Text = comboBox3.Text;
@@ -138,7 +139,19 @@ namespace SuJinChemicalMES
 
             dataGridView1.Rows.Add(comboBox1Text, combobox4Text, combobox3Text, combobox6Text, "1.2 ph", "99%", "1%", combobox5Text, combobox2Text);
 
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (!row.IsNewRow && row.Cells[0].Value != null)
+                {
+                    string valueToAdd = row.Cells[0].Value.ToString();
+                    FormDataShare.AddData(valueToAdd);
+                }
+            }
         }
+    
+
+
+
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -149,6 +162,10 @@ namespace SuJinChemicalMES
             label311.Text = selectedRow.Cells["Column311"].Value.ToString();
             label312.Text = selectedRow.Cells["Column312"].Value.ToString();
             label313.Text = selectedRow.Cells["Column313"].Value.ToString();
+        }
+
+        private void comboBox1_MouseClick(object sender, MouseEventArgs e)
+        {
         }
     }
 }
