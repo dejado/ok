@@ -130,7 +130,7 @@ namespace SuJinChemicalMES
                 string.IsNullOrEmpty(CompanyCb.Text) &&
                 string.IsNullOrEmpty(LotNo_tb.Text) &&
                 Product_TypeCb.SelectedItem == null &&
-                    dateTimePicker1.Value == null)
+                    dateTimePicker1.Enabled == false)
             {
                 MessageBox.Show("항목 중 하나 이상을 입력해주세요.", "입력 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -178,7 +178,7 @@ namespace SuJinChemicalMES
                     query += "AND (product_name LIKE '%황산%' OR product_name LIKE '알코올%' OR product_name LIKE '%염산%' OR product_name LIKE '%암모니아%' OR product_name LIKE '%인산%' OR product_name LIKE '%알카리%' OR product_name LIKE '과산화%' OR product_name LIKE '%불산%' OR product_name LIKE '%질산%') ";
                 }
             }
-            if (dateTimePicker1.Value != null)
+            if (dateTimePicker1.Enabled == true)
             {
                 query += "AND registration_date_import = @importDate ";
                 parameters.Add(new MySqlParameter("@importDate", dateTimePicker1.Value.ToString("yyyy-MM-dd")));
@@ -431,5 +431,27 @@ namespace SuJinChemicalMES
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = true;
+        }
+
+       
     }
 }

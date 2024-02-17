@@ -45,22 +45,22 @@ namespace SuJinChemicalMES
             this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.Company_Lb = new System.Windows.Forms.Label();
             this.ResultCb = new System.Windows.Forms.ComboBox();
-            this.LOT_No_Lb = new System.Windows.Forms.Label();
             this.Name_Lb = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.LOT_No_Lb = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.Code_Lb = new System.Windows.Forms.Label();
             this.Quantity_Lb = new System.Windows.Forms.Label();
+            this.DefectcauseCb = new System.Windows.Forms.ComboBox();
             this.ImportBt = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.DefectcauseCb = new System.Windows.Forms.ComboBox();
-            this.Code_Lb = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Person_Cb = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -95,6 +95,8 @@ namespace SuJinChemicalMES
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
             this.Delete_Bt = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -107,6 +109,7 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.QCdatagridview)).BeginInit();
             this.v.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // Qc_pn
@@ -321,6 +324,19 @@ namespace SuJinChemicalMES
             this.panel5.TabIndex = 61;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint_1);
             // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.BackColor = System.Drawing.Color.LightGray;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.label15.Location = new System.Drawing.Point(101, 16);
+            this.label15.MaximumSize = new System.Drawing.Size(270, 23);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(193, 22);
+            this.label15.TabIndex = 65;
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Company_Lb
             // 
             this.Company_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -351,19 +367,7 @@ namespace SuJinChemicalMES
             this.ResultCb.Name = "ResultCb";
             this.ResultCb.Size = new System.Drawing.Size(194, 23);
             this.ResultCb.TabIndex = 68;
-            // 
-            // LOT_No_Lb
-            // 
-            this.LOT_No_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LOT_No_Lb.BackColor = System.Drawing.Color.LightGray;
-            this.LOT_No_Lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LOT_No_Lb.Location = new System.Drawing.Point(101, 144);
-            this.LOT_No_Lb.MaximumSize = new System.Drawing.Size(270, 23);
-            this.LOT_No_Lb.Name = "LOT_No_Lb";
-            this.LOT_No_Lb.Size = new System.Drawing.Size(193, 22);
-            this.LOT_No_Lb.TabIndex = 67;
-            this.LOT_No_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ResultCb.SelectedIndexChanged += new System.EventHandler(this.ResultCb_SelectedIndexChanged);
             // 
             // Name_Lb
             // 
@@ -378,18 +382,18 @@ namespace SuJinChemicalMES
             this.Name_Lb.TabIndex = 66;
             this.Name_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label15
+            // LOT_No_Lb
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.LOT_No_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label15.BackColor = System.Drawing.Color.LightGray;
-            this.label15.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label15.Location = new System.Drawing.Point(101, 16);
-            this.label15.MaximumSize = new System.Drawing.Size(270, 23);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(193, 22);
-            this.label15.TabIndex = 65;
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LOT_No_Lb.BackColor = System.Drawing.Color.LightGray;
+            this.LOT_No_Lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LOT_No_Lb.Location = new System.Drawing.Point(101, 144);
+            this.LOT_No_Lb.MaximumSize = new System.Drawing.Size(270, 23);
+            this.LOT_No_Lb.Name = "LOT_No_Lb";
+            this.LOT_No_Lb.Size = new System.Drawing.Size(193, 22);
+            this.LOT_No_Lb.TabIndex = 67;
+            this.LOT_No_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -469,6 +473,19 @@ namespace SuJinChemicalMES
             this.panel6.Size = new System.Drawing.Size(288, 181);
             this.panel6.TabIndex = 60;
             // 
+            // Code_Lb
+            // 
+            this.Code_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Code_Lb.BackColor = System.Drawing.Color.LightGray;
+            this.Code_Lb.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Code_Lb.Location = new System.Drawing.Point(94, 80);
+            this.Code_Lb.MaximumSize = new System.Drawing.Size(200, 23);
+            this.Code_Lb.Name = "Code_Lb";
+            this.Code_Lb.Size = new System.Drawing.Size(192, 22);
+            this.Code_Lb.TabIndex = 54;
+            this.Code_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Quantity_Lb
             // 
             this.Quantity_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -483,12 +500,28 @@ namespace SuJinChemicalMES
             this.Quantity_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Quantity_Lb.Click += new System.EventHandler(this.Quantity_Lb_Click);
             // 
+            // DefectcauseCb
+            // 
+            this.DefectcauseCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DefectcauseCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DefectcauseCb.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.DefectcauseCb.ForeColor = System.Drawing.Color.Black;
+            this.DefectcauseCb.FormattingEnabled = true;
+            this.DefectcauseCb.ItemHeight = 15;
+            this.DefectcauseCb.Location = new System.Drawing.Point(94, 112);
+            this.DefectcauseCb.MaximumSize = new System.Drawing.Size(200, 0);
+            this.DefectcauseCb.Name = "DefectcauseCb";
+            this.DefectcauseCb.Size = new System.Drawing.Size(192, 23);
+            this.DefectcauseCb.TabIndex = 55;
+            this.DefectcauseCb.SelectedIndexChanged += new System.EventHandler(this.DefectcauseCb_SelectedIndexChanged);
+            // 
             // ImportBt
             // 
             this.ImportBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ImportBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ImportBt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.ImportBt.Location = new System.Drawing.Point(203, 6);
+            this.ImportBt.Location = new System.Drawing.Point(212, 9);
             this.ImportBt.Margin = new System.Windows.Forms.Padding(2);
             this.ImportBt.Name = "ImportBt";
             this.ImportBt.Size = new System.Drawing.Size(72, 32);
@@ -508,35 +541,6 @@ namespace SuJinChemicalMES
             this.label10.TabIndex = 56;
             this.label10.Text = "결함원인";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DefectcauseCb
-            // 
-            this.DefectcauseCb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DefectcauseCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.DefectcauseCb.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.DefectcauseCb.ForeColor = System.Drawing.Color.Black;
-            this.DefectcauseCb.FormattingEnabled = true;
-            this.DefectcauseCb.ItemHeight = 15;
-            this.DefectcauseCb.Location = new System.Drawing.Point(94, 112);
-            this.DefectcauseCb.MaximumSize = new System.Drawing.Size(200, 0);
-            this.DefectcauseCb.Name = "DefectcauseCb";
-            this.DefectcauseCb.Size = new System.Drawing.Size(192, 23);
-            this.DefectcauseCb.TabIndex = 55;
-            this.DefectcauseCb.SelectedIndexChanged += new System.EventHandler(this.DefectcauseCb_SelectedIndexChanged);
-            // 
-            // Code_Lb
-            // 
-            this.Code_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Code_Lb.BackColor = System.Drawing.Color.LightGray;
-            this.Code_Lb.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Code_Lb.Location = new System.Drawing.Point(94, 80);
-            this.Code_Lb.MaximumSize = new System.Drawing.Size(200, 23);
-            this.Code_Lb.Name = "Code_Lb";
-            this.Code_Lb.Size = new System.Drawing.Size(192, 22);
-            this.Code_Lb.TabIndex = 54;
-            this.Code_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label11
             // 
@@ -738,13 +742,13 @@ namespace SuJinChemicalMES
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.panel7);
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.CompanyCb);
             this.panel3.Controls.Add(this.product_nametb);
             this.panel3.Controls.Add(this.product_codetb);
             this.panel3.Controls.Add(this.Product_TypeCb);
             this.panel3.Controls.Add(this.LotNo_tb);
-            this.panel3.Controls.Add(this.dateTimePicker1);
-            this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label16);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label14);
@@ -817,18 +821,19 @@ namespace SuJinChemicalMES
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(569, 46);
+            this.dateTimePicker1.Location = new System.Drawing.Point(93, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.dateTimePicker1.Size = new System.Drawing.Size(126, 23);
             this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.LightCyan;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(479, 46);
+            this.label6.Location = new System.Drawing.Point(3, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 22);
             this.label6.TabIndex = 65;
@@ -937,6 +942,31 @@ namespace SuJinChemicalMES
             this.Delete_Bt.Text = "삭제";
             this.Delete_Bt.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(706, 31);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(81, 41);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "날짜 X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.dateTimePicker1);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Location = new System.Drawing.Point(479, 46);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(222, 31);
+            this.panel7.TabIndex = 67;
+            this.panel7.Click += new System.EventHandler(this.panel7_Click);
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
             // formImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -966,6 +996,7 @@ namespace SuJinChemicalMES
             this.v.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1038,5 +1069,7 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
     }
 }
