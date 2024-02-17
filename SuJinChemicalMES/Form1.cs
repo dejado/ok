@@ -43,7 +43,7 @@ namespace SuJinChemicalMES
 
             this.MouseMove += new MouseEventHandler(Form1_MouseMove);
         }
-       
+
         private void mdiProp()
         {
             this.SetBevel(false);
@@ -66,7 +66,7 @@ namespace SuJinChemicalMES
             }
             else
             {
-                
+
                 if (menuContainer.Height <= 45)
                 {
                     menuTransition.Stop();
@@ -97,12 +97,12 @@ namespace SuJinChemicalMES
         {
             if (sidebarExpand)
             {
-                sidebar.Width -= 5;
+                //sidebar.Width -= 5;
                 if (sidebar.Width <= 70)
                 {
                     sidebarExpand = false;
                     sidebarTransition.Stop();
-                    
+                    /*
                     pnMain.Width = sidebar.Width;
                     pnMeterial.Width = sidebar.Width;
                     pnQC.Width = sidebar.Width;
@@ -110,7 +110,21 @@ namespace SuJinChemicalMES
                     
                     pnChart.Width = sidebar.Width;
                     pnSystem.Width = sidebar.Width;
-                    
+                    */
+
+                }
+                else
+                {
+
+                    sidebar.Width -= 5;
+
+                    pnMain.Width -= 5;
+                    pnMeterial.Width -= 5;
+                    pnQC.Width -= 5;
+                    menuContainer.Width -= 5;
+                    pnChart.Width -= 5;
+                    pnSystem.Width -= 5;
+
                 }
             }
 
@@ -133,16 +147,16 @@ namespace SuJinChemicalMES
                 }
                 else
                 {
-                    
-                    sidebar.Width +=5;
-                    
+
+                    sidebar.Width += 5;
+
                     pnMain.Width += 5;
                     pnMeterial.Width += 5;
                     pnQC.Width += 5;
                     menuContainer.Width += 5;
                     pnChart.Width += 5;
-                    pnSystem.Width +=5; 
-                    
+                    pnSystem.Width += 5;
+
                 }
             }
 
@@ -188,7 +202,7 @@ namespace SuJinChemicalMES
             {
                 main.Activate();
             }
-            
+
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -245,7 +259,7 @@ namespace SuJinChemicalMES
             }
             */
         }
-        
+
         private void Qc_Click(object sender, EventArgs e)
         {
             menuExpand = true;
@@ -278,7 +292,7 @@ namespace SuJinChemicalMES
         {
             input = null;
         }
-        
+
         private void Inventory_Click(object sender, EventArgs e)
         {
             if (inventory == null)
@@ -689,12 +703,12 @@ namespace SuJinChemicalMES
             output.Activate();
         }
 
-        
+
         private void menuTransition10_Tick(object sender, EventArgs e)
         {
 
 
-            
+
         }
 
         private void sidebar_Paint(object sender, PaintEventArgs e)

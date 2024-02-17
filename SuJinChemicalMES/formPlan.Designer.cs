@@ -33,6 +33,7 @@ namespace SuJinChemicalMES
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -48,7 +49,6 @@ namespace SuJinChemicalMES
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -128,6 +128,7 @@ namespace SuJinChemicalMES
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label19);
@@ -143,7 +144,6 @@ namespace SuJinChemicalMES
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.textBox7);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label12);
@@ -155,6 +155,16 @@ namespace SuJinChemicalMES
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(585, 225);
             this.panel5.TabIndex = 15;
+            // 
+            // label20
+            // 
+            this.label20.BackColor = System.Drawing.Color.LightGray;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(442, 148);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(130, 28);
+            this.label20.TabIndex = 37;
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
             // 
@@ -177,6 +187,7 @@ namespace SuJinChemicalMES
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(130, 26);
             this.textBox1.TabIndex = 36;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // label19
             // 
@@ -325,18 +336,6 @@ namespace SuJinChemicalMES
             this.label7.TabIndex = 11;
             this.label7.Text = "Lot No.";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.LightGray;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Location = new System.Drawing.Point(441, 148);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(130, 28);
-            this.textBox7.TabIndex = 26;
             // 
             // label8
             // 
@@ -746,7 +745,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -780,5 +778,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.Label label20;
     }
 }

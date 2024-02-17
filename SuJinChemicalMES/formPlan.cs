@@ -138,6 +138,51 @@ namespace SuJinChemicalMES
             label18.Text = selectedRow.Cells["Column13"].Value.ToString();
             label19.Text = selectedRow.Cells["Column14"].Value.ToString();
             // 필요에 따라 추가적인 TextBox에 대한 할당을 진행합니다.
+            recipe();
+        }
+
+        private void recipe()
+        {
+            // DataGridView에서 선택된 행이 있는지 확인
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // 선택된 행의 첫 번째 셀의 값을 가져옴 (예: ID 값)
+                string selectedID = dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString();
+
+                // DB에서 데이터를 가져와서 일치하는 행을 찾음
+                string query = "SELECT * FROM recipe_registration WHERE ID = @ID";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        // 매개변수 추가
+                        command.Parameters.AddWithValue("@ID", selectedID);
+
+                        connection.Open();
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            // 결과가 하나만 있을 것으로 가정
+                            if (reader.Read())
+                            {
+                                // recipe_registration 테이블의 5열 값 가져와서 label20에 표시
+                                label20.Text = reader["chemical_type"].ToString();
+                            }
+                            else
+                            {
+                                // 일치하는 데이터가 없을 때의 처리
+                                label20.Text = "해당하는 데이터가 없습니다.";
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // 선택된 행이 없을 때의 처리
+                label20.Text = "행을 선택해주세요.";
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -193,7 +238,7 @@ namespace SuJinChemicalMES
                 }
                 else
                 {
-                    
+
                 }
             }
             foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -206,7 +251,17 @@ namespace SuJinChemicalMES
                     return;
                 }
             }
-            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "가동중", combobox2Text);
+            if (int.TryParse(textBox1.Text, out int textBoxValue) && int.TryParse(label19.Text, out int labelValue))
+            {
+                // TextBox1의 값이 Label19의 값보다 큰 경우 메시지 창 띄우기
+                if (textBoxValue > labelValue)
+                {
+                    MessageBox.Show("작업지시량이 생산계획량보다 많을 수 없습니다.");
+                    return;
+
+                }
+            }
+            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, "", "", "", combobox2Text);
             //FormDataShare.AddData(combobox1Text);
         }
 
@@ -242,6 +297,35 @@ namespace SuJinChemicalMES
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+            if (int.TryParse(textBox1.Text, out int textBoxValue) && int.TryParse(label19.Text, out int labelValue))
+            {
+                // TextBox1의 값이 Label19의 값보다 큰 경우 메시지 창 띄우기
+                if (textBoxValue > labelValue)
+                {
+                    MessageBox.Show("작업지시량이 생산계획량을 초과 했습니다.");
+                }
+                else
+                {
+                    // TextBox1의 값이 Label19의 값보다 작거나 같은 경우에 대한 처리
+                    // 원하는 동작 수행
+                }
+            }
+            /*
+            else
+            {
+                // 숫자로 변환할 수 없는 경우 또는 예외 처리가 필요한 경우
+                MessageBox.Show("숫자로 변환할 수 없거나 예외 처리가 필요합니다.");
+            }
+            */
         }
     }
     public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수

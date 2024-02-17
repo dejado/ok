@@ -78,7 +78,7 @@ namespace SuJinChemicalMES
             // 필요에 따라 추가적인 텍스트박스에 대한 할당을 진행합니다.
             */
 
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace SuJinChemicalMES
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -134,7 +134,7 @@ namespace SuJinChemicalMES
                 {
                     MessageBox.Show("이미 사용된 베스입니다.");
                     return;
-                }    
+                }
             }
 
             dataGridView1.Rows.Add(comboBox1Text, combobox4Text, combobox3Text, combobox6Text, "1.2 ph", "99%", "1%", combobox5Text, combobox2Text);
@@ -148,14 +148,14 @@ namespace SuJinChemicalMES
                 }
             }
         }
-    
+
 
 
 
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-                DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
+            DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
 
             // 선택된 행의 각 셀의 데이터를 TextBox에 할당합니다.
             label310.Text = selectedRow.Cells["Column310"].Value.ToString();
@@ -166,6 +166,11 @@ namespace SuJinChemicalMES
 
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
