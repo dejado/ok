@@ -37,7 +37,7 @@
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Calendar.NET">
-      <HintPath>..\..\calendar\Calendar.NET.dll</HintPath>
+      <HintPath>..\..\..\..\.nuget\Calendar.NET.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>

@@ -66,8 +66,8 @@ namespace SuJinChemicalMES
 
             if (!string.IsNullOrEmpty(selectedOrderNumber))
             {
-                string connectionString = "Server=192.168.0.8;Database=qualityl;User Id=team;Password=team1234;";
-                string connectionString1 = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
+                string connectionString = "Server=10.10.32.82;Database=qualityl;User Id=team;Password=team1234;";
+                string connectionString1 = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
                 DialogResult result = MessageBox.Show("등록하시겠습니까?", "등록 확인", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -124,13 +124,13 @@ namespace SuJinChemicalMES
 
         private void Search_Bt_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=192.168.0.8;Database=quality;User Id=team;Password=team1234;";
+            string connectionString = "Server=10.10.32.82;Database=quality;User Id=team;Password=team1234;";
             if (string.IsNullOrEmpty(product_nametb.Text) &&
                 string.IsNullOrEmpty(product_codetb.Text) &&
                 string.IsNullOrEmpty(CompanyCb.Text) &&
                 string.IsNullOrEmpty(LotNo_tb.Text) &&
                 Product_TypeCb.SelectedItem == null &&
-                    dateTimePicker1.Value == null)
+                    dateTimePicker1.Enabled == false)
             {
                 MessageBox.Show("항목 중 하나 이상을 입력해주세요.", "입력 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -178,7 +178,7 @@ namespace SuJinChemicalMES
                     query += "AND (product_name LIKE '%황산%' OR product_name LIKE '알코올%' OR product_name LIKE '%염산%' OR product_name LIKE '%암모니아%' OR product_name LIKE '%인산%' OR product_name LIKE '%알카리%' OR product_name LIKE '과산화%' OR product_name LIKE '%불산%' OR product_name LIKE '%질산%') ";
                 }
             }
-            if (dateTimePicker1.Value != null)
+            if (dateTimePicker1.Enabled == true)
             {
                 query += "AND registration_date_import = @importDate ";
                 parameters.Add(new MySqlParameter("@importDate", dateTimePicker1.Value.ToString("yyyy-MM-dd")));
@@ -230,7 +230,7 @@ namespace SuJinChemicalMES
         }
         private void LoadDataIntoDataGridView()
         {
-            string connectionString = "Server = 192.168.0.8;Database=quality;User Id = team; Password = team1234;";
+            string connectionString = "Server = 10.10.32.82;Database=quality;User Id = team; Password = team1234;";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -257,7 +257,7 @@ namespace SuJinChemicalMES
         private void LoadSmallDataGridView()
         {
           
-            string connectionString1 = "Server = 192.168.0.8; Database = managerproduct; User Id = team; Password = team1234";
+            string connectionString1 = "Server = 10.10.32.82; Database = managerproduct; User Id = team; Password = team1234";
             using (MySqlConnection connection = new MySqlConnection(connectionString1))
             {
                 try
@@ -289,7 +289,7 @@ namespace SuJinChemicalMES
 
         private void LoadCompanies()
         {
-            string connectionString = "Server = 192.168.0.8;Database=quality;User Id = team; Password = team1234;";
+            string connectionString = "Server = 10.10.32.82;Database=quality;User Id = team; Password = team1234;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 try
@@ -319,7 +319,7 @@ namespace SuJinChemicalMES
 
         private void CompanyCb_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string connectionString = "Server = 192.168.0.8;Database=quality;User Id = team; Password = team1234;";
+            string connectionString = "Server = 10.10.32.82;Database=quality;User Id = team; Password = team1234;";
             if (CompanyCb.SelectedItem != null)
             {
                 string selectedCompanyName = CompanyCb.SelectedItem.ToString();
@@ -431,5 +431,27 @@ namespace SuJinChemicalMES
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = false;
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel7_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = true;
+        }
+
+       
     }
 }
