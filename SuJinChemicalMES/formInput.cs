@@ -33,7 +33,7 @@ namespace SuJinChemicalMES
             {
                 connection1.Open();
 
-                string Query = "SELECT * from incoming ORDER BY registration_date_incoming ASC";
+                string Query = "SELECT * from incoming ORDER BY lot_no ASC";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand command = new MySqlCommand(Query, connection1);
                 MySqlDataReader reader = command.ExecuteReader();
@@ -69,6 +69,7 @@ namespace SuJinChemicalMES
                     }
                 }
             }
+            
             // DataGridView의 초기 데이터를 저장할 Tag를 설정
             foreach (DataGridViewRow row in Input_grid.Rows)
             {
@@ -191,9 +192,6 @@ namespace SuJinChemicalMES
             }
         }
 
-
-
-
         private void Input_grid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             int targetColumnIndex = 9;
@@ -209,6 +207,24 @@ namespace SuJinChemicalMES
                     checkBoxCell.Value = true;
                 }
             }
+        }
+
+        private void InputOk_grid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            int targetColumnIndex = 1;
+
+            if (e.RowIndex >= 0 && e.ColumnIndex == targetColumnIndex)
+            {
+                DataGridViewCell currentCell = InputOk_grid.Rows[e.RowIndex].Cells[targetColumnIndex];
+                DataGridViewCheckBoxCell checkBoxCell = InputOk_grid.Rows[e.RowIndex].Cells[0] as DataGridViewCheckBoxCell;
+
+                // 빈값이 아닐때 다를 때 체크박스를 활성화
+                if (!string.IsNullOrEmpty(currentCell.Value?.ToString()))
+                {
+                    checkBoxCell.Value = true;
+                }
+            }
+
         }
 
         private void InputRe_bt_Click(object sender, EventArgs e)
@@ -285,6 +301,7 @@ namespace SuJinChemicalMES
                         }
                         else
                         {
+                            reader.Close(); // reader를 닫고
                             // 동일한 이름의 데이터가 존재하지 않으면 InsertMedicine 함수를 호출하여 데이터를 삽입합니다.
                             DoInsertMedicine(connection, company,code,name, quantityToAdd);
                         }
@@ -332,7 +349,7 @@ namespace SuJinChemicalMES
                 connection.Open();
 
                 // 입력할 문자 받아옴
-                string insertQuery = "DELETE FROM import_inspection1 WHERE lot_no=@LotNum";
+                string insertQuery = "DELETE FROM import_inspection WHERE lot_no=@LotNum";
 
                 // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
                 // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
@@ -382,6 +399,8 @@ namespace SuJinChemicalMES
         {
             InDate1.Value = new DateTime(1989, 01, 01);
         }
+
+
     }
 
 }
