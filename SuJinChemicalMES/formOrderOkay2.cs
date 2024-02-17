@@ -9,7 +9,7 @@ namespace SuJinChemicalMES
     public partial class formOrderOkay2 : Form
     {
         // MySQL 연결 문자열
-        private string connectionString = "Server=192.168.0.8;Database=managerproduct;User Id=team;Password=team1234;";
+        private string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
 
         private formOrderOkay formOrderOkayInstance; // formOrderOkay 인스턴스를 저장하기 위한 변수
 

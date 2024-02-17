@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SuJinChemicalMES
 {
@@ -27,7 +28,7 @@ namespace SuJinChemicalMES
             InputOk_grid.Rows.Clear();
 
             // 첫 번째 MySQL 연결
-            string connectionIncoming = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
+            string connectionIncoming = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection1 = new MySqlConnection(connectionIncoming))
             {
                 connection1.Open();
@@ -47,7 +48,7 @@ namespace SuJinChemicalMES
                 }
 
                 // 두 번째 MySQL 연결
-                string connectionInspection = "Server=192.168.0.8;Database=quality;Uid=team;Pwd=team1234;";
+                string connectionInspection = "Server=10.10.32.82;Database=quality;Uid=team;Pwd=team1234;";
                 using (MySqlConnection connection2 = new MySqlConnection(connectionInspection))
                 {
                     connection2.Open();
@@ -106,7 +107,7 @@ namespace SuJinChemicalMES
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;");
+                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
                 connection.Open();
 
                 // 데이터베이스에서 필요한 정보를 가져올 SQL 쿼리 작성
@@ -169,7 +170,7 @@ namespace SuJinChemicalMES
 
         public void DeleteInput(string LotNum)
         {
-            string cnn = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
+            string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름
@@ -212,7 +213,7 @@ namespace SuJinChemicalMES
 
         private void InputRe_bt_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;";
+            string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -235,12 +236,13 @@ namespace SuJinChemicalMES
                             string productCode = row.Cells[6].Value.ToString();
                             string productName = row.Cells[5].Value.ToString();
                             string lotNo = row.Cells[7].Value.ToString();
-                            string qantity = row.Cells[8].Value.ToString();
+                            string quantity = row.Cells[8].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
                             string registrant = "김서진";
 
                             // InsertData 함수 호출
-                            InsertData(connection, progress, company, productCode, productName, lotNo, qantity, date, registrant, Inlocation);
+                            InsertData(connection, progress, company, productCode, productName, lotNo, quantity, date, registrant, Inlocation);
+                            InsertMedicine(company, productCode, productName, quantity);
                             DeleteInsert(lotNo);
                         }
                     }
@@ -251,9 +253,63 @@ namespace SuJinChemicalMES
                 }
             }
         }
+        
+    static void InsertMedicine( string company,string code,string name, string quantityToAdd)
+        {
+            string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
 
-        // InsertData 함수 정의
-        private void InsertData(MySqlConnection connection, string progress, string company, string productCode, string productName,
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // 데이터베이스에서 동일한 이름의 데이터가 이미 있는지 확인합니다.
+                string selectQuery = $"SELECT * FROM medicine WHERE name = '{name}'";
+
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                {
+                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
+                            string currentQuantity = reader.GetString("quantity");
+                            int newQuantity = int.Parse(currentQuantity) + int.Parse(quantityToAdd);
+
+                            string updateQuery = $"UPDATE medicine SET quantity = '{newQuantity}' WHERE name = '{name}'";
+
+                            using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                            {
+                                updateCommand.ExecuteNonQuery();
+                                Console.WriteLine("부자재로 데이터가 저장되었습니다.");
+                            }
+                        }
+                        else
+                        {
+                            // 동일한 이름의 데이터가 존재하지 않으면 InsertMedicine 함수를 호출하여 데이터를 삽입합니다.
+                            DoInsertMedicine(connection, company,code,name, quantityToAdd);
+                        }
+                    }
+                }
+
+                connection.Close();
+            }
+        }
+
+        static void DoInsertMedicine(MySqlConnection connection, string company, string code, string name, string quantityToAdd)
+        {
+            // 동일한 이름의 데이터가 존재하지 않으면 데이터를 삽입합니다.
+            string insertQuery = $"INSERT INTO medicine (company,code,name, quantity) VALUES ('{company}','{code}','{name}', '{quantityToAdd}')";
+
+            using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+            {
+                insertCommand.ExecuteNonQuery();
+                Console.WriteLine("새로운 약품이 성공적으로 삽입되었습니다.");
+            }
+        }
+
+
+    // InsertData 함수 정의
+    private void InsertData(MySqlConnection connection, string progress, string company, string productCode, string productName,
             string lotNo, string quantity, string date, string registrant, string location)
         {
             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
@@ -269,7 +325,7 @@ namespace SuJinChemicalMES
         }
         public void DeleteInsert(string LotNum)
         {
-            string cnn = "Server=192.168.0.8;Database=quality;Uid=team;Pwd=team1234;";
+            string cnn = "Server=10.10.32.82;Database=quality;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름
@@ -309,7 +365,7 @@ namespace SuJinChemicalMES
 
         public void ChangeLocation(string Lot, string Location)
         {
-            MySqlConnection connection = new MySqlConnection("Server=192.168.0.8;Database=material;Uid=team;Pwd=team1234;");
+            MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
 
