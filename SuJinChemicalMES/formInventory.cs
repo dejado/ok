@@ -18,6 +18,7 @@ namespace SuJinChemicalMES
         public formInventory()
         {
             InitializeComponent();
+
         }
 
         private void formInventory_Load(object sender, EventArgs e)

@@ -37,7 +37,7 @@
       <HintPath>..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Calendar.NET">
-      <HintPath>..\..\..\..\.nuget\Calendar.NET.dll</HintPath>
+      <HintPath>..\Calendar.NET.dll</HintPath>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=6.3.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.6.3.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
@@ -113,6 +113,12 @@
     </Compile>
     <Compile Include="formMainOkay.Designer.cs">
       <DependentUpon>formMainOkay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formProductAsk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formProductAsk.Designer.cs">
+      <DependentUpon>formProductAsk.cs</DependentUpon>
     </Compile>
     <Compile Include="formSystem4Okay.cs">
       <SubType>Form</SubType>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formMainOkay.resx">
       <DependentUpon>formMainOkay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formProductAsk.resx">
+      <DependentUpon>formProductAsk.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formSystem4Okay.resx">
       <DependentUpon>formSystem4Okay.cs</DependentUpon>

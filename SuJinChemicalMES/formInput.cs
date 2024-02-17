@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static SuJinChemicalMES.formProductAsk;
 
 namespace SuJinChemicalMES
 {
@@ -20,6 +21,8 @@ namespace SuJinChemicalMES
             ShowGrid();
             Input_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             InputOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Input_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            InputOk_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void ShowGrid()
@@ -162,9 +165,10 @@ namespace SuJinChemicalMES
                 {
                     // MySQL 데이터베이스로 전송할 데이터 추출
                     string Lot = row.Cells[5].Value.ToString();
-
+                    string productName = row.Cells[4].Value.ToString();
+                    string quantity = row.Cells[6].Value.ToString();
+                    MinusMedicine(productName, quantity);
                     DeleteInput(Lot);
-
                 }
             }
         }
@@ -269,8 +273,8 @@ namespace SuJinChemicalMES
                 }
             }
         }
-        
-    static void InsertMedicine( string company,string code,string name, string quantityToAdd)
+
+        static void MinusMedicine(string name, string quantityToMinus)
         {
             string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
 
@@ -289,28 +293,67 @@ namespace SuJinChemicalMES
                         {
                             // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
                             string currentQuantity = reader.GetString("quantity");
-                            int newQuantity = int.Parse(currentQuantity) + int.Parse(quantityToAdd);
+                            int newQuantity = int.Parse(currentQuantity) - int.Parse(quantityToMinus);
 
+                            reader.Close();
                             string updateQuery = $"UPDATE medicine SET quantity = '{newQuantity}' WHERE name = '{name}'";
 
                             using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
                             {
                                 updateCommand.ExecuteNonQuery();
-                                Console.WriteLine("부자재로 데이터가 저장되었습니다.");
+                                Console.WriteLine("약품 수량이 수정되었습니다.");
                             }
-                        }
-                        else
-                        {
-                            reader.Close(); // reader를 닫고
-                            // 동일한 이름의 데이터가 존재하지 않으면 InsertMedicine 함수를 호출하여 데이터를 삽입합니다.
-                            DoInsertMedicine(connection, company,code,name, quantityToAdd);
                         }
                     }
                 }
-
-                connection.Close();
             }
         }
+
+
+        static void InsertMedicine(string company,string code,string name, string quantityToAdd)
+            {
+                string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // 데이터베이스에서 동일한 이름의 데이터가 이미 있는지 확인합니다.
+                    string selectQuery = $"SELECT * FROM medicine WHERE name = '{name}'";
+
+                    using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                    {
+                        using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
+                                string currentQuantity = reader.GetString("quantity");
+                                int newQuantity = int.Parse(currentQuantity) + int.Parse(quantityToAdd);
+
+                                reader.Close(); // reader를 닫고
+                                string updateQuery = $"UPDATE medicine SET quantity = '{newQuantity}' WHERE name = '{name}'";
+
+                                using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                                {
+                                    updateCommand.ExecuteNonQuery();
+                                    Console.WriteLine("부자재로 데이터가 저장되었습니다.");
+                                }
+                            }
+                            else
+                            {
+                                reader.Close(); // reader를 닫고
+
+                                 // 동일한 이름의 데이터가 존재하지 않으면 InsertMedicine 함수를 호출하여 데이터를 삽입합니다.
+                                 DoInsertMedicine(connection, company, code, name, quantityToAdd);
+
+                            }
+                        }
+                    }
+
+                    connection.Close();
+                }
+            }
 
         static void DoInsertMedicine(MySqlConnection connection, string company, string code, string name, string quantityToAdd)
         {
@@ -365,7 +408,7 @@ namespace SuJinChemicalMES
 
         private void InModify_bt_Click(object sender, EventArgs e)
         {
-            // DataGridView의 각 행을 순회하면서 체크된 행의 데이터를 MySQL 테이블로 전송합니다.
+
             foreach (DataGridViewRow row in Input_grid.Rows)
             {
                 DataGridViewCheckBoxCell checkBoxCell = row.Cells[0] as DataGridViewCheckBoxCell;
@@ -373,11 +416,32 @@ namespace SuJinChemicalMES
                 {
                     // MySQL 데이터베이스로 전송할 데이터 추출
                     string Lot = row.Cells[5].Value.ToString();
-                    string Inlocation = row.Cells[9].Value.ToString();
-
-                    ChangeLocation(Lot, Inlocation);
+                    string locationAfter = row.Cells[9].Value.ToString();
+                    string locationBefore= row.Cells[9].OwningRow.Tag.ToString();
+                    string company = row.Cells[2].Value.ToString();
+                    string productCode= row.Cells[3].Value.ToString();
+                    string productName = row.Cells[4].Value.ToString();
+                    string quantity = row.Cells[6].Value.ToString();
+                    if (locationAfter != locationBefore)
+                    {
+                        ChangeLocation(Lot, locationAfter);
+                        if (locationAfter == "부자재IB")
+                        {
+                            InsertMedicine(company, productCode, productName, quantity);
+                        }
+                        if (locationBefore == "부자재IB")
+                        {
+                            MinusMedicine(productName, quantity);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("위치가 변경되지 않았습니다.");
+                    }
                 }
+                row.Tag = row.Cells[9].Value;
             }
+
         }
 
         public void ChangeLocation(string Lot, string Location)
@@ -400,7 +464,14 @@ namespace SuJinChemicalMES
             InDate1.Value = new DateTime(1989, 01, 01);
         }
 
+        private void productAsk_Click_1(object sender, EventArgs e)
+        {
+            formOrderOkay2 form = new formOrderOkay2();
+            form.ShowDialog();
 
+            InCode_txt.Text = DataStorage.ProductCode;
+            InName_txt.Text = DataStorage.ProductName;
+        }
     }
 
 }
