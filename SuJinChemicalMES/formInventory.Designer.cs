@@ -29,32 +29,27 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column310 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column312 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column313 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column314 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.Column310 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column312 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column313 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column314 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineNum_com = new System.Windows.Forms.ComboBox();
             this.Acidity_com = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,141 +60,22 @@ namespace SuJinChemicalMES
             this.Medicine_com = new System.Windows.Forms.ComboBox();
             this.BathNum_com = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(651, 22);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(354, 21);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeight = 30;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column10,
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1203, 388);
-            this.dataGridView1.TabIndex = 32;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "베스번호";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 96;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "약품종류";
-            this.Column1.MinimumWidth = 10;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Width = 96;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "약품량";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 81;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "산도설정수치";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 126;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "산도실제수치";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 126;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "양품수량";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Width = 96;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "불량수량";
-            this.Column7.MinimumWidth = 6;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 96;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "베스가동상태";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 126;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "담당자";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 81;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(277, 22);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(354, 21);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -242,6 +118,38 @@ namespace SuJinChemicalMES
             this.dataGridView2.TabIndex = 6;
             this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick_1);
             // 
+            // Column310
+            // 
+            this.Column310.HeaderText = "회사명";
+            this.Column310.MinimumWidth = 6;
+            this.Column310.Name = "Column310";
+            this.Column310.ReadOnly = true;
+            this.Column310.Width = 81;
+            // 
+            // Column312
+            // 
+            this.Column312.HeaderText = "제품코드";
+            this.Column312.MinimumWidth = 6;
+            this.Column312.Name = "Column312";
+            this.Column312.ReadOnly = true;
+            this.Column312.Width = 96;
+            // 
+            // Column313
+            // 
+            this.Column313.HeaderText = "제품명";
+            this.Column313.MinimumWidth = 6;
+            this.Column313.Name = "Column313";
+            this.Column313.ReadOnly = true;
+            this.Column313.Width = 81;
+            // 
+            // Column314
+            // 
+            this.Column314.HeaderText = "수량";
+            this.Column314.MinimumWidth = 6;
+            this.Column314.Name = "Column314";
+            this.Column314.ReadOnly = true;
+            this.Column314.Width = 66;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
@@ -272,6 +180,87 @@ namespace SuJinChemicalMES
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1203, 388);
             this.panel4.TabIndex = 19;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.ColumnHeadersHeight = 30;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column10,
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column8,
+            this.Column9,
+            this.Column4});
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(1203, 388);
+            this.dataGridView1.TabIndex = 33;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "베스번호";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 96;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "약품종류";
+            this.Column1.MinimumWidth = 10;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.Width = 96;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "약품량";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 81;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "산도설정수치";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 126;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "베스가동상태";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 126;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "담당자";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 81;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "날짜";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 66;
             // 
             // panel3
             // 
@@ -318,49 +307,6 @@ namespace SuJinChemicalMES
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(585, 225);
             this.panel5.TabIndex = 21;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel6.Controls.Add(this.label3);
-            this.panel6.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.panel6.Location = new System.Drawing.Point(648, 51);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(585, 30);
-            this.panel6.TabIndex = 20;
-            // 
-            // Column310
-            // 
-            this.Column310.HeaderText = "회사명";
-            this.Column310.MinimumWidth = 6;
-            this.Column310.Name = "Column310";
-            this.Column310.ReadOnly = true;
-            this.Column310.Width = 81;
-            // 
-            // Column312
-            // 
-            this.Column312.HeaderText = "제품코드";
-            this.Column312.MinimumWidth = 6;
-            this.Column312.Name = "Column312";
-            this.Column312.ReadOnly = true;
-            this.Column312.Width = 96;
-            // 
-            // Column313
-            // 
-            this.Column313.HeaderText = "제품명";
-            this.Column313.MinimumWidth = 6;
-            this.Column313.Name = "Column313";
-            this.Column313.ReadOnly = true;
-            this.Column313.Width = 81;
-            // 
-            // Column314
-            // 
-            this.Column314.HeaderText = "수량";
-            this.Column314.MinimumWidth = 6;
-            this.Column314.Name = "Column314";
-            this.Column314.ReadOnly = true;
-            this.Column314.Width = 66;
             // 
             // MedicineNum_com
             // 
@@ -498,53 +444,17 @@ namespace SuJinChemicalMES
             this.label14.TabIndex = 42;
             this.label14.Text = "기본정보";
             // 
-            // label11
+            // label9
             // 
-            this.label11.BackColor = System.Drawing.Color.LightCyan;
-            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(360, 113);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(108, 27);
-            this.label11.TabIndex = 47;
-            this.label11.Text = "약품투입량";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label8
-            // 
-            this.label8.BackColor = System.Drawing.Color.LightCyan;
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 150);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(75, 27);
-            this.label8.TabIndex = 46;
-            this.label8.Text = "제품명";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.LightCyan;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(17, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 27);
-            this.label6.TabIndex = 44;
-            this.label6.Text = "약품종류";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.LightCyan;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 27);
-            this.label5.TabIndex = 43;
-            this.label5.Text = "베스넘버";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.BackColor = System.Drawing.Color.LightCyan;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(17, 187);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 27);
+            this.label9.TabIndex = 49;
+            this.label9.Text = "제품코드";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
             // 
@@ -558,17 +468,64 @@ namespace SuJinChemicalMES
             this.label4.Text = "회사명";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // label5
             // 
-            this.label9.BackColor = System.Drawing.Color.LightCyan;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 187);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 27);
-            this.label9.TabIndex = 49;
-            this.label9.Text = "제품코드";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.BackColor = System.Drawing.Color.LightCyan;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 78);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 27);
+            this.label5.TabIndex = 43;
+            this.label5.Text = "베스넘버";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.LightCyan;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(17, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 27);
+            this.label6.TabIndex = 44;
+            this.label6.Text = "약품종류";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.LightCyan;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 150);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 27);
+            this.label8.TabIndex = 46;
+            this.label8.Text = "제품명";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.Color.LightCyan;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(360, 113);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(108, 27);
+            this.label11.TabIndex = 47;
+            this.label11.Text = "약품투입량";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel6.Controls.Add(this.label3);
+            this.panel6.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.panel6.Location = new System.Drawing.Point(648, 51);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(585, 30);
+            this.panel6.TabIndex = 20;
             // 
             // formInventory
             // 
@@ -576,8 +533,6 @@ namespace SuJinChemicalMES
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 758);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
@@ -588,13 +543,12 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formInventory";
             this.Text = "회사명";
-            this.Load += new System.EventHandler(this.formInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -606,19 +560,6 @@ namespace SuJinChemicalMES
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView2;
@@ -649,5 +590,13 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

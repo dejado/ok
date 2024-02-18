@@ -273,6 +273,7 @@ namespace SuJinChemicalMES
                     MessageBox.Show($"오류 발생: {ex.Message}");
                 }
             }
+            ShowGrid();
         }
 
         

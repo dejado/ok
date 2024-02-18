@@ -19,6 +19,8 @@ namespace SuJinChemicalMES
             ShowGrid();
             Output_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             OutOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Output_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            OutOk_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         public void ShowGrid()
@@ -39,7 +41,8 @@ namespace SuJinChemicalMES
 
                 while (reader.Read())
                 {
-
+                    DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
+                    comboBoxCell.Items.AddRange("A", "B", "C", "D", "E"); // 콤보박스 아이템 설정
 
                     Output_grid.Rows.Add(false, reader["progress"], reader["order_number"], reader["due_date"],
                         reader["company"], reader["product_code"],
@@ -60,9 +63,6 @@ namespace SuJinChemicalMES
 
                     while (reader2.Read())
                     {
-                        DataGridViewComboBoxCell comboBoxCell = new DataGridViewComboBoxCell();
-                        comboBoxCell.Items.AddRange("A", "B", "C", "D", "E"); // 콤보박스 아이템 설정
-
                         OutOk_grid.Rows.Add(false, null, reader2["test_results"], reader2["order_number"], reader2["due_date"],
                             reader2["progress"], reader2["company"], reader2["product_code"],
                              reader2["product_name"], reader2["lot_no"], reader2["quantity"], reader2["order_quantity"],
@@ -126,14 +126,16 @@ namespace SuJinChemicalMES
                             string order_quantity = row.Cells[11].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
                             string registrant = "김서진";
+                            string result = row.Cells[2].Value.ToString();
+                            string reason = row.Cells[12].Value.ToString();
 
 
                             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
                             string query = $"INSERT INTO shipment (progress,order_number,due_date," +
                                 $"company,product_code,product_name,lot_no,quantity,order_quantity,registration_date_shipment," +
-                                $"registrant_shipment,location) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
+                                $"registrant_shipment,location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
                                 $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
-                                $" '{Outlocation}')";
+                                $" '{Outlocation}','{result}','{reason}')";
 
                             // 쿼리 실행
                             using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -160,6 +162,7 @@ namespace SuJinChemicalMES
                     }
                 }
             }
+            ShowGrid();
         }
 
         public void DeleteInsert(string LotNum)
@@ -205,11 +208,12 @@ namespace SuJinChemicalMES
                     ChangeLocation(Lot, Inlocation);
                 }
             }
+            ShowGrid();
         }
 
         public void ChangeLocation(string Lot, string Location)
         {
-            MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;");
+            MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
             //SQL 서버와 연결, database=스키마 이름
             connection.Open();
 
@@ -321,10 +325,11 @@ namespace SuJinChemicalMES
 
                 }
             }
+            ShowGrid();
         }
         public void DeleteInput(string LotNum)
         {
-            string cnn = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+            string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(cnn))
             {
                 // SQL 서버와 연결, database=스키마 이름

@@ -35,6 +35,19 @@ namespace SuJinChemicalMES
             this.OutDelete_bt = new System.Windows.Forms.Button();
             this.OutRe_bt = new System.Windows.Forms.Button();
             this.Output_grid = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.outprogress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Out_Order_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outcompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outquantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shipmentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shipmentregister = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.shipmentlocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -68,19 +81,6 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.outprogress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Out_Order_num = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outcompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outcode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outquantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outorder = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipmentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipmentregister = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.shipmentlocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Output_grid)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -183,7 +183,110 @@ namespace SuJinChemicalMES
             this.Output_grid.RowTemplate.Height = 30;
             this.Output_grid.Size = new System.Drawing.Size(1220, 320);
             this.Output_grid.TabIndex = 32;
+            this.Output_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Output_grid_CellValueChanged);
             this.Output_grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Output_grid_CellValueChanged);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "선택";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.Width = 125;
+            // 
+            // outprogress
+            // 
+            this.outprogress.HeaderText = "진행상태";
+            this.outprogress.MinimumWidth = 8;
+            this.outprogress.Name = "outprogress";
+            this.outprogress.Width = 150;
+            // 
+            // Out_Order_num
+            // 
+            this.Out_Order_num.HeaderText = "발주서번호";
+            this.Out_Order_num.MinimumWidth = 6;
+            this.Out_Order_num.Name = "Out_Order_num";
+            this.Out_Order_num.Width = 125;
+            // 
+            // outdate
+            // 
+            this.outdate.HeaderText = "납기일";
+            this.outdate.MinimumWidth = 8;
+            this.outdate.Name = "outdate";
+            this.outdate.Width = 150;
+            // 
+            // outcompany
+            // 
+            this.outcompany.HeaderText = "회사명";
+            this.outcompany.MinimumWidth = 8;
+            this.outcompany.Name = "outcompany";
+            this.outcompany.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.outcompany.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.outcompany.Width = 150;
+            // 
+            // outcode
+            // 
+            this.outcode.HeaderText = "제품코드";
+            this.outcode.MinimumWidth = 8;
+            this.outcode.Name = "outcode";
+            this.outcode.Width = 150;
+            // 
+            // outname
+            // 
+            this.outname.HeaderText = "제품명";
+            this.outname.MinimumWidth = 8;
+            this.outname.Name = "outname";
+            this.outname.Width = 150;
+            // 
+            // outlot
+            // 
+            this.outlot.HeaderText = "Lot No.";
+            this.outlot.MinimumWidth = 8;
+            this.outlot.Name = "outlot";
+            this.outlot.Width = 150;
+            // 
+            // outquantity
+            // 
+            this.outquantity.HeaderText = "제품수량";
+            this.outquantity.MinimumWidth = 8;
+            this.outquantity.Name = "outquantity";
+            this.outquantity.Width = 150;
+            // 
+            // outorder
+            // 
+            this.outorder.HeaderText = "주문수량";
+            this.outorder.MinimumWidth = 8;
+            this.outorder.Name = "outorder";
+            this.outorder.Width = 150;
+            // 
+            // shipmentdate
+            // 
+            this.shipmentdate.HeaderText = "등록일";
+            this.shipmentdate.MinimumWidth = 8;
+            this.shipmentdate.Name = "shipmentdate";
+            this.shipmentdate.Width = 150;
+            // 
+            // shipmentregister
+            // 
+            this.shipmentregister.HeaderText = "등록자";
+            this.shipmentregister.MinimumWidth = 8;
+            this.shipmentregister.Name = "shipmentregister";
+            this.shipmentregister.Width = 150;
+            // 
+            // shipmentlocation
+            // 
+            this.shipmentlocation.HeaderText = "출고창고 위치";
+            this.shipmentlocation.Items.AddRange(new object[] {
+            "A",
+            "B",
+            "C",
+            "D",
+            "E"});
+            this.shipmentlocation.MinimumWidth = 8;
+            this.shipmentlocation.Name = "shipmentlocation";
+            this.shipmentlocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.shipmentlocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.shipmentlocation.Width = 150;
             // 
             // flowLayoutPanel2
             // 
@@ -558,108 +661,6 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn10.MinimumWidth = 8;
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.Width = 150;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "선택";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Width = 125;
-            // 
-            // outprogress
-            // 
-            this.outprogress.HeaderText = "진행상태";
-            this.outprogress.MinimumWidth = 8;
-            this.outprogress.Name = "outprogress";
-            this.outprogress.Width = 150;
-            // 
-            // Out_Order_num
-            // 
-            this.Out_Order_num.HeaderText = "발주서번호";
-            this.Out_Order_num.MinimumWidth = 6;
-            this.Out_Order_num.Name = "Out_Order_num";
-            this.Out_Order_num.Width = 125;
-            // 
-            // outdate
-            // 
-            this.outdate.HeaderText = "납기일";
-            this.outdate.MinimumWidth = 8;
-            this.outdate.Name = "outdate";
-            this.outdate.Width = 150;
-            // 
-            // outcompany
-            // 
-            this.outcompany.HeaderText = "회사명";
-            this.outcompany.MinimumWidth = 8;
-            this.outcompany.Name = "outcompany";
-            this.outcompany.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.outcompany.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.outcompany.Width = 150;
-            // 
-            // outcode
-            // 
-            this.outcode.HeaderText = "제품코드";
-            this.outcode.MinimumWidth = 8;
-            this.outcode.Name = "outcode";
-            this.outcode.Width = 150;
-            // 
-            // outname
-            // 
-            this.outname.HeaderText = "제품명";
-            this.outname.MinimumWidth = 8;
-            this.outname.Name = "outname";
-            this.outname.Width = 150;
-            // 
-            // outlot
-            // 
-            this.outlot.HeaderText = "Lot No.";
-            this.outlot.MinimumWidth = 8;
-            this.outlot.Name = "outlot";
-            this.outlot.Width = 150;
-            // 
-            // outquantity
-            // 
-            this.outquantity.HeaderText = "제품수량";
-            this.outquantity.MinimumWidth = 8;
-            this.outquantity.Name = "outquantity";
-            this.outquantity.Width = 150;
-            // 
-            // outorder
-            // 
-            this.outorder.HeaderText = "주문수량";
-            this.outorder.MinimumWidth = 8;
-            this.outorder.Name = "outorder";
-            this.outorder.Width = 150;
-            // 
-            // shipmentdate
-            // 
-            this.shipmentdate.HeaderText = "등록일";
-            this.shipmentdate.MinimumWidth = 8;
-            this.shipmentdate.Name = "shipmentdate";
-            this.shipmentdate.Width = 150;
-            // 
-            // shipmentregister
-            // 
-            this.shipmentregister.HeaderText = "등록자";
-            this.shipmentregister.MinimumWidth = 8;
-            this.shipmentregister.Name = "shipmentregister";
-            this.shipmentregister.Width = 150;
-            // 
-            // shipmentlocation
-            // 
-            this.shipmentlocation.HeaderText = "출고창고 위치";
-            this.shipmentlocation.Items.AddRange(new object[] {
-            "A",
-            "B",
-            "C",
-            "D",
-            "E"});
-            this.shipmentlocation.MinimumWidth = 8;
-            this.shipmentlocation.Name = "shipmentlocation";
-            this.shipmentlocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.shipmentlocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.shipmentlocation.Width = 150;
             // 
             // formOutput
             // 
