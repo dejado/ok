@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SuJinChemicalMES;
 
 namespace SuJinChemicalMES
 {
@@ -105,11 +106,6 @@ namespace SuJinChemicalMES
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-        public static class DataStorage
-        {
-            public static string ProductCode { get; set; }
-            public static string ProductName { get; set; }
-        }
 
         private void Choose_bt_Click(object sender, EventArgs e)
         {
@@ -141,4 +137,5 @@ namespace SuJinChemicalMES
             }
         }
     }
+
 }

@@ -27,7 +27,7 @@ namespace SuJinChemicalMES
             OutOk_grid.Rows.Clear();
 
             // 첫 번째 MySQL 연결
-            string connectionIncoming = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+            string connectionIncoming = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection1 = new MySqlConnection(connectionIncoming))
             {
                 connection1.Open();

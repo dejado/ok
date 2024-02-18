@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using static SuJinChemicalMES.formProductAsk;
+using SuJinChemicalMES;
 
 namespace SuJinChemicalMES
 {
@@ -167,7 +168,7 @@ namespace SuJinChemicalMES
                     string Lot = row.Cells[5].Value.ToString();
                     string productName = row.Cells[4].Value.ToString();
                     string quantity = row.Cells[6].Value.ToString();
-                    MinusMedicine(productName, quantity);
+                    DataStorage.MinusMedicine(productName, quantity);
                     DeleteInput(Lot);
                 }
             }
@@ -253,8 +254,8 @@ namespace SuJinChemicalMES
                             string Inlocation = row.Cells[1].Value.ToString();
                             string progress = "입고";
                             string company = row.Cells[4].Value.ToString();
-                            string productCode = row.Cells[6].Value.ToString();
-                            string productName = row.Cells[5].Value.ToString();
+                            string productCode = row.Cells[5].Value.ToString();
+                            string productName = row.Cells[6].Value.ToString();
                             string lotNo = row.Cells[7].Value.ToString();
                             string quantity = row.Cells[8].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -274,40 +275,7 @@ namespace SuJinChemicalMES
             }
         }
 
-        static void MinusMedicine(string name, string quantityToMinus)
-        {
-            string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                // 데이터베이스에서 동일한 이름의 데이터가 이미 있는지 확인합니다.
-                string selectQuery = $"SELECT * FROM medicine WHERE name = '{name}'";
-
-                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
-                {
-                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
-                            string currentQuantity = reader.GetString("quantity");
-                            int newQuantity = int.Parse(currentQuantity) - int.Parse(quantityToMinus);
-
-                            reader.Close();
-                            string updateQuery = $"UPDATE medicine SET quantity = '{newQuantity}' WHERE name = '{name}'";
-
-                            using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
-                            {
-                                updateCommand.ExecuteNonQuery();
-                                Console.WriteLine("약품 수량이 수정되었습니다.");
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        
 
 
         static void InsertMedicine(string company,string code,string name, string quantityToAdd)
@@ -431,7 +399,7 @@ namespace SuJinChemicalMES
                         }
                         if (locationBefore == "부자재IB")
                         {
-                            MinusMedicine(productName, quantity);
+                            DataStorage.MinusMedicine(productName, quantity);
                         }
                     }
                     else
@@ -466,8 +434,8 @@ namespace SuJinChemicalMES
 
         private void productAsk_Click_1(object sender, EventArgs e)
         {
-            formOrderOkay2 form = new formOrderOkay2();
-            form.ShowDialog();
+            formProductAsk form = new formProductAsk();
+            form.Show();
 
             InCode_txt.Text = DataStorage.ProductCode;
             InName_txt.Text = DataStorage.ProductName;

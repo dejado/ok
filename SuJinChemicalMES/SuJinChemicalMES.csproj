@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataStorage.cs" />
     <Compile Include="formMainOkay.cs">
       <SubType>Form</SubType>
     </Compile>
