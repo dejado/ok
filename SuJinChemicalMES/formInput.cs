@@ -435,7 +435,7 @@ namespace SuJinChemicalMES
         private void productAsk_Click_1(object sender, EventArgs e)
         {
             formProductAsk form = new formProductAsk();
-            form.Show();
+            form.ShowDialog();
 
             InCode_txt.Text = DataStorage.ProductCode;
             InName_txt.Text = DataStorage.ProductName;

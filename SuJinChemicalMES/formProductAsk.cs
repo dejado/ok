@@ -121,6 +121,7 @@ namespace SuJinChemicalMES
             DataStorage.ProductCode = selectedRow.Cells[0].Value.ToString(); // 첫 번째 칸의 데이터는 인덱스 0에 위치합니다.
             DataStorage.ProductName = selectedRow.Cells[1].Value.ToString(); // 두 번째 칸의 데이터는 인덱스 1에 위치합니다.
 
+            MessageBox.Show(DataStorage.ProductCode);
 
 
             // 현재 폼을 닫습니다.
