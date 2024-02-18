@@ -332,6 +332,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\Resources\tamk02.png" />
+    <Content Include="tamk02.png" />
     <None Include="Properties\Resources\tamk01.png" />
     <Content Include="tamk01.png" />
   </ItemGroup>
