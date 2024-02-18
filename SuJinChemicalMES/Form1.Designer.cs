@@ -39,12 +39,20 @@ namespace SuJinChemicalMES
             this.sidebar = new System.Windows.Forms.FlowLayoutPanel();
             this.pnMain = new System.Windows.Forms.Panel();
             this.Main = new FontAwesome.Sharp.IconButton();
+            this.pnMeterial = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel15 = new System.Windows.Forms.Panel();
             this.Meterial = new FontAwesome.Sharp.IconButton();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.Input = new FontAwesome.Sharp.IconButton();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.Output = new FontAwesome.Sharp.IconButton();
+            this.pnQC = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel18 = new System.Windows.Forms.Panel();
             this.Qc = new FontAwesome.Sharp.IconButton();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.Import = new FontAwesome.Sharp.IconButton();
             this.panel14 = new System.Windows.Forms.Panel();
             this.Shipment = new FontAwesome.Sharp.IconButton();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.Import = new FontAwesome.Sharp.IconButton();
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Wokrview = new FontAwesome.Sharp.IconButton();
@@ -54,6 +62,7 @@ namespace SuJinChemicalMES
             this.Inventory = new FontAwesome.Sharp.IconButton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.Plan = new FontAwesome.Sharp.IconButton();
+            this.pnChart = new System.Windows.Forms.Panel();
             this.Chart = new FontAwesome.Sharp.IconButton();
             this.pnSystem = new System.Windows.Forms.FlowLayoutPanel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -75,25 +84,23 @@ namespace SuJinChemicalMES
             this.menuTransition2 = new System.Windows.Forms.Timer(this.components);
             this.menuTransition3 = new System.Windows.Forms.Timer(this.components);
             this.menuTransition4 = new System.Windows.Forms.Timer(this.components);
-            this.pnChart = new System.Windows.Forms.Panel();
-            this.pnQC = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.Input = new FontAwesome.Sharp.IconButton();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.Output = new FontAwesome.Sharp.IconButton();
-            this.pnMeterial = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel15 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pnMain.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.pnMeterial.SuspendLayout();
+            this.panel15.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.pnQC.SuspendLayout();
+            this.panel18.SuspendLayout();
             this.panel14.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.menuContainer.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.pnChart.SuspendLayout();
             this.pnSystem.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -102,13 +109,6 @@ namespace SuJinChemicalMES
             this.panel4.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.pnChart.SuspendLayout();
-            this.pnQC.SuspendLayout();
-            this.panel18.SuspendLayout();
-            this.panel20.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.pnMeterial.SuspendLayout();
-            this.panel15.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -246,6 +246,27 @@ namespace SuJinChemicalMES
             this.Main.UseVisualStyleBackColor = false;
             this.Main.Click += new System.EventHandler(this.iconButton2_Click);
             // 
+            // pnMeterial
+            // 
+            this.pnMeterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pnMeterial.Controls.Add(this.panel15);
+            this.pnMeterial.Controls.Add(this.panel20);
+            this.pnMeterial.Controls.Add(this.panel21);
+            this.pnMeterial.Location = new System.Drawing.Point(0, 75);
+            this.pnMeterial.Margin = new System.Windows.Forms.Padding(0);
+            this.pnMeterial.Name = "pnMeterial";
+            this.pnMeterial.Size = new System.Drawing.Size(233, 45);
+            this.pnMeterial.TabIndex = 13;
+            // 
+            // panel15
+            // 
+            this.panel15.Controls.Add(this.Meterial);
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Margin = new System.Windows.Forms.Padding(0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(233, 45);
+            this.panel15.TabIndex = 7;
+            // 
             // Meterial
             // 
             this.Meterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(29)))));
@@ -265,6 +286,85 @@ namespace SuJinChemicalMES
             this.Meterial.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Meterial.UseVisualStyleBackColor = false;
             this.Meterial.Click += new System.EventHandler(this.iconButton4_Click);
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.Input);
+            this.panel20.Location = new System.Drawing.Point(0, 45);
+            this.panel20.Margin = new System.Windows.Forms.Padding(0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(233, 45);
+            this.panel20.TabIndex = 8;
+            // 
+            // Input
+            // 
+            this.Input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.Input.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Input.ForeColor = System.Drawing.Color.White;
+            this.Input.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.Input.IconColor = System.Drawing.Color.White;
+            this.Input.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Input.IconSize = 25;
+            this.Input.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Input.Location = new System.Drawing.Point(-4, -19);
+            this.Input.Name = "Input";
+            this.Input.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Input.Size = new System.Drawing.Size(253, 84);
+            this.Input.TabIndex = 4;
+            this.Input.Text = "           입고";
+            this.Input.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Input.UseVisualStyleBackColor = false;
+            this.Input.Click += new System.EventHandler(this.Input_Click);
+            // 
+            // panel21
+            // 
+            this.panel21.Controls.Add(this.Output);
+            this.panel21.Location = new System.Drawing.Point(0, 90);
+            this.panel21.Margin = new System.Windows.Forms.Padding(0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(233, 45);
+            this.panel21.TabIndex = 9;
+            // 
+            // Output
+            // 
+            this.Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.Output.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Output.ForeColor = System.Drawing.Color.White;
+            this.Output.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.Output.IconColor = System.Drawing.Color.White;
+            this.Output.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Output.IconSize = 25;
+            this.Output.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Output.Location = new System.Drawing.Point(-4, -19);
+            this.Output.Name = "Output";
+            this.Output.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Output.Size = new System.Drawing.Size(253, 84);
+            this.Output.TabIndex = 4;
+            this.Output.Text = "           출고";
+            this.Output.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Output.UseVisualStyleBackColor = false;
+            this.Output.Click += new System.EventHandler(this.Output_Click_1);
+            // 
+            // pnQC
+            // 
+            this.pnQC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.pnQC.Controls.Add(this.panel18);
+            this.pnQC.Controls.Add(this.panel13);
+            this.pnQC.Controls.Add(this.panel14);
+            this.pnQC.Location = new System.Drawing.Point(0, 120);
+            this.pnQC.Margin = new System.Windows.Forms.Padding(0);
+            this.pnQC.Name = "pnQC";
+            this.pnQC.Size = new System.Drawing.Size(233, 45);
+            this.pnQC.TabIndex = 11;
+            // 
+            // panel18
+            // 
+            this.panel18.Controls.Add(this.Qc);
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Margin = new System.Windows.Forms.Padding(0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(233, 45);
+            this.panel18.TabIndex = 7;
             // 
             // Qc
             // 
@@ -286,39 +386,10 @@ namespace SuJinChemicalMES
             this.Qc.UseVisualStyleBackColor = false;
             this.Qc.Click += new System.EventHandler(this.Qc_Click);
             // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.Import);
-            this.panel13.Location = new System.Drawing.Point(0, 90);
-            this.panel13.Margin = new System.Windows.Forms.Padding(0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(233, 45);
-            this.panel13.TabIndex = 9;
-            // 
-            // Import
-            // 
-            this.Import.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.Import.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Import.ForeColor = System.Drawing.Color.White;
-            this.Import.IconChar = FontAwesome.Sharp.IconChar.Circle;
-            this.Import.IconColor = System.Drawing.Color.White;
-            this.Import.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Import.IconSize = 25;
-            this.Import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Import.Location = new System.Drawing.Point(-4, -19);
-            this.Import.Name = "Import";
-            this.Import.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Import.Size = new System.Drawing.Size(253, 84);
-            this.Import.TabIndex = 4;
-            this.Import.Text = "           수입 검사";
-            this.Import.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Import.UseVisualStyleBackColor = false;
-            this.Import.Click += new System.EventHandler(this.Import_Click);
-            // 
             // panel14
             // 
             this.panel14.Controls.Add(this.Shipment);
-            this.panel14.Location = new System.Drawing.Point(0, 45);
+            this.panel14.Location = new System.Drawing.Point(0, 90);
             this.panel14.Margin = new System.Windows.Forms.Padding(0);
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(233, 45);
@@ -343,6 +414,35 @@ namespace SuJinChemicalMES
             this.Shipment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Shipment.UseVisualStyleBackColor = false;
             this.Shipment.Click += new System.EventHandler(this.Shipment_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.Import);
+            this.panel13.Location = new System.Drawing.Point(0, 45);
+            this.panel13.Margin = new System.Windows.Forms.Padding(0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(233, 45);
+            this.panel13.TabIndex = 9;
+            // 
+            // Import
+            // 
+            this.Import.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.Import.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Import.ForeColor = System.Drawing.Color.White;
+            this.Import.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.Import.IconColor = System.Drawing.Color.White;
+            this.Import.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Import.IconSize = 25;
+            this.Import.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Import.Location = new System.Drawing.Point(-4, -19);
+            this.Import.Name = "Import";
+            this.Import.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Import.Size = new System.Drawing.Size(253, 84);
+            this.Import.TabIndex = 4;
+            this.Import.Text = "           수입 검사";
+            this.Import.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Import.UseVisualStyleBackColor = false;
+            this.Import.Click += new System.EventHandler(this.Import_Click);
             // 
             // menuContainer
             // 
@@ -472,6 +572,15 @@ namespace SuJinChemicalMES
             this.Plan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Plan.UseVisualStyleBackColor = false;
             this.Plan.Click += new System.EventHandler(this.Plan_Click);
+            // 
+            // pnChart
+            // 
+            this.pnChart.Controls.Add(this.Chart);
+            this.pnChart.Location = new System.Drawing.Point(0, 210);
+            this.pnChart.Margin = new System.Windows.Forms.Padding(0);
+            this.pnChart.Name = "pnChart";
+            this.pnChart.Size = new System.Drawing.Size(233, 45);
+            this.pnChart.TabIndex = 7;
             // 
             // Chart
             // 
@@ -735,115 +844,6 @@ namespace SuJinChemicalMES
             this.menuTransition4.Interval = 10;
             this.menuTransition4.Tick += new System.EventHandler(this.menuTransition4_Tick);
             // 
-            // pnChart
-            // 
-            this.pnChart.Controls.Add(this.Chart);
-            this.pnChart.Location = new System.Drawing.Point(0, 210);
-            this.pnChart.Margin = new System.Windows.Forms.Padding(0);
-            this.pnChart.Name = "pnChart";
-            this.pnChart.Size = new System.Drawing.Size(233, 45);
-            this.pnChart.TabIndex = 7;
-            // 
-            // pnQC
-            // 
-            this.pnQC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pnQC.Controls.Add(this.panel18);
-            this.pnQC.Controls.Add(this.panel14);
-            this.pnQC.Controls.Add(this.panel13);
-            this.pnQC.Location = new System.Drawing.Point(0, 120);
-            this.pnQC.Margin = new System.Windows.Forms.Padding(0);
-            this.pnQC.Name = "pnQC";
-            this.pnQC.Size = new System.Drawing.Size(233, 45);
-            this.pnQC.TabIndex = 11;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.Qc);
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Margin = new System.Windows.Forms.Padding(0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(233, 45);
-            this.panel18.TabIndex = 7;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.Input);
-            this.panel20.Location = new System.Drawing.Point(0, 45);
-            this.panel20.Margin = new System.Windows.Forms.Padding(0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(233, 45);
-            this.panel20.TabIndex = 8;
-            // 
-            // Input
-            // 
-            this.Input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.Input.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Input.ForeColor = System.Drawing.Color.White;
-            this.Input.IconChar = FontAwesome.Sharp.IconChar.Circle;
-            this.Input.IconColor = System.Drawing.Color.White;
-            this.Input.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Input.IconSize = 25;
-            this.Input.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Input.Location = new System.Drawing.Point(-4, -19);
-            this.Input.Name = "Input";
-            this.Input.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Input.Size = new System.Drawing.Size(253, 84);
-            this.Input.TabIndex = 4;
-            this.Input.Text = "           입고";
-            this.Input.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Input.UseVisualStyleBackColor = false;
-            this.Input.Click += new System.EventHandler(this.Input_Click);
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.Output);
-            this.panel21.Location = new System.Drawing.Point(0, 90);
-            this.panel21.Margin = new System.Windows.Forms.Padding(0);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(233, 45);
-            this.panel21.TabIndex = 9;
-            // 
-            // Output
-            // 
-            this.Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.Output.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Output.ForeColor = System.Drawing.Color.White;
-            this.Output.IconChar = FontAwesome.Sharp.IconChar.Circle;
-            this.Output.IconColor = System.Drawing.Color.White;
-            this.Output.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Output.IconSize = 25;
-            this.Output.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Output.Location = new System.Drawing.Point(-4, -19);
-            this.Output.Name = "Output";
-            this.Output.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Output.Size = new System.Drawing.Size(253, 84);
-            this.Output.TabIndex = 4;
-            this.Output.Text = "           출고";
-            this.Output.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Output.UseVisualStyleBackColor = false;
-            this.Output.Click += new System.EventHandler(this.Output_Click_1);
-            // 
-            // pnMeterial
-            // 
-            this.pnMeterial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.pnMeterial.Controls.Add(this.panel15);
-            this.pnMeterial.Controls.Add(this.panel20);
-            this.pnMeterial.Controls.Add(this.panel21);
-            this.pnMeterial.Location = new System.Drawing.Point(0, 75);
-            this.pnMeterial.Margin = new System.Windows.Forms.Padding(0);
-            this.pnMeterial.Name = "pnMeterial";
-            this.pnMeterial.Size = new System.Drawing.Size(233, 45);
-            this.pnMeterial.TabIndex = 13;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.Meterial);
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Margin = new System.Windows.Forms.Padding(0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(233, 45);
-            this.panel15.TabIndex = 7;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -862,13 +862,20 @@ namespace SuJinChemicalMES
             this.panel1.PerformLayout();
             this.sidebar.ResumeLayout(false);
             this.pnMain.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
+            this.pnMeterial.ResumeLayout(false);
+            this.panel15.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panel21.ResumeLayout(false);
+            this.pnQC.ResumeLayout(false);
+            this.panel18.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.menuContainer.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.pnChart.ResumeLayout(false);
             this.pnSystem.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -877,13 +884,6 @@ namespace SuJinChemicalMES
             this.panel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
-            this.pnChart.ResumeLayout(false);
-            this.pnQC.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel20.ResumeLayout(false);
-            this.panel21.ResumeLayout(false);
-            this.pnMeterial.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

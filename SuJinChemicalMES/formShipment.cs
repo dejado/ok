@@ -25,7 +25,7 @@ namespace SuJinChemicalMES
             SHdatagridview.MultiSelect = false;
               CompanyCb.SelectedIndexChanged += CompanyCb_SelectedIndexChanged;
             LoadCompanies();
-            
+            DefectcauseCb.Enabled = false;
 
         }
 
@@ -95,27 +95,12 @@ namespace SuJinChemicalMES
             SHdatagridview.Columns[8].ReadOnly = true;
             SHdatagridview.Columns[9].ReadOnly = true;
             SHdatagridview.Columns[10].ReadOnly = true;
-
+            SHdatagridview.ClearSelection();
+            PrGridView.ClearSelection();
             SHdatagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
-        private void ResultCb_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ResultCb.SelectedIndex == 1)
-            {
-                DefectcauseCb.Items.Add("파손");
-                DefectcauseCb.Items.Add("크랙");
-                DefectcauseCb.Items.Add("오염");
-                DefectcauseCb.Items.Add("부식");
-                DefectcauseCb.Enabled = true;
-            }
-            else
-            {
-                DefectcauseCb.Items.Clear();
-                DefectcauseCb.Enabled = false;
-            }
-        }
-
+     
         private void PrGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -143,7 +128,7 @@ namespace SuJinChemicalMES
 
                 // 선택된 행에서 수량 가져오기
                 string Quantity = selectedRow.Cells["Ex_Quantity"].Value.ToString();
-                Quantity_Lb.Text = Quantity;
+             
 
                 // 오더 번호에서 숫자만 가져오기
                 string LOTNO = selectedRow.Cells["LOTNO"].Value.ToString();
@@ -163,23 +148,35 @@ namespace SuJinChemicalMES
         private void ImportBt_Click(object sender, EventArgs e)
         {
             string connectionString = "Server=10.10.32.82;Database=quality;User Id=team;Password=team1234;";
-            string defectCause = (ResultCb.SelectedIndex == 1) ? DefectcauseCb.SelectedItem?.ToString() : "";
-            if (ResultCb.SelectedIndex == 1 && string.IsNullOrEmpty(defectCause))
-            {
-                MessageBox.Show("불량원인을 선택해주세요.");
-                return;
-            }
+            string defectCause = (defectivequantity.Text != "0") ? DefectcauseCb.SelectedItem?.ToString() : "";
 
-            if (Person_Cb.SelectedItem == null || ResultCb.SelectedItem == null)
+            if (Person_Cb.SelectedItem == null || defectivequantity.Text == "" || standardproduct.Text == "")
             {
                 MessageBox.Show("필수항목을 입력해주세요.");
                 return;
             }
-            string selectedData = (ResultCb.SelectedItem != null) ? ResultCb.SelectedItem.ToString() : "";
-           
-            if (!string.IsNullOrEmpty(selectedOrderNumber))
+            if (defectivequantity.Text != "0" && DefectcauseCb.SelectedIndex == -1)
             {
-                
+                MessageBox.Show("결함원인을 선택해주세요.");
+                return;
+            }
+
+            if (defectivequantity.Text != "0" && DefectLotno.Text == "")
+            {
+                MessageBox.Show("불량 순번을 입력해주세요");
+                return;
+            }
+            if (PrGridView.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("입력하고자 하는 데이터를 선택해주세요.");
+                return;
+            }
+            DataGridViewRow selectedRow1 = PrGridView.SelectedRows[0];
+            int Quantity = Convert.ToInt32(selectedRow1.Cells["Ex_Quantity"].Value);
+            int Standardproduct = Convert.ToInt32(standardproduct.Text);
+            int DefectiveQuantity = Convert.ToInt32(defectivequantity.Text);
+            if (Standardproduct + DefectiveQuantity == Quantity)
+            {
                 DialogResult result = MessageBox.Show("등록하시겠습니까?", "등록 확인", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -188,10 +185,14 @@ namespace SuJinChemicalMES
                     string selectedCompanyName = selectedRow.Cells["company_name"].Value?.ToString();
                     string selectedProductName = selectedRow.Cells["product_name"].Value.ToString();
                     string selectedCode = selectedRow.Cells["code"].Value.ToString();
-                    string selectedQuantity = selectedRow.Cells["Ex_Quantity"].Value.ToString();
                     string selectedLOT_No = selectedRow.Cells["LOTNO"].Value.ToString();
                     string Duedate = null;
                     string OrderQuantity = null;
+                    string DefectLotNo = DefectLotno.Text;
+                    DateTime today = DateTime.Today;
+
+                    string formattedDate = today.ToString("yyyyMMdd");
+
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
@@ -208,7 +209,6 @@ namespace SuJinChemicalMES
                             }
                         }
                     }
-                    
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
@@ -219,43 +219,105 @@ namespace SuJinChemicalMES
                         deleteCommand.Parameters.AddWithValue("@productCode", selectedCode);
                         deleteCommand.ExecuteNonQuery();
                     }
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    if (Standardproduct != 0)
                     {
-                        connection.Open();
-                        string insertQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
-                        MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
-                        insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
-                        insertCommand.Parameters.AddWithValue("@data", selectedData);
-                        insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
-                        insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
-                        insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
-                        insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
-                        insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
-                        insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
-                        insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
-                        insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
-                        insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                        insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
-                        insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
-                        insertCommand.ExecuteNonQuery();
-                    }
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
 
+                            string checkQuery = "SELECT COUNT(*) FROM shipping_inspection_results WHERE lot_no = @lotNo";
+                            MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                            checkCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
+                            int rowCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                            if (rowCount > 0)
+                            {
+                                string updateQuery = "UPDATE shipping_inspection_results SET quantity = quantity + @quantity WHERE lot_no = @lotNo";
+                                MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                                updateCommand.Parameters.AddWithValue("@quantity", Standardproduct);
+                                updateCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
+                                updateCommand.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                string PQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                                MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
+                                insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
+                                insertCommand.Parameters.AddWithValue("@data", "P");
+                                insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
+                                insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
+                                insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
+                                insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
+                                insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
+                                insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
+                                insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
+                                insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
+                                insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                                insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                                insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                                insertCommand.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                    if (DefectiveQuantity != 0)
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
+                        {
+                            connection.Open();
+
+                            string checkQuery = "SELECT COUNT(*) FROM shipping_inspection_results WHERE lot_no = @lotNo";
+                            MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
+                            checkCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                            int rowCount = Convert.ToInt32(checkCommand.ExecuteScalar());
+
+                            if (rowCount > 0)
+                            {
+                                string updateQuery = "UPDATE shipping_inspection_results SET quantity = quantity + @quantity WHERE lot_no = @lotNo";
+                                MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
+                                updateCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
+                                updateCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                                updateCommand.ExecuteNonQuery();
+                            }
+                            else
+                            {
+                                string FQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                                MySqlCommand insertCommand = new MySqlCommand(FQuery, connection);
+                                insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
+                                insertCommand.Parameters.AddWithValue("@data", "F");
+                                insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
+                                insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
+                                insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
+                                insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
+                                insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
+                                insertCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                                insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
+                                insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
+                                insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                                insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                                insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                                insertCommand.ExecuteNonQuery();
+                            }
+                        }
+                    }
                     // 선택 해제
                     PrGridView.Rows.RemoveAt(PrGridView.SelectedRows[0].Index);
                     SHdatagridview.ClearSelection();
                     MessageBox.Show("데이터가 등록되었습니다.");
                     ShowSHdatagridview();
                 }
-            }
 
 
-            else
-            {
-                MessageBox.Show("데이터를 선택하세요.");
+
+                else
+                {
+                    MessageBox.Show("정상제품 수량과 불량제품 수량의 합이 선택된 행의 수량과 같아야 합니다.");
+                }
+
+
             }
         }
 
-        private void Search_Bt_Click(object sender, EventArgs e)
+            private void Search_Bt_Click(object sender, EventArgs e)
         {
             string connectionString = "Server=10.10.32.82;Database=quality;User Id=team;Password=team1234;";
             if (string.IsNullOrEmpty(product_nametb.Text) &&
@@ -426,10 +488,7 @@ namespace SuJinChemicalMES
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            dateTimePicker1.Enabled = false;
-        }
+        
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
@@ -444,6 +503,29 @@ namespace SuJinChemicalMES
         private void panel7_Click(object sender, EventArgs e)
         {
             dateTimePicker1.Enabled = true;
+        }
+
+        private void DatecancelBt_Click(object sender, EventArgs e)
+        {
+            dateTimePicker1.Enabled = false;
+        }
+
+        private void DefectcauseCb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void defectivequantity_TextChanged(object sender, EventArgs e)
+        {
+            if (defectivequantity.Text == "0")
+            {
+                DefectcauseCb.Enabled = false;
+            }
+            else
+            {
+                DefectcauseCb.Enabled = true;
+
+            }
         }
     }
 }
