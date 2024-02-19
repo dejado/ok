@@ -48,7 +48,6 @@ namespace SuJinChemicalMES
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BathNum_com = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -167,10 +166,10 @@ namespace SuJinChemicalMES
             "7",
             "8",
             "9"});
-            this.MedicineNum_com.Location = new System.Drawing.Point(410, 91);
+            this.MedicineNum_com.Location = new System.Drawing.Point(389, 82);
             this.MedicineNum_com.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MedicineNum_com.Name = "MedicineNum_com";
-            this.MedicineNum_com.Size = new System.Drawing.Size(91, 20);
+            this.MedicineNum_com.Size = new System.Drawing.Size(120, 20);
             this.MedicineNum_com.TabIndex = 58;
             // 
             // Acidity_com
@@ -186,10 +185,10 @@ namespace SuJinChemicalMES
             "2.5~2.9 ph",
             "3.0~3.4 ph",
             "4.5~4.9 ph"});
-            this.Acidity_com.Location = new System.Drawing.Point(408, 120);
+            this.Acidity_com.Location = new System.Drawing.Point(389, 116);
             this.Acidity_com.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Acidity_com.Name = "Acidity_com";
-            this.Acidity_com.Size = new System.Drawing.Size(91, 20);
+            this.Acidity_com.Size = new System.Drawing.Size(120, 20);
             this.Acidity_com.TabIndex = 57;
             // 
             // label10
@@ -197,20 +196,21 @@ namespace SuJinChemicalMES
             this.label10.BackColor = System.Drawing.Color.LightCyan;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(315, 120);
+            this.label10.Location = new System.Drawing.Point(310, 116);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 22);
+            this.label10.Size = new System.Drawing.Size(80, 22);
             this.label10.TabIndex = 56;
             this.label10.Text = "산도설정";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Registrant_bt
             // 
+            this.Registrant_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Registrant_bt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Registrant_bt.Location = new System.Drawing.Point(328, 35);
+            this.Registrant_bt.Location = new System.Drawing.Point(452, 18);
             this.Registrant_bt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Registrant_bt.Name = "Registrant_bt";
-            this.Registrant_bt.Size = new System.Drawing.Size(57, 20);
+            this.Registrant_bt.Size = new System.Drawing.Size(57, 32);
             this.Registrant_bt.TabIndex = 55;
             this.Registrant_bt.Text = "등록";
             this.Registrant_bt.UseVisualStyleBackColor = true;
@@ -230,7 +230,7 @@ namespace SuJinChemicalMES
             // 
             this.ProductName_lb.BackColor = System.Drawing.Color.LightGray;
             this.ProductName_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductName_lb.Location = new System.Drawing.Point(93, 120);
+            this.ProductName_lb.Location = new System.Drawing.Point(93, 116);
             this.ProductName_lb.Name = "ProductName_lb";
             this.ProductName_lb.Size = new System.Drawing.Size(203, 22);
             this.ProductName_lb.TabIndex = 53;
@@ -240,7 +240,7 @@ namespace SuJinChemicalMES
             // 
             this.Company_lb.BackColor = System.Drawing.Color.LightGray;
             this.Company_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Company_lb.Location = new System.Drawing.Point(93, 34);
+            this.Company_lb.Location = new System.Drawing.Point(93, 18);
             this.Company_lb.Name = "Company_lb";
             this.Company_lb.Size = new System.Drawing.Size(203, 22);
             this.Company_lb.TabIndex = 51;
@@ -260,7 +260,7 @@ namespace SuJinChemicalMES
             "염산(HCl)",
             "인산(H3PO4)",
             "암모니아(NH4OH)"});
-            this.Medicine_com.Location = new System.Drawing.Point(93, 91);
+            this.Medicine_com.Location = new System.Drawing.Point(93, 83);
             this.Medicine_com.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Medicine_com.Name = "Medicine_com";
             this.Medicine_com.Size = new System.Drawing.Size(204, 20);
@@ -293,69 +293,59 @@ namespace SuJinChemicalMES
             "베스4호",
             "베스5호",
             "베스6호"});
-            this.BathNum_com.Location = new System.Drawing.Point(93, 62);
+            this.BathNum_com.Location = new System.Drawing.Point(93, 50);
             this.BathNum_com.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BathNum_com.Name = "BathNum_com";
             this.BathNum_com.Size = new System.Drawing.Size(204, 20);
             this.BathNum_com.TabIndex = 48;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(18, 10);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 15);
-            this.label14.TabIndex = 42;
-            this.label14.Text = "기본정보";
             // 
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.LightCyan;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 34);
+            this.label4.Location = new System.Drawing.Point(15, 18);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 22);
+            this.label4.Size = new System.Drawing.Size(80, 22);
             this.label4.TabIndex = 41;
             this.label4.Text = "회사명";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
             this.label5.BackColor = System.Drawing.Color.LightCyan;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 62);
+            this.label5.Location = new System.Drawing.Point(15, 50);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 22);
+            this.label5.Size = new System.Drawing.Size(80, 22);
             this.label5.TabIndex = 43;
             this.label5.Text = "베스넘버";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
             this.label6.BackColor = System.Drawing.Color.LightCyan;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 91);
+            this.label6.Location = new System.Drawing.Point(15, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(66, 22);
+            this.label6.Size = new System.Drawing.Size(80, 22);
             this.label6.TabIndex = 44;
             this.label6.Text = "약품종류";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.LightCyan;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(15, 120);
+            this.label8.Location = new System.Drawing.Point(15, 116);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 22);
+            this.label8.Size = new System.Drawing.Size(80, 22);
             this.label8.TabIndex = 46;
             this.label8.Text = "제품명";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView1
             // 
@@ -429,10 +419,10 @@ namespace SuJinChemicalMES
             this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(15, 150);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(66, 22);
+            this.label9.Size = new System.Drawing.Size(80, 22);
             this.label9.TabIndex = 49;
             this.label9.Text = "제품코드";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel2
             // 
@@ -455,12 +445,12 @@ namespace SuJinChemicalMES
             this.label11.BackColor = System.Drawing.Color.LightCyan;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(315, 90);
+            this.label11.Location = new System.Drawing.Point(310, 82);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(94, 22);
+            this.label11.Size = new System.Drawing.Size(80, 22);
             this.label11.TabIndex = 47;
             this.label11.Text = "약품투입량";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -479,6 +469,7 @@ namespace SuJinChemicalMES
             // 
             this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Re_bt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Re_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Re_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Re_bt.Location = new System.Drawing.Point(399, 0);
             this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
@@ -502,16 +493,15 @@ namespace SuJinChemicalMES
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.MedicineNum_com);
-            this.panel5.Controls.Add(this.Acidity_com);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.Registrant_bt);
             this.panel5.Controls.Add(this.Code_lb);
             this.panel5.Controls.Add(this.ProductName_lb);
             this.panel5.Controls.Add(this.Company_lb);
             this.panel5.Controls.Add(this.Medicine_com);
             this.panel5.Controls.Add(this.BathNum_com);
-            this.panel5.Controls.Add(this.label14);
+            this.panel5.Controls.Add(this.MedicineNum_com);
+            this.panel5.Controls.Add(this.Acidity_com);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.Registrant_bt);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.label5);
@@ -587,7 +577,6 @@ namespace SuJinChemicalMES
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -616,7 +605,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.ComboBox BathNum_com;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;

@@ -153,6 +153,7 @@ namespace SuJinChemicalMES
             this.Output_grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Output_grid.BackgroundColor = System.Drawing.Color.White;
             this.Output_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Output_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Output_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -520,6 +521,7 @@ namespace SuJinChemicalMES
             // OutOk_grid
             // 
             this.OutOk_grid.AllowDrop = true;
+            this.OutOk_grid.BackgroundColor = System.Drawing.Color.White;
             this.OutOk_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutOk_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OutOk_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -542,7 +544,7 @@ namespace SuJinChemicalMES
             this.OutOk_grid.Margin = new System.Windows.Forms.Padding(23, 2, 5, 2);
             this.OutOk_grid.MinimumSize = new System.Drawing.Size(350, 160);
             this.OutOk_grid.Name = "OutOk_grid";
-            this.OutOk_grid.RowHeadersWidth = 62;
+            this.OutOk_grid.RowHeadersWidth = 4;
             this.OutOk_grid.RowTemplate.Height = 30;
             this.OutOk_grid.Size = new System.Drawing.Size(635, 203);
             this.OutOk_grid.TabIndex = 47;
