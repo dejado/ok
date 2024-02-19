@@ -75,7 +75,6 @@ namespace SuJinChemicalMES
             this.num1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.register1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productAsk_bt = new System.Windows.Forms.Button();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Input_grid)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
@@ -294,7 +293,6 @@ namespace SuJinChemicalMES
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.productAsk_bt);
             this.panel2.Controls.Add(this.InWarehouse_com);
             this.panel2.Controls.Add(this.InDateX_bt);
             this.panel2.Controls.Add(this.InDate1);
@@ -635,18 +633,6 @@ namespace SuJinChemicalMES
             this.register1.ReadOnly = true;
             this.register1.Width = 150;
             // 
-            // productAsk_bt
-            // 
-            this.productAsk_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.productAsk_bt.Location = new System.Drawing.Point(374, 56);
-            this.productAsk_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.productAsk_bt.Name = "productAsk_bt";
-            this.productAsk_bt.Size = new System.Drawing.Size(78, 32);
-            this.productAsk_bt.TabIndex = 17;
-            this.productAsk_bt.Text = "제품검색";
-            this.productAsk_bt.UseVisualStyleBackColor = true;
-            this.productAsk_bt.Click += new System.EventHandler(this.productAsk_Click_1);
-            // 
             // formInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -720,6 +706,5 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn num1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn register1;
-        private System.Windows.Forms.Button productAsk_bt;
     }
 }

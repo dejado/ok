@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 
 namespace SuJinChemicalMES
 {
@@ -100,7 +101,7 @@ namespace SuJinChemicalMES
                 }
 
                 InsertData(bathNum, medicienText, medicineNum, acidity, "가동중", "김서진", date);
-                DataStorage.MinusMedicine(medicienText, medicineNum);
+                MinusMedicine(medicienText, medicineNum);
                 ShowGrid();
 
                 Company_lb.Text = "";
@@ -114,6 +115,41 @@ namespace SuJinChemicalMES
             else
             {
                 MessageBox.Show("콤보박스 값을 모두 선택하세요.");
+            }
+        }
+
+        private void MinusMedicine(string name, string quantityToMinus)
+        {
+            string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // 데이터베이스에서 동일한 이름의 데이터가 이미 있는지 확인합니다.
+                string selectQuery = $"SELECT * FROM medicine WHERE name = '{name}'";
+
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                {
+                    using (MySqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
+                            string currentQuantity = reader.GetString("quantity");
+                            int newQuantity = int.Parse(currentQuantity) - int.Parse(quantityToMinus);
+
+                            reader.Close();
+                            string updateQuery = $"UPDATE medicine SET quantity = '{newQuantity}' WHERE name = '{name}'";
+
+                            using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                            {
+                                updateCommand.ExecuteNonQuery();
+                                Console.WriteLine("약품 수량이 수정되었습니다.");
+                            }
+                        }
+                    }
+                }
             }
         }
         // InsertData 함수 정의
@@ -148,23 +184,89 @@ namespace SuJinChemicalMES
             ProductName_lb.Text = selectedRow.Cells["Column313"].Value.ToString();
         }
 
-        private void Medicine_com_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // 콤보박스의 선택된 항목과 다른 텍스트 박스의 텍스트를 비교
-            if (Medicine_com.SelectedItem != null)
-            {
-                string comboBoxValue = Medicine_com.SelectedItem.ToString();
-                string textBoxValue = ProductName_lb.Text;
 
-                if (comboBoxValue == textBoxValue)
-                {
-                    medicienText = Medicine_com.Text;
-                }
-                else
-                {
-                    MessageBox.Show("적합한 약품이 아닙니다.");
-                }
+        private void BathNum_com_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void formInventory_Load(object sender, EventArgs e)
+        {
+            var sampleData12 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 1.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            var sampleData11 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 1F,
+                HeightBinary = 0F,
+            };
+            var sampleData10 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 1.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 1F,
+                HeightBinary = 0F,
+            };
+            var sampleData9 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 575.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            var sampleData8 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 575.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 1F,
+            };
+            var sampleData7 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            var result1 = MLModel2.Predict(sampleData12);
+            var result2 = MLModel2.Predict(sampleData11);
+            var result3 = MLModel2.Predict(sampleData10);
+            var result4 = MLModel2.Predict(sampleData9);
+            var result5 = MLModel2.Predict(sampleData8);
+            var result6 = MLModel2.Predict(sampleData7);
+
+            BathNum_com.Items.Clear();
+            if (result1.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스1호");
             }
+            if (result2.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스2호");
+            }
+            if (result3.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스3호");
+            }
+            if (result4.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스4호");
+            }
+            if (result5.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스5호");
+            }
+            if (result6.Score.ToString().Equals(0))
+            {
+                BathNum_com.Items.Add("베스6호");
+            }
+
         }
     }
 }

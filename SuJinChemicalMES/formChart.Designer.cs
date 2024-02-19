@@ -29,14 +29,26 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("굴림", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(579, 358);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 43);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "통계";
             // 
             // formChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1105, 606);
+            this.ClientSize = new System.Drawing.Size(1263, 758);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formChart";
@@ -47,5 +59,7 @@ namespace SuJinChemicalMES
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }
