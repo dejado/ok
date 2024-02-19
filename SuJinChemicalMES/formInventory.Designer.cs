@@ -416,7 +416,6 @@ namespace SuJinChemicalMES
             this.Medicine_com.Name = "Medicine_com";
             this.Medicine_com.Size = new System.Drawing.Size(232, 23);
             this.Medicine_com.TabIndex = 50;
-            this.Medicine_com.SelectedIndexChanged += new System.EventHandler(this.Medicine_com_SelectedIndexChanged);
             // 
             // BathNum_com
             // 
@@ -433,6 +432,7 @@ namespace SuJinChemicalMES
             this.BathNum_com.Name = "BathNum_com";
             this.BathNum_com.Size = new System.Drawing.Size(232, 23);
             this.BathNum_com.TabIndex = 48;
+            this.BathNum_com.SelectedIndexChanged += new System.EventHandler(this.BathNum_com_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -543,6 +543,7 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formInventory";
             this.Text = "회사명";
+            this.Load += new System.EventHandler(this.formInventory_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
