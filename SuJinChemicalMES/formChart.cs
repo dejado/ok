@@ -206,8 +206,8 @@ namespace SuJinChemicalMES
             progressSeries.ChartType = SeriesChartType.Line;
             progressSeries.Color = Color.Black;
             progressSeries.BorderWidth = 2; //두께
-            chart.Series["입고수량_막대"]["PixelPointWidth"] = "50";
-            chart.Series["출고수량_막대"]["PixelPointWidth"] = "50";
+            chart.Series["입고수량_막대"]["PixelPointWidth"] = "60";
+            chart.Series["출고수량_막대"]["PixelPointWidth"] = "60";
 
             foreach (var item in 진행률)
             {
