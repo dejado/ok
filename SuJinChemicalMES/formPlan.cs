@@ -13,12 +13,16 @@ namespace SuJinChemicalMES
 {
     public partial class formPlan : Form
     {
+        private Timer timer;
         public formPlan()
         {
             InitializeComponent();
 
             dataGridView2.MouseClick += dataGridView2_MouseClick;
             dataGridView2.AllowUserToAddRows = false;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+
+            InitializeTimer(); // 타이머 초기화
 
         }
 
@@ -148,7 +152,10 @@ namespace SuJinChemicalMES
         {
 
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
 
+        }
         private void label20_Click(object sender, EventArgs e)
         {
 
@@ -216,6 +223,9 @@ namespace SuJinChemicalMES
 
                     }
                 }
+
+                timer.Start();
+
                 string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
                 // 콤보박스에서 선택한 값을 가져오기
                 string selectedValue = label17.Text.ToString();
@@ -258,7 +268,7 @@ namespace SuJinChemicalMES
             }
             else
             {
-                MessageBox.Show("콤보박스 값을 모두 선택하세요.");
+                MessageBox.Show("빈 칸을 채워주세요.");
             }
 
         }
@@ -269,7 +279,10 @@ namespace SuJinChemicalMES
 
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
 
+        }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -283,38 +296,68 @@ namespace SuJinChemicalMES
 
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            // MySQL 데이터베이스 연결 및 쿼리 수행
-            comboBox1.Items.Clear();
 
-            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-            string query = "SELECT DISTINCT bath_num FROM bath";    //DISTINCT 중복을 방지시킴
-
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        using (MySqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                // bath_num 열의 데이터를 콤보박스에 추가
-                                comboBox1.Items.Add(reader["bath_num"].ToString());
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
-            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)// 콤보박스 핸들러 이벤트
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label21_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void InitializeTimer()
+        {
+            timer = new Timer();
+            timer.Interval = 1000; // 1초 간격으로 설정
+            timer.Tick += timer1_Tick;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // DataGridView1에서 베스번호가 '베스1호'인 행 찾기
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[4].Value?.ToString() == "베스1호")
+                {
+                    int remainingTime = Convert.ToInt32(row.Cells[8].Value);
+
+                    // 소요시간 10씩 감소
+                    remainingTime -= 3;
+
+                    // DataGridView 업데이트
+                    row.Cells[8].Value = remainingTime;
+
+                    if (remainingTime <= 0)
+                    {
+                        // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                        row.Cells[7].Value = "운행종료";
+                        row.Cells[7].Style.ForeColor = Color.Red;
+                        timer.Stop(); // 타이머 중지
+                    }
+                }
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             // 콤보박스에서 선택한 값을 가져오기
@@ -354,12 +397,40 @@ namespace SuJinChemicalMES
             }
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void comboBox1_MouseClick_1(object sender, MouseEventArgs e)
         {
+            // MySQL 데이터베이스 연결 및 쿼리 수행
+            comboBox1.Items.Clear();
 
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+            string query = "SELECT DISTINCT bath_num FROM bath";    //DISTINCT 중복을 방지시킴
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // bath_num 열의 데이터를 콤보박스에 추가
+                                comboBox1.Items.Add(reader["bath_num"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
+            }
         }
 
-        private void textBox1_TextChanged_2(object sender, EventArgs e)
+        private void textBox1_TextChanged_3(object sender, EventArgs e)
         {
             if (int.TryParse(textBox1.Text, out int textBoxValue) && int.TryParse(label19.Text, out int labelValue))
             {
@@ -374,43 +445,7 @@ namespace SuJinChemicalMES
                     // 원하는 동작 수행
                 }
             }
-            /*
-            else
-            {
-                // 숫자로 변환할 수 없는 경우 또는 예외 처리가 필요한 경우
-                MessageBox.Show("숫자로 변환할 수 없거나 예외 처리가 필요합니다.");
-            }
-            */
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-
         }
     }
-    public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수
-    {
-        private static List<string> dataList = new List<string>();
 
-        public static void AddData(string data)
-        {
-            // 데이터가 중복되지 않는 경우에만 추가
-            if (!dataList.Contains(data))
-            {
-                dataList.Add(data);
-            }
-
-            // 추가된 데이터를 확인하기 위해 출력
-            Console.WriteLine("FormDataShare 데이터 수: " + dataList.Count);
-            foreach (string d in dataList)
-            {
-                Console.WriteLine(d);
-            }
-        }
-
-        public static List<string> GetData()
-        {
-            return dataList;
-        }
-    }
 }
