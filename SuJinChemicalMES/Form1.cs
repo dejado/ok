@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace SuJinChemicalMES
 {
@@ -30,10 +31,6 @@ namespace SuJinChemicalMES
 
         //formSystem systemmain;
 
-
-
-
-
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +39,18 @@ namespace SuJinChemicalMES
             panel1.MouseDown += new MouseEventHandler(Form1_MouseDown); // 페널에도 동일한 이벤트 핸들러를 추가
 
             this.MouseMove += new MouseEventHandler(Form1_MouseMove);
+
+            //***********************************************************************************************//
+            
+            Loginpw_tb.PasswordChar = '*'; //비밀번호
+
+            Login_pn.BackColor = Color.FromArgb(232, 234, 237);
+
+            Login_pn.Parent = this;
+            Loginid_lb.Parent = Login_pn;
+            Loginpw_lb.Parent = Login_pn;
+
+            //**********************************************************************************************//
         }
 
         private void mdiProp()
@@ -177,7 +186,6 @@ namespace SuJinChemicalMES
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
-
             //menuTransition10.Start();
             menuExpand = true;
             menuExpand2 = true;
@@ -754,6 +762,76 @@ namespace SuJinChemicalMES
         private void Output_FormClosed(object sender, FormClosedEventArgs e)
         {
             output.Activate();
+        }
+
+        //***********************************************************************************************//
+
+        //string department; //user_registration의 department 권한부여
+        int login_status; //로그인 확인
+
+        private void Login_bt_Click(object sender, EventArgs e)
+        {
+            if (Loginid_tb.Text == "")
+            {
+                MessageBox.Show("아이디를 입력해주세요.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Loginid_tb.Focus();
+            }
+            else if (Loginpw_tb.Text == "")
+            {
+                MessageBox.Show("비밀번호를 입력해주세요.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Loginpw_tb.Focus();
+            }
+
+            else
+            {
+                try
+                {
+                    MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = managerproduct; Uid = team; Pwd = team1234");
+
+                    con.Open();
+
+                    login_status = 0; //로그인 확인지수
+
+                    string Loginid = Loginid_tb.Text;
+                    string Loginpw = Loginpw_tb.Text;
+
+                    string selectQuery = "SELECT * FROM user_registration WHERE id = \'" + Loginid + "\'";
+                    //데이터베이스 쿼리 선택
+
+                    MySqlCommand SelectCom = new MySqlCommand(selectQuery, con);
+                    MySqlDataReader reader = SelectCom.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        if (Loginid == (string)reader["id"] && Loginpw == (string)reader["password"])
+                        {
+                            login_status = 1;
+                            //department = reader["department"].ToString();
+                        }
+                    }
+                    con.Close(); //데이터베이스 연결 닫음
+
+                    if (login_status == 1)
+                    {
+                        //로그인 가능!
+
+
+                        Login_pn.Dispose();
+                        Login_pn.Hide();
+
+                        Main.PerformClick();
+                        //메인폼 실행
+                    }
+
+                    else if (login_status == 0)
+                        MessageBox.Show("아이디와 비밀번호가 일치하지 않습니다.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

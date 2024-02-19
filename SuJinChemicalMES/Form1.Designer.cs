@@ -49,10 +49,10 @@ namespace SuJinChemicalMES
             this.pnQC = new System.Windows.Forms.FlowLayoutPanel();
             this.panel18 = new System.Windows.Forms.Panel();
             this.Qc = new FontAwesome.Sharp.IconButton();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.Shipment = new FontAwesome.Sharp.IconButton();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Import = new FontAwesome.Sharp.IconButton();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.Shipment = new FontAwesome.Sharp.IconButton();
             this.menuContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.Wokrview = new FontAwesome.Sharp.IconButton();
@@ -84,6 +84,12 @@ namespace SuJinChemicalMES
             this.menuTransition2 = new System.Windows.Forms.Timer(this.components);
             this.menuTransition3 = new System.Windows.Forms.Timer(this.components);
             this.menuTransition4 = new System.Windows.Forms.Timer(this.components);
+            this.Login_pn = new System.Windows.Forms.Panel();
+            this.Login_bt = new System.Windows.Forms.Button();
+            this.Loginpw_tb = new System.Windows.Forms.TextBox();
+            this.Loginid_tb = new System.Windows.Forms.TextBox();
+            this.Loginpw_lb = new System.Windows.Forms.Label();
+            this.Loginid_lb = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -93,8 +99,8 @@ namespace SuJinChemicalMES
             this.panel21.SuspendLayout();
             this.pnQC.SuspendLayout();
             this.panel18.SuspendLayout();
-            this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.menuContainer.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,6 +115,7 @@ namespace SuJinChemicalMES
             this.panel4.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
+            this.Login_pn.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -386,35 +393,6 @@ namespace SuJinChemicalMES
             this.Qc.UseVisualStyleBackColor = false;
             this.Qc.Click += new System.EventHandler(this.Qc_Click);
             // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.Shipment);
-            this.panel14.Location = new System.Drawing.Point(0, 90);
-            this.panel14.Margin = new System.Windows.Forms.Padding(0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(233, 45);
-            this.panel14.TabIndex = 8;
-            // 
-            // Shipment
-            // 
-            this.Shipment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
-            this.Shipment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Shipment.ForeColor = System.Drawing.Color.White;
-            this.Shipment.IconChar = FontAwesome.Sharp.IconChar.Circle;
-            this.Shipment.IconColor = System.Drawing.Color.White;
-            this.Shipment.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.Shipment.IconSize = 25;
-            this.Shipment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Shipment.Location = new System.Drawing.Point(-4, -19);
-            this.Shipment.Name = "Shipment";
-            this.Shipment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.Shipment.Size = new System.Drawing.Size(253, 84);
-            this.Shipment.TabIndex = 4;
-            this.Shipment.Text = "           출하 검사";
-            this.Shipment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Shipment.UseVisualStyleBackColor = false;
-            this.Shipment.Click += new System.EventHandler(this.Shipment_Click);
-            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.Import);
@@ -443,6 +421,35 @@ namespace SuJinChemicalMES
             this.Import.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Import.UseVisualStyleBackColor = false;
             this.Import.Click += new System.EventHandler(this.Import_Click);
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.Shipment);
+            this.panel14.Location = new System.Drawing.Point(0, 90);
+            this.panel14.Margin = new System.Windows.Forms.Padding(0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(233, 45);
+            this.panel14.TabIndex = 8;
+            // 
+            // Shipment
+            // 
+            this.Shipment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(33)))), ((int)(((byte)(36)))));
+            this.Shipment.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Shipment.ForeColor = System.Drawing.Color.White;
+            this.Shipment.IconChar = FontAwesome.Sharp.IconChar.Circle;
+            this.Shipment.IconColor = System.Drawing.Color.White;
+            this.Shipment.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.Shipment.IconSize = 25;
+            this.Shipment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Shipment.Location = new System.Drawing.Point(-4, -19);
+            this.Shipment.Name = "Shipment";
+            this.Shipment.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.Shipment.Size = new System.Drawing.Size(253, 84);
+            this.Shipment.TabIndex = 4;
+            this.Shipment.Text = "           출하 검사";
+            this.Shipment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Shipment.UseVisualStyleBackColor = false;
+            this.Shipment.Click += new System.EventHandler(this.Shipment_Click);
             // 
             // menuContainer
             // 
@@ -844,10 +851,72 @@ namespace SuJinChemicalMES
             this.menuTransition4.Interval = 10;
             this.menuTransition4.Tick += new System.EventHandler(this.menuTransition4_Tick);
             // 
+            // Login_pn
+            // 
+            this.Login_pn.Controls.Add(this.Login_bt);
+            this.Login_pn.Controls.Add(this.Loginpw_tb);
+            this.Login_pn.Controls.Add(this.Loginid_tb);
+            this.Login_pn.Controls.Add(this.Loginpw_lb);
+            this.Login_pn.Controls.Add(this.Loginid_lb);
+            this.Login_pn.Location = new System.Drawing.Point(1081, 602);
+            this.Login_pn.Name = "Login_pn";
+            this.Login_pn.Size = new System.Drawing.Size(353, 158);
+            this.Login_pn.TabIndex = 3;
+            // 
+            // Login_bt
+            // 
+            this.Login_bt.BackColor = System.Drawing.Color.White;
+            this.Login_bt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Login_bt.Location = new System.Drawing.Point(65, 89);
+            this.Login_bt.Name = "Login_bt";
+            this.Login_bt.Size = new System.Drawing.Size(245, 37);
+            this.Login_bt.TabIndex = 4;
+            this.Login_bt.Text = "로그인";
+            this.Login_bt.UseVisualStyleBackColor = false;
+            // 
+            // Loginpw_tb
+            // 
+            this.Loginpw_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginpw_tb.Location = new System.Drawing.Point(63, 59);
+            this.Loginpw_tb.Name = "Loginpw_tb";
+            this.Loginpw_tb.Size = new System.Drawing.Size(245, 27);
+            this.Loginpw_tb.TabIndex = 3;
+            // 
+            // Loginid_tb
+            // 
+            this.Loginid_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginid_tb.Location = new System.Drawing.Point(63, 24);
+            this.Loginid_tb.Name = "Loginid_tb";
+            this.Loginid_tb.Size = new System.Drawing.Size(245, 27);
+            this.Loginid_tb.TabIndex = 2;
+            // 
+            // Loginpw_lb
+            // 
+            this.Loginpw_lb.BackColor = System.Drawing.Color.LightCyan;
+            this.Loginpw_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginpw_lb.Location = new System.Drawing.Point(24, 59);
+            this.Loginpw_lb.Name = "Loginpw_lb";
+            this.Loginpw_lb.Size = new System.Drawing.Size(33, 27);
+            this.Loginpw_lb.TabIndex = 1;
+            this.Loginpw_lb.Text = "PW";
+            this.Loginpw_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Loginid_lb
+            // 
+            this.Loginid_lb.BackColor = System.Drawing.Color.LightCyan;
+            this.Loginid_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginid_lb.Location = new System.Drawing.Point(24, 24);
+            this.Loginid_lb.Name = "Loginid_lb";
+            this.Loginid_lb.Size = new System.Drawing.Size(33, 27);
+            this.Loginid_lb.TabIndex = 0;
+            this.Loginid_lb.Text = "ID";
+            this.Loginid_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.Controls.Add(this.Login_pn);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -868,8 +937,8 @@ namespace SuJinChemicalMES
             this.panel21.ResumeLayout(false);
             this.pnQC.ResumeLayout(false);
             this.panel18.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
             this.menuContainer.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
@@ -884,6 +953,8 @@ namespace SuJinChemicalMES
             this.panel4.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
+            this.Login_pn.ResumeLayout(false);
+            this.Login_pn.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -944,6 +1015,12 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.FlowLayoutPanel pnMeterial;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel pnMain;
+        private System.Windows.Forms.Panel Login_pn;
+        private System.Windows.Forms.Button Login_bt;
+        private System.Windows.Forms.TextBox Loginpw_tb;
+        private System.Windows.Forms.TextBox Loginid_tb;
+        private System.Windows.Forms.Label Loginpw_lb;
+        private System.Windows.Forms.Label Loginid_lb;
     }
 }
 
