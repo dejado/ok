@@ -24,15 +24,12 @@ namespace SuJinChemicalMES
 
         private void button6_Click(object sender, EventArgs e)
         {
-            bool anyChecked = false; // 체크된 행이 있는지 여부를 나타내는 변수
-
             // 빈칸이 있는지 및 체크된 행이 있는지 검사
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
                 if (chk.Value != null && (bool)chk.Value)
                 {
-                    anyChecked = true; // 체크된 행이 있음을 표시
                     foreach (DataGridViewCell cell in row.Cells)
                     {
                         if (cell.ColumnIndex != 0 && (cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString())))
@@ -42,13 +39,6 @@ namespace SuJinChemicalMES
                         }
                     }
                 }
-            }
-
-            // 체크된 행이 없는 경우 경고 메시지 출력 후 함수 종료
-            if (!anyChecked)
-            {
-                MessageBox.Show("체크된 행이 없습니다. 전송할 데이터가 없습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             // MySQL 연결 문자열
@@ -92,22 +82,39 @@ namespace SuJinChemicalMES
                             string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
                             string status = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
 
-                            // MySQL 쿼리문 실행
-                            string insertQuery = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                            // MySQL 쿼리문 실행 (order_registration 테이블)
+                            string insertQueryOrderReg = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
                                                  "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
-                            MySqlCommand command = new MySqlCommand(insertQuery, connection);
-                            command.Parameters.AddWithValue("@orderNumber", orderNumber);
-                            command.Parameters.AddWithValue("@supplier", supplier);
-                            command.Parameters.AddWithValue("@productCode", productCode);
-                            command.Parameters.AddWithValue("@productName", productName);
-                            command.Parameters.AddWithValue("@lotNo", lotNo);
-                            command.Parameters.AddWithValue("@quantity", quantity);
-                            command.Parameters.AddWithValue("@registration_date", registration_date);
-                            command.Parameters.AddWithValue("@dueDate", dueDate);
-                            command.Parameters.AddWithValue("@registrant", registrant);
-                            command.Parameters.AddWithValue("@status", status);
+                            MySqlCommand commandOrderReg = new MySqlCommand(insertQueryOrderReg, connection);
+                            commandOrderReg.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            commandOrderReg.Parameters.AddWithValue("@supplier", supplier);
+                            commandOrderReg.Parameters.AddWithValue("@productCode", productCode);
+                            commandOrderReg.Parameters.AddWithValue("@productName", productName);
+                            commandOrderReg.Parameters.AddWithValue("@lotNo", lotNo);
+                            commandOrderReg.Parameters.AddWithValue("@quantity", quantity);
+                            commandOrderReg.Parameters.AddWithValue("@registration_date", registration_date);
+                            commandOrderReg.Parameters.AddWithValue("@dueDate", dueDate);
+                            commandOrderReg.Parameters.AddWithValue("@registrant", registrant);
+                            commandOrderReg.Parameters.AddWithValue("@status", status);
 
-                            command.ExecuteNonQuery();
+                            commandOrderReg.ExecuteNonQuery();
+
+                            // MySQL 쿼리문 실행 (order_registration1 테이블)
+                            string insertQueryOrderReg1 = "INSERT INTO order_registration1 (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                                                 "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
+                            MySqlCommand commandOrderReg1 = new MySqlCommand(insertQueryOrderReg1, connection);
+                            commandOrderReg1.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            commandOrderReg1.Parameters.AddWithValue("@supplier", supplier);
+                            commandOrderReg1.Parameters.AddWithValue("@productCode", productCode);
+                            commandOrderReg1.Parameters.AddWithValue("@productName", productName);
+                            commandOrderReg1.Parameters.AddWithValue("@lotNo", lotNo);
+                            commandOrderReg1.Parameters.AddWithValue("@quantity", quantity);
+                            commandOrderReg1.Parameters.AddWithValue("@registration_date", registration_date);
+                            commandOrderReg1.Parameters.AddWithValue("@dueDate", dueDate);
+                            commandOrderReg1.Parameters.AddWithValue("@registrant", registrant);
+                            commandOrderReg1.Parameters.AddWithValue("@status", status);
+
+                            commandOrderReg1.ExecuteNonQuery();
                         }
                     }
 
@@ -119,6 +126,7 @@ namespace SuJinChemicalMES
                 }
             }
         }
+
 
 
 
