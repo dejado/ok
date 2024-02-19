@@ -66,8 +66,9 @@ namespace SuJinChemicalMES
 
             if (!string.IsNullOrEmpty(selectedOrderNumber))
             {
-                string connectionString = "Server=10.10.32.82;Database=qualityl;User Id=team;Password=team1234;";
+                string connectionString = "Server=10.10.32.82;Database=quality;User Id=team;Password=team1234;";
                 string connectionString1 = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+                string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
                 DialogResult result = MessageBox.Show("등록하시겠습니까?", "등록 확인", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -92,7 +93,9 @@ namespace SuJinChemicalMES
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
-                        string insertQuery = "INSERT INTO import_inspection (progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date_import, registrant_import, cause_of_defect) VALUES (@inspectionType, @data, @companyName, @productCode, @productName, @lotNo, @quantity, @inspectionDate, @inspector, @defectCause)";
+                        string insertQuery = "INSERT INTO import_inspection (progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date_import," +
+                            " registrant_import, cause_of_defect) VALUES (@inspectionType, @data, @companyName, @productCode, @productName, " +
+                            "@lotNo, @quantity, @inspectionDate, @inspector, @defectCause)";
                         MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
                         insertCommand.Parameters.AddWithValue("@inspectionType", "수입검사");
                         insertCommand.Parameters.AddWithValue("@data", selectedData);
@@ -106,13 +109,33 @@ namespace SuJinChemicalMES
                         insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                         insertCommand.ExecuteNonQuery();
                     }
+                    using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                    {
+                        connection.Open();
 
-                    // 선택 해제
-                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                        string insertQuery = "INSERT INTO accumulated_data (progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date," +
+                                    " registrant, cause_of_defect) VALUES (@inspectionType, @data, @companyName, @productCode, @productName, " +
+                                    "@lotNo, @quantity, @inspectionDate, @inspector, @defectCause)";
+                        MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
+                        insertCommand.Parameters.AddWithValue("@inspectionType", "수입검사");
+                        insertCommand.Parameters.AddWithValue("@data", selectedData);
+                        insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
+                        insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
+                        insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
+                        insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
+                        insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
+                        insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                        insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                        insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                        insertCommand.ExecuteNonQuery();
+                    }
+                }
+                // 선택 해제
+                dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                     QCdatagridview.ClearSelection();
                     MessageBox.Show("데이터가 등록되었습니다.");
                     LoadDataIntoDataGridView();
-                }
+                
             }
 
 
@@ -121,6 +144,10 @@ namespace SuJinChemicalMES
                 MessageBox.Show("데이터를 선택하세요.");
             }
         }
+
+
+
+
 
         private void Search_Bt_Click(object sender, EventArgs e)
         {

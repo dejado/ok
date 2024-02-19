@@ -162,6 +162,61 @@ namespace SuJinChemicalMES
                     }
                 }
             }
+            string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString2))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // DataGridView의 각 행을 순회하면서 체크된 행의 데이터를 MySQL 테이블로 전송합니다.
+                    foreach (DataGridViewRow row in OutOk_grid.Rows)
+                    {
+                        DataGridViewCheckBoxCell checkBoxCell = row.Cells[0] as DataGridViewCheckBoxCell;
+
+                        // 체크된 행인지 확인하고 체크된 경우에만 MySQL 테이블로 데이터를 전송합니다.
+                        if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value))
+                        {
+                            // MySQL 데이터베이스로 전송할 데이터 추출
+                            string Outlocation = row.Cells[1].Value.ToString();
+                            string order_num = row.Cells[3].Value.ToString();
+                            string due_date = row.Cells[4].Value.ToString();
+                            string progress = "출고";
+                            string company = row.Cells[6].Value.ToString();
+                            string productCode = row.Cells[7].Value.ToString();
+                            string productName = row.Cells[8].Value.ToString();
+                            string lotNo = row.Cells[9].Value.ToString();
+                            string quantity = row.Cells[10].Value.ToString();
+                            string order_quantity = row.Cells[11].Value.ToString();
+                            string date = DateTime.Now.ToString("yyyy-MM-dd");
+                            string registrant = "김서진";
+                            string result = row.Cells[2].Value.ToString();
+                            string reason = row.Cells[12].Value.ToString();
+
+
+                            // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
+                            string query = $"INSERT INTO accumulated_data (progress,order_number,due_date," +
+                                $"company,product_code,product_name,lot_no,quantity,production_plan_quantity,registration_date," +
+                                $"registrant,warehouse_location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
+                                $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
+                                $" '{Outlocation}','{result}','{reason}')";
+
+                            // 쿼리 실행
+                            using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+
+                    // 데이터 전송 후 작업 완료 메시지 표시
+                    MessageBox.Show("데이터 전송이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show($"오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             ShowGrid();
         }
 
