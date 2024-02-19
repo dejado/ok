@@ -34,7 +34,7 @@ namespace SuJinChemicalMES
             InitializeTimer();
         }
 
-        DateTime base_day;
+        string CalendarPickDay_st;
 
         private void formMain_Load(object sender, EventArgs e)
         {
@@ -42,7 +42,8 @@ namespace SuJinChemicalMES
 
             Initialize_Calendar_dtp();
 
-            base_day = DateTime.Now;
+
+            CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void AddCalendar()
@@ -158,8 +159,6 @@ namespace SuJinChemicalMES
             //데이터타임피커 형식지정
         }
 
-        string CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
-
         private void Calendar_dtp_ValueChanged(object sender, EventArgs e)
         {
             DateTime cal_dt = Calendar_dtp.Value;
@@ -167,8 +166,7 @@ namespace SuJinChemicalMES
 
             CalendarPickDay_st = Calendar_dtp.Value.ToString("yyyy-MM-dd");
             //데이터타임피커로 날짜 픽, Okay로 전달
-
-            base_day = Calendar_dtp.Value;
+            AddChart();
         }
 
         private void CalendarPick_bt_Click(object sender, EventArgs e)
@@ -180,18 +178,19 @@ namespace SuJinChemicalMES
 
         private void AddChart()
         {
+            Achieve_ct.Series["PlanSum_s"].Points.Clear();
+            Achieve_ct.Series["CompleteSum_s"].Points.Clear();
+            Achieve_ct.Series["CompleteRate_s"].Points.Clear();
+
             MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = accumulated_data; User id = team; Password = team1234");
             //SQL 서버와 연결, database=스키마 이름
             con.Open();
             //SQL 서버 연결.
 
-            string baseday_st = base_day.ToString("yyyy-MM-dd");
-            //DateTime baseday_dt = Convert.ToDateTime(baseday_st);
-
             string Query = "SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
-            com.Parameters.AddWithValue("@baseday_dt", baseday_st);
+            com.Parameters.AddWithValue("@baseday_dt", CalendarPickDay_st);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())

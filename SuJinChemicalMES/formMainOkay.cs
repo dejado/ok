@@ -38,6 +38,7 @@ namespace SuJinChemicalMES
         {
             CalendarPick_gv = new DataGridView();
             CalendarPick_gv.BackgroundColor = System.Drawing.Color.White;
+            CalendarPick_gv.ColumnHeadersHeight = 50;
 
             CalendarPick_tlpn.Controls.Add(CalendarPick_gv, 0, 1);
             CalendarPick_gv.Dock = DockStyle.Fill;
