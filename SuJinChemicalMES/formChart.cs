@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SuJinChemicalMES
 {
@@ -15,6 +17,7 @@ namespace SuJinChemicalMES
         public formChart()
         {
             InitializeComponent();
+            ShowDefectGraph();
         }
 
         private void formChart_Load(object sender, EventArgs e)
@@ -146,7 +149,94 @@ namespace SuJinChemicalMES
                    label8.Text = result8.Score.ToString();
                    label7.Text = result7.Score.ToString();*/
         }
+        private void ShowDefectGraph()   //결함 원인 
+        {
+            string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
+            List<string> highDefectCompanies = new List<string>();
+            Chart chart = new Chart();
+            chart.ChartAreas.Add("ChartArea");
+            chart.Dock = DockStyle.Fill;
 
+            Series DefectSeries = chart.Series.Add("DefectRate");
+            DefectSeries.ChartType = SeriesChartType.Column;
+            chart.Series["DefectRate"]["PixelPointWidth"] = "30";
+            chart.ChartAreas["ChartArea"].AxisY.LabelStyle.Format = "{0}%";
+
+            chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = @"
+                SELECT supplier, 
+                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' AND Test_Results = 'F' THEN Quantity ELSE 0 END), 0) AS ShipmentDefectQuantity,
+                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' THEN Quantity ELSE 0 END), 0) AS TotalShipmentQuantity
+                FROM accumulated_data
+                GROUP BY supplier
+                HAVING TotalShipmentQuantity > 0";
+
+
+                    connection.Open();
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string supplier = reader.GetString("supplier");
+                                int shipmentDefectQuantity = reader.GetInt32("ShipmentDefectQuantity");
+                                int totalShipmentQuantity = reader.GetInt32("TotalShipmentQuantity");
+
+                                double defectRate = totalShipmentQuantity != 0 ? ((double)shipmentDefectQuantity / totalShipmentQuantity) * 100 : 0;
+
+                                chart.Series["DefectRate"].Points.AddXY(supplier, defectRate);
+
+                                if (defectRate > 1.5)
+                                {
+                                    highDefectCompanies.Add(supplier);
+                                    chart.Series["DefectRate"].Points.Last().Color = Color.Red;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            chart.ChartAreas["ChartArea"].AxisY.Interval = 1;
+            chart.ChartAreas["ChartArea"].AxisY.Maximum = 3;
+            chart.Titles.Add("불량률").Font = new Font("Arial", 16, FontStyle.Bold);
+            TextBox textAlarm = new TextBox();
+            textAlarm.Multiline = true;
+            textAlarm.Enabled = false;
+            textAlarm.ReadOnly = true;
+            textAlarm.Dock = DockStyle.Fill;
+            textAlarm.Font = new Font("Arial", 12, FontStyle.Bold);
+            textAlarm.ForeColor = Color.Black;
+            textAlarm.BackColor = Color.White;
+            textAlarm.TabStop = false;
+            // 불량률 1.5% 추가
+            if (highDefectCompanies.Count == 0)
+            {
+                textAlarm.Text = "불량률 문제 없음";
+            }
+
+            else
+            {
+                foreach (string company in highDefectCompanies)
+                {
+                    textAlarm.Text += $"{company}{Environment.NewLine}불량률이 1.5% 초과{Environment.NewLine}{Environment.NewLine}";
+
+                }
+            }
+            DefectChart.Controls.Add(chart);
+            AlarmPn.Controls.Add(textAlarm);
+        }
     }
 }
 
