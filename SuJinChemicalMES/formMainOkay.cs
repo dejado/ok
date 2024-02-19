@@ -43,6 +43,9 @@ namespace SuJinChemicalMES
             CalendarPick_gv.Dock = DockStyle.Fill;
             CalendarPick_gv.Parent = CalendarPick_tlpn;
 
+            CalendarPick_gv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            CalendarPick_gv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
             CalendarPick_gv.AutoGenerateColumns = true;
         }
 
@@ -61,7 +64,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT * FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
+                string Query = "SELECT order_number, supplier, product_code, lot_no, due_date_request, registrant, company, production_plan_quantity, work_order_quantity, beth_batch, scheduled_production_date FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
