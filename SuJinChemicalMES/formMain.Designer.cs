@@ -30,24 +30,13 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
-            this.MainMoni_lb = new System.Windows.Forms.Label();
-            this.Calendar_pn = new System.Windows.Forms.Panel();
-            this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
-            this.Calendar_lb = new System.Windows.Forms.Label();
-            this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
-            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Achieve_lb = new System.Windows.Forms.Label();
-            this.CalendarControl_pn = new System.Windows.Forms.Panel();
-            this.CalendarPick_bt = new System.Windows.Forms.Button();
-            this.Calendar_cal = new Calendar.NET.Calendar();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,11 +56,18 @@ namespace SuJinChemicalMES
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.MainMoni_lb = new System.Windows.Forms.Label();
+            this.Calendar_pn = new System.Windows.Forms.Panel();
+            this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
+            this.Calendar_lb = new System.Windows.Forms.Label();
+            this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
+            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Achieve_lb = new System.Windows.Forms.Label();
+            this.CalendarControl_pn = new System.Windows.Forms.Panel();
+            this.CalendarPick_bt = new System.Windows.Forms.Button();
+            this.Calendar_cal = new Calendar.NET.Calendar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Main_tlpn.SuspendLayout();
-            this.Calendar_pn.SuspendLayout();
-            this.Mainright_tlpn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).BeginInit();
-            this.CalendarControl_pn.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -86,6 +82,10 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.Calendar_pn.SuspendLayout();
+            this.Mainright_tlpn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).BeginInit();
+            this.CalendarControl_pn.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_tlpn
@@ -107,153 +107,6 @@ namespace SuJinChemicalMES
             this.Main_tlpn.TabIndex = 1;
             this.Main_tlpn.Paint += new System.Windows.Forms.PaintEventHandler(this.Main_tlpn_Paint);
             // 
-            // MainMoni_lb
-            // 
-            this.MainMoni_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.MainMoni_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainMoni_lb.Location = new System.Drawing.Point(3, 0);
-            this.MainMoni_lb.Name = "MainMoni_lb";
-            this.MainMoni_lb.Size = new System.Drawing.Size(505, 33);
-            this.MainMoni_lb.TabIndex = 4;
-            this.MainMoni_lb.Text = "생산 현황";
-            // 
-            // Calendar_pn
-            // 
-            this.Calendar_pn.Controls.Add(this.Calendar_dtp);
-            this.Calendar_pn.Controls.Add(this.Calendar_lb);
-            this.Calendar_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Calendar_pn.Location = new System.Drawing.Point(514, 3);
-            this.Calendar_pn.Name = "Calendar_pn";
-            this.Calendar_pn.Size = new System.Drawing.Size(746, 27);
-            this.Calendar_pn.TabIndex = 6;
-            // 
-            // Calendar_dtp
-            // 
-            this.Calendar_dtp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Calendar_dtp.Location = new System.Drawing.Point(511, 0);
-            this.Calendar_dtp.Name = "Calendar_dtp";
-            this.Calendar_dtp.Size = new System.Drawing.Size(235, 27);
-            this.Calendar_dtp.TabIndex = 8;
-            this.Calendar_dtp.ValueChanged += new System.EventHandler(this.Calendar_dtp_ValueChanged);
-            // 
-            // Calendar_lb
-            // 
-            this.Calendar_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Calendar_lb.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendar_lb.Location = new System.Drawing.Point(0, 0);
-            this.Calendar_lb.Name = "Calendar_lb";
-            this.Calendar_lb.Size = new System.Drawing.Size(565, 27);
-            this.Calendar_lb.TabIndex = 7;
-            this.Calendar_lb.Text = "일정표";
-            // 
-            // Mainright_tlpn
-            // 
-            this.Mainright_tlpn.BackColor = System.Drawing.Color.White;
-            this.Mainright_tlpn.ColumnCount = 1;
-            this.Mainright_tlpn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83766F));
-            this.Mainright_tlpn.Controls.Add(this.Achieve_ct, 0, 2);
-            this.Mainright_tlpn.Controls.Add(this.Achieve_lb, 0, 1);
-            this.Mainright_tlpn.Controls.Add(this.CalendarControl_pn, 0, 0);
-            this.Mainright_tlpn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Mainright_tlpn.Location = new System.Drawing.Point(514, 36);
-            this.Mainright_tlpn.Name = "Mainright_tlpn";
-            this.Mainright_tlpn.RowCount = 3;
-            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.85343F));
-            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.146572F));
-            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.Mainright_tlpn.Size = new System.Drawing.Size(746, 719);
-            this.Mainright_tlpn.TabIndex = 0;
-            // 
-            // Achieve_ct
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea2);
-            this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend2);
-            this.Achieve_ct.Location = new System.Drawing.Point(3, 458);
-            this.Achieve_ct.Name = "Achieve_ct";
-            this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "PlanSum_s";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "CompleteSum_s";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "CompleteRate_s";
-            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series4);
-            this.Achieve_ct.Series.Add(series5);
-            this.Achieve_ct.Series.Add(series6);
-            this.Achieve_ct.Size = new System.Drawing.Size(740, 258);
-            this.Achieve_ct.TabIndex = 7;
-            this.Achieve_ct.Text = "Achieve_ct";
-            // 
-            // Achieve_lb
-            // 
-            this.Achieve_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Achieve_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Achieve_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Achieve_lb.Location = new System.Drawing.Point(3, 427);
-            this.Achieve_lb.Name = "Achieve_lb";
-            this.Achieve_lb.Size = new System.Drawing.Size(740, 28);
-            this.Achieve_lb.TabIndex = 5;
-            this.Achieve_lb.Text = "일일 달성률";
-            // 
-            // CalendarControl_pn
-            // 
-            this.CalendarControl_pn.Controls.Add(this.CalendarPick_bt);
-            this.CalendarControl_pn.Controls.Add(this.Calendar_cal);
-            this.CalendarControl_pn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CalendarControl_pn.Location = new System.Drawing.Point(3, 3);
-            this.CalendarControl_pn.Name = "CalendarControl_pn";
-            this.CalendarControl_pn.Size = new System.Drawing.Size(740, 421);
-            this.CalendarControl_pn.TabIndex = 6;
-            // 
-            // CalendarPick_bt
-            // 
-            this.CalendarPick_bt.BackColor = System.Drawing.Color.LightCyan;
-            this.CalendarPick_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.CalendarPick_bt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalendarPick_bt.Location = new System.Drawing.Point(389, 3);
-            this.CalendarPick_bt.Name = "CalendarPick_bt";
-            this.CalendarPick_bt.Size = new System.Drawing.Size(109, 36);
-            this.CalendarPick_bt.TabIndex = 4;
-            this.CalendarPick_bt.Text = "생산계획";
-            this.CalendarPick_bt.UseVisualStyleBackColor = false;
-            this.CalendarPick_bt.Click += new System.EventHandler(this.CalendarPick_bt_Click);
-            // 
-            // Calendar_cal
-            // 
-            this.Calendar_cal.AllowEditingEvents = true;
-            this.Calendar_cal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Calendar_cal.CalendarDate = new System.DateTime(2024, 2, 14, 23, 10, 54, 584);
-            this.Calendar_cal.CalendarView = Calendar.NET.CalendarViews.Month;
-            this.Calendar_cal.DateHeaderFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendar_cal.DayOfWeekFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendar_cal.DaysFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendar_cal.DayViewTimeFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Calendar_cal.DimDisabledEvents = true;
-            this.Calendar_cal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Calendar_cal.HighlightCurrentDay = true;
-            this.Calendar_cal.LoadPresetHolidays = true;
-            this.Calendar_cal.Location = new System.Drawing.Point(0, 0);
-            this.Calendar_cal.Name = "Calendar_cal";
-            this.Calendar_cal.ShowArrowControls = true;
-            this.Calendar_cal.ShowDashedBorderOnDisabledEvents = true;
-            this.Calendar_cal.ShowDateInHeader = true;
-            this.Calendar_cal.ShowDisabledEvents = false;
-            this.Calendar_cal.ShowEventTooltips = true;
-            this.Calendar_cal.ShowTodayButton = true;
-            this.Calendar_cal.Size = new System.Drawing.Size(740, 421);
-            this.Calendar_cal.TabIndex = 3;
-            this.Calendar_cal.TodayFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.flowLayoutPanel1);
@@ -261,10 +114,6 @@ namespace SuJinChemicalMES
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(505, 719);
             this.panel1.TabIndex = 24;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // flowLayoutPanel1
             // 
@@ -467,6 +316,157 @@ namespace SuJinChemicalMES
             this.pictureBox6.TabIndex = 18;
             this.pictureBox6.TabStop = false;
             // 
+            // MainMoni_lb
+            // 
+            this.MainMoni_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.MainMoni_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMoni_lb.Location = new System.Drawing.Point(3, 0);
+            this.MainMoni_lb.Name = "MainMoni_lb";
+            this.MainMoni_lb.Size = new System.Drawing.Size(505, 33);
+            this.MainMoni_lb.TabIndex = 4;
+            this.MainMoni_lb.Text = "생산 현황";
+            // 
+            // Calendar_pn
+            // 
+            this.Calendar_pn.Controls.Add(this.Calendar_dtp);
+            this.Calendar_pn.Controls.Add(this.Calendar_lb);
+            this.Calendar_pn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Calendar_pn.Location = new System.Drawing.Point(514, 3);
+            this.Calendar_pn.Name = "Calendar_pn";
+            this.Calendar_pn.Size = new System.Drawing.Size(746, 27);
+            this.Calendar_pn.TabIndex = 6;
+            // 
+            // Calendar_dtp
+            // 
+            this.Calendar_dtp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Calendar_dtp.Location = new System.Drawing.Point(511, 0);
+            this.Calendar_dtp.Name = "Calendar_dtp";
+            this.Calendar_dtp.Size = new System.Drawing.Size(235, 27);
+            this.Calendar_dtp.TabIndex = 8;
+            this.Calendar_dtp.ValueChanged += new System.EventHandler(this.Calendar_dtp_ValueChanged);
+            // 
+            // Calendar_lb
+            // 
+            this.Calendar_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Calendar_lb.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_lb.Location = new System.Drawing.Point(0, 0);
+            this.Calendar_lb.Name = "Calendar_lb";
+            this.Calendar_lb.Size = new System.Drawing.Size(565, 27);
+            this.Calendar_lb.TabIndex = 7;
+            this.Calendar_lb.Text = "일정표";
+            // 
+            // Mainright_tlpn
+            // 
+            this.Mainright_tlpn.BackColor = System.Drawing.Color.White;
+            this.Mainright_tlpn.ColumnCount = 1;
+            this.Mainright_tlpn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83766F));
+            this.Mainright_tlpn.Controls.Add(this.Achieve_ct, 0, 2);
+            this.Mainright_tlpn.Controls.Add(this.Achieve_lb, 0, 1);
+            this.Mainright_tlpn.Controls.Add(this.CalendarControl_pn, 0, 0);
+            this.Mainright_tlpn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Mainright_tlpn.Location = new System.Drawing.Point(514, 36);
+            this.Mainright_tlpn.Name = "Mainright_tlpn";
+            this.Mainright_tlpn.RowCount = 3;
+            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93.85343F));
+            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.146572F));
+            this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 263F));
+            this.Mainright_tlpn.Size = new System.Drawing.Size(746, 719);
+            this.Mainright_tlpn.TabIndex = 0;
+            // 
+            // Achieve_ct
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea1);
+            this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend1);
+            this.Achieve_ct.Location = new System.Drawing.Point(3, 458);
+            this.Achieve_ct.Name = "Achieve_ct";
+            this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "PlanSum_s";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "CompleteSum_s";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "CompleteRate_s";
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series1);
+            this.Achieve_ct.Series.Add(series2);
+            this.Achieve_ct.Series.Add(series3);
+            this.Achieve_ct.Size = new System.Drawing.Size(740, 258);
+            this.Achieve_ct.TabIndex = 7;
+            this.Achieve_ct.Text = "Achieve_ct";
+            // 
+            // Achieve_lb
+            // 
+            this.Achieve_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Achieve_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Achieve_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achieve_lb.Location = new System.Drawing.Point(3, 427);
+            this.Achieve_lb.Name = "Achieve_lb";
+            this.Achieve_lb.Size = new System.Drawing.Size(740, 28);
+            this.Achieve_lb.TabIndex = 5;
+            this.Achieve_lb.Text = "일일 달성률";
+            // 
+            // CalendarControl_pn
+            // 
+            this.CalendarControl_pn.Controls.Add(this.CalendarPick_bt);
+            this.CalendarControl_pn.Controls.Add(this.Calendar_cal);
+            this.CalendarControl_pn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CalendarControl_pn.Location = new System.Drawing.Point(3, 3);
+            this.CalendarControl_pn.Name = "CalendarControl_pn";
+            this.CalendarControl_pn.Size = new System.Drawing.Size(740, 421);
+            this.CalendarControl_pn.TabIndex = 6;
+            // 
+            // CalendarPick_bt
+            // 
+            this.CalendarPick_bt.BackColor = System.Drawing.Color.LightCyan;
+            this.CalendarPick_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.CalendarPick_bt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalendarPick_bt.Location = new System.Drawing.Point(389, 3);
+            this.CalendarPick_bt.Name = "CalendarPick_bt";
+            this.CalendarPick_bt.Size = new System.Drawing.Size(109, 36);
+            this.CalendarPick_bt.TabIndex = 4;
+            this.CalendarPick_bt.Text = "생산계획";
+            this.CalendarPick_bt.UseVisualStyleBackColor = false;
+            this.CalendarPick_bt.Click += new System.EventHandler(this.CalendarPick_bt_Click);
+            // 
+            // Calendar_cal
+            // 
+            this.Calendar_cal.AllowEditingEvents = true;
+            this.Calendar_cal.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Calendar_cal.CalendarDate = new System.DateTime(2024, 2, 14, 23, 10, 54, 584);
+            this.Calendar_cal.CalendarView = Calendar.NET.CalendarViews.Month;
+            this.Calendar_cal.DateHeaderFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_cal.DayOfWeekFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_cal.DaysFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_cal.DayViewTimeFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_cal.DimDisabledEvents = true;
+            this.Calendar_cal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Calendar_cal.HighlightCurrentDay = true;
+            this.Calendar_cal.LoadPresetHolidays = true;
+            this.Calendar_cal.Location = new System.Drawing.Point(0, 0);
+            this.Calendar_cal.Name = "Calendar_cal";
+            this.Calendar_cal.ShowArrowControls = true;
+            this.Calendar_cal.ShowDashedBorderOnDisabledEvents = true;
+            this.Calendar_cal.ShowDateInHeader = true;
+            this.Calendar_cal.ShowDisabledEvents = false;
+            this.Calendar_cal.ShowEventTooltips = true;
+            this.Calendar_cal.ShowTodayButton = true;
+            this.Calendar_cal.Size = new System.Drawing.Size(740, 421);
+            this.Calendar_cal.TabIndex = 3;
+            this.Calendar_cal.TodayFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -481,10 +481,6 @@ namespace SuJinChemicalMES
             this.Text = "formMain";
             this.Load += new System.EventHandler(this.formMain_Load);
             this.Main_tlpn.ResumeLayout(false);
-            this.Calendar_pn.ResumeLayout(false);
-            this.Mainright_tlpn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).EndInit();
-            this.CalendarControl_pn.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
@@ -499,6 +495,10 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.Calendar_pn.ResumeLayout(false);
+            this.Mainright_tlpn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).EndInit();
+            this.CalendarControl_pn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
