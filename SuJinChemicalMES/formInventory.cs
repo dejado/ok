@@ -28,7 +28,7 @@ namespace SuJinChemicalMES
             dataGridView2.Rows.Clear();
 
             // 첫 번째 MySQL 연결
-            string connectionIncoming = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+            string connectionIncoming = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection1 = new MySqlConnection(connectionIncoming))
             {
                 connection1.Open();
@@ -155,7 +155,7 @@ namespace SuJinChemicalMES
         // InsertData 함수 정의
         private void InsertData(string bath, string medicine, string num, string acidity, string progress, string registrant, string date)
         {
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
