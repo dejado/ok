@@ -19,6 +19,7 @@ namespace SuJinChemicalMES
             InitializeComponent();
             ShowDefectGraph();
             ShowDefectText();
+            ShowLoadingRateGraph();
         }
 
         private void formChart_Load(object sender, EventArgs e)
@@ -150,7 +151,131 @@ namespace SuJinChemicalMES
                    label8.Text = result8.Score.ToString();
                    label7.Text = result7.Score.ToString();*/
         }
+        private void ShowLoadingRateGraph() //적재, incoming테이블과 shipment 테이블의 location 데이터 숫자 합산하면 됨.
+        {
+            string connectionString2 = "Server = 10.10.32.82; Database=material;Uid=team;Pwd=team1234;";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                {
+                    connection.Open();
 
+                    int 양품_총용량 = 400000;
+                    int 부자재_총용량 = 300000;
+                    int 반품_총용량 = 3000;
+                    string query = @"
+                  SELECT
+                        SUM(CASE WHEN location = '양품IA' THEN quantity ELSE 0 END) AS 양품IA_총수량,
+                        SUM(CASE WHEN location = '부자재IB' THEN quantity ELSE 0 END) AS 부자재IB_총수량,
+                        SUM(CASE WHEN location = '반품' THEN quantity ELSE 0 END) AS 반품_총수량
+                    FROM
+                        incoming;";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int 양품IA_총수량 = Convert.ToInt32(reader["양품IA_총수량"]);
+                                int 부자재IB_총수량 = Convert.ToInt32(reader["부자재IB_총수량"]);
+                                int 반품_총수량 = Convert.ToInt32(reader["반품_총수량"]);
+                                double 양품_적재율 = Convert.ToDouble(reader["양품IA_총수량"]) / 양품_총용량;
+                                double 부자재_적재율 = Convert.ToDouble(reader["부자재IB_총수량"]) / 부자재_총용량;
+                                double 반품_적재율 = Convert.ToDouble(reader["반품_총수량"]) / 반품_총용량;
+                                WarehouseChart1.Controls.Add(CreateDoughnutChart1("양품", 양품_적재율));
+                                WarehouseChart2.Controls.Add(CreateDoughnutChart2("부자재", 부자재_적재율));
+                                WarehouseChart3.Controls.Add(CreateDoughnutChart3("반품", 반품_적재율));
+                            }
+                        }
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private Chart CreateDoughnutChart1(string title, double loadingRate)
+        {
+            Chart chart = new Chart();
+
+            chart.Dock = DockStyle.Fill;
+            chart.ChartAreas.Add("ChartArea");
+            Series warehouseSeries = chart.Series.Add("Series");
+            warehouseSeries.ChartType = SeriesChartType.Doughnut;
+
+            double loadedPercentage = Math.Min(loadingRate * 100, 100); // 적재율이 100%를 초과하지 않도록 제한
+
+            warehouseSeries.Points.Add(loadedPercentage);
+            warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
+
+
+            warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
+
+            chart.Legends.Add(new Legend("적재율"));
+            warehouseSeries.Points[0].LegendText = "적재율";
+            chart.Legends["적재율"].Docking = Docking.Bottom;
+            warehouseSeries.Points[1].LegendText = "여유공간";
+            //  warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+
+            Title chartTitle = new Title();
+            chartTitle.Text = title;
+            chart.Titles.Add(chartTitle);
+            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+            warehouseSeries.Points[0].Color = Color.Red;
+            return chart;
+
+        }
+        private Chart CreateDoughnutChart2(string title, double loadingRate)
+        {
+            Chart chart = new Chart();
+
+            chart.Dock = DockStyle.Fill;
+            chart.ChartAreas.Add("ChartArea");
+            Series warehouseSeries = chart.Series.Add("Series");
+            warehouseSeries.ChartType = SeriesChartType.Doughnut;
+
+            double loadedPercentage = Math.Min(loadingRate * 100, 100);
+
+            warehouseSeries.Points.Add(loadedPercentage);
+            warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
+
+            warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
+            warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+
+            Title chartTitle = new Title();
+            chartTitle.Text = title;
+            chart.Titles.Add(chartTitle);
+            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+
+            return chart;
+        }
+        private Chart CreateDoughnutChart3(string title, double loadingRate)
+        {
+            Chart chart = new Chart();
+
+            chart.Dock = DockStyle.Fill;
+            chart.ChartAreas.Add("ChartArea");
+            Series warehouseSeries = chart.Series.Add("Series");
+            warehouseSeries.ChartType = SeriesChartType.Doughnut;
+
+            double loadedPercentage = Math.Min(loadingRate * 100, 100);
+            warehouseSeries.Points.Add(loadedPercentage);
+            warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
+
+            warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
+            warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+
+            Title chartTitle = new Title();
+            chartTitle.Text = title;
+            chart.Titles.Add(chartTitle);
+            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+            return chart;
+        }
         private void ShowDefectText()
         {
             string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
