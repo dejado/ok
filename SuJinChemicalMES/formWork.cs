@@ -21,14 +21,13 @@ namespace SuJinChemicalMES
         {
             InitializeComponent();
 
-            //LoadImageFromDatabase();
+            LoadImageFromDatabase();
             InitializeTimer();
         }
 
         private void formWork_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
-
 
 
         }
@@ -40,77 +39,45 @@ namespace SuJinChemicalMES
             timer.Tick += timer1_Tick;
             timer.Start();
         }
+
         public void LoadImageFromDatabase()
         {
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+        {pictureBox5, pictureBox4, pictureBox3, pictureBox2, pictureBox1, pictureBox6 };
+
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
 
-                    // MySQL 쿼리 작성
-                    string query = "SELECT * FROM bath";
+                    string query = "SELECT bath_num, medicine_type FROM bath";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        using (MySqlDataReader reader = command.ExecuteReader())
+                        while (reader.Read())
                         {
-                            while (reader.Read())
+                            string bethNumber = reader["bath_num"].ToString();
+                            string chemicalType = reader["medicine_type"].ToString();
+
+                            int secondCharacterAsInt = 0;
+
+                            if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
                             {
-                                string bethNumber = reader["bath_num"].ToString();
-                                string chemicalType = reader["medicine_type"].ToString();
-                                string resourceName = "";
+                                char secondCharacter = bethNumber[2];
 
-                                // 베스 번호에 따라 리소스 이름 선택
-                                if (bethNumber == "베스1호")
+                                if (int.TryParse(secondCharacter.ToString(), out int result))
                                 {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tankak4";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox5.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox5.Image = Properties.Resources.tankak4;
-
+                                    secondCharacterAsInt = result;
                                 }
-                                if (bethNumber == "베스2호")
+                                else
                                 {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tamk02";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox4.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox4.Image = Properties.Resources.tankam4;
-                                }
-                                if (bethNumber == "베스3호")
-                                {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tamk02";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox4.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox3.Image = Properties.Resources.tankbs4;
-                                }
-                                if (bethNumber == "베스4호")
-                                {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tamk02";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox4.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox2.Image = Properties.Resources.tankgs4;
-                                }
-                                if (bethNumber == "베스5호")
-                                {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tamk02";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox4.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox1.Image = Properties.Resources.tankhs4;
-                                }
-                                if (bethNumber == "베스6호")
-                                {
-                                    resourceName = "SuJinChemicalMES.Properties.Resources.tamk02";
-                                    // 리소스 파일에서 이미지 가져오기
-                                    //pictureBox4.Image = (Image)Properties.Resources.ResourceManager.GetObject(resourceName);
-                                    pictureBox6.Image = Properties.Resources.tankjs4;
-                                }
-
-                                if (pictureBox5.Image == null)
-                                {
-                                    MessageBox.Show($"베스 번호 '{bethNumber}'에 해당하는 이미지 파일이 로드되지 않았습니다.");
+                                    MessageBox.Show("변환 실패");
                                 }
                             }
+
+                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
                         }
                     }
                 }
@@ -120,6 +87,41 @@ namespace SuJinChemicalMES
                 MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
             }
         }
+        private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
+        {
+            switch (chemicalType)
+            {
+                case "인산(H3PO4)":
+                    pictureBox.Image = Properties.Resources.tankak4;
+                    break;
+                case "암모니아(NH4OH)":
+                    pictureBox.Image = Properties.Resources.tankam4;
+                    break;
+                case "황산(H2SO4)":
+                    pictureBox.Image = Properties.Resources.tankbs4;
+                    break;
+                case "과산화수소(H2O2)":
+                    pictureBox.Image = Properties.Resources.tankgs4;
+                    break;
+                case "불산(HF)":
+                    pictureBox.Image = Properties.Resources.tankhs4;
+                    break;
+                case "질산(NHO3)":
+                    pictureBox.Image = Properties.Resources.tankis4;
+                    break;
+                case "알코올(Iso Propyl Alchol)":
+                case "알카리":
+                    pictureBox.Image = Properties.Resources.tankjs4;
+                    break;
+                case "염산(HCl)":
+                case "염산":
+                    pictureBox.Image = Properties.Resources.tankys4;
+                    break;
+                    // 다른 경우에 대한 처리도 추가 가능
+            }
+        }
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             LoadImageFromDatabase();
