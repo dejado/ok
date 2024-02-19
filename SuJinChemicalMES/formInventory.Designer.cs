@@ -418,6 +418,7 @@ namespace SuJinChemicalMES
             this.Medicine_com.Name = "Medicine_com";
             this.Medicine_com.Size = new System.Drawing.Size(232, 23);
             this.Medicine_com.TabIndex = 50;
+            this.Medicine_com.SelectedIndexChanged += new System.EventHandler(this.Medicine_com_SelectedIndexChanged);
             // 
             // BathNum_com
             // 

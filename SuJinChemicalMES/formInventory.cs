@@ -41,7 +41,7 @@ namespace SuJinChemicalMES
                 while (reader.Read())
                 {
                     dataGridView1.Rows.Add(reader["bath_num"], reader["medicine_type"], reader["medicine_num"],
-                         reader["acidity"], reader["bath_progress"], reader["registrant"], reader["date"]);
+                         reader["acidity"], reader["bath_progress"], reader["registration"], reader["date"]);
                 }
             }
 
@@ -160,7 +160,7 @@ namespace SuJinChemicalMES
             {
                 connection.Open();
                 // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
-                string query = $"INSERT INTO bath(bath_num,medicine_type,medicine_num,acidity,bath_progress,registrant,date) " +
+                string query = $"INSERT INTO bath(bath_num,medicine_type,medicine_num,acidity,bath_progress,registration,date) " +
                     $"VALUES ('{bath}', '{medicine}','{num}', '{acidity}', '{progress}', '{registrant}', '{date}')";
 
                 // 쿼리 실행
@@ -274,6 +274,25 @@ namespace SuJinChemicalMES
         private void Re_bt_Click(object sender, EventArgs e)
         {
             ShowGrid();
+        }
+
+        private void Medicine_com_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // 콤보박스의 선택된 항목과 다른 텍스트 박스의 텍스트를 비교
+            if (Medicine_com.SelectedItem != null)
+            {
+                string comboBoxValue = Medicine_com.SelectedItem.ToString();
+                string textBoxValue = ProductName_lb.Text;
+
+                if (comboBoxValue == textBoxValue)
+                {
+                    medicienText = Medicine_com.Text;
+                }
+                else
+                {
+                    MessageBox.Show("적합한 약품이 아닙니다.");
+                }
+            }
         }
     }
 }
