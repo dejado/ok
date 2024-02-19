@@ -118,10 +118,64 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tamk02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\tamk02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tamk01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\tamk01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tamk02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\tamk02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tamk011" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tamk01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tamk021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tamk02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankak4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankak4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankam4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankam4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankbs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankbs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankgs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankgs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankhs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankhs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankis4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankis4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankjs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankjs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tankys4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tankys4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zak4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zak4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zam4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zam4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zbs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zbs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zgs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zhs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zhs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zis4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zis4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zjs4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zjs4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zys4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zys4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

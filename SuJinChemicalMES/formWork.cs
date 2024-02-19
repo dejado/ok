@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SuJinChemicalMES
 {
@@ -21,7 +22,7 @@ namespace SuJinChemicalMES
             InitializeComponent();
 
             //LoadImageFromDatabase();
-            //InitializeTimer();
+            InitializeTimer();
         }
 
         private void formWork_Load(object sender, EventArgs e)
@@ -31,7 +32,7 @@ namespace SuJinChemicalMES
 
 
         }
-        /*
+        
         private void InitializeTimer()
         {
             timer = new Timer();
@@ -48,7 +49,7 @@ namespace SuJinChemicalMES
                     connection.Open();
 
                     // MySQL 쿼리 작성
-                    string query = "SELECT beth_number, chemical_type FROM beth_operation_status";
+                    string query = "SELECT * FROM bath";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -56,8 +57,8 @@ namespace SuJinChemicalMES
                         {
                             while (reader.Read())
                             {
-                                string bethNumber = reader["beth_number"].ToString();
-                                string chemicalType = reader["chemical_type"].ToString();
+                                string bethNumber = reader["bath_num"].ToString();
+                                string chemicalType = reader["medicine_type"].ToString();
                                 string resourceName = "";
 
                                 // 베스 번호에 따라 리소스 이름 선택
@@ -119,6 +120,10 @@ namespace SuJinChemicalMES
                 MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
             }
         }
-        */
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LoadImageFromDatabase();
+        }
+
     }
 }

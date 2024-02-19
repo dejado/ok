@@ -240,32 +240,34 @@ namespace SuJinChemicalMES
             var result4 = MLModel2.Predict(sampleData9);
             var result5 = MLModel2.Predict(sampleData8);
             var result6 = MLModel2.Predict(sampleData7);
+            MessageBox.Show(result1.Score.ToString());
 
-            BathNum_com.Items.Clear();
-            if (result1.Score.ToString().Equals(0))
+            if (result1.Score == 1)
             {
-                BathNum_com.Items.Add("베스1호");
+                BathNum_com.Items.Remove("베스1호");
             }
-            if (result2.Score.ToString().Equals(0))
+            if (result2.Score == 1)
             {
-                BathNum_com.Items.Add("베스2호");
+                BathNum_com.Items.Remove("베스2호");
             }
-            if (result3.Score.ToString().Equals(0))
+            if (result3.Score == 1)
             {
-                BathNum_com.Items.Add("베스3호");
+                BathNum_com.Items.Remove("베스3호");
             }
-            if (result4.Score.ToString().Equals(0))
+            if (result4.Score == 1)
             {
-                BathNum_com.Items.Add("베스4호");
+                BathNum_com.Items.Remove("베스4호");
             }
-            if (result5.Score.ToString().Equals(0))
+            if (result5.Score == 1)
             {
-                BathNum_com.Items.Add("베스5호");
+                BathNum_com.Items.Remove("베스5호");
             }
-            if (result6.Score.ToString().Equals(0))
+            if (result6.Score == 1)
             {
-                BathNum_com.Items.Add("베스6호");
+                BathNum_com.Items.Remove("베스6호");
             }
+
+
 
         }
 
