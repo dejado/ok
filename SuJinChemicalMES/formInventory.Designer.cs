@@ -67,6 +67,7 @@ namespace SuJinChemicalMES
             this.label8 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.Re_bt = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
@@ -153,12 +154,13 @@ namespace SuJinChemicalMES
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.Re_bt);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.panel1.Location = new System.Drawing.Point(30, 51);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(606, 30);
+            this.panel1.Size = new System.Drawing.Size(603, 30);
             this.panel1.TabIndex = 16;
             // 
             // label1
@@ -527,6 +529,19 @@ namespace SuJinChemicalMES
             this.panel6.Size = new System.Drawing.Size(585, 30);
             this.panel6.TabIndex = 20;
             // 
+            // Re_bt
+            // 
+            this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Re_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Re_bt.Location = new System.Drawing.Point(459, 0);
+            this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.Re_bt.Name = "Re_bt";
+            this.Re_bt.Size = new System.Drawing.Size(145, 28);
+            this.Re_bt.TabIndex = 26;
+            this.Re_bt.Text = "새로고침";
+            this.Re_bt.UseVisualStyleBackColor = true;
+            this.Re_bt.Click += new System.EventHandler(this.Re_bt_Click);
+            // 
             // formInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -599,5 +614,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Button Re_bt;
     }
 }

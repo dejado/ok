@@ -268,5 +268,10 @@ namespace SuJinChemicalMES
             }
 
         }
+
+        private void Re_bt_Click(object sender, EventArgs e)
+        {
+            ShowGrid();
+        }
     }
 }
