@@ -665,7 +665,6 @@ namespace SuJinChemicalMES
             this.label21.Size = new System.Drawing.Size(219, 28);
             this.label21.TabIndex = 38;
             this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label21.Click += new System.EventHandler(this.label21_Click);
             // 
             // formPlan
             // 

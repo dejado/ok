@@ -389,15 +389,6 @@ namespace SuJinChemicalMES
             */
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label21_Click(object sender, EventArgs e)
-        {
-
-        }
     }
     public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수
     {
