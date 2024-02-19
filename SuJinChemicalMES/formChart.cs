@@ -18,6 +18,7 @@ namespace SuJinChemicalMES
         {
             InitializeComponent();
             ShowDefectGraph();
+            ShowDefectText();
         }
 
         private void formChart_Load(object sender, EventArgs e)
@@ -149,6 +150,68 @@ namespace SuJinChemicalMES
                    label8.Text = result8.Score.ToString();
                    label7.Text = result7.Score.ToString();*/
         }
+
+        private void ShowDefectText()
+        {
+            string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
+            Dictionary<string, int> defectCounts = new Dictionary<string, int>();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                MySqlCommand command = new MySqlCommand();
+                command.Connection = connection;
+                command.CommandText = "SELECT cause_of_defect FROM accumulated_data WHERE cause_of_defect IS NOT NULL AND cause_of_defect <> ''";
+
+                try
+                {
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string cause = reader["cause_of_defect"].ToString();
+                        if (!defectCounts.ContainsKey(cause))
+                        {
+                            defectCounts[cause] = 1; // 새로운 불량 원인이면 1로 초기화
+                        }
+                        else
+                        {
+                            defectCounts[cause]++; // 기존에 있는 불량 원인이면 카운트 증가
+                        }
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+            // 불량 원인을 발생 빈도순으로 정렬
+            var sortedDefects = defectCounts.OrderByDescending(pair => pair.Value);
+            TextBox textBoxDefect = new TextBox();
+            textBoxDefect.Multiline = true;
+            textBoxDefect.ReadOnly = true;
+            textBoxDefect.ScrollBars = ScrollBars.Vertical;
+            textBoxDefect.Dock = DockStyle.Fill;
+
+            textBoxDefect.Location = new Point(10, 10);
+            textBoxDefect.Enabled = false;
+            textBoxDefect.Font = new Font("Arial", 15, FontStyle.Bold);
+            textBoxDefect.ForeColor = Color.Black;
+            textBoxDefect.BackColor = Color.White;
+
+            int rank = 1;
+            foreach (var defect in sortedDefects)
+            {
+                string causeWithRank = $"{rank}. {defect.Key} ({defect.Value}건)";
+                textBoxDefect.Text += causeWithRank + Environment.NewLine;
+                rank++;
+            }
+
+            DefectPn.Controls.Add(textBoxDefect);
+            this.ActiveControl = null;
+        }
+
         private void ShowDefectGraph()   //결함 원인 
         {
             string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
