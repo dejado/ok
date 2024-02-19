@@ -175,7 +175,7 @@ namespace SuJinChemicalMES
             MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = accumulated_data; User id = team; Password = team1234");
             //SQL 서버와 연결, database=스키마 이름
             con.Open();
-            //SQL 서버 연결
+            //SQL 서버 연결.
 
             DateTime base_day = DateTime.Now;
             string baseday_st = base_day.ToString("yyyy-MM-dd");
