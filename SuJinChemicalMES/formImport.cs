@@ -246,7 +246,6 @@ namespace SuJinChemicalMES
 
                 }
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
@@ -285,7 +284,6 @@ namespace SuJinChemicalMES
                 }
             }
         }
-
 
         private void LoadCompanies()
         {
