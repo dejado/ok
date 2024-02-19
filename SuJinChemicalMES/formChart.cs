@@ -20,6 +20,7 @@ namespace SuJinChemicalMES
             ShowDefectGraph();
             ShowDefectText();
             ShowLoadingRateGraph();
+            ShowProgressGraph();
         }
 
         private void formChart_Load(object sender, EventArgs e)
@@ -151,6 +152,166 @@ namespace SuJinChemicalMES
                    label8.Text = result8.Score.ToString();
                    label7.Text = result7.Score.ToString();*/
         }
+        private void ShowProgressGraph()
+        {
+            string connectionString1 = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234";
+            var 부품수량 = Get부품수량(connectionString1);
+            Dictionary<string, int> 출고부품수량 = 부품수량.ToDictionary(kv => kv.Key, kv => kv.Value.ShipmentQuantity);
+            Dictionary<string, int> 입고부품수량 = 부품수량.ToDictionary(kv => kv.Key, kv => kv.Value.IncomingQuantity);
+            DrawChart(ProgressChart, 출고부품수량, 입고부품수량);
+        }
+        private void DrawChart(Chart chart, Dictionary<string, int> 출고부품수량, Dictionary<string, int> 입고부품수량)
+        {
+            HashSet<string> 회사목록 = new HashSet<string>(출고부품수량.Keys);
+            회사목록.UnionWith(입고부품수량.Keys);
+            Dictionary<string, double> 진행률 = new Dictionary<string, double>();
+
+
+            foreach (string 회사명 in 회사목록)
+            {
+                int 출고수량 = 출고부품수량.ContainsKey(회사명) ? 출고부품수량[회사명] : 0;
+                int 입고수량 = 입고부품수량.ContainsKey(회사명) ? 입고부품수량[회사명] : 0;
+
+                double 회사진행률 = 0; // 기본값으로 초기화
+
+                // 입고수량이 0이 아닌 경우에만 진행률을 계산
+                if (입고수량 != 0)
+                {
+                    회사진행률 = Math.Min((double)출고수량 / 입고수량 * 100, 100); // 최대 100%
+
+                }
+
+                진행률.Add(회사명, 회사진행률);
+            }
+
+
+            Series barSeries1 = chart.Series.Add("입고수량_막대");
+            barSeries1.ChartType = SeriesChartType.Column;
+            barSeries1.LegendText = "입고수량";
+            foreach (var item in 입고부품수량)
+            {
+                barSeries1.Points.AddXY(item.Key, item.Value);
+            }
+
+            Series barSeries2 = chart.Series.Add("출고수량_막대");
+            barSeries2.ChartType = SeriesChartType.Column;
+            barSeries2.LegendText = "출고수량";
+
+            foreach (var item in 출고부품수량)
+            {
+                barSeries2.Points.AddXY(item.Key, item.Value);
+            }
+
+            Series progressSeries = chart.Series.Add("진행률");
+            progressSeries.ChartType = SeriesChartType.Line;
+            progressSeries.Color = Color.Black;
+            progressSeries.BorderWidth = 2; //두께
+            chart.Series["입고수량_막대"]["PixelPointWidth"] = "50";
+            chart.Series["출고수량_막대"]["PixelPointWidth"] = "50";
+
+            foreach (var item in 진행률)
+            {
+                double roundedProgress = Math.Round(item.Value, 1); // 진행률을 소수점 한 자리로 반올림
+                progressSeries.Points.AddXY(item.Key, roundedProgress);
+                progressSeries.Points[progressSeries.Points.Count - 1].Label = $"{roundedProgress}%"; // 데이터 값에 % 추가
+                progressSeries.Points[progressSeries.Points.Count - 1].LabelForeColor = Color.Black; // 주석 텍스트 색상 설정
+                progressSeries.Points[progressSeries.Points.Count - 1].LabelBackColor = Color.Transparent; // 주석 배경색 설정
+            }
+
+            chart.ChartAreas[0].AxisY2.Enabled = AxisEnabled.True;
+            chart.ChartAreas[0].AxisY2.Maximum = 100;
+
+            barSeries1.YAxisType = AxisType.Primary;
+            barSeries2.YAxisType = AxisType.Primary;
+            progressSeries.YAxisType = AxisType.Secondary;
+
+            chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+            chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
+
+            chart.DataBind();
+            chart.Titles.Add("작업진행율").Font = new Font("Arial", 16, FontStyle.Bold);
+
+            Legend legend = chart.Legends.Add("범례");
+            legend.Docking = Docking.Bottom;
+        }
+
+        private static Dictionary<string, (int IncomingQuantity, int ShipmentQuantity)> Get부품수량(string connectionString)
+        {
+            Dictionary<string, (int IncomingQuantity, int ShipmentQuantity)> 부품수량 = new Dictionary<string, (int IncomingQuantity, int ShipmentQuantity)>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string incomingQuery = @"
+                    SELECT 
+                        b.supplier AS company, 
+                        SUM(CASE WHEN a.progress = '입고' THEN a.quantity ELSE 0 END) AS incoming_quantity 
+                    FROM 
+                        accumulated_data a
+                    JOIN 
+                        accumulated_data b ON a.lot_no = b.lot_no AND b.progress = '발주서등록'
+                    WHERE 
+                        a.progress = '입고'
+                    GROUP BY 
+                        b.supplier;";
+
+                string shipmentQuery = @"
+                 SELECT 
+                   supplier AS company, 
+                   SUM(CASE WHEN progress = '출고' THEN quantity ELSE 0 END) AS shipment_quantity 
+                 FROM 
+                   accumulated_data 
+                 WHERE 
+                 progress = '출고'
+                 GROUP BY 
+                 supplier";
+
+                MySqlCommand incomingCommand = new MySqlCommand(incomingQuery, connection);
+                MySqlCommand shipmentCommand = new MySqlCommand(shipmentQuery, connection);
+
+                connection.Open();
+
+                using (MySqlDataReader incomingReader = incomingCommand.ExecuteReader())
+                {
+                    while (incomingReader.Read())
+                    {
+                        string 회사명 = incomingReader.GetString(0);
+                        int 입고수량 = incomingReader.GetInt32(1);
+
+                        if (부품수량.ContainsKey(회사명))
+                        {
+                            (int IncomingQuantity, int ShipmentQuantity) existingValues = 부품수량[회사명];
+                            부품수량[회사명] = (IncomingQuantity: 입고수량, ShipmentQuantity: existingValues.ShipmentQuantity);
+                        }
+                        else
+                        {
+                            부품수량.Add(회사명, (IncomingQuantity: 입고수량, ShipmentQuantity: 0));
+                        }
+                    }
+                }
+                using (MySqlDataReader shipmentReader = shipmentCommand.ExecuteReader())
+                {
+                    while (shipmentReader.Read())
+                    {
+                        string 회사명 = shipmentReader.GetString(0);
+                        int 출고수량 = shipmentReader.GetInt32(1);
+
+                        if (부품수량.ContainsKey(회사명))
+                        {
+                            (int IncomingQuantity, int ShipmentQuantity) existingValues = 부품수량[회사명];
+                            부품수량[회사명] = (IncomingQuantity: existingValues.IncomingQuantity, ShipmentQuantity: 출고수량);
+                        }
+                        else
+                        {
+                            부품수량.Add(회사명, (IncomingQuantity: 0, ShipmentQuantity: 출고수량));
+                        }
+                    }
+                }
+
+                return 부품수량;
+            }
+        }
+
         private void ShowLoadingRateGraph() //적재, incoming테이블과 shipment 테이블의 location 데이터 숫자 합산하면 됨.
         {
             string connectionString2 = "Server = 10.10.32.82; Database=material;Uid=team;Pwd=team1234;";
