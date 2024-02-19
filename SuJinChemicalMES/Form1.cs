@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace SuJinChemicalMES
 {
@@ -30,9 +31,13 @@ namespace SuJinChemicalMES
 
         //formSystem systemmain;
 
-
-
-
+        //***************************************************************************************************//
+        bool MeterialOK = false;
+        bool QcOK = false;
+        bool WokrviewOK = false;
+        bool ChartOK = false;
+        bool SystemmainOK = false;
+        //*****************************************************************************************************//
 
         public Form1()
         {
@@ -42,6 +47,18 @@ namespace SuJinChemicalMES
             panel1.MouseDown += new MouseEventHandler(Form1_MouseDown); // 페널에도 동일한 이벤트 핸들러를 추가
 
             this.MouseMove += new MouseEventHandler(Form1_MouseMove);
+
+            //***********************************************************************************************//
+            
+            Loginpw_tb.PasswordChar = '*'; //비밀번호
+
+            Login_pn.BackColor = Color.FromArgb(232, 234, 237);
+
+            Login_pn.Parent = this;
+            Loginid_lb.Parent = Login_pn;
+            Loginpw_lb.Parent = Login_pn;
+
+            //**********************************************************************************************//
         }
 
         private void mdiProp()
@@ -78,16 +95,22 @@ namespace SuJinChemicalMES
 
         private void menu_Click(object sender, EventArgs e)
         {
-            menuExpand2 = true;
-            menuExpand3 = true;
-            menuExpand4 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
-
+            if (WokrviewOK == true)
+            {
+                menuExpand2 = true;
+                menuExpand3 = true;
+                menuExpand4 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
+            }
+            else if (WokrviewOK == false)
+            {
+                MessageBox.Show("생산에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -177,32 +200,30 @@ namespace SuJinChemicalMES
 
         private void iconButton2_Click(object sender, EventArgs e)
         {
+                //menuTransition10.Start();
+                menuExpand = true;
+                menuExpand2 = true;
+                menuExpand3 = true;
+                menuExpand4 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
 
-            //menuTransition10.Start();
-            menuExpand = true;
-            menuExpand2 = true;
-            menuExpand3 = true;
-            menuExpand4 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
-
-            if (main == null)
-            {
-                main = new formMain();
-                main.FormClosed += Main_FormClosed;
-                main.MdiParent = this;
-                main.Dock = DockStyle.Fill;
-                main.Show();
-            }
-            else
-            {
-                main.Activate();
-            }
-
+                if (main == null)
+                {
+                    main = new formMain();
+                    main.FormClosed += Main_FormClosed;
+                    main.MdiParent = this;
+                    main.Dock = DockStyle.Fill;
+                    main.Show();
+                }
+                else
+                {
+                    main.Activate();
+                }
         }
 
         private void Main_FormClosed(object sender, FormClosedEventArgs e)
@@ -234,58 +255,75 @@ namespace SuJinChemicalMES
 
         private void iconButton4_Click(object sender, EventArgs e)
         {
-            menuExpand = true;
-            menuExpand2 = true;
-            menuExpand3 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
+            if (MeterialOK == true)
+            {
+                menuExpand = true;
+                menuExpand2 = true;
+                menuExpand3 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
 
-            /*
-            if (input == null)
-            {
-                input = new formInput();
-                input.FormClosed += Input_FormClosed;
-                input.MdiParent = this;
-                input.Dock = DockStyle.Fill;
-                input.Show();
+                /*
+                if (input == null)
+                {
+                    input = new formInput();
+                    input.FormClosed += Input_FormClosed;
+                    input.MdiParent = this;
+                    input.Dock = DockStyle.Fill;
+                    input.Show();
+                }
+                else
+                {
+                    input.Activate();
+                }
+                */
             }
-            else
+
+            else if (MeterialOK == false)
             {
-                input.Activate();
+                MessageBox.Show("자재에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
+
         }
 
         private void Qc_Click(object sender, EventArgs e)
         {
-            menuExpand = true;
-            menuExpand2 = true;
-            menuExpand4 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
+            if (QcOK == true)
+            {
+                menuExpand = true;
+                menuExpand2 = true;
+                menuExpand4 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
 
-            /*
-            if (qc == null)
-            {
-                qc = new formQc();
-                qc.FormClosed += Qc_FormClosed;
-                qc.MdiParent = this;
-                qc.Dock = DockStyle.Fill;
-                qc.Show();
+                /*
+                if (qc == null)
+                {
+                    qc = new formQc();
+                    qc.FormClosed += Qc_FormClosed;
+                    qc.MdiParent = this;
+                    qc.Dock = DockStyle.Fill;
+                    qc.Show();
+                }
+                else
+                {
+                    qc.Activate();
+                }
+                */
             }
-            else
+
+            else if (QcOK == false)
             {
-                qc.Activate();
+                MessageBox.Show("품질에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void Qc_FormClosed(object sender, FormClosedEventArgs e)
@@ -335,28 +373,35 @@ namespace SuJinChemicalMES
 
         private void Chart_Click(object sender, EventArgs e)
         {
-            menuExpand = true;
-            menuExpand2 = true;
-            menuExpand3 = true;
-            menuExpand4 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
+            if (ChartOK == true)
+            {
+                menuExpand = true;
+                menuExpand2 = true;
+                menuExpand3 = true;
+                menuExpand4 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
 
-            if (chart == null)
-            {
-                chart = new formChart();
-                chart.FormClosed += Chart_FormClosed;
-                chart.MdiParent = this;
-                chart.Dock = DockStyle.Fill;
-                chart.Show();
+                if (chart == null)
+                {
+                    chart = new formChart();
+                    chart.FormClosed += Chart_FormClosed;
+                    chart.MdiParent = this;
+                    chart.Dock = DockStyle.Fill;
+                    chart.Show();
+                }
+                else
+                {
+                    chart.Activate();
+                }
             }
-            else
+            else if (ChartOK == false)
             {
-                chart.Activate();
+                MessageBox.Show("통계에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -367,30 +412,37 @@ namespace SuJinChemicalMES
 
         private void Systemmain_Click(object sender, EventArgs e)
         {
-            menuExpand = true;
-            menuExpand3 = true;
-            menuExpand4 = true;
-            sidebarExpand = false;
-            menuTransition.Start();
-            menuTransition2.Start();
-            menuTransition3.Start();
-            menuTransition4.Start();
-            sidebarTransition.Start();
+            if (SystemmainOK == true)
+            {
+                menuExpand = true;
+                menuExpand3 = true;
+                menuExpand4 = true;
+                sidebarExpand = false;
+                menuTransition.Start();
+                menuTransition2.Start();
+                menuTransition3.Start();
+                menuTransition4.Start();
+                sidebarTransition.Start();
 
-            /*
-            if (systemmain == null)
-            {
-                systemmain = new formSystem();
-                systemmain.FormClosed += Systemmain_FormClosed;
-                systemmain.MdiParent = this;
-                systemmain.Dock = DockStyle.Fill;
-                systemmain.Show();
+                /*
+                if (systemmain == null)
+                {
+                    systemmain = new formSystem();
+                    systemmain.FormClosed += Systemmain_FormClosed;
+                    systemmain.MdiParent = this;
+                    systemmain.Dock = DockStyle.Fill;
+                    systemmain.Show();
+                }
+                else
+                {
+                    systemmain.Activate();
+                }
+                */
             }
-            else
+            else if (SystemmainOK == false)
             {
-                systemmain.Activate();
+                MessageBox.Show("에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            */
         }
 
         private void Systemmain_FormClosed(object sender, FormClosedEventArgs e)
@@ -469,7 +521,7 @@ namespace SuJinChemicalMES
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            DisableAllControls(this);
         }
 
         bool menuExpand2 = false;
@@ -707,8 +759,6 @@ namespace SuJinChemicalMES
         private void menuTransition10_Tick(object sender, EventArgs e)
         {
 
-
-
         }
 
         private void sidebar_Paint(object sender, PaintEventArgs e)
@@ -754,6 +804,148 @@ namespace SuJinChemicalMES
         private void Output_FormClosed(object sender, FormClosedEventArgs e)
         {
             output.Activate();
+        }
+
+        //***********************************************************************************************//
+
+        string department; //user_registration의 department 권한부여
+        int login_status; //로그인 확인
+
+        private void Login_bt_Click_1(object sender, EventArgs e)
+        {
+            if (Loginid_tb.Text == "")
+            {
+                MessageBox.Show("아이디를 입력해주세요.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Loginid_tb.Focus();
+            }
+            else if (Loginpw_tb.Text == "")
+            {
+                MessageBox.Show("비밀번호를 입력해주세요.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Loginpw_tb.Focus();
+            }
+
+            else
+            {
+                try
+                {
+                    MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = managerproduct; Uid = team; Pwd = team1234");
+
+                    con.Open();
+
+                    login_status = 0; //로그인 확인지수
+
+                    string Loginid = Loginid_tb.Text;
+                    string Loginpw = Loginpw_tb.Text;
+
+                    string selectQuery = "SELECT * FROM user_registration WHERE id = \'" + Loginid + "\'";
+                    //데이터베이스 쿼리 선택
+
+                    MySqlCommand SelectCom = new MySqlCommand(selectQuery, con);
+                    MySqlDataReader reader = SelectCom.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        if (Loginid == (string)reader["id"] && Loginpw == (string)reader["password"])
+                        {
+                            login_status = 1;
+                            department = reader["department"].ToString();
+                        }
+                    }
+                    reader.Close();
+                    con.Close(); //데이터베이스 연결 닫음
+
+                    if (login_status == 1)
+                    {
+                        //로그인 가능!
+                        EnableAllControls(this);
+
+                        Login_pn.Dispose();
+                        Login_pn.Hide();
+
+                        Main.PerformClick();
+                        //메인폼 실행
+
+                        AuthorityDepartment();
+                    }
+
+                    else if (login_status == 0)
+                        MessageBox.Show("아이디와 비밀번호가 일치하지 않습니다.", "로그인 오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void AuthorityDepartment()
+        {
+            if (department == "자재")
+            {
+                MeterialOK = true;
+            }
+
+            else if (department == "품질")
+            {
+                QcOK = true;
+            }
+
+            else if (department == "생산")
+            {
+                WokrviewOK = true;
+            }
+
+            else if (department == "관리")
+            {
+                ChartOK = true;
+                SystemmainOK = true;
+            }
+
+            else if (department == "master")
+            {
+                MeterialOK = true;
+                QcOK = true;
+                WokrviewOK = true;
+                ChartOK = true;
+                SystemmainOK = true;
+            }
+        }
+
+        private void DisableAllControls(Control control)
+        {
+            foreach (Control c in control.Controls)
+            {
+                // 로그인 기능 외 비활성화
+                if (c != Login_bt && c != Loginid_tb && c != Loginpw_tb && c != Login_pn && c != Loginid_lb && c != Loginpw_lb && c != panel1 && c != btnExit)
+                    c.Enabled = false;
+
+                // 만약 컨트롤이 다른 컨테이너 컨트롤인 경우, 하위 컨트롤 재귀적 처리
+                if (c.HasChildren)
+                {
+                    DisableAllControls(c);
+                }
+            }
+        }
+
+        private void EnableAllControls(Control control)
+        {
+            //주어진 Control의 모든 하위 컨트롤 활성화
+            foreach (Control c in control.Controls)
+            {
+                c.Enabled = true;
+
+                // 컨트롤이 다른 컨테이너 컨트롤인 경우, 해당 컨테이너 하위 컨트롤 처리
+                if (c.HasChildren)
+                {
+                    EnableAllControls(c);
+                }
+            }
+        }
+
+        private void Login_pn_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

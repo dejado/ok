@@ -22,6 +22,7 @@ namespace SuJinChemicalMES
             set;
         }
 
+        DateTime CalendarPick_dt;
 
         public formMainOkay(string selectedDate)
         {
@@ -31,6 +32,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(CalendarPick_tlpn);
 
             CalendarPick_st = selectedDate;
+            CalendarPick_dt = Convert.ToDateTime(CalendarPick_st);
 
             InitializeDataGridView();
         }
@@ -57,16 +59,16 @@ namespace SuJinChemicalMES
         {
             try
             {
-                MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = production_management; User id = team; Password = team1234");
+                MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = accumulated_data; User id = team; Password = team1234");
                 //SQL 서버와 연결, database=스키마 이름
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT * FROM register_work_order WHERE order_number LIKE @orderNumber";
+                string Query = "SELECT * FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
-                com.Parameters.AddWithValue("@orderNumber", "%" + CalendarPick_st + "%");
+                com.Parameters.AddWithValue("@CalendarPickday", CalendarPick_dt);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(com);
                 DataTable CalendarDT = new DataTable();
