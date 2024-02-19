@@ -441,7 +441,7 @@ namespace SuJinChemicalMES
             }
             else if (SystemmainOK == false)
             {
-                MessageBox.Show("에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("관리에 접근권한이 없습니다.", "권한경고", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -864,8 +864,6 @@ namespace SuJinChemicalMES
 
                         Main.PerformClick();
                         //메인폼 실행
-
-                        AuthorityDepartment();
                     }
 
                     else if (login_status == 0)
@@ -876,6 +874,8 @@ namespace SuJinChemicalMES
                 {
                     MessageBox.Show(ex.Message);
                 }
+
+                AuthorityDepartment();
             }
         }
 
