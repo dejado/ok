@@ -474,7 +474,7 @@
             this.Name = "formOrderOkay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "발주서 등록";
-            this.Load += new System.EventHandler(this.formOrderOkay_Load_1);
+            this.Load += new System.EventHandler(this.formOrderOkay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
