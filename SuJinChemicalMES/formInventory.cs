@@ -14,7 +14,7 @@ namespace SuJinChemicalMES
 {
     public partial class formInventory : Form
     {
-        private string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+        //private string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
 
         public formInventory()
         {
