@@ -180,5 +180,30 @@ namespace SuJinChemicalMES
             }
             con.Close();
         }
+
+        private void UserList_lb_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserList_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void UserCheck_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserCheck_lb_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
