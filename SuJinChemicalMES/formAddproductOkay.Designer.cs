@@ -45,6 +45,8 @@ namespace SuJinChemicalMES
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -53,10 +55,8 @@ namespace SuJinChemicalMES
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button10 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -238,6 +238,26 @@ namespace SuJinChemicalMES
             this.panel1.Size = new System.Drawing.Size(1011, 82);
             this.panel1.TabIndex = 57;
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox4.Location = new System.Drawing.Point(537, 14);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(128, 23);
+            this.textBox4.TabIndex = 4;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox6.Location = new System.Drawing.Point(778, 14);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(92, 23);
+            this.textBox6.TabIndex = 4;
+            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged_1);
+            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Location = new System.Drawing.Point(314, 50);
@@ -330,17 +350,6 @@ namespace SuJinChemicalMES
             this.textBox1.Size = new System.Drawing.Size(92, 23);
             this.textBox1.TabIndex = 14;
             // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox6.Location = new System.Drawing.Point(778, 14);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(92, 23);
-            this.textBox6.TabIndex = 4;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged_1);
-            // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.LightCyan;
@@ -366,15 +375,6 @@ namespace SuJinChemicalMES
             this.button10.Text = "중복검색";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox4.Location = new System.Drawing.Point(537, 14);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(128, 23);
-            this.textBox4.TabIndex = 4;
             // 
             // label14
             // 

@@ -29,7 +29,6 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.OutModify_bt = new System.Windows.Forms.Button();
             this.OutDelete_bt = new System.Windows.Forms.Button();
@@ -48,24 +47,23 @@ namespace SuJinChemicalMES
             this.shipmentdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentregister = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.shipmentlocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.InputAsk_bt = new System.Windows.Forms.Button();
-            this.OutWarehouse_com = new System.Windows.Forms.ComboBox();
-            this.OutDateX_bt = new System.Windows.Forms.Button();
-            this.OutName_txt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.OutCode_txt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.OutCompany_com = new System.Windows.Forms.ComboBox();
-            this.OutDate1 = new System.Windows.Forms.DateTimePicker();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.OutOkRe_bt = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.OutWarehouse_com = new System.Windows.Forms.ComboBox();
+            this.OutName_txt = new System.Windows.Forms.TextBox();
+            this.OutCode_txt = new System.Windows.Forms.TextBox();
+            this.OutCompany_com = new System.Windows.Forms.ComboBox();
+            this.OutDate1 = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.InputAsk_bt = new System.Windows.Forms.Button();
+            this.OutDateX_bt = new System.Windows.Forms.Button();
             this.OutOk_grid = new System.Windows.Forms.DataGridView();
             this.OutOkCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.OutOkLocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -81,48 +79,42 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel3.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Output_grid)).BeginInit();
-            this.flowLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.OutOk_grid)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel3.Controls.Add(this.label2);
-            this.flowLayoutPanel3.Controls.Add(this.OutModify_bt);
-            this.flowLayoutPanel3.Controls.Add(this.OutDelete_bt);
-            this.flowLayoutPanel3.Controls.Add(this.OutRe_bt);
-            this.flowLayoutPanel3.Controls.Add(this.Output_grid);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(15, 304);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1228, 415);
-            this.flowLayoutPanel3.TabIndex = 42;
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label2.Location = new System.Drawing.Point(2, 0);
+            this.label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(869, 30);
+            this.label2.Size = new System.Drawing.Size(1059, 26);
             this.label2.TabIndex = 28;
             this.label2.Text = "자재현황";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // OutModify_bt
             // 
+            this.OutModify_bt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OutModify_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutModify_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.OutModify_bt.Location = new System.Drawing.Point(875, 2);
+            this.OutModify_bt.Location = new System.Drawing.Point(893, 0);
             this.OutModify_bt.Margin = new System.Windows.Forms.Padding(2);
             this.OutModify_bt.Name = "OutModify_bt";
-            this.OutModify_bt.Size = new System.Drawing.Size(95, 28);
+            this.OutModify_bt.Size = new System.Drawing.Size(83, 26);
             this.OutModify_bt.TabIndex = 40;
             this.OutModify_bt.Text = "수정";
             this.OutModify_bt.UseVisualStyleBackColor = true;
@@ -131,10 +123,10 @@ namespace SuJinChemicalMES
             // OutDelete_bt
             // 
             this.OutDelete_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.OutDelete_bt.Location = new System.Drawing.Point(974, 2);
+            this.OutDelete_bt.Location = new System.Drawing.Point(969, 2);
             this.OutDelete_bt.Margin = new System.Windows.Forms.Padding(2);
             this.OutDelete_bt.Name = "OutDelete_bt";
-            this.OutDelete_bt.Size = new System.Drawing.Size(97, 28);
+            this.OutDelete_bt.Size = new System.Drawing.Size(85, 22);
             this.OutDelete_bt.TabIndex = 30;
             this.OutDelete_bt.Text = "삭제";
             this.OutDelete_bt.UseVisualStyleBackColor = true;
@@ -143,11 +135,13 @@ namespace SuJinChemicalMES
             // OutRe_bt
             // 
             this.OutRe_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.OutRe_bt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OutRe_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OutRe_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.OutRe_bt.Location = new System.Drawing.Point(1075, 2);
+            this.OutRe_bt.Location = new System.Drawing.Point(976, 0);
             this.OutRe_bt.Margin = new System.Windows.Forms.Padding(2);
             this.OutRe_bt.Name = "OutRe_bt";
-            this.OutRe_bt.Size = new System.Drawing.Size(145, 28);
+            this.OutRe_bt.Size = new System.Drawing.Size(83, 26);
             this.OutRe_bt.TabIndex = 31;
             this.OutRe_bt.Text = "새로고침";
             this.OutRe_bt.UseVisualStyleBackColor = true;
@@ -175,13 +169,13 @@ namespace SuJinChemicalMES
             this.shipmentdate,
             this.shipmentregister,
             this.shipmentlocation});
-            this.Output_grid.Location = new System.Drawing.Point(2, 34);
-            this.Output_grid.Margin = new System.Windows.Forms.Padding(2);
-            this.Output_grid.MinimumSize = new System.Drawing.Size(1000, 320);
+            this.Output_grid.Location = new System.Drawing.Point(23, 47);
+            this.Output_grid.Margin = new System.Windows.Forms.Padding(23, 2, 23, 2);
+            this.Output_grid.MinimumSize = new System.Drawing.Size(875, 256);
             this.Output_grid.Name = "Output_grid";
-            this.Output_grid.RowHeadersWidth = 62;
+            this.Output_grid.RowHeadersWidth = 4;
             this.Output_grid.RowTemplate.Height = 30;
-            this.Output_grid.Size = new System.Drawing.Size(1220, 320);
+            this.Output_grid.Size = new System.Drawing.Size(1059, 292);
             this.Output_grid.TabIndex = 32;
             this.Output_grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Output_grid_CellValueChanged);
             this.Output_grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Output_grid_CellValueChanged);
@@ -192,7 +186,7 @@ namespace SuJinChemicalMES
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Width = 125;
+            this.Column1.Width = 60;
             // 
             // outprogress
             // 
@@ -288,63 +282,89 @@ namespace SuJinChemicalMES
             this.shipmentlocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.shipmentlocation.Width = 150;
             // 
-            // flowLayoutPanel2
-            // 
-            this.flowLayoutPanel2.Controls.Add(this.label12);
-            this.flowLayoutPanel2.Controls.Add(this.panel1);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(829, 40);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(418, 256);
-            this.flowLayoutPanel2.TabIndex = 41;
-            // 
             // label12
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label12.Location = new System.Drawing.Point(2, 0);
+            this.label12.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(0, 0);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(436, 30);
+            this.label12.Size = new System.Drawing.Size(411, 25);
             this.label12.TabIndex = 25;
             this.label12.Text = "자재조회";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label11
+            // 
+            this.label11.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(0, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(637, 25);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "창고등록";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OutOkRe_bt
+            // 
+            this.OutOkRe_bt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OutOkRe_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutOkRe_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutOkRe_bt.Location = new System.Drawing.Point(554, 0);
+            this.OutOkRe_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.OutOkRe_bt.Name = "OutOkRe_bt";
+            this.OutOkRe_bt.Size = new System.Drawing.Size(83, 25);
+            this.OutOkRe_bt.TabIndex = 26;
+            this.OutOkRe_bt.Text = "등록";
+            this.OutOkRe_bt.UseVisualStyleBackColor = true;
+            this.OutOkRe_bt.Click += new System.EventHandler(this.OutOkRe_bt_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.OutOk_grid, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.88679F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 78.1132F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 265);
+            this.tableLayoutPanel1.TabIndex = 43;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.InputAsk_bt);
             this.panel1.Controls.Add(this.OutWarehouse_com);
-            this.panel1.Controls.Add(this.OutDateX_bt);
             this.panel1.Controls.Add(this.OutName_txt);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.OutCode_txt);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.OutCompany_com);
             this.panel1.Controls.Add(this.OutDate1);
-            this.panel1.Location = new System.Drawing.Point(3, 33);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.InputAsk_bt);
+            this.panel1.Controls.Add(this.OutDateX_bt);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(670, 60);
+            this.panel1.Margin = new System.Windows.Forms.Padding(7, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(411, 221);
-            this.panel1.TabIndex = 26;
-            // 
-            // InputAsk_bt
-            // 
-            this.InputAsk_bt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.InputAsk_bt.Location = new System.Drawing.Point(311, 174);
-            this.InputAsk_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.InputAsk_bt.Name = "InputAsk_bt";
-            this.InputAsk_bt.Size = new System.Drawing.Size(94, 30);
-            this.InputAsk_bt.TabIndex = 0;
-            this.InputAsk_bt.Text = "조회";
-            this.InputAsk_bt.UseVisualStyleBackColor = true;
-            this.InputAsk_bt.Click += new System.EventHandler(this.OutputAsk_bt_Click);
+            this.panel1.Size = new System.Drawing.Size(432, 203);
+            this.panel1.TabIndex = 48;
             // 
             // OutWarehouse_com
             // 
-            this.OutWarehouse_com.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.OutWarehouse_com.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.OutWarehouse_com.FormattingEnabled = true;
             this.OutWarehouse_com.Items.AddRange(new object[] {
             "A",
@@ -352,110 +372,35 @@ namespace SuJinChemicalMES
             "C",
             "D",
             "E"});
-            this.OutWarehouse_com.Location = new System.Drawing.Point(120, 91);
+            this.OutWarehouse_com.Location = new System.Drawing.Point(113, 86);
             this.OutWarehouse_com.Margin = new System.Windows.Forms.Padding(2);
             this.OutWarehouse_com.Name = "OutWarehouse_com";
-            this.OutWarehouse_com.Size = new System.Drawing.Size(187, 28);
+            this.OutWarehouse_com.Size = new System.Drawing.Size(164, 23);
             this.OutWarehouse_com.TabIndex = 16;
-            // 
-            // OutDateX_bt
-            // 
-            this.OutDateX_bt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.OutDateX_bt.Location = new System.Drawing.Point(311, 49);
-            this.OutDateX_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.OutDateX_bt.Name = "OutDateX_bt";
-            this.OutDateX_bt.Size = new System.Drawing.Size(94, 30);
-            this.OutDateX_bt.TabIndex = 0;
-            this.OutDateX_bt.Text = "날짜X";
-            this.OutDateX_bt.UseVisualStyleBackColor = true;
-            this.OutDateX_bt.Click += new System.EventHandler(this.OutDateX_bt_Click);
             // 
             // OutName_txt
             // 
-            this.OutName_txt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.OutName_txt.Location = new System.Drawing.Point(120, 174);
+            this.OutName_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutName_txt.Location = new System.Drawing.Point(113, 158);
             this.OutName_txt.Margin = new System.Windows.Forms.Padding(2);
             this.OutName_txt.Name = "OutName_txt";
-            this.OutName_txt.Size = new System.Drawing.Size(187, 30);
+            this.OutName_txt.Size = new System.Drawing.Size(164, 23);
             this.OutName_txt.TabIndex = 11;
             this.OutName_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 9);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 30);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "회사";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // OutCode_txt
             // 
-            this.OutCode_txt.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.OutCode_txt.Location = new System.Drawing.Point(119, 132);
+            this.OutCode_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutCode_txt.Location = new System.Drawing.Point(113, 122);
             this.OutCode_txt.Margin = new System.Windows.Forms.Padding(2);
             this.OutCode_txt.Name = "OutCode_txt";
-            this.OutCode_txt.Size = new System.Drawing.Size(188, 30);
+            this.OutCode_txt.Size = new System.Drawing.Size(165, 23);
             this.OutCode_txt.TabIndex = 12;
             this.OutCode_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label3.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(15, 91);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 30);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "창고위치";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 51);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 30);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "등록기간";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(14, 174);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 30);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "제품명";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(14, 132);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 30);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "제품코드";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // OutCompany_com
             // 
-            this.OutCompany_com.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.OutCompany_com.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.OutCompany_com.FormattingEnabled = true;
             this.OutCompany_com.Items.AddRange(new object[] {
             "가이드",
@@ -467,69 +412,114 @@ namespace SuJinChemicalMES
             "쉴드",
             "케미컬코리아",
             "튜브"});
-            this.OutCompany_com.Location = new System.Drawing.Point(119, 12);
+            this.OutCompany_com.Location = new System.Drawing.Point(113, 16);
             this.OutCompany_com.Margin = new System.Windows.Forms.Padding(2);
             this.OutCompany_com.Name = "OutCompany_com";
-            this.OutCompany_com.Size = new System.Drawing.Size(188, 28);
+            this.OutCompany_com.Size = new System.Drawing.Size(165, 23);
             this.OutCompany_com.TabIndex = 13;
             // 
             // OutDate1
             // 
             this.OutDate1.CalendarFont = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.OutDate1.CustomFormat = "yyyy-MM-dd(ddd)";
-            this.OutDate1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.OutDate1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.OutDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.OutDate1.Location = new System.Drawing.Point(119, 49);
+            this.OutDate1.Location = new System.Drawing.Point(113, 51);
             this.OutDate1.Margin = new System.Windows.Forms.Padding(2);
             this.OutDate1.Name = "OutDate1";
-            this.OutDate1.Size = new System.Drawing.Size(188, 30);
+            this.OutDate1.Size = new System.Drawing.Size(165, 23);
             this.OutDate1.TabIndex = 14;
             this.OutDate1.Value = new System.DateTime(1989, 1, 1, 0, 0, 0, 0);
             // 
-            // flowLayoutPanel1
+            // label1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label11);
-            this.flowLayoutPanel1.Controls.Add(this.OutOkRe_bt);
-            this.flowLayoutPanel1.Controls.Add(this.OutOk_grid);
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(15, 40);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(805, 256);
-            this.flowLayoutPanel1.TabIndex = 40;
+            this.label1.BackColor = System.Drawing.Color.LightCyan;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 86);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 23);
+            this.label1.TabIndex = 67;
+            this.label1.Text = "창고위치";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label11
+            // label4
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label11.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label11.Location = new System.Drawing.Point(2, 0);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(683, 30);
-            this.label11.TabIndex = 25;
-            this.label11.Text = "창고등록";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.BackColor = System.Drawing.Color.LightCyan;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(19, 51);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 23);
+            this.label4.TabIndex = 66;
+            this.label4.Text = "등록일";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // OutOkRe_bt
+            // label6
             // 
-            this.OutOkRe_bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.OutOkRe_bt.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.OutOkRe_bt.Location = new System.Drawing.Point(689, 2);
-            this.OutOkRe_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.OutOkRe_bt.Name = "OutOkRe_bt";
-            this.OutOkRe_bt.Size = new System.Drawing.Size(112, 28);
-            this.OutOkRe_bt.TabIndex = 26;
-            this.OutOkRe_bt.Text = "등록";
-            this.OutOkRe_bt.UseVisualStyleBackColor = true;
-            this.OutOkRe_bt.Click += new System.EventHandler(this.OutOkRe_bt_Click);
+            this.label6.BackColor = System.Drawing.Color.LightCyan;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(19, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 23);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "제품코드";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.LightCyan;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(19, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 23);
+            this.label9.TabIndex = 63;
+            this.label9.Text = "회사명";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.LightCyan;
+            this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(19, 158);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 23);
+            this.label10.TabIndex = 64;
+            this.label10.Text = "제품명";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // InputAsk_bt
+            // 
+            this.InputAsk_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InputAsk_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InputAsk_bt.Location = new System.Drawing.Point(291, 158);
+            this.InputAsk_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.InputAsk_bt.Name = "InputAsk_bt";
+            this.InputAsk_bt.Size = new System.Drawing.Size(82, 24);
+            this.InputAsk_bt.TabIndex = 0;
+            this.InputAsk_bt.Text = "조회";
+            this.InputAsk_bt.UseVisualStyleBackColor = true;
+            this.InputAsk_bt.Click += new System.EventHandler(this.OutputAsk_bt_Click);
+            // 
+            // OutDateX_bt
+            // 
+            this.OutDateX_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OutDateX_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutDateX_bt.Location = new System.Drawing.Point(291, 50);
+            this.OutDateX_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.OutDateX_bt.Name = "OutDateX_bt";
+            this.OutDateX_bt.Size = new System.Drawing.Size(82, 24);
+            this.OutDateX_bt.TabIndex = 0;
+            this.OutDateX_bt.Text = "날짜X";
+            this.OutDateX_bt.UseVisualStyleBackColor = true;
+            this.OutDateX_bt.Click += new System.EventHandler(this.OutDateX_bt_Click);
             // 
             // OutOk_grid
             // 
             this.OutOk_grid.AllowDrop = true;
-            this.OutOk_grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.OutOk_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.OutOk_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OutOk_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -547,14 +537,15 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
-            this.OutOk_grid.Location = new System.Drawing.Point(2, 34);
-            this.OutOk_grid.Margin = new System.Windows.Forms.Padding(2);
-            this.OutOk_grid.MinimumSize = new System.Drawing.Size(400, 200);
+            this.OutOk_grid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OutOk_grid.Location = new System.Drawing.Point(23, 60);
+            this.OutOk_grid.Margin = new System.Windows.Forms.Padding(23, 2, 5, 2);
+            this.OutOk_grid.MinimumSize = new System.Drawing.Size(350, 160);
             this.OutOk_grid.Name = "OutOk_grid";
             this.OutOk_grid.RowHeadersWidth = 62;
             this.OutOk_grid.RowTemplate.Height = 30;
-            this.OutOk_grid.Size = new System.Drawing.Size(794, 200);
-            this.OutOk_grid.TabIndex = 36;
+            this.OutOk_grid.Size = new System.Drawing.Size(635, 203);
+            this.OutOk_grid.TabIndex = 47;
             // 
             // OutOkCheck
             // 
@@ -662,55 +653,114 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.Width = 150;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.OutOkRe_bt);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(23, 30);
+            this.panel3.Margin = new System.Windows.Forms.Padding(23, 30, 3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(637, 25);
+            this.panel3.TabIndex = 44;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label12);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(671, 30);
+            this.panel4.Margin = new System.Windows.Forms.Padding(8, 30, 23, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(411, 25);
+            this.panel4.TabIndex = 46;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.panel2, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.Output_grid, 0, 2);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 265);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1105, 341);
+            this.tableLayoutPanel2.TabIndex = 44;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.OutModify_bt);
+            this.panel2.Controls.Add(this.OutRe_bt);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.OutDelete_bt);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(23, 16);
+            this.panel2.Margin = new System.Windows.Forms.Padding(23, 3, 23, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1059, 26);
+            this.panel2.TabIndex = 29;
+            // 
             // formOutput
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1263, 758);
-            this.Controls.Add(this.flowLayoutPanel3);
-            this.Controls.Add(this.flowLayoutPanel2);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.ClientSize = new System.Drawing.Size(1105, 606);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formOutput";
             this.Text = "formOutput";
-            this.flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Output_grid)).EndInit();
-            this.flowLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.OutOk_grid)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button OutModify_bt;
         private System.Windows.Forms.Button OutDelete_bt;
         private System.Windows.Forms.Button OutRe_bt;
         private System.Windows.Forms.DataGridView Output_grid;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button OutOkRe_bt;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outprogress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Out_Order_num;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outcompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outcode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outlot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outquantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn outorder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentdate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentregister;
+        private System.Windows.Forms.DataGridViewComboBoxColumn shipmentlocation;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button InputAsk_bt;
         private System.Windows.Forms.ComboBox OutWarehouse_com;
         private System.Windows.Forms.Button OutDateX_bt;
         private System.Windows.Forms.TextBox OutName_txt;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox OutCode_txt;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox OutCompany_com;
         private System.Windows.Forms.DateTimePicker OutDate1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button OutOkRe_bt;
         private System.Windows.Forms.DataGridView OutOk_grid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn OutOkCheck;
         private System.Windows.Forms.DataGridViewComboBoxColumn OutOkLocation;
@@ -726,18 +776,12 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outprogress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Out_Order_num;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outcompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outcode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outlot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outquantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outorder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn shipmentregister;
-        private System.Windows.Forms.DataGridViewComboBoxColumn shipmentlocation;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label1;
     }
 }
