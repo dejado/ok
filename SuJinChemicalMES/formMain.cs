@@ -213,6 +213,10 @@ namespace SuJinChemicalMES
             reader.Close();
             con.Close();
         }
-        
+
+        private void Main_tlpn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

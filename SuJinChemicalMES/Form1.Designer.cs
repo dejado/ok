@@ -862,6 +862,7 @@ namespace SuJinChemicalMES
             this.Login_pn.Name = "Login_pn";
             this.Login_pn.Size = new System.Drawing.Size(353, 158);
             this.Login_pn.TabIndex = 3;
+            this.Login_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_pn_Paint);
             // 
             // Login_bt
             // 
@@ -873,6 +874,7 @@ namespace SuJinChemicalMES
             this.Login_bt.TabIndex = 4;
             this.Login_bt.Text = "로그인";
             this.Login_bt.UseVisualStyleBackColor = false;
+            this.Login_bt.Click += new System.EventHandler(this.Login_bt_Click_1);
             // 
             // Loginpw_tb
             // 

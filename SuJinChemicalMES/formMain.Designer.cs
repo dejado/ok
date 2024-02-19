@@ -40,16 +40,16 @@ namespace SuJinChemicalMES
             this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
             this.Calendar_lb = new System.Windows.Forms.Label();
             this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
+            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Achieve_lb = new System.Windows.Forms.Label();
             this.CalendarControl_pn = new System.Windows.Forms.Panel();
             this.CalendarPick_bt = new System.Windows.Forms.Button();
             this.Calendar_cal = new Calendar.NET.Calendar();
-            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Main_tlpn.SuspendLayout();
             this.Calendar_pn.SuspendLayout();
             this.Mainright_tlpn.SuspendLayout();
-            this.CalendarControl_pn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).BeginInit();
+            this.CalendarControl_pn.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_tlpn
@@ -68,6 +68,7 @@ namespace SuJinChemicalMES
             this.Main_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 725F));
             this.Main_tlpn.Size = new System.Drawing.Size(1263, 758);
             this.Main_tlpn.TabIndex = 1;
+            this.Main_tlpn.Paint += new System.Windows.Forms.PaintEventHandler(this.Main_tlpn_Paint);
             // 
             // MainMoni_lb
             // 
@@ -127,6 +128,34 @@ namespace SuJinChemicalMES
             this.Mainright_tlpn.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 263F));
             this.Mainright_tlpn.Size = new System.Drawing.Size(746, 719);
             this.Mainright_tlpn.TabIndex = 0;
+            // 
+            // Achieve_ct
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea1);
+            this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend1);
+            this.Achieve_ct.Location = new System.Drawing.Point(3, 458);
+            this.Achieve_ct.Name = "Achieve_ct";
+            this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "PlanSum_s";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "CompleteSum_s";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "CompleteRate_s";
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series1);
+            this.Achieve_ct.Series.Add(series2);
+            this.Achieve_ct.Series.Add(series3);
+            this.Achieve_ct.Size = new System.Drawing.Size(740, 258);
+            this.Achieve_ct.TabIndex = 7;
+            this.Achieve_ct.Text = "Achieve_ct";
             // 
             // Achieve_lb
             // 
@@ -188,34 +217,6 @@ namespace SuJinChemicalMES
             this.Calendar_cal.TabIndex = 3;
             this.Calendar_cal.TodayFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             // 
-            // Achieve_ct
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea1);
-            this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend1);
-            this.Achieve_ct.Location = new System.Drawing.Point(3, 458);
-            this.Achieve_ct.Name = "Achieve_ct";
-            this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "PlanSum_s";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "CompleteSum_s";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "CompleteRate_s";
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series1);
-            this.Achieve_ct.Series.Add(series2);
-            this.Achieve_ct.Series.Add(series3);
-            this.Achieve_ct.Size = new System.Drawing.Size(740, 258);
-            this.Achieve_ct.TabIndex = 7;
-            this.Achieve_ct.Text = "Achieve_ct";
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -232,8 +233,8 @@ namespace SuJinChemicalMES
             this.Main_tlpn.ResumeLayout(false);
             this.Calendar_pn.ResumeLayout(false);
             this.Mainright_tlpn.ResumeLayout(false);
-            this.CalendarControl_pn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).EndInit();
+            this.CalendarControl_pn.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
