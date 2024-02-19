@@ -44,12 +44,12 @@ namespace SuJinChemicalMES
             this.userrank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserID_tb = new System.Windows.Forms.TextBox();
             this.UserRegistration_pn = new System.Windows.Forms.Panel();
-            this.IDCheck_lb = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.IDCheck_lb = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.RegiUserList_dgv)).BeginInit();
             this.UserRegistration_pn.SuspendLayout();
             this.SuspendLayout();
@@ -200,13 +200,17 @@ namespace SuJinChemicalMES
             this.UserRegistration_pn.Size = new System.Drawing.Size(1011, 82);
             this.UserRegistration_pn.TabIndex = 21;
             // 
-            // IDCheck_lb
+            // label5
             // 
-            this.IDCheck_lb.AutoSize = true;
-            this.IDCheck_lb.Location = new System.Drawing.Point(94, 131);
-            this.IDCheck_lb.Name = "IDCheck_lb";
-            this.IDCheck_lb.Size = new System.Drawing.Size(0, 15);
-            this.IDCheck_lb.TabIndex = 21;
+            this.label5.BackColor = System.Drawing.Color.LightCyan;
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(496, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 22);
+            this.label5.TabIndex = 51;
+            this.label5.Text = "PW";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -256,17 +260,13 @@ namespace SuJinChemicalMES
             this.label4.Text = "이름";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label5
+            // IDCheck_lb
             // 
-            this.label5.BackColor = System.Drawing.Color.LightCyan;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(496, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 22);
-            this.label5.TabIndex = 51;
-            this.label5.Text = "PW";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.IDCheck_lb.AutoSize = true;
+            this.IDCheck_lb.Location = new System.Drawing.Point(94, 131);
+            this.IDCheck_lb.Name = "IDCheck_lb";
+            this.IDCheck_lb.Size = new System.Drawing.Size(0, 15);
+            this.IDCheck_lb.TabIndex = 21;
             // 
             // formSystem4Okay
             // 
@@ -281,6 +281,7 @@ namespace SuJinChemicalMES
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "formSystem4Okay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "사용자 등록";
             this.Load += new System.EventHandler(this.formSystem4Okay_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RegiUserList_dgv)).EndInit();
