@@ -32,11 +32,15 @@ namespace SuJinChemicalMES
             AddChart();
         }
 
+        DateTime base_day;
+
         private void formMain_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
 
             Initialize_Calendar_dtp();
+
+            base_day = DateTime.Now;
         }
 
         private void AddCalendar()
@@ -60,7 +64,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT * FROM accumulated_data WHERE progress_status = '발주서등록'";
+                string Query = "SELECT * FROM accumulated_data WHERE progress = '발주서등록'";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
                 MySqlDataReader reader = com.ExecuteReader();
@@ -70,8 +74,8 @@ namespace SuJinChemicalMES
 
                 while (reader.Read())
                 {
-                    String printName = reader["delivery_destination"].ToString() + ", " + reader["product_name"].ToString();
-                    DateTime printDate = Convert.ToDateTime(reader["due_date_request"]);
+                    String printName = reader["supplier"].ToString() + ", " + reader["product_name"].ToString();
+                    DateTime printDate = reader.GetDateTime("due_date_request");
                     string SynData = printName + printDate.ToString();
 
                     if (!printData.Contains(SynData))
@@ -108,7 +112,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT * FROM accumulated_data WHERE progress_status = '입고'";
+                string Query = "SELECT * FROM accumulated_data WHERE progress = '입고'";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
                 MySqlDataReader reader = com.ExecuteReader();
@@ -118,8 +122,8 @@ namespace SuJinChemicalMES
 
                 while (reader.Read())
                 {
-                    String printName = reader["delivery_destination"].ToString() + ", " + reader["product_name"].ToString();
-                    DateTime printDate = Convert.ToDateTime(reader["registration_date"]);
+                    String printName = reader["supplier"].ToString() + ", " + reader["product_name"].ToString();
+                    DateTime printDate = reader.GetDateTime("registration_date");
                     string SynData = printName + printDate.ToString();
 
                     if (!printData.Contains(SynData))
@@ -152,15 +156,17 @@ namespace SuJinChemicalMES
             //데이터타임피커 형식지정
         }
 
-        string CalendarPickDay_st = DateTime.Now.ToString("yyyyMMdd");
+        string CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
 
         private void Calendar_dtp_ValueChanged(object sender, EventArgs e)
         {
             DateTime cal_dt = Calendar_dtp.Value;
             Calendar_cal.CalendarDate = cal_dt;
 
-            CalendarPickDay_st = Calendar_dtp.Value.ToString("yyyyMMdd");
+            CalendarPickDay_st = Calendar_dtp.Value.ToString("yyyy-MM-dd");
             //데이터타임피커로 날짜 픽, Okay로 전달
+
+            base_day = Calendar_dtp.Value;
         }
 
         private void CalendarPick_bt_Click(object sender, EventArgs e)
@@ -177,11 +183,10 @@ namespace SuJinChemicalMES
             con.Open();
             //SQL 서버 연결.
 
-            DateTime base_day = DateTime.Now;
             string baseday_st = base_day.ToString("yyyy-MM-dd");
             DateTime baseday_dt = Convert.ToDateTime(baseday_st);
 
-            string Query = "SELECT A.delivery_destination, A.quantity, B.production_plan_quantity FROM ( (SELECT SUM(quantity) AS quantity, delivery_destination FROM accumulated_data WHERE registration_date = @baseday_dt AND progress_status = '생산완료' GROUP BY delivery_destination) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, delivery_destination FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress_status = '생산계획등록' GROUP BY delivery_destination) B) WHERE A.delivery_destination = B.delivery_destination";
+            string Query = "SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
             com.Parameters.AddWithValue("@baseday_dt", baseday_dt);
@@ -189,16 +194,17 @@ namespace SuJinChemicalMES
 
             while (reader.Read())
             {
-                string deliveryDestination = reader.GetString(0);
+                string supplier = reader.GetString(0);
                 int planQuantity = reader.GetInt32(2);
                 int completeQuantity = reader.GetInt32(1);
                 double completeRate = (completeQuantity * 100.0 / planQuantity);
 
-                Achieve_ct.Series["PlanSum_s"].Points.AddXY(deliveryDestination, planQuantity);
-                Achieve_ct.Series["CompleteSum_s"].Points.AddXY(deliveryDestination, completeQuantity);
-                Achieve_ct.Series["CompleteRate_s"].Points.AddXY(deliveryDestination, completeRate);
+                Achieve_ct.Series["PlanSum_s"].Points.AddXY(supplier, planQuantity);
+                Achieve_ct.Series["CompleteSum_s"].Points.AddXY(supplier, completeQuantity);
+                Achieve_ct.Series["CompleteRate_s"].Points.AddXY(supplier, completeRate);
 
                 Achieve_ct.Series["CompleteRate_s"].Color = Color.Red;
+                Achieve_ct.Series["CompleteRate_s"].BorderWidth = 2;
 
                 Achieve_ct.ChartAreas[0].AxisY2.Minimum = 0;
                 Achieve_ct.ChartAreas[0].AxisY2.Maximum = 100;
@@ -215,6 +221,11 @@ namespace SuJinChemicalMES
         }
 
         private void Main_tlpn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainMoni_lb_Click(object sender, EventArgs e)
         {
 
         }
