@@ -467,17 +467,18 @@ namespace SuJinChemicalMES
             // 
             // Re_bt
             // 
+            this.Re_bt.BackColor = System.Drawing.Color.White;
             this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Re_bt.Dock = System.Windows.Forms.DockStyle.Right;
             this.Re_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Re_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Re_bt.Location = new System.Drawing.Point(399, 0);
+            this.Re_bt.Location = new System.Drawing.Point(431, 0);
             this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
             this.Re_bt.Name = "Re_bt";
-            this.Re_bt.Size = new System.Drawing.Size(127, 30);
+            this.Re_bt.Size = new System.Drawing.Size(95, 30);
             this.Re_bt.TabIndex = 26;
             this.Re_bt.Text = "새로고침";
-            this.Re_bt.UseVisualStyleBackColor = true;
+            this.Re_bt.UseVisualStyleBackColor = false;
             this.Re_bt.Click += new System.EventHandler(this.Re_bt_Click);
             // 
             // label1

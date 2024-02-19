@@ -96,6 +96,8 @@ namespace SuJinChemicalMES
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.Color.White;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button10.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button10.Location = new System.Drawing.Point(244, 5);
             this.button10.Margin = new System.Windows.Forms.Padding(2);
@@ -103,11 +105,13 @@ namespace SuJinChemicalMES
             this.button10.Size = new System.Drawing.Size(71, 26);
             this.button10.TabIndex = 73;
             this.button10.Text = "조회";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.button1.Location = new System.Drawing.Point(319, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -115,7 +119,7 @@ namespace SuJinChemicalMES
             this.button1.Size = new System.Drawing.Size(71, 26);
             this.button1.TabIndex = 74;
             this.button1.Text = "선택";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formOrderOkay2

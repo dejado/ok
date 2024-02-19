@@ -80,13 +80,15 @@ namespace SuJinChemicalMES
             this.v = new System.Windows.Forms.Panel();
             this.ProductLb1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.CompanyCb = new System.Windows.Forms.ComboBox();
             this.product_nametb = new System.Windows.Forms.TextBox();
             this.product_codetb = new System.Windows.Forms.TextBox();
             this.Product_TypeCb = new System.Windows.Forms.ComboBox();
             this.LotNo_tb = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -95,8 +97,6 @@ namespace SuJinChemicalMES
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
             this.Delete_Bt = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -520,7 +520,7 @@ namespace SuJinChemicalMES
             // 
             this.ImportBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ImportBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ImportBt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.ImportBt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.ImportBt.Location = new System.Drawing.Point(212, 9);
             this.ImportBt.Margin = new System.Windows.Forms.Padding(2);
             this.ImportBt.Name = "ImportBt";
@@ -764,6 +764,54 @@ namespace SuJinChemicalMES
             this.panel3.Size = new System.Drawing.Size(1211, 81);
             this.panel3.TabIndex = 40;
             // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.dateTimePicker1);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Location = new System.Drawing.Point(479, 46);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(222, 31);
+            this.panel7.TabIndex = 67;
+            this.panel7.Click += new System.EventHandler(this.panel7_Click);
+            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(93, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePicker1.Size = new System.Drawing.Size(126, 23);
+            this.dateTimePicker1.TabIndex = 23;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.LightCyan;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 22);
+            this.label6.TabIndex = 65;
+            this.label6.Text = "등록일";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.button1.Location = new System.Drawing.Point(706, 46);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(74, 29);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "날짜 X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CompanyCb
             // 
             this.CompanyCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -816,29 +864,6 @@ namespace SuJinChemicalMES
             this.LotNo_tb.Name = "LotNo_tb";
             this.LotNo_tb.Size = new System.Drawing.Size(126, 23);
             this.LotNo_tb.TabIndex = 18;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(93, 3);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePicker1.Size = new System.Drawing.Size(126, 23);
-            this.dateTimePicker1.TabIndex = 23;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.LightCyan;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 22);
-            this.label6.TabIndex = 65;
-            this.label6.Text = "등록일";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label16
             // 
@@ -904,7 +929,7 @@ namespace SuJinChemicalMES
             // 
             this.Search_Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_Bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Search_Bt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.Search_Bt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.Search_Bt.Location = new System.Drawing.Point(910, 21);
             this.Search_Bt.Margin = new System.Windows.Forms.Padding(2);
             this.Search_Bt.Name = "Search_Bt";
@@ -918,7 +943,7 @@ namespace SuJinChemicalMES
             // 
             this.Renewalbt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Renewalbt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Renewalbt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.Renewalbt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.Renewalbt.Location = new System.Drawing.Point(1011, 21);
             this.Renewalbt.Margin = new System.Windows.Forms.Padding(2);
             this.Renewalbt.Name = "Renewalbt";
@@ -933,7 +958,7 @@ namespace SuJinChemicalMES
             this.Delete_Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Delete_Bt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Delete_Bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_Bt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.Delete_Bt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.Delete_Bt.Location = new System.Drawing.Point(1111, 21);
             this.Delete_Bt.Margin = new System.Windows.Forms.Padding(2);
             this.Delete_Bt.Name = "Delete_Bt";
@@ -941,31 +966,6 @@ namespace SuJinChemicalMES
             this.Delete_Bt.TabIndex = 22;
             this.Delete_Bt.Text = "삭제";
             this.Delete_Bt.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(706, 31);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 41);
-            this.button1.TabIndex = 66;
-            this.button1.Text = "날짜 X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.dateTimePicker1);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Location = new System.Drawing.Point(479, 46);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(222, 31);
-            this.panel7.TabIndex = 67;
-            this.panel7.Click += new System.EventHandler(this.panel7_Click);
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // formImport
             // 

@@ -30,11 +30,11 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -320,12 +320,13 @@ namespace SuJinChemicalMES
             // 
             this.MainMoni_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.MainMoni_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.MainMoni_lb.Location = new System.Drawing.Point(3, 0);
             this.MainMoni_lb.Name = "MainMoni_lb";
             this.MainMoni_lb.Size = new System.Drawing.Size(505, 33);
             this.MainMoni_lb.TabIndex = 4;
             this.MainMoni_lb.Text = "생산 현황";
+            this.MainMoni_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Calendar_pn
             // 
@@ -350,12 +351,13 @@ namespace SuJinChemicalMES
             // 
             this.Calendar_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Calendar_lb.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.Calendar_lb.Location = new System.Drawing.Point(0, 0);
             this.Calendar_lb.Name = "Calendar_lb";
             this.Calendar_lb.Size = new System.Drawing.Size(565, 27);
             this.Calendar_lb.TabIndex = 7;
             this.Calendar_lb.Text = "일정표";
+            this.Calendar_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Mainright_tlpn
             // 
@@ -377,28 +379,28 @@ namespace SuJinChemicalMES
             // 
             // Achieve_ct
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea2);
             this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend2);
             this.Achieve_ct.Location = new System.Drawing.Point(3, 458);
             this.Achieve_ct.Name = "Achieve_ct";
             this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "PlanSum_s";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "CompleteSum_s";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "CompleteRate_s";
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series1);
-            this.Achieve_ct.Series.Add(series2);
-            this.Achieve_ct.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "PlanSum_s";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "CompleteSum_s";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "CompleteRate_s";
+            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series4);
+            this.Achieve_ct.Series.Add(series5);
+            this.Achieve_ct.Series.Add(series6);
             this.Achieve_ct.Size = new System.Drawing.Size(740, 258);
             this.Achieve_ct.TabIndex = 7;
             this.Achieve_ct.Text = "Achieve_ct";
@@ -407,12 +409,13 @@ namespace SuJinChemicalMES
             // 
             this.Achieve_lb.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.Achieve_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Achieve_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Achieve_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
             this.Achieve_lb.Location = new System.Drawing.Point(3, 427);
             this.Achieve_lb.Name = "Achieve_lb";
             this.Achieve_lb.Size = new System.Drawing.Size(740, 28);
             this.Achieve_lb.TabIndex = 5;
             this.Achieve_lb.Text = "일일 달성률";
+            this.Achieve_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CalendarControl_pn
             // 
