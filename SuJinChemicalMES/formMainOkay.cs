@@ -22,8 +22,6 @@ namespace SuJinChemicalMES
             set;
         }
 
-        DateTime CalendarPick_dt;
-
         public formMainOkay(string selectedDate)
         {
             InitializeComponent();
@@ -32,7 +30,6 @@ namespace SuJinChemicalMES
             this.Controls.Add(CalendarPick_tlpn);
 
             CalendarPick_st = selectedDate;
-            CalendarPick_dt = Convert.ToDateTime(CalendarPick_st);
 
             InitializeDataGridView();
         }
@@ -68,7 +65,7 @@ namespace SuJinChemicalMES
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
-                com.Parameters.AddWithValue("@CalendarPickday", CalendarPick_dt);
+                com.Parameters.AddWithValue("@CalendarPickday", CalendarPick_st);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(com);
                 DataTable CalendarDT = new DataTable();

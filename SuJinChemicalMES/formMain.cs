@@ -74,7 +74,7 @@ namespace SuJinChemicalMES
 
                 while (reader.Read())
                 {
-                    String printName = reader["supplier"].ToString() + ", " + reader["product_name"].ToString();
+                    String printName = reader["supplier"].ToString();
                     DateTime printDate = reader.GetDateTime("due_date_request");
                     string SynData = printName + printDate.ToString();
 
@@ -122,7 +122,7 @@ namespace SuJinChemicalMES
 
                 while (reader.Read())
                 {
-                    String printName = reader["supplier"].ToString() + ", " + reader["product_name"].ToString();
+                    String printName = reader["company"].ToString();
                     DateTime printDate = reader.GetDateTime("registration_date");
                     string SynData = printName + printDate.ToString();
 
@@ -184,12 +184,12 @@ namespace SuJinChemicalMES
             //SQL 서버 연결.
 
             string baseday_st = base_day.ToString("yyyy-MM-dd");
-            DateTime baseday_dt = Convert.ToDateTime(baseday_st);
+            //DateTime baseday_dt = Convert.ToDateTime(baseday_st);
 
             string Query = "SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
-            com.Parameters.AddWithValue("@baseday_dt", baseday_dt);
+            com.Parameters.AddWithValue("@baseday_dt", baseday_st);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
