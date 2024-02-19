@@ -57,7 +57,7 @@
       <HintPath>..\packages\BouncyCastle.Cryptography.2.3.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Calendar.NET">
-      <HintPath>..\..\calendar\Calendar.NET.dll</HintPath>
+      <HintPath>..\..\새 폴더\packages\FontAwesome.Sharp.6.3.0\lib\net6.0-windows7.0\Calendar.NET.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=7.0.9.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.7.0.9\lib\net462\EPPlus.dll</HintPath>
