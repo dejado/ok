@@ -148,10 +148,7 @@ namespace SuJinChemicalMES
         {
 
         }
-        private void button3_Click(object sender, EventArgs e)
-        {
 
-        }
         private void label20_Click(object sender, EventArgs e)
         {
 
@@ -272,10 +269,7 @@ namespace SuJinChemicalMES
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -389,6 +383,10 @@ namespace SuJinChemicalMES
             */
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수
     {
