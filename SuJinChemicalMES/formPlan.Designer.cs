@@ -51,7 +51,6 @@ namespace SuJinChemicalMES
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -80,6 +79,7 @@ namespace SuJinChemicalMES
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -104,13 +104,15 @@ namespace SuJinChemicalMES
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.label21);
             this.panel5.Controls.Add(this.label20);
             this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.textBox1);
             this.panel5.Controls.Add(this.label19);
             this.panel5.Controls.Add(this.label18);
-            this.panel5.Controls.Add(this.label17);
             this.panel5.Controls.Add(this.label16);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label15);
             this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.label14);
@@ -119,12 +121,10 @@ namespace SuJinChemicalMES
             this.panel5.Controls.Add(this.comboBox2);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Controls.Add(this.label7);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.label13);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.label11);
-            this.panel5.Controls.Add(this.textBox3);
             this.panel5.Controls.Add(this.label10);
             this.panel5.Location = new System.Drawing.Point(648, 80);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -157,6 +157,7 @@ namespace SuJinChemicalMES
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.textBox1.Location = new System.Drawing.Point(441, 111);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Multiline = true;
@@ -199,7 +200,7 @@ namespace SuJinChemicalMES
             // 
             this.label16.BackColor = System.Drawing.Color.LightGray;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(107, 148);
+            this.label16.Location = new System.Drawing.Point(108, 111);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(219, 28);
             this.label16.TabIndex = 32;
@@ -217,12 +218,13 @@ namespace SuJinChemicalMES
             // 
             // comboBox1
             // 
+            this.comboBox1.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 15;
+            this.comboBox1.ItemHeight = 17;
             this.comboBox1.Location = new System.Drawing.Point(107, 76);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(220, 23);
+            this.comboBox1.Size = new System.Drawing.Size(220, 25);
             this.comboBox1.TabIndex = 28;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.comboBox1_MouseClick);
@@ -263,8 +265,9 @@ namespace SuJinChemicalMES
             // 
             // comboBox2
             // 
+            this.comboBox2.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.ItemHeight = 15;
+            this.comboBox2.ItemHeight = 17;
             this.comboBox2.Items.AddRange(new object[] {
             "곽동영",
             "김서진",
@@ -274,7 +277,7 @@ namespace SuJinChemicalMES
             this.comboBox2.Location = new System.Drawing.Point(441, 40);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 23);
+            this.comboBox2.Size = new System.Drawing.Size(130, 25);
             this.comboBox2.TabIndex = 29;
             // 
             // label5
@@ -294,7 +297,7 @@ namespace SuJinChemicalMES
             this.label6.BackColor = System.Drawing.Color.LightCyan;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 112);
+            this.label6.Location = new System.Drawing.Point(7, 148);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 28);
             this.label6.TabIndex = 10;
@@ -306,7 +309,7 @@ namespace SuJinChemicalMES
             this.label7.BackColor = System.Drawing.Color.LightCyan;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(6, 148);
+            this.label7.Location = new System.Drawing.Point(6, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 28);
             this.label7.TabIndex = 11;
@@ -360,18 +363,6 @@ namespace SuJinChemicalMES
             this.label11.TabIndex = 15;
             this.label11.Text = "작업지시량";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.LightGray;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(107, 112);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(219, 28);
-            this.textBox3.TabIndex = 20;
             // 
             // label10
             // 
@@ -665,6 +656,16 @@ namespace SuJinChemicalMES
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label21
+            // 
+            this.label21.BackColor = System.Drawing.Color.LightGray;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(110, 147);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(219, 28);
+            this.label21.TabIndex = 38;
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // formPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -720,7 +721,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel1;
@@ -750,5 +750,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
     }
 }

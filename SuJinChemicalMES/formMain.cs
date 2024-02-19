@@ -30,9 +30,11 @@ namespace SuJinChemicalMES
             AddCalendar();
             // 폼이 생성될 때 캘린더 호출
             AddChart();
+            LoadImageFromDatabase();
+            InitializeTimer();
         }
 
-        DateTime base_day;
+        string CalendarPickDay_st;
 
         private void formMain_Load(object sender, EventArgs e)
         {
@@ -40,7 +42,8 @@ namespace SuJinChemicalMES
 
             Initialize_Calendar_dtp();
 
-            base_day = DateTime.Now;
+
+            CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
         }
 
         private void AddCalendar()
@@ -156,8 +159,6 @@ namespace SuJinChemicalMES
             //데이터타임피커 형식지정
         }
 
-        string CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
-
         private void Calendar_dtp_ValueChanged(object sender, EventArgs e)
         {
             DateTime cal_dt = Calendar_dtp.Value;
@@ -165,8 +166,7 @@ namespace SuJinChemicalMES
 
             CalendarPickDay_st = Calendar_dtp.Value.ToString("yyyy-MM-dd");
             //데이터타임피커로 날짜 픽, Okay로 전달
-
-            base_day = Calendar_dtp.Value;
+            AddChart();
         }
 
         private void CalendarPick_bt_Click(object sender, EventArgs e)
@@ -178,18 +178,19 @@ namespace SuJinChemicalMES
 
         private void AddChart()
         {
+            Achieve_ct.Series["PlanSum_s"].Points.Clear();
+            Achieve_ct.Series["CompleteSum_s"].Points.Clear();
+            Achieve_ct.Series["CompleteRate_s"].Points.Clear();
+
             MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = accumulated_data; User id = team; Password = team1234");
             //SQL 서버와 연결, database=스키마 이름
             con.Open();
             //SQL 서버 연결.
 
-            string baseday_st = base_day.ToString("yyyy-MM-dd");
-            //DateTime baseday_dt = Convert.ToDateTime(baseday_st);
-
             string Query = "SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
-            com.Parameters.AddWithValue("@baseday_dt", baseday_st);
+            com.Parameters.AddWithValue("@baseday_dt", CalendarPickDay_st);
             MySqlDataReader reader = com.ExecuteReader();
 
             while (reader.Read())
@@ -228,6 +229,101 @@ namespace SuJinChemicalMES
         private void MainMoni_lb_Click(object sender, EventArgs e)
         {
 
+        }
+        private Timer timer;
+        private void InitializeTimer()
+        {
+            timer = new Timer();
+            timer.Interval = 100; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Tick += timer1_Tick_1;
+            timer.Start();
+        }
+
+        public void LoadImageFromDatabase()
+        {
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+        {pictureBox5, pictureBox4, pictureBox3, pictureBox2, pictureBox1, pictureBox6 };
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT bath_num, medicine_type FROM bath";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string bethNumber = reader["bath_num"].ToString();
+                            string chemicalType = reader["medicine_type"].ToString();
+
+                            int secondCharacterAsInt = 0;
+
+                            if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
+                            {
+                                char secondCharacter = bethNumber[2];
+
+                                if (int.TryParse(secondCharacter.ToString(), out int result))
+                                {
+                                    secondCharacterAsInt = result;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("변환 실패");
+                                }
+                            }
+
+                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
+            }
+        }
+        private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
+        {
+            switch (chemicalType)
+            {
+                case "인산(H3PO4)":
+                    pictureBox.Image = Properties.Resources.tankak4;
+                    break;
+                case "암모니아(NH4OH)":
+                    pictureBox.Image = Properties.Resources.tankam4;
+                    break;
+                case "황산(H2SO4)":
+                    pictureBox.Image = Properties.Resources.tankbs4;
+                    break;
+                case "과산화수소(H2O2)":
+                    pictureBox.Image = Properties.Resources.tankgs4;
+                    break;
+                case "불산(HF)":
+                    pictureBox.Image = Properties.Resources.tankhs4;
+                    break;
+                case "질산(NHO3)":
+                    pictureBox.Image = Properties.Resources.tankis4;
+                    break;
+                case "알코올(Iso Propyl Alchol)":
+                case "알카리":
+                    pictureBox.Image = Properties.Resources.tankjs4;
+                    break;
+                case "염산(HCl)":
+                case "염산":
+                    pictureBox.Image = Properties.Resources.tankys4;
+                    break;
+                    // 다른 경우에 대한 처리도 추가 가능
+            }
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            LoadImageFromDatabase();
         }
     }
 }

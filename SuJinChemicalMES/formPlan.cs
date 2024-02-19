@@ -139,7 +139,7 @@ namespace SuJinChemicalMES
             // 필요에 따라 추가적인 TextBox에 대한 할당을 진행합니다.
             //recipe();
         }
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
 
@@ -167,92 +167,103 @@ namespace SuJinChemicalMES
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            // 라벨에서 데이터 가져오기
-            string label15Text = label15.Text;
-            string label16Text = label16.Text;
-            string label17Text = label17.Text;
-            string label18Text = label18.Text;
-            string combobox1Text = comboBox1.Text;
-            string label19Text = label19.Text;
-            string textbox1Text = textBox1.Text;
-            string combobox2Text = comboBox2.Text;
-            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-            string state = "운행중";
-            string workingtime = "";
-
-
-            // 그리드뷰에 행 추가
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            // 모든 콤보박스의 선택 여부 확인
+            if (comboBox1.SelectedItem != null &&
+                 comboBox2.SelectedItem != null &&
+                !string.IsNullOrEmpty(textBox1.Text))
             {
-                if (string.IsNullOrEmpty(combobox1Text) || combobox1Text.Equals("(베스없음)"))
-                {
-                    MessageBox.Show("선택된 베스가 없습니다.");
-                    return; // 선택된 베스가 없으므로 이후 로직 실행 중단
-                }
-                else
-                {
+                // 라벨에서 데이터 가져오기
+                string label15Text = label15.Text;
+                string label16Text = label16.Text;
+                string label17Text = label17.Text;
+                string label18Text = label18.Text;
+                string combobox1Text = comboBox1.Text;
+                string label19Text = label19.Text;
+                string textbox1Text = textBox1.Text;
+                string combobox2Text = comboBox2.Text;
+                string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+                string state = "운행중";
+                string workingtime = "";
 
-                }
-            }
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                // 현재 순회 중인 행의 0번째 열의 값을 가져오기
-                string cellValue = row.Cells[4].Value?.ToString();
-                if (comboBox1.Text.Equals(cellValue))
+
+                // 그리드뷰에 행 추가
+                foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
-                    MessageBox.Show("이미 사용된 베스입니다.");
-                    return;
-                }
-            }
-            if (int.TryParse(textBox1.Text, out int textBoxValue) && int.TryParse(label19.Text, out int labelValue))
-            {
-                // TextBox1의 값이 Label19의 값보다 큰 경우 메시지 창 띄우기
-                if (textBoxValue > labelValue)
-                {
-                    MessageBox.Show("작업지시량이 생산계획량보다 많을 수 없습니다.");
-                    return;
-
-                }
-            }
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
-            // 콤보박스에서 선택한 값을 가져오기
-            string selectedValue = label17.Text.ToString();
-
-            // MySQL 데이터베이스 연결 및 쿼리 수행
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // MySQL 쿼리 작성
-                    string query = $"SELECT working_time FROM recipe_registration WHERE product_code = '{selectedValue}'";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    if (string.IsNullOrEmpty(combobox1Text) || combobox1Text.Equals("(베스없음)"))
                     {
-                        using (MySqlDataReader reader = command.ExecuteReader())
+                        MessageBox.Show("선택된 베스가 없습니다.");
+                        return; // 선택된 베스가 없으므로 이후 로직 실행 중단
+                    }
+                    else
+                    {
+
+                    }
+                }
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // 현재 순회 중인 행의 0번째 열의 값을 가져오기
+                    string cellValue = row.Cells[4].Value?.ToString();
+                    if (comboBox1.Text.Equals(cellValue))
+                    {
+                        MessageBox.Show("이미 사용된 베스입니다.");
+                        return;
+                    }
+                }
+                if (int.TryParse(textBox1.Text, out int textBoxValue) && int.TryParse(label19.Text, out int labelValue))
+                {
+                    // TextBox1의 값이 Label19의 값보다 큰 경우 메시지 창 띄우기
+                    if (textBoxValue > labelValue)
+                    {
+                        MessageBox.Show("작업지시량이 생산계획량보다 많을 수 없습니다.");
+                        return;
+
+                    }
+                }
+                string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+                // 콤보박스에서 선택한 값을 가져오기
+                string selectedValue = label17.Text.ToString();
+
+                // MySQL 데이터베이스 연결 및 쿼리 수행
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"SELECT working_time FROM recipe_registration WHERE product_code = '{selectedValue}'";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
-                            if (reader.Read())
+                            using (MySqlDataReader reader = command.ExecuteReader())
                             {
-                                // chemical_type 열의 데이터를 가져와서 라벨에 출력
-                                workingtime = reader["working_time"].ToString();
-                                //label17.Text = $"{workingtime}";
-                            }
-                            else
-                            {
-                                label17.Text = "해당하는 데이터가 없습니다.";
+                                if (reader.Read())
+                                {
+                                    // chemical_type 열의 데이터를 가져와서 라벨에 출력
+                                    workingtime = reader["working_time"].ToString();
+                                    //label17.Text = $"{workingtime}";
+                                }
+                                else
+                                {
+                                    label17.Text = "해당하는 데이터가 없습니다.";
+                                }
                             }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
+                }
+
+                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, combobox2Text);
+                //FormDataShare.AddData(combobox1Text);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
+                MessageBox.Show("콤보박스 값을 모두 선택하세요.");
             }
 
-            dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, combobox2Text);
-            //FormDataShare.AddData(combobox1Text);
         }
 
 
@@ -278,16 +289,40 @@ namespace SuJinChemicalMES
 
         private void comboBox1_MouseClick(object sender, MouseEventArgs e)
         {
+            // MySQL 데이터베이스 연결 및 쿼리 수행
             comboBox1.Items.Clear();
-            foreach (string data in FormDataShare.GetData())        //[1-2] combobox1 클릭시 데이터갱신
+
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+            string query = "SELECT DISTINCT bath_num FROM bath";    //DISTINCT 중복을 방지시킴
+
+            try
             {
-                comboBox1.Items.Add(data);
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // bath_num 열의 데이터를 콤보박스에 추가
+                                comboBox1.Items.Add(reader["bath_num"].ToString());
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
             }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)// 콤보박스 핸들러 이벤트
         {
-            string connectionString = "Server=10.10.32.82;Database=beth_chemical_management;Uid=team;Pwd=team1234;";
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             // 콤보박스에서 선택한 값을 가져오기
             string selectedValue = comboBox1.SelectedItem.ToString();
 
@@ -299,7 +334,7 @@ namespace SuJinChemicalMES
                     connection.Open();
 
                     // MySQL 쿼리 작성
-                    string query = $"SELECT chemical_type FROM beth_operation_status WHERE beth_number = '{selectedValue}'";
+                    string query = $"SELECT medicine_type FROM bath WHERE bath_num = '{selectedValue}'";
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
@@ -308,12 +343,12 @@ namespace SuJinChemicalMES
                             if (reader.Read())
                             {
                                 // chemical_type 열의 데이터를 가져와서 라벨에 출력
-                                string chemicalType = reader["chemical_type"].ToString();
-                                label10.Text = $"{chemicalType}";
+                                string medicineType = reader["medicine_type"].ToString();
+                                label21.Text = $"{medicineType}";
                             }
                             else
                             {
-                                label10.Text = "해당하는 데이터가 없습니다.";
+                                label21.Text = "해당하는 데이터가 없습니다.";
                             }
                         }
                     }
@@ -354,10 +389,6 @@ namespace SuJinChemicalMES
             */
         }
 
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
     public static class FormDataShare   //[1-3] 다른폼 그리드뷰 데이터를 현재폼 콤보박스로 가져오는 관련 함수
     {

@@ -31,13 +31,13 @@ namespace SuJinChemicalMES
 
       private void ShowGridView1()
       {
-            string connectionString = "Server=10.10.32.82;Database=quality;Uid=team;Pwd=team1234;";
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT order_number,company, product_code, product_name, lot_no, quantity FROM shipment_inspection";
+                    string query = "SELECT order_number,company, product_code, product_name, lot_no, quantity FROM completed";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     DataTable dataTable1 = new DataTable();
@@ -148,6 +148,7 @@ namespace SuJinChemicalMES
         private void ImportBt_Click(object sender, EventArgs e)
         {
             string connectionString = "Server=10.10.32.82;Database=quality;User Id=team;Password=team1234;";
+            string connectionString1 = "Server=10.10.32.82;Database=production_management;User Id=team;Password=team1234;";
             string defectCause = (defectivequantity.Text != "0") ? DefectcauseCb.SelectedItem?.ToString() : "";
 
             if (Person_Cb.SelectedItem == null || defectivequantity.Text == "" || standardproduct.Text == "")
@@ -196,7 +197,7 @@ namespace SuJinChemicalMES
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
-                        string query = "SELECT due_date, order_quantity FROM shipment_inspection WHERE lot_no = @lot_no";
+                        string query = "SELECT due_date, order_quantity FROM shipping_inspection_results WHERE lot_no = @lot_no";
                         MySqlCommand command = new MySqlCommand(query, connection);
                         command.Parameters.AddWithValue("@lot_no", selectedLOT_No);
 
@@ -209,10 +210,10 @@ namespace SuJinChemicalMES
                             }
                         }
                     }
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    using (MySqlConnection connection = new MySqlConnection(connectionString1))
                     {
                         connection.Open();
-                        string deleteQuery = "DELETE FROM shipment_inspection WHERE order_number = @orderNumber AND product_name = @productName AND product_code = @productCode";
+                        string deleteQuery = "DELETE FROM completed WHERE order_number = @orderNumber AND product_name = @productName AND product_code = @productCode";
                         MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, connection);
                         deleteCommand.Parameters.AddWithValue("@orderNumber", selectedOrderNumber);
                         deleteCommand.Parameters.AddWithValue("@productName", selectedProductName);
@@ -258,6 +259,31 @@ namespace SuJinChemicalMES
                                 insertCommand.ExecuteNonQuery();
                             }
                         }
+                        string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
+                        using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                        {
+                            connection.Open();
+
+                            string PQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, company, product_code, " +
+                                "product_name, lot_no, quantity, request_quantity, registration_date, registrant, cause_of_defect) " +
+                                "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                            MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
+                            insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
+                            insertCommand.Parameters.AddWithValue("@data", "P");
+                            insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
+                            insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
+                            insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
+                            insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
+                            insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
+                            insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
+                            insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
+                            insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
+                            insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                            insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                            insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                            insertCommand.ExecuteNonQuery();
+                        }
+
                     }
                     if (DefectiveQuantity != 0)
                     {
@@ -324,7 +350,6 @@ namespace SuJinChemicalMES
                 string.IsNullOrEmpty(product_codetb.Text) &&
                 string.IsNullOrEmpty(CompanyCb.Text) &&
                 string.IsNullOrEmpty(LotNo_tb.Text) &&
-                Product_TypeCb.SelectedItem == null &&
                     dateTimePicker1.Enabled == false)
             {
                 MessageBox.Show("항목 중 하나 이상을 입력해주세요.", "입력 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -334,7 +359,6 @@ namespace SuJinChemicalMES
             string productName = product_nametb.Text;
             string productCode = product_codetb.Text;
             string companyName = CompanyCb.Text;
-            string productType = Product_TypeCb.SelectedItem?.ToString();
             string lot_no = LotNo_tb.Text;
             string query = "SELECT progress, test_results, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results WHERE 1=1 ";
 
@@ -361,17 +385,6 @@ namespace SuJinChemicalMES
                 query += "AND lot_no LIKE @lot_no ";
                 parameters.Add(new MySqlParameter("@lot_no", $"%{lot_no}%"));
 
-            }
-            if (!string.IsNullOrEmpty(productType))
-            {
-                if (productType == "제품")
-                {
-                    query += "AND NOT (product_name LIKE '%황산%' OR product_name LIKE '알코올%' OR product_name LIKE '%염산%' OR product_name LIKE '%암모니아%' OR product_name LIKE '과산화%' OR product_name LIKE '%인산%' OR product_name LIKE '%알카리%' OR product_name LIKE '%불산%' OR product_name LIKE '%질산%') ";
-                }
-                else if (productType == "부자재")
-                {
-                    query += "AND (product_name LIKE '%황산%' OR product_name LIKE '알코올%' OR product_name LIKE '%염산%' OR product_name LIKE '%암모니아%' OR product_name LIKE '%인산%' OR product_name LIKE '%알카리%' OR product_name LIKE '과산화%' OR product_name LIKE '%불산%' OR product_name LIKE '%질산%') ";
-                }
             }
             if (dateTimePicker1.Enabled == true)
             {
@@ -419,7 +432,6 @@ namespace SuJinChemicalMES
             ShowSHdatagridview();
             LoadCompanies();
             CompanyCb.SelectedIndex = -1;
-            Product_TypeCb.SelectedIndex = -1;
             product_nametb.Text = "";
             product_codetb.Text = "";
             dateTimePicker1.Value = DateTime.Today;

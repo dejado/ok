@@ -306,6 +306,43 @@ namespace SuJinChemicalMES
                     MessageBox.Show($"오류 발생: {ex.Message}");
                 }
             }
+            string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString2))
+            {
+                try
+                {
+                    connection.Open();
+
+                    // DataGridView의 각 행을 순회하면서 체크된 행의 데이터를 MySQL 테이블로 전송합니다.
+                    foreach (DataGridViewRow row in InputOk_grid.Rows)
+                    {
+                        DataGridViewCheckBoxCell checkBoxCell = row.Cells[0] as DataGridViewCheckBoxCell;
+
+                        // 체크된 행인지 확인하고 체크된 경우에만 MySQL 테이블로 데이터를 전송합니다.
+                        if (checkBoxCell != null && Convert.ToBoolean(checkBoxCell.Value))
+                        {
+                            // MySQL 데이터베이스로 전송할 데이터 추출
+                            string Inlocation = row.Cells[1].Value.ToString();
+                            string progress = "입고";
+                            string company = row.Cells[4].Value.ToString();
+                            string productCode = row.Cells[5].Value.ToString();
+                            string productName = row.Cells[6].Value.ToString();
+                            string lotNo = row.Cells[7].Value.ToString();
+                            string quantity = row.Cells[8].Value.ToString();
+                            string date = DateTime.Now.ToString("yyyy-MM-dd");
+                            string registrant = "김서진";
+
+                            // InsertData 함수 호출
+                            InsertData2(connection, progress, company, productCode, productName, lotNo, quantity, date, registrant, Inlocation);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"오류 발생: {ex.Message}");
+                }
+            }
             ShowGrid();
         }
 
@@ -384,6 +421,21 @@ namespace SuJinChemicalMES
             {
                 cmd.ExecuteNonQuery();
             }
+        }
+        private void InsertData2(MySqlConnection connection, string progress, string company, string productCode, string productName,
+            string lotNo, string quantity, string date, string registrant, string location)
+        {
+            // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
+            string query = $"INSERT INTO accumulated_data(progress,company,product_code,product_name,lot_no,quantity," +
+            $"registration_date,registrant,warehouse_location) VALUES ('{progress}', '{company}', " +
+            $"'{productCode}', '{productName}', '{lotNo}', '{quantity}', '{date}', '{registrant}', '{location}')";
+
+            // 쿼리 실행
+            using (MySqlCommand cmd = new MySqlCommand(query, connection))
+            {
+                cmd.ExecuteNonQuery();
+            }
+
         }
         public void DeleteInsert(string LotNum)
         {
