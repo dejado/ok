@@ -98,7 +98,6 @@ namespace SuJinChemicalMES
             this.label12 = new System.Windows.Forms.Label();
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
-            this.Delete_Bt = new System.Windows.Forms.Button();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -783,7 +782,6 @@ namespace SuJinChemicalMES
             this.panel3.Controls.Add(this.label12);
             this.panel3.Controls.Add(this.Search_Bt);
             this.panel3.Controls.Add(this.Renewalbt);
-            this.panel3.Controls.Add(this.Delete_Bt);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(26, 280);
             this.panel3.Margin = new System.Windows.Forms.Padding(26, 0, 26, 0);
@@ -794,13 +792,13 @@ namespace SuJinChemicalMES
             // 
             // DatecancelBt
             // 
-            this.DatecancelBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DatecancelBt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DatecancelBt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DatecancelBt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatecancelBt.Location = new System.Drawing.Point(734, 41);
+            this.DatecancelBt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DatecancelBt.Location = new System.Drawing.Point(703, 46);
             this.DatecancelBt.Margin = new System.Windows.Forms.Padding(2);
             this.DatecancelBt.Name = "DatecancelBt";
-            this.DatecancelBt.Size = new System.Drawing.Size(66, 30);
+            this.DatecancelBt.Size = new System.Drawing.Size(74, 25);
             this.DatecancelBt.TabIndex = 67;
             this.DatecancelBt.Text = "날짜 X";
             this.DatecancelBt.UseVisualStyleBackColor = true;
@@ -810,9 +808,10 @@ namespace SuJinChemicalMES
             // 
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.dateTimePicker1);
-            this.panel7.Location = new System.Drawing.Point(479, 39);
+            this.panel7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.Location = new System.Drawing.Point(476, 44);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(253, 36);
+            this.panel7.Size = new System.Drawing.Size(222, 31);
             this.panel7.TabIndex = 66;
             this.panel7.Click += new System.EventHandler(this.panel7_Click);
             // 
@@ -821,7 +820,7 @@ namespace SuJinChemicalMES
             this.label6.BackColor = System.Drawing.Color.LightCyan;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 6);
+            this.label6.Location = new System.Drawing.Point(3, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 22);
             this.label6.TabIndex = 65;
@@ -832,56 +831,56 @@ namespace SuJinChemicalMES
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(101, 6);
+            this.dateTimePicker1.Location = new System.Drawing.Point(93, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dateTimePicker1.Size = new System.Drawing.Size(134, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(126, 23);
             this.dateTimePicker1.TabIndex = 23;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // CompanyCb
             // 
             this.CompanyCb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CompanyCb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CompanyCb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanyCb.FormattingEnabled = true;
             this.CompanyCb.Location = new System.Drawing.Point(110, 11);
             this.CompanyCb.Name = "CompanyCb";
-            this.CompanyCb.Size = new System.Drawing.Size(126, 23);
+            this.CompanyCb.Size = new System.Drawing.Size(126, 25);
             this.CompanyCb.TabIndex = 16;
             this.CompanyCb.SelectedIndexChanged += new System.EventHandler(this.CompanyCb_SelectedIndexChanged);
             // 
             // product_nametb
             // 
-            this.product_nametb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_nametb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.product_nametb.Location = new System.Drawing.Point(110, 46);
             this.product_nametb.Margin = new System.Windows.Forms.Padding(2);
             this.product_nametb.Name = "product_nametb";
-            this.product_nametb.Size = new System.Drawing.Size(126, 23);
+            this.product_nametb.Size = new System.Drawing.Size(126, 25);
             this.product_nametb.TabIndex = 13;
             // 
             // product_codetb
             // 
-            this.product_codetb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.product_codetb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.product_codetb.Location = new System.Drawing.Point(339, 46);
             this.product_codetb.Margin = new System.Windows.Forms.Padding(2);
             this.product_codetb.Name = "product_codetb";
-            this.product_codetb.Size = new System.Drawing.Size(126, 23);
+            this.product_codetb.Size = new System.Drawing.Size(126, 25);
             this.product_codetb.TabIndex = 14;
             // 
             // LotNo_tb
             // 
-            this.LotNo_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LotNo_tb.Location = new System.Drawing.Point(340, 10);
+            this.LotNo_tb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LotNo_tb.Location = new System.Drawing.Point(340, 11);
             this.LotNo_tb.Margin = new System.Windows.Forms.Padding(2);
             this.LotNo_tb.Name = "LotNo_tb";
-            this.LotNo_tb.Size = new System.Drawing.Size(126, 23);
+            this.LotNo_tb.Size = new System.Drawing.Size(126, 25);
             this.LotNo_tb.TabIndex = 18;
             // 
             // label16
             // 
             this.label16.BackColor = System.Drawing.Color.LightCyan;
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(250, 10);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(92, 22);
@@ -893,7 +892,7 @@ namespace SuJinChemicalMES
             // 
             this.label7.BackColor = System.Drawing.Color.LightCyan;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(250, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(92, 22);
@@ -905,7 +904,7 @@ namespace SuJinChemicalMES
             // 
             this.label5.BackColor = System.Drawing.Color.LightCyan;
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(21, 46);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(92, 22);
@@ -917,7 +916,7 @@ namespace SuJinChemicalMES
             // 
             this.label12.BackColor = System.Drawing.Color.LightCyan;
             this.label12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(21, 11);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(92, 22);
@@ -930,10 +929,10 @@ namespace SuJinChemicalMES
             this.Search_Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Search_Bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Search_Bt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.Search_Bt.Location = new System.Drawing.Point(809, 19);
+            this.Search_Bt.Location = new System.Drawing.Point(851, 21);
             this.Search_Bt.Margin = new System.Windows.Forms.Padding(2);
             this.Search_Bt.Name = "Search_Bt";
-            this.Search_Bt.Size = new System.Drawing.Size(75, 30);
+            this.Search_Bt.Size = new System.Drawing.Size(93, 38);
             this.Search_Bt.TabIndex = 20;
             this.Search_Bt.Text = "조회";
             this.Search_Bt.UseVisualStyleBackColor = true;
@@ -944,28 +943,14 @@ namespace SuJinChemicalMES
             this.Renewalbt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Renewalbt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Renewalbt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.Renewalbt.Location = new System.Drawing.Point(888, 19);
+            this.Renewalbt.Location = new System.Drawing.Point(953, 21);
             this.Renewalbt.Margin = new System.Windows.Forms.Padding(2);
             this.Renewalbt.Name = "Renewalbt";
-            this.Renewalbt.Size = new System.Drawing.Size(75, 30);
+            this.Renewalbt.Size = new System.Drawing.Size(93, 38);
             this.Renewalbt.TabIndex = 21;
             this.Renewalbt.Text = "전체목록";
             this.Renewalbt.UseVisualStyleBackColor = true;
             this.Renewalbt.Click += new System.EventHandler(this.Renewalbt_Click);
-            // 
-            // Delete_Bt
-            // 
-            this.Delete_Bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Delete_Bt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Delete_Bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete_Bt.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.Delete_Bt.Location = new System.Drawing.Point(967, 19);
-            this.Delete_Bt.Margin = new System.Windows.Forms.Padding(2);
-            this.Delete_Bt.Name = "Delete_Bt";
-            this.Delete_Bt.Size = new System.Drawing.Size(75, 30);
-            this.Delete_Bt.TabIndex = 22;
-            this.Delete_Bt.Text = "삭제";
-            this.Delete_Bt.UseVisualStyleBackColor = true;
             // 
             // formShipment
             // 
@@ -1045,7 +1030,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button Search_Bt;
         private System.Windows.Forms.Button Renewalbt;
-        private System.Windows.Forms.Button Delete_Bt;
         private System.Windows.Forms.DataGridViewTextBoxColumn order_number;
         private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn company_name;
