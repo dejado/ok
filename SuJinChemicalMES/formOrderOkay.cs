@@ -57,6 +57,15 @@ namespace SuJinChemicalMES
                         if (!row.IsNewRow) // 새로 추가된 행이 아닌 경우에만 처리
                         {
                             string orderNumber = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
+                            string supplier = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
+                            string productCode = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
+                            string productName = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : string.Empty;
+                            string lotNo = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : string.Empty;
+                            string quantity = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : string.Empty;
+                            string registration_date = row.Cells[7].Value != null ? row.Cells[7].Value.ToString() : string.Empty;
+                            string dueDate = row.Cells[8].Value != null ? row.Cells[8].Value.ToString() : string.Empty;
+                            string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
+                            string status = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
 
                             // 이미 등록된 발주서번호인지 확인
                             string checkQuery = "SELECT COUNT(*) FROM order_registration WHERE order_number = @orderNumber";
@@ -70,17 +79,6 @@ namespace SuJinChemicalMES
                                 MessageBox.Show("이미 등록된 발주서번호입니다: " + orderNumber, "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 return;
                             }
-
-                            // 등록되지 않은 발주서번호인 경우 MySQL 쿼리문 실행
-                            string supplier = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
-                            string productCode = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
-                            string productName = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : string.Empty;
-                            string lotNo = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : string.Empty;
-                            string quantity = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : string.Empty;
-                            string registration_date = row.Cells[7].Value != null ? row.Cells[7].Value.ToString() : string.Empty;
-                            string dueDate = row.Cells[8].Value != null ? row.Cells[8].Value.ToString() : string.Empty;
-                            string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
-                            string status = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
 
                             // MySQL 쿼리문 실행 (order_registration 테이블)
                             string insertQueryOrderReg = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
@@ -126,6 +124,7 @@ namespace SuJinChemicalMES
                 }
             }
         }
+
 
 
 
