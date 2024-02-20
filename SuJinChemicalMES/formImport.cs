@@ -26,6 +26,7 @@ namespace SuJinChemicalMES
             dataGridView1.MultiSelect = false; //한줄만 선택할 수 있게
             QCdatagridview.MultiSelect = false;
             DefectcauseCb.Enabled = false;
+            
             dataContainer = container;
         }
 
