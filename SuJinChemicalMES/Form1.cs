@@ -342,7 +342,7 @@ namespace SuJinChemicalMES
         {
             if (inventory == null)
             {
-                inventory = new formInventory();
+                inventory = new formInventory(dataContainer);
                 inventory.FormClosed += Inventory_FormClosed;
                 inventory.MdiParent = this;
                 inventory.Dock = DockStyle.Fill;
