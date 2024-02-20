@@ -37,14 +37,12 @@ namespace SuJinChemicalMES
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT order_number,company, product_code, product_name, lot_no, quantity FROM completed";
+                    string query = "SELECT order_number,company, product_code, product_name, lot_no, quantity, due_date FROM completed";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     DataTable dataTable1 = new DataTable();
                     adapter.Fill(dataTable1);
-
                     PrGridView.DataSource = dataTable1;
-
                 }
             }
 
@@ -63,7 +61,7 @@ namespace SuJinChemicalMES
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT progress, test_results, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results";
+                    string query = "SELECT test_results, progress, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     DataTable dataTable1 = new DataTable();
@@ -187,8 +185,8 @@ namespace SuJinChemicalMES
                     string selectedProductName = selectedRow.Cells["product_name"].Value.ToString();
                     string selectedCode = selectedRow.Cells["code"].Value.ToString();
                     string selectedLOT_No = selectedRow.Cells["LOTNO"].Value.ToString();
-                    string Duedate = null;
-                    string OrderQuantity = null;
+                    string Duedate = selectedRow.Cells["due_date"].Value.ToString();
+                    string OrderQuantity = selectedRow.Cells["Ex_Quantity"].Value.ToString();
                     string DefectLotNo = DefectLotno.Text;
                     DateTime today = DateTime.Today;
 
@@ -210,7 +208,7 @@ namespace SuJinChemicalMES
                             }
                         }
                     }
-                    using (MySqlConnection connection = new MySqlConnection(connectionString1))
+                    using (MySqlConnection connection = new MySqlConnection(connectionString1)) //작은데이터그리드뷰 데이터 삭제
                     {
                         connection.Open();
                         string deleteQuery = "DELETE FROM completed WHERE order_number = @orderNumber AND product_name = @productName AND product_code = @productCode";
@@ -359,7 +357,7 @@ namespace SuJinChemicalMES
             string productCode = product_codetb.Text;
             string companyName = CompanyCb.Text;
             string lot_no = LotNo_tb.Text;
-            string query = "SELECT progress, test_results, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results WHERE 1=1 ";
+            string query = "SELECT progress, test_results, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection,registrant_inspection, cause_of_defect FROM shipping_inspection_results WHERE 1=1 ";
 
             List<MySqlParameter> parameters = new List<MySqlParameter>();
 
@@ -387,8 +385,8 @@ namespace SuJinChemicalMES
             }
             if (dateTimePicker1.Enabled == true)
             {
-                query += "AND registration_date_inspection = @importDate ";
-                parameters.Add(new MySqlParameter("@importDate", dateTimePicker1.Value.ToString("yyyy-MM-dd")));
+                query += "AND registration_date_inspection = @Date ";
+                parameters.Add(new MySqlParameter("@Date", dateTimePicker1.Value.ToString("yyyy-MM-dd")));
             }
 
             // 쿼리 마무리
