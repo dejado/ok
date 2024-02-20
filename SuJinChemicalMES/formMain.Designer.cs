@@ -30,11 +30,11 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -58,16 +58,16 @@ namespace SuJinChemicalMES
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.Calendar_pn = new System.Windows.Forms.Panel();
             this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
+            this.Calendar_lb = new System.Windows.Forms.Label();
             this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
             this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.Achieve_lb = new System.Windows.Forms.Label();
             this.CalendarControl_pn = new System.Windows.Forms.Panel();
             this.CalendarPick_bt = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Calendar_cal = new Calendar.NET.Calendar();
             this.panel2 = new System.Windows.Forms.Panel();
             this.MainMoni_lb = new System.Windows.Forms.Label();
-            this.Calendar_lb = new System.Windows.Forms.Label();
-            this.Calendar_cal = new Calendar.NET.Calendar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Main_tlpn.SuspendLayout();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -193,7 +193,6 @@ namespace SuJinChemicalMES
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 20;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
             // 
             // flowLayoutPanel4
             // 
@@ -340,6 +339,18 @@ namespace SuJinChemicalMES
             this.Calendar_dtp.TabIndex = 8;
             this.Calendar_dtp.ValueChanged += new System.EventHandler(this.Calendar_dtp_ValueChanged);
             // 
+            // Calendar_lb
+            // 
+            this.Calendar_lb.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.Calendar_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.Calendar_lb.Location = new System.Drawing.Point(0, 0);
+            this.Calendar_lb.Name = "Calendar_lb";
+            this.Calendar_lb.Size = new System.Drawing.Size(702, 26);
+            this.Calendar_lb.TabIndex = 7;
+            this.Calendar_lb.Text = "일정표";
+            this.Calendar_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Mainright_tlpn
             // 
             this.Mainright_tlpn.BackColor = System.Drawing.Color.White;
@@ -361,28 +372,28 @@ namespace SuJinChemicalMES
             // 
             // Achieve_ct
             // 
-            chartArea2.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea4);
             this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend2);
+            legend4.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend4);
             this.Achieve_ct.Location = new System.Drawing.Point(3, 432);
             this.Achieve_ct.Name = "Achieve_ct";
             this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "PlanSum_s";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "CompleteSum_s";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "CompleteRate_s";
-            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series4);
-            this.Achieve_ct.Series.Add(series5);
-            this.Achieve_ct.Series.Add(series6);
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "PlanSum_s";
+            series11.ChartArea = "ChartArea1";
+            series11.Legend = "Legend1";
+            series11.Name = "CompleteSum_s";
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series12.Legend = "Legend1";
+            series12.Name = "CompleteRate_s";
+            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series10);
+            this.Achieve_ct.Series.Add(series11);
+            this.Achieve_ct.Series.Add(series12);
             this.Achieve_ct.Size = new System.Drawing.Size(696, 258);
             this.Achieve_ct.TabIndex = 7;
             this.Achieve_ct.Text = "Achieve_ct";
@@ -422,44 +433,6 @@ namespace SuJinChemicalMES
             this.CalendarPick_bt.UseVisualStyleBackColor = false;
             this.CalendarPick_bt.Click += new System.EventHandler(this.CalendarPick_bt_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.MainMoni_lb);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(23, 30);
-            this.panel2.Margin = new System.Windows.Forms.Padding(23, 30, 23, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(489, 26);
-            this.panel2.TabIndex = 25;
-            // 
-            // MainMoni_lb
-            // 
-            this.MainMoni_lb.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.MainMoni_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.MainMoni_lb.Location = new System.Drawing.Point(0, 0);
-            this.MainMoni_lb.Name = "MainMoni_lb";
-            this.MainMoni_lb.Size = new System.Drawing.Size(489, 26);
-            this.MainMoni_lb.TabIndex = 5;
-            this.MainMoni_lb.Text = "생산 현황";
-            this.MainMoni_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Calendar_lb
-            // 
-            this.Calendar_lb.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.Calendar_lb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Calendar_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.Calendar_lb.Location = new System.Drawing.Point(0, 0);
-            this.Calendar_lb.Name = "Calendar_lb";
-            this.Calendar_lb.Size = new System.Drawing.Size(702, 26);
-            this.Calendar_lb.TabIndex = 7;
-            this.Calendar_lb.Text = "일정표";
-            this.Calendar_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // Calendar_cal
             // 
             this.Calendar_cal.AllowEditingEvents = true;
@@ -486,6 +459,32 @@ namespace SuJinChemicalMES
             this.Calendar_cal.Size = new System.Drawing.Size(696, 397);
             this.Calendar_cal.TabIndex = 5;
             this.Calendar_cal.TodayFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.MainMoni_lb);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(23, 30);
+            this.panel2.Margin = new System.Windows.Forms.Padding(23, 30, 23, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(489, 26);
+            this.panel2.TabIndex = 25;
+            // 
+            // MainMoni_lb
+            // 
+            this.MainMoni_lb.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.MainMoni_lb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainMoni_lb.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.MainMoni_lb.Location = new System.Drawing.Point(0, 0);
+            this.MainMoni_lb.Name = "MainMoni_lb";
+            this.MainMoni_lb.Size = new System.Drawing.Size(489, 26);
+            this.MainMoni_lb.TabIndex = 5;
+            this.MainMoni_lb.Text = "생산 현황";
+            this.MainMoni_lb.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // formMain
             // 

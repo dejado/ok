@@ -34,9 +34,6 @@ namespace SuJinChemicalMES
             this.Column312 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column313 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column314 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MedicineNum_com = new System.Windows.Forms.ComboBox();
             this.Acidity_com = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -45,16 +42,12 @@ namespace SuJinChemicalMES
             this.ProductName_lb = new System.Windows.Forms.Label();
             this.Company_lb = new System.Windows.Forms.Label();
             this.Medicine_com = new System.Windows.Forms.ComboBox();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BathNum_com = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,6 +60,13 @@ namespace SuJinChemicalMES
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel3.SuspendLayout();
@@ -79,7 +79,7 @@ namespace SuJinChemicalMES
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeight = 30;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -103,7 +103,6 @@ namespace SuJinChemicalMES
             this.Column310.MinimumWidth = 6;
             this.Column310.Name = "Column310";
             this.Column310.ReadOnly = true;
-            this.Column310.Width = 61;
             // 
             // Column312
             // 
@@ -111,7 +110,6 @@ namespace SuJinChemicalMES
             this.Column312.MinimumWidth = 6;
             this.Column312.Name = "Column312";
             this.Column312.ReadOnly = true;
-            this.Column312.Width = 61;
             // 
             // Column313
             // 
@@ -119,7 +117,6 @@ namespace SuJinChemicalMES
             this.Column313.MinimumWidth = 6;
             this.Column313.Name = "Column313";
             this.Column313.ReadOnly = true;
-            this.Column313.Width = 61;
             // 
             // Column314
             // 
@@ -127,30 +124,6 @@ namespace SuJinChemicalMES
             this.Column314.MinimumWidth = 6;
             this.Column314.Name = "Column314";
             this.Column314.ReadOnly = true;
-            this.Column314.Width = 51;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "날짜";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 51;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "담당자";
-            this.Column9.MinimumWidth = 6;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Width = 61;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "베스가동상태";
-            this.Column8.MinimumWidth = 6;
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Width = 72;
             // 
             // MedicineNum_com
             // 
@@ -266,22 +239,6 @@ namespace SuJinChemicalMES
             this.Medicine_com.Size = new System.Drawing.Size(204, 20);
             this.Medicine_com.TabIndex = 50;
             // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "산도설정수치";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 72;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "약품량";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 61;
-            // 
             // BathNum_com
             // 
             this.BathNum_com.FormattingEnabled = true;
@@ -349,7 +306,6 @@ namespace SuJinChemicalMES
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeight = 30;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -369,25 +325,6 @@ namespace SuJinChemicalMES
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1059, 279);
             this.dataGridView1.TabIndex = 35;
-            // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "베스번호";
-            this.Column10.MinimumWidth = 6;
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.Width = 61;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "약품종류";
-            this.Column1.MinimumWidth = 10;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column1.Width = 61;
             // 
             // panel3
             // 
@@ -557,6 +494,64 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 252);
             this.tableLayoutPanel1.TabIndex = 22;
             // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "베스번호";
+            this.Column10.MinimumWidth = 6;
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 165;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "약품종류";
+            this.Column1.MinimumWidth = 10;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.Width = 61;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "약품량";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 166;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "산도설정수치";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 165;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "베스가동상태";
+            this.Column8.MinimumWidth = 6;
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 165;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "담당자";
+            this.Column9.MinimumWidth = 6;
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 166;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "날짜";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 165;
+            // 
             // formInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -592,9 +587,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column312;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column313;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column314;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.ComboBox MedicineNum_com;
         private System.Windows.Forms.ComboBox Acidity_com;
         private System.Windows.Forms.Label label10;
@@ -603,16 +595,12 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label ProductName_lb;
         private System.Windows.Forms.Label Company_lb;
         private System.Windows.Forms.ComboBox Medicine_com;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.ComboBox BathNum_com;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
@@ -625,5 +613,12 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

@@ -24,133 +24,100 @@ namespace SuJinChemicalMES
 
         private void button6_Click(object sender, EventArgs e)
         {
-            // 빈칸이 있는지 및 체크된 행이 있는지 검사
+            // MySQL 연결 문자열
+            string accumulatedDataConnectionString = "Server=10.10.32.82;Database=accumulated_data;User Id=team;Password=team1234;";
+            string managerProductConnectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+
+            // 데이터그리드뷰2의 각 행을 각각의 테이블에 전송
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
-                DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells[0];
-                if (chk.Value != null && (bool)chk.Value)
+                if (!row.IsNewRow)
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    string orderNumber = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
+                    string supplier = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
+                    string productCode = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
+                    string productName = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : string.Empty;
+                    string lotNo = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : string.Empty;
+                    string quantity = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : string.Empty;
+                    string registration_date = row.Cells[7].Value != null ? row.Cells[7].Value.ToString() : string.Empty;
+                    string dueDate = row.Cells[8].Value != null ? row.Cells[8].Value.ToString() : string.Empty;
+                    string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
+                    string progress = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
+
+                    try
                     {
-                        if (cell.ColumnIndex != 0 && (cell.Value == null || string.IsNullOrWhiteSpace(cell.Value.ToString())))
+                        // accumulated_data 테이블에 데이터 삽입
+                        using (MySqlConnection connectionAccumulatedData = new MySqlConnection(accumulatedDataConnectionString))
                         {
-                            MessageBox.Show("빈 칸을 채워주세요.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            return; // 빈칸이 있으면 함수 종료
+                            connectionAccumulatedData.Open();
+                            string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, due_date_request, registrant, progress, due_date, registration_date, quantity) " +
+                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @requestQuantity, @dueDateRequest, @registrant, @progress, @dueDate, @registrationDate, @quantity)";
+                            MySqlCommand commandAccumulatedData = new MySqlCommand(insertQueryAccumulatedData, connectionAccumulatedData);
+                            commandAccumulatedData.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            commandAccumulatedData.Parameters.AddWithValue("@supplier", supplier);
+                            commandAccumulatedData.Parameters.AddWithValue("@productCode", productCode);
+                            commandAccumulatedData.Parameters.AddWithValue("@productName", productName);
+                            commandAccumulatedData.Parameters.AddWithValue("@lotNo", lotNo);
+                            commandAccumulatedData.Parameters.AddWithValue("@requestQuantity", quantity);
+                            commandAccumulatedData.Parameters.AddWithValue("@dueDateRequest", dueDate);
+                            commandAccumulatedData.Parameters.AddWithValue("@registrant", registrant);
+                            commandAccumulatedData.Parameters.AddWithValue("@progress", progress);
+                            commandAccumulatedData.Parameters.AddWithValue("@dueDate", dueDate);
+                            commandAccumulatedData.Parameters.AddWithValue("@registrationDate", registration_date);
+                            commandAccumulatedData.Parameters.AddWithValue("@quantity", quantity);
+                            commandAccumulatedData.ExecuteNonQuery();
                         }
+
+                        // order_registration 테이블에 데이터 삽입
+                        using (MySqlConnection connectionManagerProduct = new MySqlConnection(managerProductConnectionString))
+                        {
+                            connectionManagerProduct.Open();
+                            string insertQueryOrderRegistration = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
+                            MySqlCommand commandOrderRegistration = new MySqlCommand(insertQueryOrderRegistration, connectionManagerProduct);
+                            commandOrderRegistration.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            commandOrderRegistration.Parameters.AddWithValue("@supplier", supplier);
+                            commandOrderRegistration.Parameters.AddWithValue("@productCode", productCode);
+                            commandOrderRegistration.Parameters.AddWithValue("@productName", productName);
+                            commandOrderRegistration.Parameters.AddWithValue("@lotNo", lotNo);
+                            commandOrderRegistration.Parameters.AddWithValue("@quantity", quantity);
+                            commandOrderRegistration.Parameters.AddWithValue("@registration_date", registration_date);
+                            commandOrderRegistration.Parameters.AddWithValue("@dueDate", dueDate);
+                            commandOrderRegistration.Parameters.AddWithValue("@registrant", registrant);
+                            commandOrderRegistration.Parameters.AddWithValue("@status", progress); // 여기서 @status를 사용합니다.
+                            commandOrderRegistration.ExecuteNonQuery();
+                        }
+
+                        // order_registration1 테이블에 데이터 삽입
+                        using (MySqlConnection connectionManagerProduct = new MySqlConnection(managerProductConnectionString))
+                        {
+                            connectionManagerProduct.Open();
+                            string insertQueryOrderRegistration1 = "INSERT INTO order_registration1 (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
+                            MySqlCommand commandOrderRegistration1 = new MySqlCommand(insertQueryOrderRegistration1, connectionManagerProduct);
+                            commandOrderRegistration1.Parameters.AddWithValue("@orderNumber", orderNumber);
+                            commandOrderRegistration1.Parameters.AddWithValue("@supplier", supplier);
+                            commandOrderRegistration1.Parameters.AddWithValue("@productCode", productCode);
+                            commandOrderRegistration1.Parameters.AddWithValue("@productName", productName);
+                            commandOrderRegistration1.Parameters.AddWithValue("@lotNo", lotNo);
+                            commandOrderRegistration1.Parameters.AddWithValue("@quantity", quantity);
+                            commandOrderRegistration1.Parameters.AddWithValue("@registration_date", registration_date);
+                            commandOrderRegistration1.Parameters.AddWithValue("@dueDate", dueDate);
+                            commandOrderRegistration1.Parameters.AddWithValue("@registrant", registrant);
+                            commandOrderRegistration1.Parameters.AddWithValue("@status", progress); // 여기서도 @status를 사용합니다.
+                            commandOrderRegistration1.ExecuteNonQuery();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("데이터 전송 중 오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
 
-            // MySQL 연결 문자열
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
-            string connectionString1 = "Server=10.10.32.82;Database=accumulated_data;User Id=team;Password=team1234;";
-
-
-            // MySQL 연결
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-
-                    // 데이터그리드뷰2의 각 행을 MySQL 테이블에 전송
-                    foreach (DataGridViewRow row in dataGridView2.Rows)
-                    {
-                        if (!row.IsNewRow) // 새로 추가된 행이 아닌 경우에만 처리
-                        {
-                            string orderNumber = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
-                            string supplier = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
-                            string productCode = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
-                            string productName = row.Cells[4].Value != null ? row.Cells[4].Value.ToString() : string.Empty;
-                            string lotNo = row.Cells[5].Value != null ? row.Cells[5].Value.ToString() : string.Empty;
-                            string quantity = row.Cells[6].Value != null ? row.Cells[6].Value.ToString() : string.Empty;
-                            string registration_date = row.Cells[7].Value != null ? row.Cells[7].Value.ToString() : string.Empty;
-                            string dueDate = row.Cells[8].Value != null ? row.Cells[8].Value.ToString() : string.Empty;
-                            string registrant = row.Cells[9].Value != null ? row.Cells[9].Value.ToString() : string.Empty;
-                            string status = row.Cells[10].Value != null ? row.Cells[10].Value.ToString() : string.Empty;
-
-                            // 이미 등록된 발주서번호인지 확인
-                            string checkQuery = "SELECT COUNT(*) FROM order_registration WHERE order_number = @orderNumber";
-                            MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
-                            checkCommand.Parameters.AddWithValue("@orderNumber", orderNumber);
-                            int count = Convert.ToInt32(checkCommand.ExecuteScalar());
-
-                            if (count > 0)
-                            {
-                                // 이미 등록된 발주서번호가 있음을 알림
-                                MessageBox.Show("이미 등록된 발주서번호입니다: " + orderNumber, "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-
-                            // MySQL 쿼리문 실행 (order_registration 테이블)
-                            string insertQueryOrderReg = "INSERT INTO order_registration (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
-                                                 "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
-                            MySqlCommand commandOrderReg = new MySqlCommand(insertQueryOrderReg, connection);
-                            commandOrderReg.Parameters.AddWithValue("@orderNumber", orderNumber);
-                            commandOrderReg.Parameters.AddWithValue("@supplier", supplier);
-                            commandOrderReg.Parameters.AddWithValue("@productCode", productCode);
-                            commandOrderReg.Parameters.AddWithValue("@productName", productName);
-                            commandOrderReg.Parameters.AddWithValue("@lotNo", lotNo);
-                            commandOrderReg.Parameters.AddWithValue("@quantity", quantity);
-                            commandOrderReg.Parameters.AddWithValue("@registration_date", registration_date);
-                            commandOrderReg.Parameters.AddWithValue("@dueDate", dueDate);
-                            commandOrderReg.Parameters.AddWithValue("@registrant", registrant);
-                            commandOrderReg.Parameters.AddWithValue("@status", status);
-
-                            commandOrderReg.ExecuteNonQuery();
-
-                            // MySQL 쿼리문 실행 (order_registration1 테이블)
-                            string insertQueryOrderReg1 = "INSERT INTO order_registration1 (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
-                                                 "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
-                            MySqlCommand commandOrderReg1 = new MySqlCommand(insertQueryOrderReg1, connection);
-                            commandOrderReg1.Parameters.AddWithValue("@orderNumber", orderNumber);
-                            commandOrderReg1.Parameters.AddWithValue("@supplier", supplier);
-                            commandOrderReg1.Parameters.AddWithValue("@productCode", productCode);
-                            commandOrderReg1.Parameters.AddWithValue("@productName", productName);
-                            commandOrderReg1.Parameters.AddWithValue("@lotNo", lotNo);
-                            commandOrderReg1.Parameters.AddWithValue("@quantity", quantity);
-                            commandOrderReg1.Parameters.AddWithValue("@registration_date", registration_date);
-                            commandOrderReg1.Parameters.AddWithValue("@dueDate", dueDate);
-                            commandOrderReg1.Parameters.AddWithValue("@registrant", registrant);
-                            commandOrderReg1.Parameters.AddWithValue("@status", status);
-
-                            commandOrderReg1.ExecuteNonQuery();
-
-                            // MySQL 쿼리문 실행 (accumulated_data 테이블)
-
-                            using (MySqlConnection connectionAccumulatedData = new MySqlConnection(connectionString1))
-                            {
-                                connectionAccumulatedData.Open();
-
-                                string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, due_date_request, registrant, progress, due_date, registration_date, quantity) " +
-                                    "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @dueDate, @registrant, @progress, @registrationDate, @quantity)";
-
-                                MySqlCommand commandAccumulatedData = new MySqlCommand(insertQueryAccumulatedData, connectionAccumulatedData);
-                                commandAccumulatedData.Parameters.AddWithValue("@orderNumber", orderNumber);
-                                commandAccumulatedData.Parameters.AddWithValue("@supplier", supplier);
-                                commandAccumulatedData.Parameters.AddWithValue("@productCode", productCode);
-                                commandAccumulatedData.Parameters.AddWithValue("@productName", productName);
-                                commandAccumulatedData.Parameters.AddWithValue("@lotNo", lotNo);
-                                commandAccumulatedData.Parameters.AddWithValue("@quantity", quantity);
-                                commandAccumulatedData.Parameters.AddWithValue("@registrationDate", registration_date);
-                                commandAccumulatedData.Parameters.AddWithValue("@dueDate", dueDate);
-                                commandAccumulatedData.Parameters.AddWithValue("@registrant", registrant);
-                                commandAccumulatedData.Parameters.AddWithValue("@progress", status); // '진행상태'는 'status'로 변경되어야 함
-
-                                commandAccumulatedData.ExecuteNonQuery();
-                            }
-                        }
-                    }
-
-                    MessageBox.Show("데이터가 성공적으로 전송되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("데이터 전송 중 오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
+            MessageBox.Show("데이터가 성공적으로 전송되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
 
 
 
