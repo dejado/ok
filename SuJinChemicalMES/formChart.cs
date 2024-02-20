@@ -103,8 +103,6 @@ namespace SuJinChemicalMES
             }
         }
 
-
-
         private void ShowProgressGraph()
         {
             string connectionString1 = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234";
@@ -356,10 +354,11 @@ namespace SuJinChemicalMES
             double loadedPercentage = Math.Min(loadingRate * 100, 100);
 
             warehouseSeries.Points.Add(loadedPercentage);
-            warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
+           warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
 
             warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
-            warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+            //   warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+         
 
             Title chartTitle = new Title();
             chartTitle.Text = title;
