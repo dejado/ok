@@ -456,7 +456,35 @@ namespace SuJinChemicalMES
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
+            Console.WriteLine("Timer3 Tick Event");
 
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
+                if (row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    // 3초 후에 timer1_Tick 함수 실행
+                    timer3.Interval = 10000; // 3초
+                    timer3.Start();
+                    aaa();
+                    // MySQL 데이터베이스에서 해당 행 삭제
+                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스1호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+
+                    //break; // 한 번 실행 후에는 루프를 종료합니다.
+                }
+            }
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
