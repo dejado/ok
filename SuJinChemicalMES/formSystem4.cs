@@ -21,9 +21,71 @@ namespace SuJinChemicalMES
         private void formSystem4_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+            LoadDataFromMySQL();
+        }
+        private void LoadDataFromMySQL()
+        {
+            MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = managerproduct; User id = team; Password = team1234");
+            con.Open();
+
+            string SelectQuery = "SELECT * FROM user_registration WHERE 1 = 1";
+
+            if (!string.IsNullOrEmpty(CheUserName_tb.Text))
+            {
+                SelectQuery += $" AND name LIKE '%{CheUserName_tb.Text}%'";
+            }
+
+            if (!string.IsNullOrEmpty(CheUserDepartment_tb.Text))
+            {
+                SelectQuery += $" AND department LIKE '%{CheUserDepartment_tb.Text}%'";
+            }
+
+            if (!string.IsNullOrEmpty(CheUserRank_tb.Text))
+            {
+                SelectQuery += $" AND user_rank LIKE '%{CheUserRank_tb.Text}%'";
+            }
+
+            if (!string.IsNullOrEmpty(CheUserID_tb.Text))
+            {
+                SelectQuery += $" AND id LIKE '%{CheUserID_tb.Text}%'";
+            }
+
+            bool hasResult = false;
+
+            MySqlCommand com = new MySqlCommand(SelectQuery, con);
+            MySqlDataReader reader = com.ExecuteReader();
+
+            UserList_dgv.Rows.Clear();
+
+            while (reader.Read())
+            {
+                hasResult = true;
+
+                int i = UserList_dgv.Rows.Add();
+
+                UserList_dgv.Rows[i].Cells[0].Value = false;
+
+                UserList_dgv.Rows[i].Cells[1].Value = reader["name"].ToString();
+                UserList_dgv.Rows[i].Cells[2].Value = reader["id"].ToString();
+                UserList_dgv.Rows[i].Cells[3].Value = reader["password"].ToString();
+                UserList_dgv.Rows[i].Cells[4].Value = reader["department"].ToString();
+                UserList_dgv.Rows[i].Cells[5].Value = reader["user_rank"].ToString();
+            }
+
+            if (!hasResult)
+            {
+                MessageBox.Show("조건에 해당하는 데이터가 없습니다.", "조회오류", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            con.Close();
+
+            CheUserName_tb.Clear();
+            CheUserDepartment_tb.Clear();
+            CheUserID_tb.Clear();
+            CheUserRank_tb.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+            private void button1_Click(object sender, EventArgs e)
         {
             formSystem4Okay u_r = new formSystem4Okay();
             u_r.ShowDialog(this);

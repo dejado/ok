@@ -108,9 +108,59 @@ namespace SuJinChemicalMES
 
         private void formAddproduct_Load_1(object sender, EventArgs e)
         {
-
+            LoadDataFromMySQL();
         }
+        private void LoadDataFromMySQL()
+        {
+            // MySQL 연결 문자열 설정
+            string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
 
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // 중복된 데이터를 검색하는 SQL 쿼리 작성
+                string query = "SELECT id, company, item_type, product_code, product_name, Test_Method, registration_date, registrant FROM product_registration";
+
+                // 쿼리 실행
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // DataGridView2의 데이터를 모두 지워줍니다.
+                        dataGridView2.Rows.Clear();
+
+                        // 결과를 확인
+                        bool hasResult = false; // 결과가 있는지 확인하기 위한 플래그
+                        while (reader.Read())
+                        {
+                            hasResult = true; // 결과가 있음을 표시
+
+                            int index = dataGridView2.Rows.Add();
+
+                            // DataGridView에 데이터 행을 추가하면서 CheckBoxCell을 추가합니다.
+                            dataGridView2.Rows[index].Cells[0].Value = false; // CheckBox 초기값은 false로 설정
+
+                            // 각 칼럼에 대응하는 데이터를 DataGridView에 추가합니다.
+                            dataGridView2.Rows[index].Cells[1].Value = reader["id"].ToString();
+                            dataGridView2.Rows[index].Cells[2].Value = reader["company"].ToString();
+                            dataGridView2.Rows[index].Cells[3].Value = reader["item_type"].ToString();
+                            dataGridView2.Rows[index].Cells[4].Value = reader["product_code"].ToString();
+                            dataGridView2.Rows[index].Cells[5].Value = reader["product_name"].ToString();
+                            dataGridView2.Rows[index].Cells[6].Value = reader["Test_Method"].ToString();
+                            dataGridView2.Rows[index].Cells[7].Value = reader["registration_date"].ToString();
+                            dataGridView2.Rows[index].Cells[8].Value = reader["registrant"].ToString();
+                        }
+
+                        // 중복 데이터가 존재하지 않으면 알림창을 띄움
+                        if (!hasResult)
+                        {
+                            MessageBox.Show("조건에 해당하는 데이터가 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+            }
+        }
         private void button9_Click_1(object sender, EventArgs e)
         {
             formAddproductOkay formAddproductOkay = new formAddproductOkay();
@@ -225,6 +275,11 @@ namespace SuJinChemicalMES
                     dataGridView2.Rows.Remove(row);
                 }
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

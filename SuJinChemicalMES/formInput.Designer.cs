@@ -29,7 +29,6 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            this.register1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Input_grid = new System.Windows.Forms.DataGridView();
             this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -52,19 +51,9 @@ namespace SuJinChemicalMES
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InputRe_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.InputOk_grid = new System.Windows.Forms.DataGridView();
-            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.location = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.progress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.result1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lot1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -77,6 +66,17 @@ namespace SuJinChemicalMES
             this.InDateX_bt = new System.Windows.Forms.Button();
             this.InputAsk_bt = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.location = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.progress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.result1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lot1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.register1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Input_grid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -86,14 +86,6 @@ namespace SuJinChemicalMES
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // register1
-            // 
-            this.register1.HeaderText = "등록자";
-            this.register1.MinimumWidth = 8;
-            this.register1.Name = "register1";
-            this.register1.ReadOnly = true;
-            this.register1.Width = 150;
             // 
             // tableLayoutPanel2
             // 
@@ -352,13 +344,6 @@ namespace SuJinChemicalMES
             this.label7.Text = "등록일";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "등록일";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
             // InputRe_bt
             // 
             this.InputRe_bt.Dock = System.Windows.Forms.DockStyle.Right;
@@ -413,88 +398,10 @@ namespace SuJinChemicalMES
             this.InputOk_grid.Margin = new System.Windows.Forms.Padding(23, 2, 3, 12);
             this.InputOk_grid.MinimumSize = new System.Drawing.Size(262, 200);
             this.InputOk_grid.Name = "InputOk_grid";
-            this.InputOk_grid.RowHeadersWidth = 62;
+            this.InputOk_grid.RowHeadersWidth = 4;
             this.InputOk_grid.RowTemplate.Height = 30;
             this.InputOk_grid.Size = new System.Drawing.Size(637, 200);
             this.InputOk_grid.TabIndex = 47;
-            // 
-            // check
-            // 
-            this.check.HeaderText = "선택";
-            this.check.MinimumWidth = 6;
-            this.check.Name = "check";
-            this.check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.check.Width = 80;
-            // 
-            // location
-            // 
-            this.location.HeaderText = "창고위치";
-            this.location.Items.AddRange(new object[] {
-            "양품IA",
-            "부자재IB",
-            "반품"});
-            this.location.MinimumWidth = 6;
-            this.location.Name = "location";
-            this.location.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.location.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.location.Width = 125;
-            // 
-            // progress1
-            // 
-            this.progress1.HeaderText = "진행상태";
-            this.progress1.MinimumWidth = 8;
-            this.progress1.Name = "progress1";
-            this.progress1.ReadOnly = true;
-            this.progress1.Width = 150;
-            // 
-            // result1
-            // 
-            this.result1.HeaderText = "검사결과";
-            this.result1.MinimumWidth = 8;
-            this.result1.Name = "result1";
-            this.result1.ReadOnly = true;
-            this.result1.Width = 150;
-            // 
-            // company1
-            // 
-            this.company1.HeaderText = "회사";
-            this.company1.MinimumWidth = 8;
-            this.company1.Name = "company1";
-            this.company1.ReadOnly = true;
-            this.company1.Width = 150;
-            // 
-            // product1
-            // 
-            this.product1.HeaderText = "제품코드";
-            this.product1.MinimumWidth = 8;
-            this.product1.Name = "product1";
-            this.product1.ReadOnly = true;
-            this.product1.Width = 150;
-            // 
-            // code1
-            // 
-            this.code1.HeaderText = "제품명";
-            this.code1.MinimumWidth = 8;
-            this.code1.Name = "code1";
-            this.code1.ReadOnly = true;
-            this.code1.Width = 150;
-            // 
-            // lot1
-            // 
-            this.lot1.HeaderText = "Lot No.";
-            this.lot1.MinimumWidth = 8;
-            this.lot1.Name = "lot1";
-            this.lot1.ReadOnly = true;
-            this.lot1.Width = 150;
-            // 
-            // num1
-            // 
-            this.num1.HeaderText = "수량";
-            this.num1.MinimumWidth = 8;
-            this.num1.Name = "num1";
-            this.num1.ReadOnly = true;
-            this.num1.Width = 150;
             // 
             // panel3
             // 
@@ -663,6 +570,97 @@ namespace SuJinChemicalMES
             this.panel4.Size = new System.Drawing.Size(411, 25);
             this.panel4.TabIndex = 46;
             // 
+            // check
+            // 
+            this.check.HeaderText = "선택";
+            this.check.MinimumWidth = 6;
+            this.check.Name = "check";
+            this.check.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.check.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.check.Width = 60;
+            // 
+            // location
+            // 
+            this.location.HeaderText = "창고위치";
+            this.location.Items.AddRange(new object[] {
+            "양품IA",
+            "부자재IB",
+            "반품"});
+            this.location.MinimumWidth = 6;
+            this.location.Name = "location";
+            this.location.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.location.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.location.Width = 90;
+            // 
+            // progress1
+            // 
+            this.progress1.HeaderText = "진행상태";
+            this.progress1.MinimumWidth = 8;
+            this.progress1.Name = "progress1";
+            this.progress1.ReadOnly = true;
+            this.progress1.Width = 120;
+            // 
+            // result1
+            // 
+            this.result1.HeaderText = "검사결과";
+            this.result1.MinimumWidth = 8;
+            this.result1.Name = "result1";
+            this.result1.ReadOnly = true;
+            // 
+            // company1
+            // 
+            this.company1.HeaderText = "회사";
+            this.company1.MinimumWidth = 8;
+            this.company1.Name = "company1";
+            this.company1.ReadOnly = true;
+            this.company1.Width = 90;
+            // 
+            // product1
+            // 
+            this.product1.HeaderText = "제품코드";
+            this.product1.MinimumWidth = 8;
+            this.product1.Name = "product1";
+            this.product1.ReadOnly = true;
+            this.product1.Width = 90;
+            // 
+            // code1
+            // 
+            this.code1.HeaderText = "제품명";
+            this.code1.MinimumWidth = 8;
+            this.code1.Name = "code1";
+            this.code1.ReadOnly = true;
+            this.code1.Width = 150;
+            // 
+            // lot1
+            // 
+            this.lot1.HeaderText = "Lot No.";
+            this.lot1.MinimumWidth = 8;
+            this.lot1.Name = "lot1";
+            this.lot1.ReadOnly = true;
+            // 
+            // num1
+            // 
+            this.num1.HeaderText = "수량";
+            this.num1.MinimumWidth = 8;
+            this.num1.Name = "num1";
+            this.num1.ReadOnly = true;
+            this.num1.Width = 90;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "등록일";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 120;
+            // 
+            // register1
+            // 
+            this.register1.HeaderText = "등록자";
+            this.register1.MinimumWidth = 8;
+            this.register1.Name = "register1";
+            this.register1.ReadOnly = true;
+            this.register1.Width = 90;
+            // 
             // formInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -690,8 +688,6 @@ namespace SuJinChemicalMES
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridViewTextBoxColumn register1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView Input_grid;
         private System.Windows.Forms.DataGridViewCheckBoxColumn InCheck;
@@ -714,19 +710,9 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button InputRe_bt;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView InputOk_grid;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
-        private System.Windows.Forms.DataGridViewComboBoxColumn location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn progress1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn result1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lot1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn num1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -739,5 +725,16 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Button InDateX_bt;
         private System.Windows.Forms.Button InputAsk_bt;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn check;
+        private System.Windows.Forms.DataGridViewComboBoxColumn location;
+        private System.Windows.Forms.DataGridViewTextBoxColumn progress1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn result1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lot1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn num1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn register1;
     }
 }

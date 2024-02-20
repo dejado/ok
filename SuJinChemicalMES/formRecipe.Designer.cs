@@ -412,6 +412,7 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formRecipe";
             this.Text = "formSystem3";
+            this.Load += new System.EventHandler(this.formRecipe_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);

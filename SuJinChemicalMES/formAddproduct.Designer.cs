@@ -134,6 +134,7 @@ namespace SuJinChemicalMES
             this.dataGridView2.RowTemplate.Height = 30;
             this.dataGridView2.Size = new System.Drawing.Size(1060, 382);
             this.dataGridView2.TabIndex = 46;
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // dataGridViewCheckBoxColumn1
             // 

@@ -404,6 +404,7 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formOrder";
             this.Text = "aaaa";
+            this.Load += new System.EventHandler(this.formOrder_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
