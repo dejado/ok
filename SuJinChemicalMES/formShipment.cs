@@ -15,8 +15,8 @@ namespace SuJinChemicalMES
     public partial class formShipment : Form
     {
         private string selectedOrderNumber;
-
-        public formShipment()
+        private DataContainer dataContainer;
+        public formShipment(DataContainer container)
         {
             InitializeComponent();
             ShowGridView1();
@@ -26,7 +26,7 @@ namespace SuJinChemicalMES
               CompanyCb.SelectedIndexChanged += CompanyCb_SelectedIndexChanged;
             LoadCompanies();
             DefectcauseCb.Enabled = false;
-
+            dataContainer = container;
         }
 
       private void ShowGridView1()
@@ -254,7 +254,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector", "master");
+                                insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }
@@ -279,7 +279,7 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                             insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                             insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                            insertCommand.Parameters.AddWithValue("@inspector", "master");
+                            insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
                             insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                             insertCommand.ExecuteNonQuery();
                         }
@@ -319,7 +319,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector", "master");
+                                insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }

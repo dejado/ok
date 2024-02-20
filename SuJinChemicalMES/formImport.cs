@@ -15,7 +15,8 @@ namespace SuJinChemicalMES
     public partial class formImport : Form
     {
         private string selectedOrderNumber;
-        public formImport()
+        private DataContainer dataContainer;
+        public formImport(DataContainer container)
         {
             InitializeComponent();
             LoadDataIntoDataGridView(); //큰 그리드 데이터 로드
@@ -25,6 +26,8 @@ namespace SuJinChemicalMES
             dataGridView1.MultiSelect = false; //한줄만 선택할 수 있게
             QCdatagridview.MultiSelect = false;
             DefectcauseCb.Enabled = false;
+            this.dataContainer = dataContainer;
+            dataContainer = container;
         }
 
         private void formImport_Load(object sender, EventArgs e)
@@ -106,7 +109,7 @@ namespace SuJinChemicalMES
                         insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
                         insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
                         insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                        insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
+                        insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
                         insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                         insertCommand.ExecuteNonQuery();
                     }
@@ -126,7 +129,7 @@ namespace SuJinChemicalMES
                         insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
                         insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
                         insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                        insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
+                        insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
                         insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                         insertCommand.ExecuteNonQuery();
                     }

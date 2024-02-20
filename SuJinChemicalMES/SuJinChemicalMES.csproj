@@ -213,6 +213,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContainer.cs" />
     <Compile Include="formMainOkay.cs">
       <SubType>Form</SubType>
     </Compile>

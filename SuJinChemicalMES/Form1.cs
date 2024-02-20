@@ -39,6 +39,8 @@ namespace SuJinChemicalMES
         bool SystemmainOK = false;
         //*****************************************************************************************************//
 
+        private DataContainer dataContainer;
+
         public Form1()
         {
             InitializeComponent();
@@ -61,6 +63,9 @@ namespace SuJinChemicalMES
             Logout_bt.BringToFront();
             Logout_pn.BringToFront();
             //**********************************************************************************************//
+
+            dataContainer = new DataContainer();
+
         }
 
         private void mdiProp()
@@ -663,7 +668,7 @@ namespace SuJinChemicalMES
         {
             if (import == null)
             {
-                import = new formImport();
+                import = new formImport(dataContainer);
                 import.FormClosed += Import_FormClosed;
                 import.MdiParent = this;
                 import.Dock = DockStyle.Fill;
@@ -707,7 +712,7 @@ namespace SuJinChemicalMES
         {
             if (input == null)
             {
-                input = new formInput();
+                input = new formInput(dataContainer);
                 input.FormClosed += Store_FormClosed;
                 input.MdiParent = this;
                 input.Dock = DockStyle.Fill;
@@ -727,7 +732,7 @@ namespace SuJinChemicalMES
         {
             if (shipment == null)
             {
-                shipment = new formShipment();
+                shipment = new formShipment(dataContainer);
                 shipment.FormClosed += Shipment_FormClosed;
                 shipment.MdiParent = this;
                 shipment.Dock = DockStyle.Fill;
@@ -747,7 +752,7 @@ namespace SuJinChemicalMES
         {
             if (output == null)
             {
-                output = new formOutput();
+                output = new formOutput(dataContainer);
                 output.FormClosed += Release_FormClosed;
                 output.MdiParent = this;
                 output.Dock = DockStyle.Fill;
@@ -778,7 +783,7 @@ namespace SuJinChemicalMES
         {
             if (input == null)
             {
-                input = new formInput();
+                input = new formInput(dataContainer);
                 input.FormClosed += Input_FormClosed;
                 input.MdiParent = this;
                 input.Dock = DockStyle.Fill;
@@ -798,7 +803,7 @@ namespace SuJinChemicalMES
         {
             if (output == null)
             {
-                output = new formOutput();
+                output = new formOutput(dataContainer);
                 output.FormClosed += Output_FormClosed;
                 output.MdiParent = this;
                 output.Dock = DockStyle.Fill;
@@ -857,6 +862,7 @@ namespace SuJinChemicalMES
                         {
                             login_status = 1;
                             department = reader["department"].ToString();
+                            dataContainer.Name = reader["name"].ToString();
                         }
                     }
                     reader.Close();
