@@ -116,6 +116,7 @@ namespace SuJinChemicalMES
             this.UserDelet_bt.TabIndex = 22;
             this.UserDelet_bt.Text = "삭제";
             this.UserDelet_bt.UseVisualStyleBackColor = false;
+            this.UserDelet_bt.Click += new System.EventHandler(this.UserDelet_bt_Click);
             // 
             // UserCheck_bt
             // 
@@ -130,6 +131,7 @@ namespace SuJinChemicalMES
             this.UserCheck_bt.TabIndex = 20;
             this.UserCheck_bt.Text = "조회";
             this.UserCheck_bt.UseVisualStyleBackColor = false;
+            this.UserCheck_bt.Click += new System.EventHandler(this.UserCheck_bt_Click);
             // 
             // CheUserRank_tb
             // 
@@ -166,6 +168,7 @@ namespace SuJinChemicalMES
             this.UserCorrect_bt.TabIndex = 21;
             this.UserCorrect_bt.Text = "수정";
             this.UserCorrect_bt.UseVisualStyleBackColor = false;
+            this.UserCorrect_bt.Click += new System.EventHandler(this.UserCorrect_bt_Click);
             // 
             // UserList_dgv
             // 
@@ -271,6 +274,7 @@ namespace SuJinChemicalMES
             this.button1.TabIndex = 28;
             this.button1.Text = "사용자 등록";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserCheck_pn
             // 
