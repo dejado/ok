@@ -87,6 +87,12 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer13 = new System.Windows.Forms.Timer(this.components);
+            this.timer14 = new System.Windows.Forms.Timer(this.components);
+            this.timer15 = new System.Windows.Forms.Timer(this.components);
+            this.timer16 = new System.Windows.Forms.Timer(this.components);
+            this.timer17 = new System.Windows.Forms.Timer(this.components);
+            this.timer18 = new System.Windows.Forms.Timer(this.components);
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -803,5 +809,11 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
+        private System.Windows.Forms.Timer timer13;
+        private System.Windows.Forms.Timer timer14;
+        private System.Windows.Forms.Timer timer15;
+        private System.Windows.Forms.Timer timer16;
+        private System.Windows.Forms.Timer timer17;
+        private System.Windows.Forms.Timer timer18;
     }
 }
