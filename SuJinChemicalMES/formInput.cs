@@ -15,13 +15,16 @@ namespace SuJinChemicalMES
 {
     public partial class formInput : Form
     {
-        public formInput()
+        private DataContainer dataContainer;
+
+        public formInput(DataContainer dataContainer)
         {
             InitializeComponent();
             ShowGrid();
             Input_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             InputOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Input_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataContainer = dataContainer;
         }
 
         public void ShowGrid()
@@ -294,7 +297,7 @@ namespace SuJinChemicalMES
                             string lotNo = row.Cells[7].Value.ToString();
                             string quantity = row.Cells[8].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
-                            string registrant = "김서진";
+                            string registrant = dataContainer.Name;
 
                             // InsertData 함수 호출
                             InsertData(connection, progress, company, productCode, productName, lotNo, quantity, date, registrant, Inlocation);
@@ -332,7 +335,7 @@ namespace SuJinChemicalMES
                             string lotNo = row.Cells[7].Value.ToString();
                             string quantity = row.Cells[8].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
-                            string registrant = "김서진";
+                            string registrant = dataContainer.Name;
 
                             // InsertData 함수 호출
                             InsertData2(connection, progress, company, productCode, productName, lotNo, quantity, date, registrant, Inlocation);

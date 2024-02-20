@@ -13,12 +13,15 @@ namespace SuJinChemicalMES
 {
     public partial class formOutput : Form
     {
-        public formOutput()
+        private DataContainer dataContainer;
+
+        public formOutput(DataContainer container)
         {
             InitializeComponent();
             ShowGrid();
             Output_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             OutOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataContainer = container;
 
         }
 
@@ -124,7 +127,7 @@ namespace SuJinChemicalMES
                             string quantity = row.Cells[10].Value.ToString();
                             string order_quantity = row.Cells[11].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
-                            string registrant = "김서진";
+                            string registrant = dataContainer.Name; 
                             string result = row.Cells[2].Value.ToString();
                             string reason = row.Cells[12].Value.ToString();
 
@@ -188,7 +191,7 @@ namespace SuJinChemicalMES
                             string quantity = row.Cells[10].Value.ToString();
                             string order_quantity = row.Cells[11].Value.ToString();
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
-                            string registrant = "김서진";
+                            string registrant = dataContainer.Name;
                             string result = row.Cells[2].Value.ToString();
                             string reason = row.Cells[12].Value.ToString();
 
