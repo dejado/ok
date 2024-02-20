@@ -395,7 +395,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 1000; // 1초 간격으로 설정
+            timer.Interval = 300; // 1초 간격으로 설정
             timer.Tick += timer1_Tick;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -408,7 +408,7 @@ namespace SuJinChemicalMES
                     int remainingTime = Convert.ToInt32(row.Cells[8].Value);
 
                     // 소요시간 10씩 감소
-                    remainingTime -= 10;
+                    remainingTime -= 1;
 
                     // DataGridView 업데이트
                     row.Cells[8].Value = remainingTime;
@@ -460,6 +460,7 @@ namespace SuJinChemicalMES
             timer3 = new Timer();
             timer3.Interval = 1000; // 1초 간격으로 설정
             timer3.Tick += timer3_Tick;
+            timer3.Start();
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
