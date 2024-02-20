@@ -31,16 +31,6 @@ namespace SuJinChemicalMES
         {
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Input_grid = new System.Windows.Forms.DataGridView();
-            this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Inprogress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Incode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inquantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Indate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inregistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inlocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.InModify_bt = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,6 +44,17 @@ namespace SuJinChemicalMES
             this.InputRe_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.InputOk_grid = new System.Windows.Forms.DataGridView();
+            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.location = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.progress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.result1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lot1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.num1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.register1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,17 +67,16 @@ namespace SuJinChemicalMES
             this.InDateX_bt = new System.Windows.Forms.Button();
             this.InputAsk_bt = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.location = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.progress1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.result1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lot1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.num1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.register1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Inprogress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Incompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Incode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inlot = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inquantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Indate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inregistant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inlocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Input_grid)).BeginInit();
             this.panel1.SuspendLayout();
@@ -129,90 +129,6 @@ namespace SuJinChemicalMES
             this.Input_grid.RowTemplate.Height = 30;
             this.Input_grid.Size = new System.Drawing.Size(1059, 288);
             this.Input_grid.TabIndex = 28;
-            // 
-            // InCheck
-            // 
-            this.InCheck.HeaderText = "선택";
-            this.InCheck.MinimumWidth = 6;
-            this.InCheck.Name = "InCheck";
-            this.InCheck.Width = 60;
-            // 
-            // Inprogress
-            // 
-            this.Inprogress.HeaderText = "진행상태";
-            this.Inprogress.MinimumWidth = 8;
-            this.Inprogress.Name = "Inprogress";
-            this.Inprogress.ReadOnly = true;
-            this.Inprogress.Width = 120;
-            // 
-            // Incompany
-            // 
-            this.Incompany.HeaderText = "회사명";
-            this.Incompany.MinimumWidth = 8;
-            this.Incompany.Name = "Incompany";
-            this.Incompany.ReadOnly = true;
-            this.Incompany.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Incompany.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Incompany.Width = 120;
-            // 
-            // Incode
-            // 
-            this.Incode.HeaderText = "제품코드";
-            this.Incode.MinimumWidth = 8;
-            this.Incode.Name = "Incode";
-            this.Incode.ReadOnly = true;
-            // 
-            // Inname
-            // 
-            this.Inname.HeaderText = "제품명";
-            this.Inname.MinimumWidth = 8;
-            this.Inname.Name = "Inname";
-            this.Inname.ReadOnly = true;
-            this.Inname.Width = 150;
-            // 
-            // Inlot
-            // 
-            this.Inlot.HeaderText = "Lot No.";
-            this.Inlot.MinimumWidth = 8;
-            this.Inlot.Name = "Inlot";
-            this.Inlot.ReadOnly = true;
-            // 
-            // Inquantity
-            // 
-            this.Inquantity.HeaderText = "제품수량";
-            this.Inquantity.MinimumWidth = 8;
-            this.Inquantity.Name = "Inquantity";
-            this.Inquantity.ReadOnly = true;
-            this.Inquantity.Width = 80;
-            // 
-            // Indate
-            // 
-            this.Indate.HeaderText = "등록일";
-            this.Indate.MinimumWidth = 8;
-            this.Indate.Name = "Indate";
-            this.Indate.ReadOnly = true;
-            this.Indate.Width = 120;
-            // 
-            // Inregistant
-            // 
-            this.Inregistant.HeaderText = "등록자";
-            this.Inregistant.MinimumWidth = 8;
-            this.Inregistant.Name = "Inregistant";
-            this.Inregistant.ReadOnly = true;
-            this.Inregistant.Width = 80;
-            // 
-            // Inlocation
-            // 
-            this.Inlocation.HeaderText = "입창고 위치";
-            this.Inlocation.Items.AddRange(new object[] {
-            "양품IA",
-            "부자재IB",
-            "반품"});
-            this.Inlocation.MinimumWidth = 8;
-            this.Inlocation.Name = "Inlocation";
-            this.Inlocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Inlocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Inlocation.Width = 120;
             // 
             // panel1
             // 
@@ -403,173 +319,6 @@ namespace SuJinChemicalMES
             this.InputOk_grid.Size = new System.Drawing.Size(637, 200);
             this.InputOk_grid.TabIndex = 47;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.InputRe_bt);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(23, 30);
-            this.panel3.Margin = new System.Windows.Forms.Padding(23, 30, 3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(637, 25);
-            this.panel3.TabIndex = 44;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(22, 30, 5, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(637, 25);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "수입검사현황";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.InWarehouse_com);
-            this.panel2.Controls.Add(this.InDate1);
-            this.panel2.Controls.Add(this.InCompany_com);
-            this.panel2.Controls.Add(this.InName_txt);
-            this.panel2.Controls.Add(this.InCode_txt);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.InDateX_bt);
-            this.panel2.Controls.Add(this.InputAsk_bt);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(668, 60);
-            this.panel2.Margin = new System.Windows.Forms.Padding(5, 2, 22, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(415, 203);
-            this.panel2.TabIndex = 39;
-            // 
-            // InWarehouse_com
-            // 
-            this.InWarehouse_com.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InWarehouse_com.FormattingEnabled = true;
-            this.InWarehouse_com.Items.AddRange(new object[] {
-            "양품IA",
-            "부자재IB",
-            "반품"});
-            this.InWarehouse_com.Location = new System.Drawing.Point(122, 121);
-            this.InWarehouse_com.Margin = new System.Windows.Forms.Padding(2);
-            this.InWarehouse_com.Name = "InWarehouse_com";
-            this.InWarehouse_com.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.InWarehouse_com.Size = new System.Drawing.Size(176, 23);
-            this.InWarehouse_com.TabIndex = 16;
-            // 
-            // InDate1
-            // 
-            this.InDate1.CalendarFont = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.InDate1.CustomFormat = "yyyy-MM-dd(ddd)";
-            this.InDate1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.InDate1.Location = new System.Drawing.Point(122, 156);
-            this.InDate1.Margin = new System.Windows.Forms.Padding(2);
-            this.InDate1.Name = "InDate1";
-            this.InDate1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.InDate1.Size = new System.Drawing.Size(176, 23);
-            this.InDate1.TabIndex = 14;
-            this.InDate1.Value = new System.DateTime(1989, 1, 1, 0, 0, 0, 0);
-            // 
-            // InCompany_com
-            // 
-            this.InCompany_com.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InCompany_com.FormattingEnabled = true;
-            this.InCompany_com.Items.AddRange(new object[] {
-            "가이드",
-            "덕산약품",
-            "디스크",
-            "링",
-            "벨자",
-            "샤프트",
-            "쉴드",
-            "케미컬코리아",
-            "튜브"});
-            this.InCompany_com.Location = new System.Drawing.Point(122, 16);
-            this.InCompany_com.Margin = new System.Windows.Forms.Padding(2);
-            this.InCompany_com.Name = "InCompany_com";
-            this.InCompany_com.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.InCompany_com.Size = new System.Drawing.Size(176, 23);
-            this.InCompany_com.TabIndex = 13;
-            // 
-            // InName_txt
-            // 
-            this.InName_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InName_txt.Location = new System.Drawing.Point(122, 86);
-            this.InName_txt.Margin = new System.Windows.Forms.Padding(2);
-            this.InName_txt.Name = "InName_txt";
-            this.InName_txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.InName_txt.Size = new System.Drawing.Size(176, 23);
-            this.InName_txt.TabIndex = 11;
-            this.InName_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // InCode_txt
-            // 
-            this.InCode_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InCode_txt.Location = new System.Drawing.Point(122, 51);
-            this.InCode_txt.Margin = new System.Windows.Forms.Padding(2);
-            this.InCode_txt.Name = "InCode_txt";
-            this.InCode_txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.InCode_txt.Size = new System.Drawing.Size(176, 23);
-            this.InCode_txt.TabIndex = 12;
-            this.InCode_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.LightCyan;
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 121);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 24);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "창고위치";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // InDateX_bt
-            // 
-            this.InDateX_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InDateX_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InDateX_bt.Location = new System.Drawing.Point(315, 156);
-            this.InDateX_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.InDateX_bt.Name = "InDateX_bt";
-            this.InDateX_bt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.InDateX_bt.Size = new System.Drawing.Size(68, 26);
-            this.InDateX_bt.TabIndex = 0;
-            this.InDateX_bt.Text = "날짜X";
-            this.InDateX_bt.UseVisualStyleBackColor = true;
-            this.InDateX_bt.Click += new System.EventHandler(this.InDateX_bt_Click);
-            // 
-            // InputAsk_bt
-            // 
-            this.InputAsk_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InputAsk_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InputAsk_bt.Location = new System.Drawing.Point(315, 15);
-            this.InputAsk_bt.Margin = new System.Windows.Forms.Padding(2);
-            this.InputAsk_bt.Name = "InputAsk_bt";
-            this.InputAsk_bt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.InputAsk_bt.Size = new System.Drawing.Size(68, 26);
-            this.InputAsk_bt.TabIndex = 0;
-            this.InputAsk_bt.Text = "조회";
-            this.InputAsk_bt.UseVisualStyleBackColor = true;
-            this.InputAsk_bt.Click += new System.EventHandler(this.InputAsk_bt_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(671, 30);
-            this.panel4.Margin = new System.Windows.Forms.Padding(8, 30, 23, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(411, 25);
-            this.panel4.TabIndex = 46;
-            // 
             // check
             // 
             this.check.HeaderText = "선택";
@@ -661,6 +410,274 @@ namespace SuJinChemicalMES
             this.register1.ReadOnly = true;
             this.register1.Width = 90;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.InputRe_bt);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(23, 30);
+            this.panel3.Margin = new System.Windows.Forms.Padding(23, 30, 3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(637, 25);
+            this.panel3.TabIndex = 44;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(22, 30, 5, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(637, 25);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "수입검사현황";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.InWarehouse_com);
+            this.panel2.Controls.Add(this.InDate1);
+            this.panel2.Controls.Add(this.InCompany_com);
+            this.panel2.Controls.Add(this.InName_txt);
+            this.panel2.Controls.Add(this.InCode_txt);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.InDateX_bt);
+            this.panel2.Controls.Add(this.InputAsk_bt);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(668, 60);
+            this.panel2.Margin = new System.Windows.Forms.Padding(5, 2, 22, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(415, 203);
+            this.panel2.TabIndex = 39;
+            // 
+            // InWarehouse_com
+            // 
+            this.InWarehouse_com.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InWarehouse_com.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InWarehouse_com.FormattingEnabled = true;
+            this.InWarehouse_com.Items.AddRange(new object[] {
+            "양품IA",
+            "부자재IB",
+            "반품"});
+            this.InWarehouse_com.Location = new System.Drawing.Point(122, 121);
+            this.InWarehouse_com.Margin = new System.Windows.Forms.Padding(2);
+            this.InWarehouse_com.MaximumSize = new System.Drawing.Size(400, 0);
+            this.InWarehouse_com.Name = "InWarehouse_com";
+            this.InWarehouse_com.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.InWarehouse_com.Size = new System.Drawing.Size(176, 23);
+            this.InWarehouse_com.TabIndex = 16;
+            // 
+            // InDate1
+            // 
+            this.InDate1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InDate1.CalendarFont = new System.Drawing.Font("굴림", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.InDate1.CustomFormat = "yyyy-MM-dd(ddd)";
+            this.InDate1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.InDate1.Location = new System.Drawing.Point(122, 156);
+            this.InDate1.Margin = new System.Windows.Forms.Padding(2);
+            this.InDate1.MaximumSize = new System.Drawing.Size(400, 23);
+            this.InDate1.Name = "InDate1";
+            this.InDate1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.InDate1.Size = new System.Drawing.Size(176, 23);
+            this.InDate1.TabIndex = 14;
+            this.InDate1.Value = new System.DateTime(1989, 1, 1, 0, 0, 0, 0);
+            // 
+            // InCompany_com
+            // 
+            this.InCompany_com.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InCompany_com.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InCompany_com.FormattingEnabled = true;
+            this.InCompany_com.Items.AddRange(new object[] {
+            "가이드",
+            "덕산약품",
+            "디스크",
+            "링",
+            "벨자",
+            "샤프트",
+            "쉴드",
+            "케미컬코리아",
+            "튜브"});
+            this.InCompany_com.Location = new System.Drawing.Point(122, 16);
+            this.InCompany_com.Margin = new System.Windows.Forms.Padding(2);
+            this.InCompany_com.MaximumSize = new System.Drawing.Size(400, 0);
+            this.InCompany_com.Name = "InCompany_com";
+            this.InCompany_com.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.InCompany_com.Size = new System.Drawing.Size(176, 23);
+            this.InCompany_com.TabIndex = 13;
+            // 
+            // InName_txt
+            // 
+            this.InName_txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InName_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InName_txt.Location = new System.Drawing.Point(122, 86);
+            this.InName_txt.Margin = new System.Windows.Forms.Padding(2);
+            this.InName_txt.MaximumSize = new System.Drawing.Size(400, 23);
+            this.InName_txt.Name = "InName_txt";
+            this.InName_txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.InName_txt.Size = new System.Drawing.Size(176, 23);
+            this.InName_txt.TabIndex = 11;
+            this.InName_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // InCode_txt
+            // 
+            this.InCode_txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.InCode_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InCode_txt.Location = new System.Drawing.Point(122, 51);
+            this.InCode_txt.Margin = new System.Windows.Forms.Padding(2);
+            this.InCode_txt.MaximumSize = new System.Drawing.Size(400, 23);
+            this.InCode_txt.Name = "InCode_txt";
+            this.InCode_txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.InCode_txt.Size = new System.Drawing.Size(176, 23);
+            this.InCode_txt.TabIndex = 12;
+            this.InCode_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.LightCyan;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 121);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(105, 24);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "창고위치";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // InDateX_bt
+            // 
+            this.InDateX_bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InDateX_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InDateX_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InDateX_bt.Location = new System.Drawing.Point(315, 156);
+            this.InDateX_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.InDateX_bt.Name = "InDateX_bt";
+            this.InDateX_bt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.InDateX_bt.Size = new System.Drawing.Size(68, 26);
+            this.InDateX_bt.TabIndex = 0;
+            this.InDateX_bt.Text = "날짜X";
+            this.InDateX_bt.UseVisualStyleBackColor = true;
+            this.InDateX_bt.Click += new System.EventHandler(this.InDateX_bt_Click);
+            // 
+            // InputAsk_bt
+            // 
+            this.InputAsk_bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.InputAsk_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.InputAsk_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.InputAsk_bt.Location = new System.Drawing.Point(315, 15);
+            this.InputAsk_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.InputAsk_bt.Name = "InputAsk_bt";
+            this.InputAsk_bt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.InputAsk_bt.Size = new System.Drawing.Size(68, 26);
+            this.InputAsk_bt.TabIndex = 0;
+            this.InputAsk_bt.Text = "조회";
+            this.InputAsk_bt.UseVisualStyleBackColor = true;
+            this.InputAsk_bt.Click += new System.EventHandler(this.InputAsk_bt_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(671, 30);
+            this.panel4.Margin = new System.Windows.Forms.Padding(8, 30, 23, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(411, 25);
+            this.panel4.TabIndex = 46;
+            // 
+            // InCheck
+            // 
+            this.InCheck.HeaderText = "선택";
+            this.InCheck.MinimumWidth = 6;
+            this.InCheck.Name = "InCheck";
+            this.InCheck.Width = 60;
+            // 
+            // Inprogress
+            // 
+            this.Inprogress.HeaderText = "진행상태";
+            this.Inprogress.MinimumWidth = 8;
+            this.Inprogress.Name = "Inprogress";
+            this.Inprogress.ReadOnly = true;
+            this.Inprogress.Width = 120;
+            // 
+            // Incompany
+            // 
+            this.Incompany.HeaderText = "회사명";
+            this.Incompany.MinimumWidth = 8;
+            this.Incompany.Name = "Incompany";
+            this.Incompany.ReadOnly = true;
+            this.Incompany.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Incompany.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Incompany.Width = 120;
+            // 
+            // Incode
+            // 
+            this.Incode.HeaderText = "제품코드";
+            this.Incode.MinimumWidth = 8;
+            this.Incode.Name = "Incode";
+            this.Incode.ReadOnly = true;
+            // 
+            // Inname
+            // 
+            this.Inname.HeaderText = "제품명";
+            this.Inname.MinimumWidth = 165;
+            this.Inname.Name = "Inname";
+            this.Inname.ReadOnly = true;
+            this.Inname.Width = 165;
+            // 
+            // Inlot
+            // 
+            this.Inlot.HeaderText = "Lot No.";
+            this.Inlot.MinimumWidth = 8;
+            this.Inlot.Name = "Inlot";
+            this.Inlot.ReadOnly = true;
+            // 
+            // Inquantity
+            // 
+            this.Inquantity.HeaderText = "제품수량";
+            this.Inquantity.MinimumWidth = 8;
+            this.Inquantity.Name = "Inquantity";
+            this.Inquantity.ReadOnly = true;
+            this.Inquantity.Width = 80;
+            // 
+            // Indate
+            // 
+            this.Indate.HeaderText = "등록일";
+            this.Indate.MinimumWidth = 8;
+            this.Indate.Name = "Indate";
+            this.Indate.ReadOnly = true;
+            this.Indate.Width = 120;
+            // 
+            // Inregistant
+            // 
+            this.Inregistant.HeaderText = "등록자";
+            this.Inregistant.MinimumWidth = 8;
+            this.Inregistant.Name = "Inregistant";
+            this.Inregistant.ReadOnly = true;
+            this.Inregistant.Width = 80;
+            // 
+            // Inlocation
+            // 
+            this.Inlocation.HeaderText = "입창고 위치";
+            this.Inlocation.Items.AddRange(new object[] {
+            "양품IA",
+            "부자재IB",
+            "반품"});
+            this.Inlocation.MinimumWidth = 8;
+            this.Inlocation.Name = "Inlocation";
+            this.Inlocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Inlocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Inlocation.Width = 120;
+            // 
             // formInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -690,16 +707,6 @@ namespace SuJinChemicalMES
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView Input_grid;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn InCheck;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Inprogress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Incompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Incode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Inname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Inlot;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Inquantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Indate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Inregistant;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Inlocation;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button InModify_bt;
         private System.Windows.Forms.Label label11;
@@ -736,5 +743,15 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn num1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn register1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn InCheck;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inprogress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Incompany;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Incode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inlot;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inquantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Indate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inregistant;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Inlocation;
     }
 }
