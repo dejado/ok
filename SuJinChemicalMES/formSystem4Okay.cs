@@ -143,9 +143,40 @@ namespace SuJinChemicalMES
             DataTable userDT = new DataTable();
             //어뎁터 이용해서 끌어오기
             adapterDT.Fill(userDT);
+
+            // 기존에 설정된 컬럼들을 유지하고 새로운 데이터로 채우기 위해 Clear() 메서드 사용
+            RegiUserList_dgv.Columns.Clear();
             RegiUserList_dgv.DataSource = userDT;
+
+            // DataGridView의 컬럼 이름을 MySQL의 칼럼 이름으로 변경
+            foreach (DataGridViewColumn column in RegiUserList_dgv.Columns)
+            {
+                switch (column.HeaderText)
+                {
+                    case "name":
+                        column.HeaderText = "이름";
+                        break;
+                    case "id":
+                        column.HeaderText = "아이디";
+                        break;
+                    case "password":
+                        column.HeaderText = "비밀번호";
+                        break;
+                    case "department":
+                        column.HeaderText = "부서";
+                        break;
+                    case "user_rank":
+                        column.HeaderText = "직급";
+                        break;
+                    // 추가적인 컬럼 이름 변경이 필요한 경우 여기에 추가
+                    default:
+                        break;
+                }
+            }
 
             con.Close();
         }
+
+
     }
 }

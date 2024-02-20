@@ -450,7 +450,8 @@
   "Type": "TrainingConfig",
   "Version": 4,
   "TrainingOption": {
-    "Version": 1,
+    "Version": 2,
+    "Subsampling": false,
     "Type": "RegressionTrainingOption",
     "TrainingTime": 1000,
     "LabelColumn": "BinaryValues",

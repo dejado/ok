@@ -94,6 +94,7 @@ namespace SuJinChemicalMES
             this.UserRegistration_bt.TabIndex = 20;
             this.UserRegistration_bt.Text = "등록";
             this.UserRegistration_bt.UseVisualStyleBackColor = false;
+            this.UserRegistration_bt.Click += new System.EventHandler(this.UserRegistration_bt_Click);
             // 
             // UserRank_tb
             // 
