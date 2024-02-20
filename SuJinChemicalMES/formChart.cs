@@ -101,6 +101,7 @@ namespace SuJinChemicalMES
                 }
 
             }
+            panel5.Font = new Font("Segoe UI", 9, FontStyle.Regular);
         }
 
         private void ShowProgressGraph()
@@ -181,7 +182,7 @@ namespace SuJinChemicalMES
             chart.ChartAreas[0].AxisY2.MajorGrid.Enabled = false;
 
             chart.DataBind();
-            chart.Titles.Add("작업진행율").Font = new Font("Arial", 16, FontStyle.Bold);
+            chart.Titles.Add("작업진행율").Font = new Font("Segoe UI", 16, FontStyle.Bold); 
 
             Legend legend = chart.Legends.Add("범례");
             legend.Docking = Docking.Bottom;
@@ -331,13 +332,14 @@ namespace SuJinChemicalMES
             chart.Legends.Add(new Legend("적재율"));
             warehouseSeries.Points[0].LegendText = "적재율";
             chart.Legends["적재율"].Docking = Docking.Bottom;
+            chart.Legends["적재율"].Font = new Font("Segoe UI",8,FontStyle.Regular);
             warehouseSeries.Points[1].LegendText = "여유공간";
             //  warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
 
             Title chartTitle = new Title();
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
-            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+            chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
             warehouseSeries.Points[0].Color = Color.Red;
             return chart;
 
@@ -363,7 +365,7 @@ namespace SuJinChemicalMES
             Title chartTitle = new Title();
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
-            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+            chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
 
             return chart;
         }
@@ -386,7 +388,7 @@ namespace SuJinChemicalMES
             Title chartTitle = new Title();
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
-            chartTitle.Font = new Font("Arial", 16, FontStyle.Bold);
+            chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
             return chart;
         }
         private void ShowDefectText()
@@ -434,7 +436,7 @@ namespace SuJinChemicalMES
 
             textBoxDefect.Location = new Point(10, 10);
             textBoxDefect.Enabled = false;
-            textBoxDefect.Font = new Font("Arial", 15, FontStyle.Bold);
+            textBoxDefect.Font = new Font("Segoe UI", 15, FontStyle.Bold);
             textBoxDefect.ForeColor = Color.Black;
             textBoxDefect.BackColor = Color.White;
 
@@ -511,13 +513,13 @@ namespace SuJinChemicalMES
             }
             chart.ChartAreas["ChartArea"].AxisY.Interval = 1;
             chart.ChartAreas["ChartArea"].AxisY.Maximum = 3;
-            chart.Titles.Add("불량률").Font = new Font("Arial", 16, FontStyle.Bold);
+            chart.Titles.Add("불량률").Font = new Font("Segoe UI", 16, FontStyle.Bold);
             TextBox textAlarm = new TextBox();
             textAlarm.Multiline = true;
             textAlarm.Enabled = false;
             textAlarm.ReadOnly = true;
             textAlarm.Dock = DockStyle.Fill;
-            textAlarm.Font = new Font("Arial", 12, FontStyle.Bold);
+            textAlarm.Font = new Font("Segoe UI", 12, FontStyle.Bold);
             textAlarm.ForeColor = Color.Black;
             textAlarm.BackColor = Color.White;
             textAlarm.TabStop = false;
