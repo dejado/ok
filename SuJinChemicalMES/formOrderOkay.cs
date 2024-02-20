@@ -24,6 +24,22 @@ namespace SuJinChemicalMES
 
         private void button6_Click(object sender, EventArgs e)
         {
+            bool anyRowChecked = false;
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (!row.IsNewRow && Convert.ToBoolean(row.Cells["CheckboxColumnName"].Value))
+                {
+                    anyRowChecked = true;
+                    break;
+                }
+            }
+
+            if (dataGridView2.Rows.Count == 0 || !anyRowChecked)
+            {
+                MessageBox.Show("전송할 데이터가 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             // MySQL 연결 문자열
             string accumulatedDataConnectionString = "Server=10.10.32.82;Database=accumulated_data;User Id=team;Password=team1234;";
             string managerProductConnectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
@@ -117,6 +133,7 @@ namespace SuJinChemicalMES
 
             MessageBox.Show("데이터가 성공적으로 전송되었습니다.", "성공", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
 
 
 
