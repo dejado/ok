@@ -341,6 +341,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 265);
             this.tableLayoutPanel1.TabIndex = 43;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // panel1
             // 
@@ -717,6 +718,7 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formOutput";
             this.Text = "formOutput";
+            this.Load += new System.EventHandler(this.formOutput_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Output_grid)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

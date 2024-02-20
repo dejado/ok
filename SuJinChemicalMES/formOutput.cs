@@ -19,8 +19,7 @@ namespace SuJinChemicalMES
             ShowGrid();
             Output_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             OutOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Output_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            OutOk_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         public void ShowGrid()
@@ -405,6 +404,16 @@ namespace SuJinChemicalMES
             }
         }
 
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
+
+        private void formOutput_Load(object sender, EventArgs e)
+        {
+            this.ControlBox = false;
+            OutOk_grid.ClearSelection();
+            Output_grid.ClearSelection();
+        }
     }
 }

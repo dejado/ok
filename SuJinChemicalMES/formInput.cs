@@ -21,8 +21,7 @@ namespace SuJinChemicalMES
             ShowGrid();
             Input_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             InputOk_grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Input_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            InputOk_grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
         public void ShowGrid()
@@ -83,6 +82,8 @@ namespace SuJinChemicalMES
         private void formInput_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
+            InputOk_grid.ClearSelection();
+            Input_grid.ClearSelection();
         }
 
 
