@@ -16,6 +16,14 @@ namespace SuJinChemicalMES
         private Timer timer;
         private Timer timer2;
         private Timer timer4;
+        private Timer timer5;
+        private Timer timer6;
+        private Timer timer7;
+        private Timer timer8;
+        private Timer timer9;
+        private Timer timer10;
+        private Timer timer11;
+        private Timer timer12;
 
         public formPlan()
         {
@@ -27,6 +35,10 @@ namespace SuJinChemicalMES
 
             InitializeTimer(); // 타이머 초기화
             InitializeTimer2();
+            InitializeTimer3();
+            InitializeTimer4();
+            InitializeTimer5();
+            InitializeTimer6();
 
         }
 
@@ -316,7 +328,7 @@ namespace SuJinChemicalMES
                 }
 
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
-                
+
             }
             else
             {
@@ -391,7 +403,7 @@ namespace SuJinChemicalMES
         {
 
         }
-
+        //베스1호
         private void InitializeTimer()
         {
             timer = new Timer();
@@ -423,14 +435,14 @@ namespace SuJinChemicalMES
                         timer.Stop(); // 타이머 중지
 
                         timer2 = new Timer();
-                        timer2.Interval = 3000; // 1초 간격으로 설정
+                        timer2.Interval = 2500; // 1초 간격으로 설정
                         timer2.Tick += timer2_Tick_1;
                         timer2.Start();
                     }
                 }
             }
         }
-        //bath 데이터 삭제
+        //베스1호 bath 데이터 삭제
         private void timer2_Tick_1(object sender, EventArgs e)
         {
             Console.WriteLine("Timer2 Tick Event");
@@ -457,6 +469,7 @@ namespace SuJinChemicalMES
                 }
             }
         }
+        //베스2호
         private void InitializeTimer2()
         {
             timer3 = new Timer();
@@ -471,25 +484,25 @@ namespace SuJinChemicalMES
             {
                 if (row.Cells[4].Value?.ToString() == "베스2호")
                 {
-                    int remainingTime3 = Convert.ToInt32(row.Cells[8].Value);
+                    int remainingTime2 = Convert.ToInt32(row.Cells[8].Value);
                     row.Cells[7].Style.BackColor = Color.LimeGreen;
                     row.Cells[8].Style.BackColor = Color.Yellow;
 
                     // 소요시간 10씩 감소
-                    remainingTime3 -= 1;
+                    remainingTime2 -= 1;
 
                     // DataGridView 업데이트
-                    row.Cells[8].Value = remainingTime3;
+                    row.Cells[8].Value = remainingTime2;
 
-                    if (remainingTime3 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                    if (remainingTime2 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
                     {
-                        remainingTime3 = 0;
+                        remainingTime2 = 0;
                         row.Cells[7].Value = "운행종료";
                         row.Cells[7].Style.BackColor = Color.Red;
                         timer3.Stop(); // 타이머 중지
 
                         timer4 = new Timer();
-                        timer4.Interval = 3000; // 1초 간격으로 설정
+                        timer4.Interval = 2500; // 1초 간격으로 설정
                         timer4.Tick += timer4_Tick;
                         timer4.Start();
                     }
@@ -515,6 +528,274 @@ namespace SuJinChemicalMES
 
                         // MySQL 쿼리 작성
                         string query = $"DELETE FROM bath WHERE bath_num = '베스2호'";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+        //베스3호
+        private void InitializeTimer3()
+        {
+            timer5 = new Timer();
+            timer5.Interval = 150; // 1초 간격으로 설정
+            timer5.Tick += timer5_Tick;
+            timer5.Start();
+        }
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            // DataGridView1에서 베스번호가 '베스1호'인 행 찾기
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[4].Value?.ToString() == "베스3호")
+                {
+                    int remainingTime3 = Convert.ToInt32(row.Cells[8].Value);
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
+
+                    // 소요시간 10씩 감소
+                    remainingTime3 -= 1;
+
+                    // DataGridView 업데이트
+                    row.Cells[8].Value = remainingTime3;
+
+                    if (remainingTime3 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                    {
+                        remainingTime3 = 0;
+                        row.Cells[7].Value = "운행종료";
+                        row.Cells[7].Style.BackColor = Color.Red;
+                        timer5.Stop(); // 타이머 중지
+
+                        timer6 = new Timer();
+                        timer6.Interval = 2500; // 1초 간격으로 설정
+                        timer6.Tick += timer6_Tick;
+                        timer6.Start();
+                    }
+                }
+            }
+        }
+        //bath 데이터 삭제
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Timer6 Tick Event");
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
+                if (row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    timer6.Stop();
+                    aaa();
+                    // MySQL 데이터베이스에서 해당 행 삭제
+                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스3호'";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+        //베스4호
+        private void InitializeTimer4()
+        {
+            timer7 = new Timer();
+            timer7.Interval = 150; // 1초 간격으로 설정
+            timer7.Tick += timer7_Tick;
+            timer7.Start();
+        }
+        private void timer7_Tick(object sender, EventArgs e)
+        {
+            // DataGridView1에서 베스번호가 '베스1호'인 행 찾기
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[4].Value?.ToString() == "베스4호")
+                {
+                    int remainingTime4 = Convert.ToInt32(row.Cells[8].Value);
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
+
+                    // 소요시간 10씩 감소
+                    remainingTime4 -= 1;
+
+                    // DataGridView 업데이트
+                    row.Cells[8].Value = remainingTime4;
+
+                    if (remainingTime4 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                    {
+                        remainingTime4 = 0;
+                        row.Cells[7].Value = "운행종료";
+                        row.Cells[7].Style.BackColor = Color.Red;
+                        timer7.Stop(); // 타이머 중지
+
+                        timer8 = new Timer();
+                        timer8.Interval = 2500; // 1초 간격으로 설정
+                        timer8.Tick += timer8_Tick;
+                        timer8.Start();
+                    }
+                }
+            }
+        }
+        //bath 데이터 삭제
+        private void timer8_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Timer9 Tick Event");
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
+                if (row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    timer8.Stop();
+                    aaa();
+                    // MySQL 데이터베이스에서 해당 행 삭제
+                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스4호'";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+        //베스5호
+        private void InitializeTimer5()
+        {
+            timer9 = new Timer();
+            timer9.Interval = 150; // 1초 간격으로 설정
+            timer9.Tick += timer9_Tick;
+            timer9.Start();
+        }
+        private void timer9_Tick(object sender, EventArgs e)
+        {
+            // DataGridView1에서 베스번호가 '베스1호'인 행 찾기
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[4].Value?.ToString() == "베스5호")
+                {
+                    int remainingTime5 = Convert.ToInt32(row.Cells[8].Value);
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
+
+                    // 소요시간 10씩 감소
+                    remainingTime5 -= 1;
+
+                    // DataGridView 업데이트
+                    row.Cells[8].Value = remainingTime5;
+
+                    if (remainingTime5 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                    {
+                        remainingTime5 = 0;
+                        row.Cells[7].Value = "운행종료";
+                        row.Cells[7].Style.BackColor = Color.Red;
+                        timer9.Stop(); // 타이머 중지
+
+                        timer10 = new Timer();
+                        timer10.Interval = 2500; // 1초 간격으로 설정
+                        timer10.Tick += timer10_Tick;
+                        timer10.Start();
+                    }
+                }
+            }
+        }
+        //bath 데이터 삭제
+        private void timer10_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Timer10 Tick Event");
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
+                if (row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    timer10.Stop();
+                    aaa();
+                    // MySQL 데이터베이스에서 해당 행 삭제
+                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스5호'";
+                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+        //베스6호
+        private void InitializeTimer6()
+        {
+            timer11 = new Timer();
+            timer11.Interval = 150; // 1초 간격으로 설정
+            timer11.Tick += timer11_Tick;
+            timer11.Start();
+        }
+        private void timer11_Tick(object sender, EventArgs e)
+        {
+            // DataGridView1에서 베스번호가 '베스1호'인 행 찾기
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.Cells[4].Value?.ToString() == "베스6호")
+                {
+                    int remainingTime6 = Convert.ToInt32(row.Cells[8].Value);
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
+
+                    // 소요시간 10씩 감소
+                    remainingTime6 -= 1;
+
+                    // DataGridView 업데이트
+                    row.Cells[8].Value = remainingTime6;
+
+                    if (remainingTime6 <= 0) // 소요시간이 0 이하인 경우, 베스가동상태를 '운행종료'로 변경
+                    {
+                        remainingTime6 = 0;
+                        row.Cells[7].Value = "운행종료";
+                        row.Cells[7].Style.BackColor = Color.Red;
+                        timer11.Stop(); // 타이머 중지
+
+                        timer12 = new Timer();
+                        timer12.Interval = 2500; // 1초 간격으로 설정
+                        timer12.Tick += timer12_Tick;
+                        timer12.Start();
+                    }
+                }
+            }
+        }
+        //bath 데이터 삭제
+        private void timer12_Tick(object sender, EventArgs e)
+        {
+            Console.WriteLine("Timer12 Tick Event");
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
+                if (row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    timer12.Stop();
+                    aaa();
+                    // MySQL 데이터베이스에서 해당 행 삭제
+                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    {
+                        connection.Open();
+
+                        // MySQL 쿼리 작성
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스6호'";
                         using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
                             command.ExecuteNonQuery();
@@ -679,7 +960,7 @@ namespace SuJinChemicalMES
         }
 
 
-        
+
     }
 
 }
