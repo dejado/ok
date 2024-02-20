@@ -485,9 +485,15 @@ namespace SuJinChemicalMES
                 workview.Activate();
             }
         }
+
         private void Workview_FormClosed(object sender, FormClosedEventArgs e)
         {
-            workview.Activate();
+            //workview.Activate();
+            if (workview != null)
+            {
+                workview.Dispose(); // 폼을 닫고 메모리에서 해제합니다.
+                workview = null; // 변수를 null로 설정합니다.
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
