@@ -30,11 +30,11 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -372,28 +372,28 @@ namespace SuJinChemicalMES
             // 
             // Achieve_ct
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea1);
             this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend4);
+            legend1.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend1);
             this.Achieve_ct.Location = new System.Drawing.Point(3, 432);
             this.Achieve_ct.Name = "Achieve_ct";
             this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "PlanSum_s";
-            series11.ChartArea = "ChartArea1";
-            series11.Legend = "Legend1";
-            series11.Name = "CompleteSum_s";
-            series12.ChartArea = "ChartArea1";
-            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series12.Legend = "Legend1";
-            series12.Name = "CompleteRate_s";
-            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series10);
-            this.Achieve_ct.Series.Add(series11);
-            this.Achieve_ct.Series.Add(series12);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "PlanSum_s";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "CompleteSum_s";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "CompleteRate_s";
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series1);
+            this.Achieve_ct.Series.Add(series2);
+            this.Achieve_ct.Series.Add(series3);
             this.Achieve_ct.Size = new System.Drawing.Size(696, 258);
             this.Achieve_ct.TabIndex = 7;
             this.Achieve_ct.Text = "Achieve_ct";

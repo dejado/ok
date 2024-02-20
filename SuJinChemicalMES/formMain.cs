@@ -198,7 +198,10 @@ namespace SuJinChemicalMES
                 string supplier = reader.GetString(0);
                 int planQuantity = reader.GetInt32(2);
                 int completeQuantity = reader.GetInt32(1);
-                double completeRate = (completeQuantity * 100.0 / planQuantity);
+                //double completeRate = (completeQuantity * 100.0 / planQuantity);
+                double completeRate = Math.Min((completeQuantity * 100.0 / planQuantity), 100);// 최대 100%
+
+
 
                 Achieve_ct.Series["PlanSum_s"].Points.AddXY(supplier, planQuantity);
                 Achieve_ct.Series["CompleteSum_s"].Points.AddXY(supplier, completeQuantity);
