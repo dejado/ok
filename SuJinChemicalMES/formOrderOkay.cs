@@ -43,6 +43,8 @@ namespace SuJinChemicalMES
 
             // MySQL 연결 문자열
             string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
+            string connectionString1 = "Server=10.10.32.82;Database=accumulated_data;User Id=team;Password=team1234;";
+
 
             // MySQL 연결
             using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -113,6 +115,30 @@ namespace SuJinChemicalMES
                             commandOrderReg1.Parameters.AddWithValue("@status", status);
 
                             commandOrderReg1.ExecuteNonQuery();
+
+                            // MySQL 쿼리문 실행 (accumulated_data 테이블)
+
+                            using (MySqlConnection connectionAccumulatedData = new MySqlConnection(connectionString1))
+                            {
+                                connectionAccumulatedData.Open();
+
+                                string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, due_date_request, registrant, progress, due_date, registration_date, quantity) " +
+                                    "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @dueDate, @registrant, @progress, @registrationDate, @quantity)";
+
+                                MySqlCommand commandAccumulatedData = new MySqlCommand(insertQueryAccumulatedData, connectionAccumulatedData);
+                                commandAccumulatedData.Parameters.AddWithValue("@orderNumber", orderNumber);
+                                commandAccumulatedData.Parameters.AddWithValue("@supplier", supplier);
+                                commandAccumulatedData.Parameters.AddWithValue("@productCode", productCode);
+                                commandAccumulatedData.Parameters.AddWithValue("@productName", productName);
+                                commandAccumulatedData.Parameters.AddWithValue("@lotNo", lotNo);
+                                commandAccumulatedData.Parameters.AddWithValue("@quantity", quantity);
+                                commandAccumulatedData.Parameters.AddWithValue("@registrationDate", registration_date);
+                                commandAccumulatedData.Parameters.AddWithValue("@dueDate", dueDate);
+                                commandAccumulatedData.Parameters.AddWithValue("@registrant", registrant);
+                                commandAccumulatedData.Parameters.AddWithValue("@progress", status); // '진행상태'는 'status'로 변경되어야 함
+
+                                commandAccumulatedData.ExecuteNonQuery();
+                            }
                         }
                     }
 
@@ -123,6 +149,7 @@ namespace SuJinChemicalMES
                     MessageBox.Show("데이터 전송 중 오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
         }
 
 
