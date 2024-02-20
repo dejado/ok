@@ -24,7 +24,7 @@ namespace SuJinChemicalMES
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
 
             InitializeTimer(); // 타이머 초기화
-            InitializeTimer2(); // 타이머3 초기화
+            //InitializeTimer2(); // 타이머3 초기화
 
         }
 
@@ -431,45 +431,40 @@ namespace SuJinChemicalMES
                         row.Cells[7].Value = "운행종료";
                         row.Cells[7].Style.ForeColor = Color.Red;
                         timer.Stop(); // 타이머 중지
+
+                        timer3 = new Timer();
+                        timer3.Interval = 4000; // 1초 간격으로 설정
+                        timer3.Tick += timer3_Tick;
+                        timer3.Start();
                     }
-                    /*
-                    // 5초 후에 행 삭제
-                    Timer deleteTimer = new Timer();
-                    deleteTimer.Interval = 3000; // 5초
-                    deleteTimer.Tick += (s, args) =>
-                    {
-                        //dataGridView1.Rows.Remove(row);
-                        aaa();
-                        deleteTimer.Stop();
-                    };
-                    */
                 }
             }
         }
+        /*
         private void InitializeTimer2()
         {
             timer3 = new Timer();
-            timer3.Interval = 1000; // 1초 간격으로 설정
+            timer3.Interval = 4000; // 1초 간격으로 설정
             timer3.Tick += timer3_Tick;
-            //timer3.Start();
-        }
+            timer3.Start();
+        }*/
         //bath 데이터 삭제
         private void timer3_Tick(object sender, EventArgs e)
         {
             Console.WriteLine("Timer3 Tick Event");
-            int count = 0;
+            
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
 
                 // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
                 if (row.Cells[7].Value?.ToString() == "운행종료")
                 {
-                    count += 1;
+                    
+                    
                     // 3초 후에 timer1_Tick 함수 실행
                     //timer3.Interval = 10000; // 3초
-                    if (count >= 4)
-                    {
-                        timer3.Start();
+                    
+                        timer3.Stop();
                         aaa();
                         // MySQL 데이터베이스에서 해당 행 삭제
                         string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
@@ -487,7 +482,7 @@ namespace SuJinChemicalMES
                         }
 
                         //break; // 한 번 실행 후에는 루프를 종료합니다.
-                    }
+                    
                 }
             }
         }
