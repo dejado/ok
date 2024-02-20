@@ -43,7 +43,7 @@ namespace SuJinChemicalMES
         public void LoadImageFromDatabase()
         {
             List<PictureBox> pictureBoxList = new List<PictureBox>
-        {pictureBox5, pictureBox4, pictureBox3, pictureBox2, pictureBox1, pictureBox6 };
+        {bath5, bath2, bath4, bath1, bath3, bath6 };
 
             try
             {
