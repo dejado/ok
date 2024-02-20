@@ -213,27 +213,11 @@ namespace SuJinChemicalMES
                         }
                     }
                 }
-
-                // 수정된 데이터를 MySQL에서 가져와서 DataGridView에 반영합니다.
-                LoadDataIntoDataGridView();
+                                
             }
         }
 
-        private void LoadDataIntoDataGridView()
-        {
-            // MySQL 연결 문자열 설정
-            string connectionString = "Server=10.10.32.82;Database=managerproduct;User Id=team;Password=team1234;";
-
-            // 데이터를 가져와서 DataGridView에 로드합니다.
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                string query = "SELECT * FROM order_registration";
-                MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection);
-                DataTable table = new DataTable();
-                adapter.Fill(table);
-                dataGridView2.DataSource = table;
-            }
-        }
+        
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -330,6 +314,6 @@ namespace SuJinChemicalMES
                     }
                 }
             }
-        }
     }
 }
+    }
