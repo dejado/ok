@@ -24,6 +24,7 @@ namespace SuJinChemicalMES
             CompanyCb.SelectedIndexChanged += CompanyCb_SelectedIndexChanged;
             dataGridView1.MultiSelect = false; //한줄만 선택할 수 있게
             QCdatagridview.MultiSelect = false;
+            DefectcauseCb.Enabled = false;
         }
 
         private void formImport_Load(object sender, EventArgs e)
