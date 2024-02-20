@@ -151,7 +151,7 @@ namespace SuJinChemicalMES
             string connectionString1 = "Server=10.10.32.82;Database=production_management;User Id=team;Password=team1234;";
             string defectCause = (defectivequantity.Text != "0") ? DefectcauseCb.SelectedItem?.ToString() : "";
 
-            if (Person_Cb.SelectedItem == null || defectivequantity.Text == "" || standardproduct.Text == "")
+            if ( defectivequantity.Text == "" || standardproduct.Text == "")
             {
                 MessageBox.Show("필수항목을 입력해주세요.");
                 return;
@@ -254,7 +254,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                                insertCommand.Parameters.AddWithValue("@inspector","곽동영");
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }
@@ -279,7 +279,7 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                             insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                             insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                            insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                            insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
                             insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                             insertCommand.ExecuteNonQuery();
                         }
@@ -319,7 +319,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                                insertCommand.Parameters.AddWithValue("@inspector","곽동영");
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }

@@ -38,6 +38,12 @@ namespace SuJinChemicalMES
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.PrGridView = new System.Windows.Forms.DataGridView();
+            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.defectivequantity = new System.Windows.Forms.TextBox();
@@ -60,8 +66,6 @@ namespace SuJinChemicalMES
             this.label10 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.Person_Cb = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.SHdatagridview = new System.Windows.Forms.DataGridView();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.progress = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -92,12 +96,7 @@ namespace SuJinChemicalMES
             this.label12 = new System.Windows.Forms.Label();
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
-            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label4 = new System.Windows.Forms.Label();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -251,6 +250,54 @@ namespace SuJinChemicalMES
             this.PrGridView.TabIndex = 41;
             this.PrGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrGridView_CellContentClick);
             this.PrGridView.SelectionChanged += new System.EventHandler(this.PrGridView_SelectionChanged);
+            // 
+            // order_number
+            // 
+            this.order_number.DataPropertyName = "order_number";
+            this.order_number.HeaderText = "발주서번호";
+            this.order_number.MinimumWidth = 93;
+            this.order_number.Name = "order_number";
+            this.order_number.ReadOnly = true;
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "product_name";
+            this.product_name.HeaderText = "제품명";
+            this.product_name.MinimumWidth = 145;
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
+            // company_name
+            // 
+            this.company_name.DataPropertyName = "company";
+            this.company_name.HeaderText = "회사명";
+            this.company_name.MinimumWidth = 75;
+            this.company_name.Name = "company_name";
+            this.company_name.ReadOnly = true;
+            // 
+            // code
+            // 
+            this.code.DataPropertyName = "product_code";
+            this.code.HeaderText = "제품코드";
+            this.code.MinimumWidth = 75;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            // 
+            // Ex_Quantity
+            // 
+            this.Ex_Quantity.DataPropertyName = "quantity";
+            this.Ex_Quantity.HeaderText = "수량";
+            this.Ex_Quantity.MinimumWidth = 57;
+            this.Ex_Quantity.Name = "Ex_Quantity";
+            this.Ex_Quantity.ReadOnly = true;
+            // 
+            // LOTNO
+            // 
+            this.LOTNO.DataPropertyName = "lot_no";
+            this.LOTNO.HeaderText = "LOT NO.";
+            this.LOTNO.MinimumWidth = 6;
+            this.LOTNO.Name = "LOTNO";
+            this.LOTNO.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -412,7 +459,6 @@ namespace SuJinChemicalMES
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.Person_Cb);
             this.panel6.Controls.Add(this.label4);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(264, 0);
@@ -536,40 +582,6 @@ namespace SuJinChemicalMES
             this.label11.TabIndex = 53;
             this.label11.Text = "제품코드";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Person_Cb
-            // 
-            this.Person_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Person_Cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Person_Cb.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Person_Cb.ForeColor = System.Drawing.Color.Black;
-            this.Person_Cb.FormattingEnabled = true;
-            this.Person_Cb.ItemHeight = 15;
-            this.Person_Cb.Items.AddRange(new object[] {
-            "곽동영",
-            "김서진",
-            "나현진",
-            "임지호",
-            "임진우"});
-            this.Person_Cb.Location = new System.Drawing.Point(96, 15);
-            this.Person_Cb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Person_Cb.MaximumSize = new System.Drawing.Size(200, 0);
-            this.Person_Cb.Name = "Person_Cb";
-            this.Person_Cb.Size = new System.Drawing.Size(64, 23);
-            this.Person_Cb.TabIndex = 52;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.LightCyan;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 22);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "담당자";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SHdatagridview
             // 
@@ -904,53 +916,17 @@ namespace SuJinChemicalMES
             this.Renewalbt.UseVisualStyleBackColor = true;
             this.Renewalbt.Click += new System.EventHandler(this.Renewalbt_Click);
             // 
-            // order_number
+            // label4
             // 
-            this.order_number.DataPropertyName = "order_number";
-            this.order_number.HeaderText = "발주서번호";
-            this.order_number.MinimumWidth = 93;
-            this.order_number.Name = "order_number";
-            this.order_number.ReadOnly = true;
-            // 
-            // product_name
-            // 
-            this.product_name.DataPropertyName = "product_name";
-            this.product_name.HeaderText = "제품명";
-            this.product_name.MinimumWidth = 145;
-            this.product_name.Name = "product_name";
-            this.product_name.ReadOnly = true;
-            // 
-            // company_name
-            // 
-            this.company_name.DataPropertyName = "company";
-            this.company_name.HeaderText = "회사명";
-            this.company_name.MinimumWidth = 75;
-            this.company_name.Name = "company_name";
-            this.company_name.ReadOnly = true;
-            // 
-            // code
-            // 
-            this.code.DataPropertyName = "product_code";
-            this.code.HeaderText = "제품코드";
-            this.code.MinimumWidth = 75;
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            // 
-            // Ex_Quantity
-            // 
-            this.Ex_Quantity.DataPropertyName = "quantity";
-            this.Ex_Quantity.HeaderText = "수량";
-            this.Ex_Quantity.MinimumWidth = 57;
-            this.Ex_Quantity.Name = "Ex_Quantity";
-            this.Ex_Quantity.ReadOnly = true;
-            // 
-            // LOTNO
-            // 
-            this.LOTNO.DataPropertyName = "lot_no";
-            this.LOTNO.HeaderText = "LOT NO.";
-            this.LOTNO.MinimumWidth = 6;
-            this.LOTNO.Name = "LOTNO";
-            this.LOTNO.ReadOnly = true;
+            this.label4.BackColor = System.Drawing.Color.LightCyan;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(92, 22);
+            this.label4.TabIndex = 49;
+            this.label4.Text = "담당자";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formShipment
             // 
@@ -1014,8 +990,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Button ImportBt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox Person_Cb;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView SHdatagridview;
         private System.Windows.Forms.Panel v;
         private System.Windows.Forms.Label ProductLb1;
@@ -1059,5 +1033,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.DataGridViewTextBoxColumn code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ex_Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn LOTNO;
+        private System.Windows.Forms.Label label4;
     }
 }
