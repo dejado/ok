@@ -328,6 +328,7 @@ namespace SuJinChemicalMES
                 }
 
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
+                dataGridView1.CurrentCell = null; // 현재 선택된 셀 해제
 
             }
             else
