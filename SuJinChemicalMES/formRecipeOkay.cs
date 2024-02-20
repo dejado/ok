@@ -68,6 +68,9 @@ namespace SuJinChemicalMES
             // 텍스트박스7에 입력된 작업시간을 DataGridView2의 작업시간 열에 할당
             dataGridView2.Rows[index].Cells[8].Value = textBox7.Text;
 
+            // 데이터그리드뷰2의 9번 셀에 "임진우" 입력
+            dataGridView2.Rows[index].Cells[9].Value = "임진우";
+
             // 등록자는 여기서는 생략
 
             // 텍스트박스1부터 텍스트박스7까지 초기화
