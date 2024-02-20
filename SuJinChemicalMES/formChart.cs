@@ -25,133 +25,86 @@ namespace SuJinChemicalMES
 
         private void formChart_Load(object sender, EventArgs e)
         {
-            /*       this.ControlBox = false;
-                   //Load sample data
-                   var sampleData1 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 1.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData2 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 1F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData3 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 1.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 1F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData4 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 575.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData5 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 575.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 1F,
-                   };
-                   var sampleData6 = new MLModel1.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
+              this.ControlBox = false;
+            var sampleData12 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 1.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            var sampleData11 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 1F,
+                HeightBinary = 0F,
+            };
+            var sampleData10 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 1.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 1F,
+                HeightBinary = 0F,
+            };
+            var sampleData9 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 575.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            var sampleData8 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 575.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 1F,
+            };
+            var sampleData7 = new MLModel2.ModelInput()
+            {
+                VibrationNum = 0.3188805F,
+                HeightNum = 500.3159F,
+                VibrationBinary = 0F,
+                HeightBinary = 0F,
+            };
+            //Load model and predict output
+            var result12 = MLModel2.Predict(sampleData12);
+            var result11 = MLModel2.Predict(sampleData11);
+            var result10 = MLModel2.Predict(sampleData10);
+            var result9 = MLModel2.Predict(sampleData9);
+            var result8 = MLModel2.Predict(sampleData8);
+            var result7 = MLModel2.Predict(sampleData7);
 
 
+            float[] machines = new float[6];
 
-                   var sampleData12 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 1.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData11 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 1F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData10 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 1.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 1F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData9 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 575.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
-                   var sampleData8 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 575.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 1F,
-                   };
-                   var sampleData7 = new MLModel2.ModelInput()
-                   {
-                       VibrationNum = 0.3188805F,
-                       HeightNum = 500.3159F,
-                       VibrationBinary = 0F,
-                       HeightBinary = 0F,
-                   };
-                   //Load model and predict output
-                   var result1 = MLModel1.Predict(sampleData1);
-                   var result2 = MLModel1.Predict(sampleData2);
-                   var result3 = MLModel1.Predict(sampleData3);
-                   var result4 = MLModel1.Predict(sampleData4);
-                   var result5 = MLModel1.Predict(sampleData5);
-                   var result6 = MLModel1.Predict(sampleData6);
+            machines[0] = result12.Score;
+            machines[1] = result11.Score;
+            machines[2] = result10.Score;
+            machines[3] = result9.Score;
+            machines[4] = result8.Score;
+            machines[5] = result7.Score;
 
-                   var result12 = MLModel2.Predict(sampleData12);
-                   var result11 = MLModel2.Predict(sampleData11);
-                   var result10 = MLModel2.Predict(sampleData10);
-                   var result9 = MLModel2.Predict(sampleData9);
-                   var result8 = MLModel2.Predict(sampleData8);
-                   var result7 = MLModel2.Predict(sampleData7);
+            Label[] labels = new Label[6];
+            int j = 1;
+            for (int i = 0; i < machines.Length; i++)
+            {
+                if (machines[i] == 1)
+                {
+                    labels[i] = new Label();  // 라벨 생성
+                    labels[i].Size = new Size(150, 20);  // 라벨 크기 지정, 필요에 따라 조절
+                    labels[i].Location = new Point(20, j * 30);  // 라벨 위치 지정, 필요에 따라 조절
+                    panel5.Controls.Add(labels[i]);  // 라벨을 패널에 추가
+                    labels[i].Text = $"베스{i + 1}번 고장";
+                    j++;
+                }
 
-                   label1.Text = result1.Score.ToString();
-                   label2.Text = result2.Score.ToString();
-                   label3.Text = result3.Score.ToString();
-                   label4.Text = result4.Score.ToString();
-                   label5.Text = result5.Score.ToString();
-                   label6.Text = result6.Score.ToString();
-
-
-                   string machine1 = result12.Score.ToString();
-                   string machine2 = result11.Score.ToString();
-                   string machine3 = result10.Score.ToString();
-                   string machine4 = result9.Score.ToString();
-                   string machine5 = result8.Score.ToString();
-                   string machine6 = result7.Score.ToString();
-
-
-                   label12.Text = result12.Score.ToString();
-                   label11.Text = result11.Score.ToString();
-                   label10.Text = result10.Score.ToString();
-                   label9.Text = result9.Score.ToString();
-                   label8.Text = result8.Score.ToString();
-                   label7.Text = result7.Score.ToString();*/
+            }
         }
+
+
+
         private void ShowProgressGraph()
         {
             string connectionString1 = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234";

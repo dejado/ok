@@ -29,14 +29,16 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.AlarmPn = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.DefectPn = new System.Windows.Forms.Panel();
             this.DefectChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.ProgressChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -45,15 +47,17 @@ namespace SuJinChemicalMES
             this.WarehouseChart3 = new System.Windows.Forms.Panel();
             this.WarehouseChart1 = new System.Windows.Forms.Panel();
             this.WarehouseChart2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.DefectPn = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DefectChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressChart)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -137,10 +141,37 @@ namespace SuJinChemicalMES
             this.AlarmPn.Size = new System.Drawing.Size(241, 349);
             this.AlarmPn.TabIndex = 5;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.panel6, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.DefectPn, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.panel5, 0, 2);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(241, 0);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(241, 349);
+            this.tableLayoutPanel5.TabIndex = 6;
+            // 
+            // DefectPn
+            // 
+            this.DefectPn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DefectPn.Location = new System.Drawing.Point(0, 0);
+            this.DefectPn.Margin = new System.Windows.Forms.Padding(0);
+            this.DefectPn.Name = "DefectPn";
+            this.DefectPn.Size = new System.Drawing.Size(241, 159);
+            this.DefectPn.TabIndex = 5;
+            // 
             // DefectChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.DefectChart.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.DefectChart.ChartAreas.Add(chartArea3);
             this.DefectChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DefectChart.Location = new System.Drawing.Point(0, 409);
             this.DefectChart.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
@@ -151,8 +182,8 @@ namespace SuJinChemicalMES
             // 
             // ProgressChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.ProgressChart.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.ProgressChart.ChartAreas.Add(chartArea4);
             this.ProgressChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProgressChart.Enabled = false;
             this.ProgressChart.Location = new System.Drawing.Point(0, 30);
@@ -231,29 +262,35 @@ namespace SuJinChemicalMES
             this.WarehouseChart2.Size = new System.Drawing.Size(161, 343);
             this.WarehouseChart2.TabIndex = 2;
             // 
-            // tableLayoutPanel5
+            // panel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.DefectPn, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(241, 0);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(241, 349);
-            this.tableLayoutPanel5.TabIndex = 6;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 189);
+            this.panel5.Margin = new System.Windows.Forms.Padding(0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(241, 160);
+            this.panel5.TabIndex = 6;
             // 
-            // DefectPn
+            // panel6
             // 
-            this.DefectPn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DefectPn.Location = new System.Drawing.Point(0, 0);
-            this.DefectPn.Margin = new System.Windows.Forms.Padding(0);
-            this.DefectPn.Name = "DefectPn";
-            this.DefectPn.Size = new System.Drawing.Size(241, 174);
-            this.DefectPn.TabIndex = 5;
+            this.panel6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel6.Controls.Add(this.label1);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 159);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(241, 30);
+            this.panel6.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "베스 고장예측";
             // 
             // formChart
             // 
@@ -269,11 +306,13 @@ namespace SuJinChemicalMES
             this.Load += new System.EventHandler(this.formChart_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DefectChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ProgressChart)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -296,5 +335,8 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Panel WarehouseChart2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Panel DefectPn;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label1;
     }
 }
