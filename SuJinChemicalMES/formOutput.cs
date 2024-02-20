@@ -129,7 +129,7 @@ namespace SuJinChemicalMES
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
                             string registrant = dataContainer.Name; 
                             string result = row.Cells[2].Value.ToString();
-                            string reason = row.Cells[12].Value.ToString();
+                          
 
 
                             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
@@ -137,7 +137,7 @@ namespace SuJinChemicalMES
                                 $"company,product_code,product_name,lot_no,quantity,order_quantity,registration_date_shipment," +
                                 $"registrant_shipment,location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
                                 $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
-                                $" '{Outlocation}','{result}','{reason}')";
+                                $" '{Outlocation}','{result}')";
 
                             // 쿼리 실행
                             using (MySqlCommand cmd = new MySqlCommand(query, connection))
@@ -193,7 +193,7 @@ namespace SuJinChemicalMES
                             string date = DateTime.Now.ToString("yyyy-MM-dd");
                             string registrant = dataContainer.Name;
                             string result = row.Cells[2].Value.ToString();
-                            string reason = row.Cells[12].Value.ToString();
+                        //    string reason = row.Cells[12].Value.ToString();
 
 
                             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
@@ -201,7 +201,7 @@ namespace SuJinChemicalMES
                                 $"supplier,product_code,product_name,lot_no,quantity,production_plan_quantity,registration_date," +
                                 $"registrant,warehouse_location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
                                 $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
-                                $" '{Outlocation}','{result}','{reason}')";
+                                $" '{Outlocation}','{result}')";
 
                             // 쿼리 실행
                             using (MySqlCommand cmd = new MySqlCommand(query, connection))

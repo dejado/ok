@@ -148,6 +148,8 @@ namespace SuJinChemicalMES
             Series barSeries2 = chart.Series.Add("출고수량_막대");
             barSeries2.ChartType = SeriesChartType.Column;
             barSeries2.LegendText = "출고수량";
+            barSeries1.Color = Color.DarkGreen;
+            barSeries2.Color = Color.GreenYellow;
 
             foreach (var item in 출고부품수량)
             {
@@ -340,7 +342,8 @@ namespace SuJinChemicalMES
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
             chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
-            warehouseSeries.Points[0].Color = Color.Red;
+            warehouseSeries.Points[0].Color = Color.LawnGreen;
+            warehouseSeries.Points[1].Color = Color.LightGray;
             return chart;
 
         }
@@ -360,13 +363,18 @@ namespace SuJinChemicalMES
 
             warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
             //   warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
-         
+            chart.Legends.Add(new Legend("적재율"));
+            warehouseSeries.Points[0].LegendText = "적재율";
+            chart.Legends["적재율"].Docking = Docking.Bottom;
+            chart.Legends["적재율"].Font = new Font("Segoe UI", 8, FontStyle.Regular);
+            warehouseSeries.Points[1].LegendText = "여유공간";
 
             Title chartTitle = new Title();
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
             chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
-
+            warehouseSeries.Points[0].Color = Color.LawnGreen;
+            warehouseSeries.Points[1].Color = Color.LightGray;
             return chart;
         }
         private Chart CreateDoughnutChart3(string title, double loadingRate)
@@ -381,14 +389,24 @@ namespace SuJinChemicalMES
             double loadedPercentage = Math.Min(loadingRate * 100, 100);
             warehouseSeries.Points.Add(loadedPercentage);
             warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
+            if (warehouseSeries.Points[0].YValues[0] != 0) // 시리즈의 첫 번째 데이터 포인트가 0이 아닐 때만 라벨을 설정합니다.
+            {
+                warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
+            }
+            //  warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
 
-            warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
-            warehouseSeries.Points[1].Label = string.Format("{0:F1}%", 100 - loadedPercentage);
+            chart.Legends.Add(new Legend("적재율"));
+            warehouseSeries.Points[0].LegendText = "적재율";
+            chart.Legends["적재율"].Docking = Docking.Bottom;
+            chart.Legends["적재율"].Font = new Font("Segoe UI", 8, FontStyle.Regular);
+            warehouseSeries.Points[1].LegendText = "여유공간";
 
             Title chartTitle = new Title();
             chartTitle.Text = title;
             chart.Titles.Add(chartTitle);
             chartTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            warehouseSeries.Points[0].Color = Color.LawnGreen;
+            warehouseSeries.Points[1].Color = Color.LightGray;
             return chart;
         }
         private void ShowDefectText()
@@ -452,19 +470,21 @@ namespace SuJinChemicalMES
             this.ActiveControl = null;
         }
 
-        private void ShowDefectGraph()   //결함 원인 
+        private void ShowDefectGraph()   //결함
         {
             string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
             List<string> highDefectCompanies = new List<string>();
+           
             Chart chart = new Chart();
             chart.ChartAreas.Add("ChartArea");
             chart.Dock = DockStyle.Fill;
-
+          
             Series DefectSeries = chart.Series.Add("DefectRate");
             DefectSeries.ChartType = SeriesChartType.Column;
             chart.Series["DefectRate"]["PixelPointWidth"] = "30";
             chart.ChartAreas["ChartArea"].AxisY.LabelStyle.Format = "{0}%";
-
+            
+        
             chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
 
@@ -512,7 +532,7 @@ namespace SuJinChemicalMES
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             chart.ChartAreas["ChartArea"].AxisY.Interval = 1;
-            chart.ChartAreas["ChartArea"].AxisY.Maximum = 3;
+            chart.ChartAreas["ChartArea"].AxisY.Maximum = 2;
             chart.Titles.Add("불량률").Font = new Font("Segoe UI", 16, FontStyle.Bold);
             TextBox textAlarm = new TextBox();
             textAlarm.Multiline = true;
