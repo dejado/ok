@@ -62,8 +62,6 @@ namespace SuJinChemicalMES
             this.ImportBt = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.Person_Cb = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.QCdatagridview = new System.Windows.Forms.DataGridView();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -462,8 +460,6 @@ namespace SuJinChemicalMES
             this.panel6.Controls.Add(this.ImportBt);
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Controls.Add(this.Person_Cb);
-            this.panel6.Controls.Add(this.label4);
             this.panel6.Controls.Add(this.label22);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(355, 0);
@@ -552,40 +548,6 @@ namespace SuJinChemicalMES
             this.label11.TabIndex = 53;
             this.label11.Text = "제품코드";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Person_Cb
-            // 
-            this.Person_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Person_Cb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Person_Cb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Person_Cb.ForeColor = System.Drawing.Color.Black;
-            this.Person_Cb.FormattingEnabled = true;
-            this.Person_Cb.ItemHeight = 17;
-            this.Person_Cb.Items.AddRange(new object[] {
-            "곽동영",
-            "김서진",
-            "나현진",
-            "임지호",
-            "임진우"});
-            this.Person_Cb.Location = new System.Drawing.Point(94, 48);
-            this.Person_Cb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Person_Cb.MaximumSize = new System.Drawing.Size(230, 0);
-            this.Person_Cb.Name = "Person_Cb";
-            this.Person_Cb.Size = new System.Drawing.Size(142, 25);
-            this.Person_Cb.TabIndex = 52;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.LightCyan;
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 48);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 22);
-            this.label4.TabIndex = 49;
-            this.label4.Text = "담당자";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label22
             // 
@@ -1039,8 +1001,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.ComboBox DefectcauseCb;
         private System.Windows.Forms.Label Code_Lb;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox Person_Cb;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label Company_Lb;

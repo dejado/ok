@@ -52,17 +52,17 @@ namespace SuJinChemicalMES
         {
 
             string defectCause = (ResultCb.SelectedIndex == 1) ? DefectcauseCb.SelectedItem?.ToString() : "";
+            if (ResultCb.SelectedItem == null)
+            {
+                MessageBox.Show("필수항목을 입력해주세요.");
+                return;
+            }
             if (ResultCb.SelectedIndex == 1 && string.IsNullOrEmpty(defectCause))
             {
                 MessageBox.Show("불량원인을 선택해주세요.");
                 return;
             }
 
-            if (Person_Cb.SelectedItem == null || ResultCb.SelectedItem == null)
-            {
-                MessageBox.Show("필수항목을 입력해주세요.");
-                return;
-            }
             string selectedData = (ResultCb.SelectedItem != null) ? ResultCb.SelectedItem.ToString() : "";
 
             if (!string.IsNullOrEmpty(selectedOrderNumber))
@@ -106,7 +106,7 @@ namespace SuJinChemicalMES
                         insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
                         insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
                         insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                        insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                        insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
                         insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                         insertCommand.ExecuteNonQuery();
                     }
@@ -126,7 +126,7 @@ namespace SuJinChemicalMES
                         insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No);
                         insertCommand.Parameters.AddWithValue("@quantity", selectedQuantity);
                         insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                        insertCommand.Parameters.AddWithValue("@inspector", Person_Cb.SelectedItem.ToString());
+                        insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
                         insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                         insertCommand.ExecuteNonQuery();
                     }
