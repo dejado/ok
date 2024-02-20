@@ -193,7 +193,6 @@ namespace SuJinChemicalMES
         {
             // 모든 콤보박스의 선택 여부 확인
             if (comboBox1.SelectedItem != null &&
-                 comboBox2.SelectedItem != null &&
                 !string.IsNullOrEmpty(textBox1.Text))
             {
                 // 라벨에서 데이터 가져오기
@@ -204,7 +203,7 @@ namespace SuJinChemicalMES
                 string combobox1Text = comboBox1.Text;
                 string label19Text = label19.Text;
                 string textbox1Text = textBox1.Text;
-                string combobox2Text = comboBox2.Text;
+                //string combobox2Text = comboBox2.Text;
                 string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
                 string state = "운행중";
                 string workingtime = "";
@@ -328,7 +327,7 @@ namespace SuJinChemicalMES
                     MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
                 }
 
-                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, combobox2Text, progress, label10Text, duedate2);
+                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
                 //FormDataShare.AddData(combobox1Text);
             }
             else
@@ -452,37 +451,43 @@ namespace SuJinChemicalMES
             timer3 = new Timer();
             timer3.Interval = 1000; // 1초 간격으로 설정
             timer3.Tick += timer3_Tick;
-            timer3.Start();
+            //timer3.Start();
         }
+        //bath 데이터 삭제
         private void timer3_Tick(object sender, EventArgs e)
         {
             Console.WriteLine("Timer3 Tick Event");
-
+            int count = 0;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
+
                 // DataGridView1의 8번째 열에서 '운행종료'인 행을 찾음
                 if (row.Cells[7].Value?.ToString() == "운행종료")
                 {
+                    count += 1;
                     // 3초 후에 timer1_Tick 함수 실행
-                    timer3.Interval = 10000; // 3초
-                    timer3.Start();
-                    aaa();
-                    // MySQL 데이터베이스에서 해당 행 삭제
-                    string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-                    using (MySqlConnection connection = new MySqlConnection(connectionString))
+                    //timer3.Interval = 10000; // 3초
+                    if (count >= 4)
                     {
-                        connection.Open();
-
-                        // MySQL 쿼리 작성
-                        string query = $"DELETE FROM bath WHERE bath_num = '베스1호'";
-
-                        using (MySqlCommand command = new MySqlCommand(query, connection))
+                        timer3.Start();
+                        aaa();
+                        // MySQL 데이터베이스에서 해당 행 삭제
+                        string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                        using (MySqlConnection connection = new MySqlConnection(connectionString))
                         {
-                            command.ExecuteNonQuery();
-                        }
-                    }
+                            connection.Open();
 
-                    //break; // 한 번 실행 후에는 루프를 종료합니다.
+                            // MySQL 쿼리 작성
+                            string query = $"DELETE FROM bath WHERE bath_num = '베스1호'";
+
+                            using (MySqlCommand command = new MySqlCommand(query, connection))
+                            {
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        //break; // 한 번 실행 후에는 루프를 종료합니다.
+                    }
                 }
             }
         }
@@ -612,57 +617,71 @@ namespace SuJinChemicalMES
                 }
             }
         }
+        //completed로 데이터 전송, 그리드뷰 해당 행 삭제
         private void aaa()
         {
             //InsertData();
 
             // DataGridView에서 선택된 행 확인
-            if (dataGridView1.SelectedRows.Count > 0)
+            //if (dataGridView1.SelectedRows.Count > 0)
+            // {
+
+            DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+            string progress = selectedRow.Cells["Column1"].Value.ToString();
+            string orderNumber = selectedRow.Cells["Column2"].Value.ToString();
+            string dueDate = selectedRow.Cells["Column3"].Value.ToString();
+            string lotNo = selectedRow.Cells["Column4"].Value.ToString();
+            //string company = selectedRow.Cells["Column5"].Value.ToString();
+            //string productCode = selectedRow.Cells["Column6"].Value.ToString();
+            string productName = selectedRow.Cells["Column7"].Value.ToString();
+            //string quantity = selectedRow.Cells["Column8"].Value.ToString();
+            string registrationDateShipment = selectedRow.Cells["Column16"].Value.ToString();
+            string registrantShipment = selectedRow.Cells["Column9"].Value.ToString();
+            string progress1 = selectedRow.Cells["Column19"].Value.ToString();
+            string supplier = selectedRow.Cells["Column20"].Value.ToString();
+            string dueDate2 = selectedRow.Cells["Column21"].Value.ToString();
+
+            // MySQL 데이터베이스에 데이터 추가
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
+                connection.Open();
 
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                string progress = selectedRow.Cells["Column1"].Value.ToString();
-                string orderNumber = selectedRow.Cells["Column2"].Value.ToString();
-                string dueDate = selectedRow.Cells["Column3"].Value.ToString();
-                string lotNo = selectedRow.Cells["Column4"].Value.ToString();
-                //string company = selectedRow.Cells["Column5"].Value.ToString();
-                //string productCode = selectedRow.Cells["Column6"].Value.ToString();
-                string productName = selectedRow.Cells["Column7"].Value.ToString();
-                //string quantity = selectedRow.Cells["Column8"].Value.ToString();
-                string registrationDateShipment = selectedRow.Cells["Column16"].Value.ToString();
-                string registrantShipment = selectedRow.Cells["Column9"].Value.ToString();
-                string progress1 = selectedRow.Cells["Column19"].Value.ToString();
-                string supplier = selectedRow.Cells["Column20"].Value.ToString();
-                string dueDate2 = selectedRow.Cells["Column21"].Value.ToString();
+                // MySQL 쿼리 작성
+                string query = $"INSERT INTO completed(progress, order_number, due_date, lot_no, company, product_code, product_name, quantity, registration_date_shipment, registrant_shipment) " +
+                       $"VALUES ('{progress1}', '{progress}', '{dueDate2}','{orderNumber}', '{supplier}', '{dueDate}', '{lotNo}','{productName}', '{registrationDateShipment}','{registrantShipment}')";
 
-                // MySQL 데이터베이스에 데이터 추가
-                string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    connection.Open();
-
-                    // MySQL 쿼리 작성
-                    string query = $"INSERT INTO completed(progress, order_number, due_date, lot_no, company, product_code, product_name, quantity, registration_date_shipment, registrant_shipment) " +
-                           $"VALUES ('{progress1}', '{progress}', '{dueDate2}','{orderNumber}', '{supplier}', '{dueDate}', '{lotNo}','{productName}', '{registrationDateShipment}','{registrantShipment}')";
-
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
-
-                // 선택된 행 삭제
-                dataGridView1.Rows.Remove(selectedRow);
             }
-            else
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                MessageBox.Show("선택된 행이 없습니다.");
+                // DataGridView의 특정 열(예: 4번째 열)이 '베스1호'인 행을 찾음
+                if (row.Cells[4].Value?.ToString() == "베스1호" && row.Cells[7].Value?.ToString() == "운행종료")
+                {
+                    // 해당 행을 삭제
+                    dataGridView1.Rows.Remove(row);
+                }
             }
+
+            //}
+            //else
+            //{
+            //    MessageBox.Show("선택된 행이 없습니다.");
+            // }
         }
 
+        private void timer2_Tick(object sender, EventArgs e)
+        {
 
+        }
 
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 
 }
