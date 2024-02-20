@@ -395,7 +395,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 300; // 1초 간격으로 설정
+            timer.Interval = 150; // 1초 간격으로 설정
             timer.Tick += timer1_Tick;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -423,7 +423,7 @@ namespace SuJinChemicalMES
                         timer.Stop(); // 타이머 중지
 
                         timer2 = new Timer();
-                        timer2.Interval = 4000; // 1초 간격으로 설정
+                        timer2.Interval = 3000; // 1초 간격으로 설정
                         timer2.Tick += timer2_Tick_1;
                         timer2.Start();
                     }
@@ -460,7 +460,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer2()
         {
             timer3 = new Timer();
-            timer3.Interval = 1000; // 1초 간격으로 설정
+            timer3.Interval = 150; // 1초 간격으로 설정
             timer3.Tick += timer3_Tick;
             timer3.Start();
         }
@@ -472,9 +472,11 @@ namespace SuJinChemicalMES
                 if (row.Cells[4].Value?.ToString() == "베스2호")
                 {
                     int remainingTime3 = Convert.ToInt32(row.Cells[8].Value);
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
 
                     // 소요시간 10씩 감소
-                    remainingTime3 -= 10;
+                    remainingTime3 -= 1;
 
                     // DataGridView 업데이트
                     row.Cells[8].Value = remainingTime3;
@@ -483,11 +485,11 @@ namespace SuJinChemicalMES
                     {
                         remainingTime3 = 0;
                         row.Cells[7].Value = "운행종료";
-                        row.Cells[7].Style.ForeColor = Color.Red;
+                        row.Cells[7].Style.BackColor = Color.Red;
                         timer3.Stop(); // 타이머 중지
 
                         timer4 = new Timer();
-                        timer4.Interval = 4000; // 1초 간격으로 설정
+                        timer4.Interval = 3000; // 1초 간격으로 설정
                         timer4.Tick += timer4_Tick;
                         timer4.Start();
                     }
@@ -512,7 +514,7 @@ namespace SuJinChemicalMES
                         connection.Open();
 
                         // MySQL 쿼리 작성
-                        string query = $"DELETE FROM bath WHERE bath_num = '베스1호'";
+                        string query = $"DELETE FROM bath WHERE bath_num = '베스2호'";
                         using (MySqlCommand command = new MySqlCommand(query, connection))
                         {
                             command.ExecuteNonQuery();
