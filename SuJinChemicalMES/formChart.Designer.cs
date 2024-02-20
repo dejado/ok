@@ -29,8 +29,8 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -77,11 +77,10 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 66F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 758);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
@@ -90,7 +89,7 @@ namespace SuJinChemicalMES
             this.panel4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(781, 379);
-            this.panel4.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(10, 42, 29, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(482, 30);
             this.panel4.TabIndex = 8;
@@ -99,8 +98,8 @@ namespace SuJinChemicalMES
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 379);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.panel3.Location = new System.Drawing.Point(26, 379);
+            this.panel3.Margin = new System.Windows.Forms.Padding(26, 42, 5, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(766, 30);
             this.panel3.TabIndex = 7;
@@ -109,14 +108,15 @@ namespace SuJinChemicalMES
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(781, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.panel2.Location = new System.Drawing.Point(781, 42);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10, 42, 29, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(482, 30);
             this.panel2.TabIndex = 6;
             // 
             // tableLayoutPanel3
             // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -124,7 +124,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel5, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(781, 409);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(10, 0, 29, 32);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -135,6 +135,7 @@ namespace SuJinChemicalMES
             // AlarmPn
             // 
             this.AlarmPn.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AlarmPn.ForeColor = System.Drawing.Color.White;
             this.AlarmPn.Location = new System.Drawing.Point(0, 0);
             this.AlarmPn.Margin = new System.Windows.Forms.Padding(0);
             this.AlarmPn.Name = "AlarmPn";
@@ -170,11 +171,11 @@ namespace SuJinChemicalMES
             // 
             // DefectChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.DefectChart.ChartAreas.Add(chartArea3);
+            chartArea9.Name = "ChartArea1";
+            this.DefectChart.ChartAreas.Add(chartArea9);
             this.DefectChart.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DefectChart.Location = new System.Drawing.Point(0, 409);
-            this.DefectChart.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.DefectChart.Location = new System.Drawing.Point(26, 409);
+            this.DefectChart.Margin = new System.Windows.Forms.Padding(26, 0, 5, 32);
             this.DefectChart.Name = "DefectChart";
             this.DefectChart.Size = new System.Drawing.Size(766, 349);
             this.DefectChart.TabIndex = 3;
@@ -182,14 +183,14 @@ namespace SuJinChemicalMES
             // 
             // ProgressChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.ProgressChart.ChartAreas.Add(chartArea4);
+            chartArea10.Name = "ChartArea1";
+            this.ProgressChart.ChartAreas.Add(chartArea10);
             this.ProgressChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProgressChart.Enabled = false;
-            this.ProgressChart.Location = new System.Drawing.Point(0, 30);
-            this.ProgressChart.Margin = new System.Windows.Forms.Padding(0, 0, 5, 5);
+            this.ProgressChart.Location = new System.Drawing.Point(26, 66);
+            this.ProgressChart.Margin = new System.Windows.Forms.Padding(26, 0, 5, 0);
             this.ProgressChart.Name = "ProgressChart";
-            this.ProgressChart.Size = new System.Drawing.Size(766, 344);
+            this.ProgressChart.Size = new System.Drawing.Size(740, 349);
             this.ProgressChart.TabIndex = 0;
             this.ProgressChart.Text = "chart1";
             // 
@@ -197,10 +198,10 @@ namespace SuJinChemicalMES
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.panel1.Location = new System.Drawing.Point(26, 42);
+            this.panel1.Margin = new System.Windows.Forms.Padding(26, 42, 5, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 30);
+            this.panel1.Size = new System.Drawing.Size(740, 30);
             this.panel1.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -209,7 +210,8 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(774, 33);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(774, 66);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(10, 0, 29, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -227,21 +229,21 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel4.Controls.Add(this.WarehouseChart1, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.WarehouseChart2, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(10, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(10, 0, 29, 0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(486, 343);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(447, 343);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // WarehouseChart3
             // 
             this.WarehouseChart3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WarehouseChart3.Location = new System.Drawing.Point(322, 0);
+            this.WarehouseChart3.Location = new System.Drawing.Point(296, 0);
             this.WarehouseChart3.Margin = new System.Windows.Forms.Padding(0);
             this.WarehouseChart3.Name = "WarehouseChart3";
-            this.WarehouseChart3.Size = new System.Drawing.Size(164, 343);
+            this.WarehouseChart3.Size = new System.Drawing.Size(151, 343);
             this.WarehouseChart3.TabIndex = 2;
             // 
             // WarehouseChart1
@@ -250,16 +252,16 @@ namespace SuJinChemicalMES
             this.WarehouseChart1.Location = new System.Drawing.Point(0, 0);
             this.WarehouseChart1.Margin = new System.Windows.Forms.Padding(0);
             this.WarehouseChart1.Name = "WarehouseChart1";
-            this.WarehouseChart1.Size = new System.Drawing.Size(161, 343);
+            this.WarehouseChart1.Size = new System.Drawing.Size(148, 343);
             this.WarehouseChart1.TabIndex = 0;
             // 
             // WarehouseChart2
             // 
             this.WarehouseChart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.WarehouseChart2.Location = new System.Drawing.Point(161, 0);
+            this.WarehouseChart2.Location = new System.Drawing.Point(148, 0);
             this.WarehouseChart2.Margin = new System.Windows.Forms.Padding(0);
             this.WarehouseChart2.Name = "WarehouseChart2";
-            this.WarehouseChart2.Size = new System.Drawing.Size(161, 343);
+            this.WarehouseChart2.Size = new System.Drawing.Size(148, 343);
             this.WarehouseChart2.TabIndex = 2;
             // 
             // panel5
