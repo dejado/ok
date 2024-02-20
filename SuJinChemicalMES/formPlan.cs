@@ -316,7 +316,7 @@ namespace SuJinChemicalMES
                 }
 
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
-                //FormDataShare.AddData(combobox1Text);
+                
             }
             else
             {
@@ -406,7 +406,8 @@ namespace SuJinChemicalMES
                 if (row.Cells[4].Value?.ToString() == "베스1호")
                 {
                     int remainingTime = Convert.ToInt32(row.Cells[8].Value);
-
+                    row.Cells[7].Style.BackColor = Color.LimeGreen;
+                    row.Cells[8].Style.BackColor = Color.Yellow;
                     // 소요시간 10씩 감소
                     remainingTime -= 1;
 
@@ -417,7 +418,8 @@ namespace SuJinChemicalMES
                     {
                         remainingTime = 0;
                         row.Cells[7].Value = "운행종료";
-                        row.Cells[7].Style.ForeColor = Color.Red;
+                        //row.Cells[7].Style.ForeColor = Color.Red;
+                        row.Cells[7].Style.BackColor = Color.Red;
                         timer.Stop(); // 타이머 중지
 
                         timer2 = new Timer();
