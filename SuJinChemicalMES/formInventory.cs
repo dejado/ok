@@ -237,7 +237,7 @@ namespace SuJinChemicalMES
             var result4 = MLModel2.Predict(sampleData9);
             var result5 = MLModel2.Predict(sampleData8);
             var result6 = MLModel2.Predict(sampleData7);
-            
+            /*
             if (result1.Score == 1)
             {
                 BathNum_com.Items.Remove("베스1호");
@@ -262,7 +262,7 @@ namespace SuJinChemicalMES
             {
                 BathNum_com.Items.Remove("베스6호");
             }
-               
+               */
 
 
         }
