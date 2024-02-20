@@ -15,7 +15,6 @@ namespace SuJinChemicalMES
     {
         private Timer timer;
         //private Timer timer3;
-        private Timer deleteTimer;
 
         public formPlan()
         {
@@ -27,7 +26,6 @@ namespace SuJinChemicalMES
 
             InitializeTimer(); // 타이머 초기화
             //InitializeTimer2(); // 타이머3 초기화
-            InitializeDeleteTimer();
 
         }
 
@@ -676,35 +674,8 @@ namespace SuJinChemicalMES
 
         }
 
-        private void InitializeDeleteTimer()
-        {
-            /*
-            deleteTimer = new Timer();
-            deleteTimer.Interval = 3000; // 5초 간격으로 설정 (원하는 주기로 조정)
-            deleteTimer.Tick += (s, args) => DeleteRowsWithCondition();
-            deleteTimer.Start();
-            */
-        }
 
-        private void DeleteRowsWithCondition()
-        {
-            List<DataGridViewRow> rowsToRemove = new List<DataGridViewRow>();
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                if (row.Cells[7].Value?.ToString() == "운행종료")
-                {
-                    rowsToRemove.Add(row);
-                }
-            }
-
-            // 찾은 행들을 삭제
-            foreach (DataGridViewRow row in rowsToRemove)
-            {
-                dataGridView1.Rows.Remove(row);
-                deleteTimer.Stop();
-            }
-        }
+        
     }
 
 }
