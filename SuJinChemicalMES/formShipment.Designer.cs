@@ -38,12 +38,6 @@ namespace SuJinChemicalMES
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.PrGridView = new System.Windows.Forms.DataGridView();
-            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.defectivequantity = new System.Windows.Forms.TextBox();
@@ -98,6 +92,12 @@ namespace SuJinChemicalMES
             this.label12 = new System.Windows.Forms.Label();
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
+            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -251,54 +251,6 @@ namespace SuJinChemicalMES
             this.PrGridView.TabIndex = 41;
             this.PrGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrGridView_CellContentClick);
             this.PrGridView.SelectionChanged += new System.EventHandler(this.PrGridView_SelectionChanged);
-            // 
-            // order_number
-            // 
-            this.order_number.DataPropertyName = "order_number";
-            this.order_number.HeaderText = "발주서번호";
-            this.order_number.MinimumWidth = 95;
-            this.order_number.Name = "order_number";
-            this.order_number.ReadOnly = true;
-            // 
-            // product_name
-            // 
-            this.product_name.DataPropertyName = "product_name";
-            this.product_name.HeaderText = "제품명";
-            this.product_name.MinimumWidth = 160;
-            this.product_name.Name = "product_name";
-            this.product_name.ReadOnly = true;
-            // 
-            // company_name
-            // 
-            this.company_name.DataPropertyName = "company";
-            this.company_name.HeaderText = "회사명";
-            this.company_name.MinimumWidth = 80;
-            this.company_name.Name = "company_name";
-            this.company_name.ReadOnly = true;
-            // 
-            // code
-            // 
-            this.code.DataPropertyName = "product_code";
-            this.code.HeaderText = "제품코드";
-            this.code.MinimumWidth = 80;
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            // 
-            // Ex_Quantity
-            // 
-            this.Ex_Quantity.DataPropertyName = "quantity";
-            this.Ex_Quantity.HeaderText = "수량";
-            this.Ex_Quantity.MinimumWidth = 57;
-            this.Ex_Quantity.Name = "Ex_Quantity";
-            this.Ex_Quantity.ReadOnly = true;
-            // 
-            // LOTNO
-            // 
-            this.LOTNO.DataPropertyName = "lot_no";
-            this.LOTNO.HeaderText = "LOT NO.";
-            this.LOTNO.MinimumWidth = 6;
-            this.LOTNO.Name = "LOTNO";
-            this.LOTNO.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -952,6 +904,54 @@ namespace SuJinChemicalMES
             this.Renewalbt.UseVisualStyleBackColor = true;
             this.Renewalbt.Click += new System.EventHandler(this.Renewalbt_Click);
             // 
+            // order_number
+            // 
+            this.order_number.DataPropertyName = "order_number";
+            this.order_number.HeaderText = "발주서번호";
+            this.order_number.MinimumWidth = 93;
+            this.order_number.Name = "order_number";
+            this.order_number.ReadOnly = true;
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "product_name";
+            this.product_name.HeaderText = "제품명";
+            this.product_name.MinimumWidth = 145;
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
+            // company_name
+            // 
+            this.company_name.DataPropertyName = "company";
+            this.company_name.HeaderText = "회사명";
+            this.company_name.MinimumWidth = 75;
+            this.company_name.Name = "company_name";
+            this.company_name.ReadOnly = true;
+            // 
+            // code
+            // 
+            this.code.DataPropertyName = "product_code";
+            this.code.HeaderText = "제품코드";
+            this.code.MinimumWidth = 75;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            // 
+            // Ex_Quantity
+            // 
+            this.Ex_Quantity.DataPropertyName = "quantity";
+            this.Ex_Quantity.HeaderText = "수량";
+            this.Ex_Quantity.MinimumWidth = 57;
+            this.Ex_Quantity.Name = "Ex_Quantity";
+            this.Ex_Quantity.ReadOnly = true;
+            // 
+            // LOTNO
+            // 
+            this.LOTNO.DataPropertyName = "lot_no";
+            this.LOTNO.HeaderText = "LOT NO.";
+            this.LOTNO.MinimumWidth = 6;
+            this.LOTNO.Name = "LOTNO";
+            this.LOTNO.ReadOnly = true;
+            // 
             // formShipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -1030,12 +1030,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button Search_Bt;
         private System.Windows.Forms.Button Renewalbt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn order_number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company_name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ex_Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LOTNO;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Check;
         private System.Windows.Forms.DataGridViewTextBoxColumn progress;
         private System.Windows.Forms.DataGridViewTextBoxColumn test_results;
@@ -1059,5 +1053,11 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.TextBox DefectLotno;
         private System.Windows.Forms.Label LOT_No_Lb;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn order_number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn product_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ex_Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LOTNO;
     }
 }
