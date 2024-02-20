@@ -329,6 +329,7 @@ namespace SuJinChemicalMES
                     MessageBox.Show("데이터가 등록되었습니다.");
                     ShowSHdatagridview();
                 }
+
             }
             else
             {
@@ -454,6 +455,7 @@ namespace SuJinChemicalMES
                             CompanyCb.Items.Add(companyName);
                         }
                     }
+
                     reader.Close();
                 }
                 catch (Exception ex)

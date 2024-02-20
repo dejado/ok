@@ -15,12 +15,13 @@ namespace SuJinChemicalMES
     public partial class formInventory : Form
     {
         //private string connectionString = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+        private DataContainer dataContainer;
 
-        public formInventory()
+        public formInventory(DataContainer dataContainer)
         {
             InitializeComponent();
             ShowGrid();
-
+            this.dataContainer = dataContainer;
         }
         public void ShowGrid()
         {
@@ -100,7 +101,7 @@ namespace SuJinChemicalMES
                     }
                 }
 
-                InsertData(bathNum, medicienText, medicineNum, acidity, "가동중", "김서진", date);
+                InsertData(bathNum, medicienText, medicineNum, acidity, "가동중", dataContainer.Name, date);
                 MinusMedicine(medicienText, medicineNum);
                 ShowGrid();
 
@@ -185,10 +186,6 @@ namespace SuJinChemicalMES
         }
 
 
-        private void BathNum_com_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void formInventory_Load(object sender, EventArgs e)
         {

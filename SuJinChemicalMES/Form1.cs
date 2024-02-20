@@ -342,7 +342,7 @@ namespace SuJinChemicalMES
         {
             if (inventory == null)
             {
-                inventory = new formInventory();
+                inventory = new formInventory(dataContainer);
                 inventory.FormClosed += Inventory_FormClosed;
                 inventory.MdiParent = this;
                 inventory.Dock = DockStyle.Fill;
@@ -892,6 +892,7 @@ namespace SuJinChemicalMES
                 Loginid_tb.Clear();
                 Loginpw_tb.Clear();
             }
+            name_lb.Text = "사용자: "+ dataContainer.Name;
         }
 
         private void AuthorityDepartment()
