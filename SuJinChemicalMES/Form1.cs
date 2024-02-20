@@ -892,6 +892,7 @@ namespace SuJinChemicalMES
                 Loginid_tb.Clear();
                 Loginpw_tb.Clear();
             }
+            name_lb.Text = "사용자: "+ dataContainer.Name;
         }
 
         private void AuthorityDepartment()

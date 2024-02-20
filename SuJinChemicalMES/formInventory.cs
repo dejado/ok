@@ -186,10 +186,6 @@ namespace SuJinChemicalMES
         }
 
 
-        private void BathNum_com_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void formInventory_Load(object sender, EventArgs e)
         {
