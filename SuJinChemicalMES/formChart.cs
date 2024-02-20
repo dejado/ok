@@ -325,7 +325,7 @@ namespace SuJinChemicalMES
 
             warehouseSeries.Points.Add(loadedPercentage);
             warehouseSeries.Points.Add(100 - loadedPercentage); // 여유 공간
-            warehouseSeries["DoughnutRadius"] = "90%";
+            
 
             warehouseSeries.Points[0].Label = string.Format("{0:F1}%", loadedPercentage);
 

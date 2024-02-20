@@ -254,7 +254,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector","곽동영");
+                                insertCommand.Parameters.AddWithValue("@inspector","master");
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }
@@ -279,7 +279,7 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                             insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                             insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                            insertCommand.Parameters.AddWithValue("@inspector", "곽동영");
+                            insertCommand.Parameters.AddWithValue("@inspector", "master");
                             insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                             insertCommand.ExecuteNonQuery();
                         }
@@ -319,7 +319,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector","곽동영");
+                                insertCommand.Parameters.AddWithValue("@inspector", "master");
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }
