@@ -80,7 +80,9 @@ namespace SuJinChemicalMES
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.System4 = new FontAwesome.Sharp.IconButton();
             this.Logoutwish_pn = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Logout_pn = new System.Windows.Forms.Panel();
+            this.name_lb = new System.Windows.Forms.Label();
             this.Logout_bt = new System.Windows.Forms.Button();
             this.menuTransition = new System.Windows.Forms.Timer(this.components);
             this.sidebarTransition = new System.Windows.Forms.Timer(this.components);
@@ -93,8 +95,6 @@ namespace SuJinChemicalMES
             this.Loginid_tb = new System.Windows.Forms.TextBox();
             this.Loginpw_lb = new System.Windows.Forms.Label();
             this.Loginid_lb = new System.Windows.Forms.Label();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.name_lb = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -121,9 +121,9 @@ namespace SuJinChemicalMES
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
             this.Logoutwish_pn.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.Logout_pn.SuspendLayout();
             this.Login_pn.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -844,6 +844,22 @@ namespace SuJinChemicalMES
             this.Logoutwish_pn.Size = new System.Drawing.Size(230, 110);
             this.Logoutwish_pn.TabIndex = 14;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.Logout_pn, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Logout_bt, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(230, 110);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
             // Logout_pn
             // 
             this.Logout_pn.BackColor = System.Drawing.Color.Transparent;
@@ -855,6 +871,16 @@ namespace SuJinChemicalMES
             this.Logout_pn.Name = "Logout_pn";
             this.Logout_pn.Size = new System.Drawing.Size(150, 28);
             this.Logout_pn.TabIndex = 6;
+            // 
+            // name_lb
+            // 
+            this.name_lb.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.name_lb.AutoSize = true;
+            this.name_lb.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.name_lb.Location = new System.Drawing.Point(21, 6);
+            this.name_lb.Name = "name_lb";
+            this.name_lb.Size = new System.Drawing.Size(0, 15);
+            this.name_lb.TabIndex = 6;
             // 
             // Logout_bt
             // 
@@ -958,32 +984,6 @@ namespace SuJinChemicalMES
             this.Loginid_lb.Text = "ID";
             this.Loginid_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.Logout_pn, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.Logout_bt, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(230, 110);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // name_lb
-            // 
-            this.name_lb.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.name_lb.AutoSize = true;
-            this.name_lb.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.name_lb.Location = new System.Drawing.Point(21, 6);
-            this.name_lb.Name = "name_lb";
-            this.name_lb.Size = new System.Drawing.Size(0, 15);
-            this.name_lb.TabIndex = 6;
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1027,11 +1027,11 @@ namespace SuJinChemicalMES
             this.panel11.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.Logoutwish_pn.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.Logout_pn.ResumeLayout(false);
             this.Logout_pn.PerformLayout();
             this.Login_pn.ResumeLayout(false);
             this.Login_pn.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

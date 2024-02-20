@@ -61,7 +61,7 @@ namespace SuJinChemicalMES
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT test_results, progress, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results";
+                    string query = "SELECT test_results, progress, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect FROM shipping_inspection_results ORDER BY registration_date_inspection DESC";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     MySqlDataAdapter adapter = new MySqlDataAdapter(command);
                     DataTable dataTable1 = new DataTable();

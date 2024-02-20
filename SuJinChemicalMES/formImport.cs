@@ -97,10 +97,11 @@ namespace SuJinChemicalMES
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
                         connection.Open();
-                        string insertQuery = "INSERT INTO import_inspection (progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date_import," +
-                            " registrant_import, cause_of_defect) VALUES (@inspectionType, @data, @companyName, @productCode, @productName, " +
+                        string insertQuery = "INSERT INTO import_inspection (order_number, progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date_import," +
+                            " registrant_import, cause_of_defect) VALUES (@Order_number, @inspectionType, @data, @companyName, @productCode, @productName, " +
                             "@lotNo, @quantity, @inspectionDate, @inspector, @defectCause)";
                         MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
+                        insertCommand.Parameters.AddWithValue("@Order_number", selectedOrderNumber);
                         insertCommand.Parameters.AddWithValue("@inspectionType", "수입검사");
                         insertCommand.Parameters.AddWithValue("@data", selectedData);
                         insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
@@ -117,10 +118,11 @@ namespace SuJinChemicalMES
                     {
                         connection.Open();
 
-                        string insertQuery = "INSERT INTO accumulated_data (progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date," +
-                                    " registrant, cause_of_defect) VALUES (@inspectionType, @data, @companyName, @productCode, @productName, " +
+                        string insertQuery = "INSERT INTO accumulated_data (order_number,progress, test_results, company, product_code, product_name, lot_no, quantity, registration_date," +
+                                    " registrant, cause_of_defect) VALUES (@Order_number,@inspectionType, @data, @companyName, @productCode, @productName, " +
                                     "@lotNo, @quantity, @inspectionDate, @inspector, @defectCause)";
                         MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection);
+                        insertCommand.Parameters.AddWithValue("@Order_number", selectedOrderNumber);
                         insertCommand.Parameters.AddWithValue("@inspectionType", "수입검사");
                         insertCommand.Parameters.AddWithValue("@data", selectedData);
                         insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
