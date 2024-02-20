@@ -58,6 +58,8 @@ namespace SuJinChemicalMES
             Loginid_lb.Parent = Login_pn;
             Loginpw_lb.Parent = Login_pn;
 
+            Logout_bt.BringToFront();
+            Logout_pn.BringToFront();
             //**********************************************************************************************//
         }
 
@@ -859,7 +861,6 @@ namespace SuJinChemicalMES
                         //로그인 가능!
                         EnableAllControls(this);
 
-                        Login_pn.Dispose();
                         Login_pn.Hide();
 
                         Main.PerformClick();
@@ -876,6 +877,8 @@ namespace SuJinChemicalMES
                 }
 
                 AuthorityDepartment();
+                Loginid_tb.Clear();
+                Loginpw_tb.Clear();
             }
         }
 
@@ -946,6 +949,90 @@ namespace SuJinChemicalMES
         private void Login_pn_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Logout_bt_Click(object sender, EventArgs e)
+        {
+            if (main != null)
+            {
+                main.Close();
+                main = null; // 인스턴스 초기화
+            }
+            if (input != null)
+            {
+                input.Close();
+                input = null;
+            }
+
+            if (workview != null)
+            {
+                workview.Close();
+                workview = null;
+            }
+
+            if (plan != null)
+            {
+                plan.Close();
+                plan = null;
+            }
+
+            if (inventory != null)
+            {
+                inventory.Close();
+                inventory = null;
+            }
+
+            if (output != null)
+            {
+                output.Close();
+                output = null;
+            }
+
+            if (chart != null)
+            {
+                chart.Close();
+                chart = null;
+            }
+
+            if (system1 != null)
+            {
+                system1.Close();
+                system1 = null;
+            }
+
+            if (system2 != null)
+            {
+                system2.Close();
+                system2 = null;
+            }
+
+            if (system3 != null)
+            {
+                system3.Close();
+                system3 = null;
+            }
+
+            if (system4 != null)
+            {
+                system4.Close();
+                system4 = null;
+            }
+
+            if (import != null)
+            {
+                import.Close();
+                import = null;
+            }
+
+            if (shipment != null)
+            {
+                shipment.Close();
+                shipment = null;
+            }
+
+            DisableAllControls(this);
+            login_status = 0;
+            Login_pn.Show();
         }
     }
 }
