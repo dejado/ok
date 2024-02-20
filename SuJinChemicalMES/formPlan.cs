@@ -346,22 +346,6 @@ namespace SuJinChemicalMES
 
         private void button4_Click(object sender, EventArgs e)
         {
-
-            // MySQL 데이터베이스에서 해당 행 삭제
-            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
-            {
-                connection.Open();
-
-                // MySQL 쿼리 작성
-                string query = $"DELETE FROM bath WHERE bath_num = '베스1호'";
-
-                using (MySqlCommand command = new MySqlCommand(query, connection))
-                {
-                    command.ExecuteNonQuery();
-                }
-            }
-
         }
 
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
