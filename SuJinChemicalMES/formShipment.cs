@@ -254,7 +254,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@quantity", Standardproduct);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
-                                insertCommand.Parameters.AddWithValue("@inspector","master");
+                                insertCommand.Parameters.AddWithValue("@inspector", "master");
                                 insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                                 insertCommand.ExecuteNonQuery();
                             }
@@ -332,15 +332,14 @@ namespace SuJinChemicalMES
                     ShowSHdatagridview();
                 }
 
-
-
-                else
-                {
-                    MessageBox.Show("정상제품 수량과 불량제품 수량의 합이 선택된 행의 수량과 같아야 합니다.");
-                }
-
-
             }
+            else
+            {
+                MessageBox.Show("정상제품 수량과 불량제품 수량의 합이 선택된 행의 수량과 같아야 합니다.");
+            }
+
+
+            
         }
 
             private void Search_Bt_Click(object sender, EventArgs e)
