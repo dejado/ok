@@ -275,10 +275,5 @@ namespace SuJinChemicalMES
         {
 
         }
-
-        private void tankgs4_Tick(object sender, EventArgs e)
-        {
-
-        }
     }
 }
