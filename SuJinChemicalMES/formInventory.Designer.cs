@@ -114,6 +114,7 @@ namespace SuJinChemicalMES
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 4;
             this.dataGridView2.RowTemplate.Height = 27;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(526, 193);
             this.dataGridView2.TabIndex = 38;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
