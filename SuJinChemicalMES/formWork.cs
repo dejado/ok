@@ -17,6 +17,7 @@ namespace SuJinChemicalMES
         private string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
         private Timer timer;
         private formBath bath;
+        int a;
 
         public formWork()
         {
@@ -139,7 +140,15 @@ namespace SuJinChemicalMES
                                     MessageBox.Show("변환 실패");
                                 }
                             }
-
+                            if (chemicalType == "인산(H3PO4)") { a = 1; }
+                            if (chemicalType == "암모니아(NH4OH)") { a = 2; }
+                            if (chemicalType == "황산(H2SO4)") { a = 3; }
+                            if (chemicalType == "과산화수소(H2O2)") { a = 4; }
+                            if (chemicalType == "불산(HF)") { a = 5; }
+                            if (chemicalType == "질산(NHO3)") { a = 6; }
+                            if (chemicalType == "알카리") { a = 7; }
+                            if (chemicalType == "염산(HCl)") { a = 8; }
+                            if (chemicalType == "염산") { a = 8; }
 
                             SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], bethNumber);
                             InitializePictureBoxEvents(secondCharacterAsInt - 1);
@@ -243,48 +252,139 @@ namespace SuJinChemicalMES
         int count = 0;
         private void bathTimer1_Tick(object sender, EventArgs e)
         {
-            count++;
-            if (count <= 10)
+            if (a == 1)
             {
-                bath1.Image = Properties.Resources.tankzak4_1;
-                if (b >= 1)
+                count++;
+                if (count <= 10)
                 {
-                    bath1.Image = Properties.Resources.tamk02;
-                    b = 0;
+                    bath1.Image = Properties.Resources.tankzak4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tamk02;
+                        b = 0;
+                    }
+                    else b++;
                 }
-                else b++;
-            }
-            else if (count <= 20)
-            {
-                bath1.Image = Properties.Resources.tankzak4_1;
-                if (b >= 1)
+                else if (count <= 20)
+                {
+                    bath1.Image = Properties.Resources.tankzak4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankzak4_2;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 30)
                 {
                     bath1.Image = Properties.Resources.tankzak4_2;
-                    b = 0;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankzak4_3;
+                        b = 0;
+                    }
+                    else b++;
                 }
-                else b++;
-            }
-            else if (count <= 30)
-            {
-                bath1.Image = Properties.Resources.tankzak4_2;
-                if (b >= 1)
+                else if (count <= 40)
                 {
                     bath1.Image = Properties.Resources.tankzak4_3;
-                    b = 0;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankzak4_4;
+                        b = 0;
+                    }
+                    else b++;
                 }
-                else b++;
+                else bath1.Image = Properties.Resources.tankzak4_4;
             }
-            else if (count <= 40)
+            else if (a == 2)    // 암모니아 베스1호
             {
-                bath1.Image = Properties.Resources.tankzak4_3;
-                if (b >= 1)
+                if (count <= 10)
                 {
-                    bath1.Image = Properties.Resources.tankzak4_4;
-                    b = 0;
+                    bath1.Image = Properties.Resources.tankam4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tamk02;
+                        b = 0;
+                    }
+                    else b++;
                 }
-                else b++;
+                else if (count <= 20)
+                {
+                    bath1.Image = Properties.Resources.tankam4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankam4_2;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 30)
+                {
+                    bath1.Image = Properties.Resources.tankam4_2;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankam4_3;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 40)
+                {
+                    bath1.Image = Properties.Resources.tankam4_3;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankam4_4;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else bath1.Image = Properties.Resources.tankam4_4;
             }
-            else bath1.Image = Properties.Resources.tankzak4_4;
+            else if (a == 2)    // 황산 베스1호
+            {
+                if (count <= 10)
+                {
+                    bath1.Image = Properties.Resources.tankbs4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tamk02;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 20)
+                {
+                    bath1.Image = Properties.Resources.tankbs4_1;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankbs4_2;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 30)
+                {
+                    bath1.Image = Properties.Resources.tankbs4_2;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankbs4_3;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else if (count <= 40)
+                {
+                    bath1.Image = Properties.Resources.tankbs4_3;
+                    if (b >= 1)
+                    {
+                        bath1.Image = Properties.Resources.tankbs4_4;
+                        b = 0;
+                    }
+                    else b++;
+                }
+                else bath1.Image = Properties.Resources.tankbs4_4;
+            }
         }
 
         //노란_tankam4_암모니아(NH4OH)  
