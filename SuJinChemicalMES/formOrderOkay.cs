@@ -153,6 +153,16 @@ namespace SuJinChemicalMES
 
         private void button1_Click(object sender, EventArgs e)
         {
+            // 필수 입력 필드가 비어 있는지 확인
+            if (string.IsNullOrWhiteSpace(textBox2.Text) ||
+                string.IsNullOrWhiteSpace(textBox3.Text) ||
+                string.IsNullOrWhiteSpace(textBox4.Text) ||
+                string.IsNullOrWhiteSpace(textBox5.Text))
+            {
+                MessageBox.Show("필수 입력 칸이 비어 있습니다.", "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             // DataGridView2에 빈 행 추가
             int index = dataGridView2.Rows.Add();
 
