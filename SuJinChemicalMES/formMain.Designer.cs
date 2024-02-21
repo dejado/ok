@@ -30,11 +30,11 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -121,15 +121,17 @@ namespace SuJinChemicalMES
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel2);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel3);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel4);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel5);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel6);
             this.flowLayoutPanel1.Controls.Add(this.flowLayoutPanel7);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(17, 21);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(461, 677);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(509, 693);
             this.flowLayoutPanel1.TabIndex = 25;
             // 
             // flowLayoutPanel2
@@ -138,7 +140,7 @@ namespace SuJinChemicalMES
             this.flowLayoutPanel2.Controls.Add(this.pictureBox5);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel2.TabIndex = 26;
             // 
             // label1
@@ -151,6 +153,7 @@ namespace SuJinChemicalMES
             // 
             // pictureBox5
             // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -167,9 +170,9 @@ namespace SuJinChemicalMES
             // 
             this.flowLayoutPanel3.Controls.Add(this.label2);
             this.flowLayoutPanel3.Controls.Add(this.pictureBox4);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(229, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(249, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel3.TabIndex = 27;
             // 
             // label2
@@ -200,7 +203,7 @@ namespace SuJinChemicalMES
             this.flowLayoutPanel4.Controls.Add(this.pictureBox3);
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 229);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel4.TabIndex = 28;
             // 
             // label3
@@ -229,9 +232,9 @@ namespace SuJinChemicalMES
             // 
             this.flowLayoutPanel5.Controls.Add(this.label4);
             this.flowLayoutPanel5.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel5.Location = new System.Drawing.Point(229, 229);
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(249, 229);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel5.TabIndex = 28;
             // 
             // label4
@@ -262,7 +265,7 @@ namespace SuJinChemicalMES
             this.flowLayoutPanel6.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel6.Location = new System.Drawing.Point(3, 455);
             this.flowLayoutPanel6.Name = "flowLayoutPanel6";
-            this.flowLayoutPanel6.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel6.TabIndex = 29;
             // 
             // label5
@@ -292,9 +295,9 @@ namespace SuJinChemicalMES
             // 
             this.flowLayoutPanel7.Controls.Add(this.label6);
             this.flowLayoutPanel7.Controls.Add(this.pictureBox6);
-            this.flowLayoutPanel7.Location = new System.Drawing.Point(229, 455);
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(249, 455);
             this.flowLayoutPanel7.Name = "flowLayoutPanel7";
-            this.flowLayoutPanel7.Size = new System.Drawing.Size(220, 220);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(240, 220);
             this.flowLayoutPanel7.TabIndex = 29;
             // 
             // label6
@@ -321,9 +324,10 @@ namespace SuJinChemicalMES
             // 
             // Calendar_pn
             // 
+            this.Calendar_pn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Calendar_pn.Controls.Add(this.Calendar_dtp);
             this.Calendar_pn.Controls.Add(this.Calendar_lb);
-            this.Calendar_pn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Calendar_pn.Location = new System.Drawing.Point(538, 30);
             this.Calendar_pn.Margin = new System.Windows.Forms.Padding(3, 30, 23, 3);
             this.Calendar_pn.Name = "Calendar_pn";
@@ -353,13 +357,14 @@ namespace SuJinChemicalMES
             // 
             // Mainright_tlpn
             // 
+            this.Mainright_tlpn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Mainright_tlpn.BackColor = System.Drawing.Color.White;
             this.Mainright_tlpn.ColumnCount = 1;
             this.Mainright_tlpn.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.83766F));
             this.Mainright_tlpn.Controls.Add(this.Achieve_ct, 0, 2);
             this.Mainright_tlpn.Controls.Add(this.Achieve_lb, 0, 1);
             this.Mainright_tlpn.Controls.Add(this.CalendarControl_pn, 0, 0);
-            this.Mainright_tlpn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Mainright_tlpn.Location = new System.Drawing.Point(538, 62);
             this.Mainright_tlpn.Margin = new System.Windows.Forms.Padding(3, 3, 23, 3);
             this.Mainright_tlpn.Name = "Mainright_tlpn";
@@ -372,28 +377,28 @@ namespace SuJinChemicalMES
             // 
             // Achieve_ct
             // 
-            chartArea1.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea2);
             this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend1);
+            legend2.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend2);
             this.Achieve_ct.Location = new System.Drawing.Point(3, 432);
             this.Achieve_ct.Name = "Achieve_ct";
             this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "PlanSum_s";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "CompleteSum_s";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "CompleteRate_s";
-            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series1);
-            this.Achieve_ct.Series.Add(series2);
-            this.Achieve_ct.Series.Add(series3);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "PlanSum_s";
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "CompleteSum_s";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "CompleteRate_s";
+            series6.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series4);
+            this.Achieve_ct.Series.Add(series5);
+            this.Achieve_ct.Series.Add(series6);
             this.Achieve_ct.Size = new System.Drawing.Size(696, 258);
             this.Achieve_ct.TabIndex = 7;
             this.Achieve_ct.Text = "Achieve_ct";
