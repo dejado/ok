@@ -40,6 +40,16 @@ namespace SuJinChemicalMES
             CalendarPick_gv.BackgroundColor = System.Drawing.Color.White;
             CalendarPick_gv.ColumnHeadersHeight = 50;
 
+            CalendarPick_gv.Columns.Add("order_number", "주문번호");
+            CalendarPick_gv.Columns.Add("supplier", "회사명");
+            CalendarPick_gv.Columns.Add("product_code", "제품코드");
+            CalendarPick_gv.Columns.Add("Lot_No.", "Lot_No.");
+            CalendarPick_gv.Columns.Add("lot_no", "납기일");
+            CalendarPick_gv.Columns.Add("due_date_request", "등록자");
+            CalendarPick_gv.Columns.Add("registrant", "생산예정량");
+            CalendarPick_gv.Columns.Add("production_plan_quantity", "생산주문량");
+            CalendarPick_gv.Columns.Add("beth_batch", "투입베스");
+
             CalendarPick_tlpn.Controls.Add(CalendarPick_gv, 0, 1);
             CalendarPick_gv.Dock = DockStyle.Fill;
             CalendarPick_gv.Parent = CalendarPick_tlpn;
@@ -65,7 +75,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT order_number, supplier, product_code, lot_no, due_date, registrant, company, production_plan_quantity, work_order_quantity, beth_batch, scheduled_production_date FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
+                string Query = "SELECT order_number, supplier, product_code, lot_no, due_date, registrant, production_plan_quantity, work_order_quantity, beth_batch FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
@@ -77,6 +87,19 @@ namespace SuJinChemicalMES
 
                 adapter.Fill(CalendarDT);
                 CalendarPick_gv.DataSource = CalendarDT;
+
+                foreach (DataRow row in CalendarDT.Rows)
+                {
+                    DataGridViewRow dgvRow = new DataGridViewRow();
+
+                    // 각 열에 대한 데이터 매핑
+                    foreach (DataGridViewColumn column in CalendarPick_gv.Columns)
+                    {
+                        dgvRow.Cells.Add(new DataGridViewTextBoxCell { Value = row[column.Name] });
+                    }
+
+                    CalendarPick_gv.Rows.Add(dgvRow);
+                }
 
                 con.Close();
             }

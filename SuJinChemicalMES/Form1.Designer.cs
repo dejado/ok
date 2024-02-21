@@ -95,6 +95,7 @@ namespace SuJinChemicalMES
             this.Loginid_tb = new System.Windows.Forms.TextBox();
             this.Loginpw_lb = new System.Windows.Forms.Label();
             this.Loginid_lb = new System.Windows.Forms.Label();
+            this.Main_pb = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.sidebar.SuspendLayout();
             this.pnMain.SuspendLayout();
@@ -124,6 +125,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.SuspendLayout();
             this.Logout_pn.SuspendLayout();
             this.Login_pn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Main_pb)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -195,7 +197,7 @@ namespace SuJinChemicalMES
             this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(65, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 19);
+            this.label1.Size = new System.Drawing.Size(268, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "TEAM4 | SEOJIN CHAMICAL | MES";
             // 
@@ -880,7 +882,7 @@ namespace SuJinChemicalMES
             this.name_lb.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.name_lb.Location = new System.Drawing.Point(21, 6);
             this.name_lb.Name = "name_lb";
-            this.name_lb.Size = new System.Drawing.Size(0, 15);
+            this.name_lb.Size = new System.Drawing.Size(0, 20);
             this.name_lb.TabIndex = 6;
             // 
             // Logout_bt
@@ -952,7 +954,7 @@ namespace SuJinChemicalMES
             this.Loginpw_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Loginpw_tb.Location = new System.Drawing.Point(93, 59);
             this.Loginpw_tb.Name = "Loginpw_tb";
-            this.Loginpw_tb.Size = new System.Drawing.Size(245, 23);
+            this.Loginpw_tb.Size = new System.Drawing.Size(245, 27);
             this.Loginpw_tb.TabIndex = 3;
             // 
             // Loginid_tb
@@ -960,7 +962,7 @@ namespace SuJinChemicalMES
             this.Loginid_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Loginid_tb.Location = new System.Drawing.Point(93, 24);
             this.Loginid_tb.Name = "Loginid_tb";
-            this.Loginid_tb.Size = new System.Drawing.Size(245, 23);
+            this.Loginid_tb.Size = new System.Drawing.Size(245, 27);
             this.Loginid_tb.TabIndex = 2;
             // 
             // Loginpw_lb
@@ -985,11 +987,21 @@ namespace SuJinChemicalMES
             this.Loginid_lb.Text = "ID";
             this.Loginid_lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Main_pb
+            // 
+            this.Main_pb.BackColor = System.Drawing.Color.Transparent;
+            this.Main_pb.Location = new System.Drawing.Point(350, 207);
+            this.Main_pb.Name = "Main_pb";
+            this.Main_pb.Size = new System.Drawing.Size(1055, 290);
+            this.Main_pb.TabIndex = 5;
+            this.Main_pb.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.Controls.Add(this.Main_pb);
             this.Controls.Add(this.Login_pn);
             this.Controls.Add(this.sidebar);
             this.Controls.Add(this.panel1);
@@ -1033,6 +1045,7 @@ namespace SuJinChemicalMES
             this.Logout_pn.PerformLayout();
             this.Login_pn.ResumeLayout(false);
             this.Login_pn.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Main_pb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1104,6 +1117,7 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Panel Logoutwish_pn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label name_lb;
+        private System.Windows.Forms.PictureBox Main_pb;
     }
 }
 

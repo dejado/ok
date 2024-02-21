@@ -62,6 +62,11 @@ namespace SuJinChemicalMES
 
             Logout_bt.BringToFront();
             Logout_pn.BringToFront();
+
+            Main_pb.BackColor = Color.FromArgb(232, 234, 237);
+            //Main_pb.Size = Properties.Resources.SeojinChemical_Logo_sq.Size;
+            //Main_pb.Image = Properties.Resources.SeojinChemical_Logo_sq;
+            //Properties.Resources.SeojinChemical_Logo_sq.Size.Width = 1000;
             //**********************************************************************************************//
 
             dataContainer = new DataContainer();
@@ -875,6 +880,7 @@ namespace SuJinChemicalMES
                         EnableAllControls(this);
 
                         Login_pn.Hide();
+                        Main_pb.Hide();
 
                         Main.PerformClick();
                         //메인폼 실행
@@ -1047,6 +1053,7 @@ namespace SuJinChemicalMES
             DisableAllControls(this);
             login_status = 0;
             Login_pn.Show();
+            Main_pb.Show();
         }
 
         private void Logout_pn_Paint(object sender, PaintEventArgs e)
