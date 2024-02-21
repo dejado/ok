@@ -252,7 +252,11 @@ namespace SuJinChemicalMES
 
         private void Renewalbt_Click(object sender, EventArgs e)
         {
+            // dataGridView1 새로고침
             LoadDataIntoDataGridView();
+
+            LoadSmallDataGridView();
+            // 다른 필요한 초기화 작업 수행
             LoadCompanies();
             CompanyCb.SelectedIndex = -1;
             Product_TypeCb.SelectedIndex = -1;
@@ -261,6 +265,7 @@ namespace SuJinChemicalMES
             dateTimePicker1.Value = DateTime.Today;
             LotNo_tb.Text = "";
         }
+
         private void LoadDataIntoDataGridView()
         {
             string connectionString = "Server = 10.10.32.82;Database=quality;User Id = team; Password = team1234;";
@@ -483,6 +488,14 @@ namespace SuJinChemicalMES
             dateTimePicker1.Enabled = true;
         }
 
-       
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void QCdatagridview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

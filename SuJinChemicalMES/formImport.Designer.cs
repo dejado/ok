@@ -243,6 +243,7 @@ namespace SuJinChemicalMES
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(600, 181);
             this.dataGridView1.TabIndex = 41;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged_1);
             // 
             // order_number
@@ -587,6 +588,7 @@ namespace SuJinChemicalMES
             this.QCdatagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.QCdatagridview.Size = new System.Drawing.Size(1211, 337);
             this.QCdatagridview.TabIndex = 33;
+            this.QCdatagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.QCdatagridview_CellContentClick);
             // 
             // Check
             // 
