@@ -78,7 +78,7 @@ namespace SuJinChemicalMES
                 while (reader.Read())
                 {
                     String printName = reader["supplier"].ToString();
-                    DateTime printDate = reader.GetDateTime("due_date_request");
+                    DateTime printDate = reader.GetDateTime("due_date");
                     string SynData = printName + printDate.ToString();
 
                     if (!printData.Contains(SynData))

@@ -31,6 +31,27 @@ namespace SuJinChemicalMES
 
         private void button6_Click(object sender, EventArgs e)
         {
+            int checkedRowCount = 0; // 선택된 체크박스의 개수를 저장할 변수
+
+            foreach (DataGridViewRow row in dataGridView2.Rows)
+            {
+                if (!row.IsNewRow && Convert.ToBoolean(row.Cells["dataGridViewCheckBoxColumn1"].Value))
+                {
+                    checkedRowCount++; // 체크된 행 수 증가
+                    if (checkedRowCount > 1) // 선택된 체크박스가 2개 이상인 경우
+                    {
+                        MessageBox.Show("한 번에 한 줄씩만 등록할 수 있습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return; // 더 이상 진행하지 않고 함수 종료
+                    }
+                }
+            }
+
+            if (checkedRowCount == 0) // 선택된 체크박스가 없는 경우
+            {
+                MessageBox.Show("전송할 데이터가 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             bool anyRowChecked = false;
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
