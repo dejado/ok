@@ -196,6 +196,20 @@ namespace SuJinChemicalMES
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
+                /*  string incomingQuery = @"
+                      SELECT 
+                          b.supplier AS company, 
+                          SUM(CASE WHEN a.progress = '입고' THEN a.quantity ELSE 0 END) AS incoming_quantity 
+                      FROM 
+                          accumulated_data a
+                      JOIN 
+                          accumulated_data b ON a.lot_no = b.lot_no AND b.progress = '발주서등록'
+                      WHERE 
+                          a.progress = '입고'
+                      GROUP BY 
+                          b.supplier;";*/
+
+
                 string incomingQuery = @"
                     SELECT 
                         b.supplier AS company, 
@@ -206,8 +220,18 @@ namespace SuJinChemicalMES
                         accumulated_data b ON a.lot_no = b.lot_no AND b.progress = '발주서등록'
                     WHERE 
                         a.progress = '입고'
+                        AND NOT EXISTS (
+                            SELECT 1 
+                            FROM accumulated_data c 
+                            WHERE c.lot_no = a.lot_no 
+                                AND c.progress = '발주서등록' 
+                                AND (c.product_name LIKE '%황산%' OR c.product_name LIKE '%염산%' OR c.product_name Like '%과산화%'
+                                     OR c.product_name Like '%불산%' OR c.product_name Like '%알카리%' OR c.product_name Like '%암모니아%'
+                                     OR c.product_name Like '%인산%'  OR c.product_name Like '%질산%' )
+                        )
                     GROUP BY 
                         b.supplier;";
+
 
                 string shipmentQuery = @"
                  SELECT 
@@ -275,8 +299,8 @@ namespace SuJinChemicalMES
                 {
                     connection.Open();
 
-                    int 양품_총용량 = 400000;
-                    int 부자재_총용량 = 300000;
+                    int 양품_총용량 = 40000;
+                    int 부자재_총용량 = 30000;
                     int 반품_총용량 = 3000;
                     string query = @"
                   SELECT
