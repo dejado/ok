@@ -27,7 +27,7 @@ namespace SuJinChemicalMES
             bool anyRowChecked = false;
             foreach (DataGridViewRow row in dataGridView2.Rows)
             {
-                if (!row.IsNewRow && Convert.ToBoolean(row.Cells["CheckboxColumnName"].Value))
+                if (!row.IsNewRow && Convert.ToBoolean(row.Cells["dataGridViewCheckBoxColumn1"].Value))
                 {
                     anyRowChecked = true;
                     break;
@@ -66,8 +66,8 @@ namespace SuJinChemicalMES
                         using (MySqlConnection connectionAccumulatedData = new MySqlConnection(accumulatedDataConnectionString))
                         {
                             connectionAccumulatedData.Open();
-                            string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, registrant, progress, due_date, registration_date,) " +
-                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @requestQuantity, @registrant, @progress, @dueDate, @registrationDate,)";
+                            string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, registrant, progress, due_date, registration_date, quantity) " +
+                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @requestQuantity, @registrant, @progress, @dueDate, @registrationDate, @quantity)";
                             MySqlCommand commandAccumulatedData = new MySqlCommand(insertQueryAccumulatedData, connectionAccumulatedData);
                             commandAccumulatedData.Parameters.AddWithValue("@orderNumber", orderNumber);
                             commandAccumulatedData.Parameters.AddWithValue("@supplier", supplier);
@@ -79,6 +79,7 @@ namespace SuJinChemicalMES
                             commandAccumulatedData.Parameters.AddWithValue("@progress", progress);
                             commandAccumulatedData.Parameters.AddWithValue("@dueDate", dueDate);
                             commandAccumulatedData.Parameters.AddWithValue("@registrationDate", registration_date);
+                            commandAccumulatedData.Parameters.AddWithValue("@quantity", quantity);
                             commandAccumulatedData.ExecuteNonQuery();
                         }
 
