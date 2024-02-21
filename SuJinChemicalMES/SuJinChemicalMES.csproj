@@ -485,6 +485,8 @@
     <None Include="Resources\tankam4_3.png" />
     <None Include="Resources\tankam4_4.png" />
     <Content Include="Resources\SeojinChemical_Logo_sq.png" />
+    <None Include="Resources\SeojinChemical_Logo_sq1.png" />
+    <None Include="Resources\SujinChe_Logo_sq.png" />
     <Content Include="tankak4.png" />
     <Content Include="tankam4.png" />
     <Content Include="tankbs4.png" />
