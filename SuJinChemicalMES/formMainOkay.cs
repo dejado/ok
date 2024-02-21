@@ -81,13 +81,30 @@ namespace SuJinChemicalMES
 
                 com.Parameters.AddWithValue("@CalendarPickday", CalendarPick_st);
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(com);
+                //MySqlDataAdapter adapter = new MySqlDataAdapter(com);
                 DataTable CalendarDT = new DataTable();
                 //어뎁터 이용해서 끌어오기
 
-                adapter.Fill(CalendarDT);
-                CalendarPick_gv.DataSource = CalendarDT;
+                //adapter.Fill(CalendarDT);
+                //CalendarPick_gv.DataSource = CalendarDT;
 
+                MySqlDataReader reader = com.ExecuteReader();
+
+                // 데이터를 읽어서 DataGridView에 추가
+                while (reader.Read())
+                {
+                    DataGridViewRow dgvRow = new DataGridViewRow();
+
+                    // 각 열에 대한 데이터 매핑
+                    for (int i = 0; i < CalendarPick_gv.ColumnCount; i++)
+                    {
+                        dgvRow.Cells.Add(new DataGridViewTextBoxCell { Value = reader[i] });
+                    }
+
+                    CalendarPick_gv.Rows.Add(dgvRow);
+                }
+
+                /*
                 foreach (DataRow row in CalendarDT.Rows)
                 {
                     DataGridViewRow dgvRow = new DataGridViewRow();
@@ -100,6 +117,7 @@ namespace SuJinChemicalMES
 
                     CalendarPick_gv.Rows.Add(dgvRow);
                 }
+                */
 
                 con.Close();
             }
