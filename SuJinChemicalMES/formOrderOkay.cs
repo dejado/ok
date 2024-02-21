@@ -131,23 +131,29 @@ namespace SuJinChemicalMES
                         }
 
                         // order_registration1 테이블에 데이터 삽입
-                        using (MySqlConnection connectionManagerProduct = new MySqlConnection(managerProductConnectionString))
+                        if (!productName.Contains("황산") && !productName.Contains("염산") && !productName.Contains("질산")
+                            && !productName.Contains("과산화") && !productName.Contains("알칼리") && !productName.Contains("암모니아")
+                            && !productName.Contains("알코올") && !productName.Contains("인산") && !productName.Contains("덕산약품")
+                            && !productName.Contains("케미칼코리아"))
                         {
-                            connectionManagerProduct.Open();
-                            string insertQueryOrderRegistration1 = "INSERT INTO order_registration1 (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
-                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
-                            MySqlCommand commandOrderRegistration1 = new MySqlCommand(insertQueryOrderRegistration1, connectionManagerProduct);
-                            commandOrderRegistration1.Parameters.AddWithValue("@orderNumber", orderNumber);
-                            commandOrderRegistration1.Parameters.AddWithValue("@supplier", supplier);
-                            commandOrderRegistration1.Parameters.AddWithValue("@productCode", productCode);
-                            commandOrderRegistration1.Parameters.AddWithValue("@productName", productName);
-                            commandOrderRegistration1.Parameters.AddWithValue("@lotNo", lotNo);
-                            commandOrderRegistration1.Parameters.AddWithValue("@quantity", quantity);
-                            commandOrderRegistration1.Parameters.AddWithValue("@registration_date", registration_date);
-                            commandOrderRegistration1.Parameters.AddWithValue("@dueDate", dueDate);
-                            commandOrderRegistration1.Parameters.AddWithValue("@registrant", registrant);
-                            commandOrderRegistration1.Parameters.AddWithValue("@status", progress); // 여기서도 @status를 사용합니다.
-                            commandOrderRegistration1.ExecuteNonQuery();
+                            using (MySqlConnection connectionManagerProduct = new MySqlConnection(managerProductConnectionString))
+                            {
+                                connectionManagerProduct.Open();
+                                string insertQueryOrderRegistration1 = "INSERT INTO order_registration1 (order_number, supplier, product_code, product_name, lot_no, expected_production_quantity, registration_date, due_date, registrant, status) " +
+                                    "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @quantity, @registration_date, @dueDate, @registrant, @status)";
+                                MySqlCommand commandOrderRegistration1 = new MySqlCommand(insertQueryOrderRegistration1, connectionManagerProduct);
+                                commandOrderRegistration1.Parameters.AddWithValue("@orderNumber", orderNumber);
+                                commandOrderRegistration1.Parameters.AddWithValue("@supplier", supplier);
+                                commandOrderRegistration1.Parameters.AddWithValue("@productCode", productCode);
+                                commandOrderRegistration1.Parameters.AddWithValue("@productName", productName);
+                                commandOrderRegistration1.Parameters.AddWithValue("@lotNo", lotNo);
+                                commandOrderRegistration1.Parameters.AddWithValue("@quantity", quantity);
+                                commandOrderRegistration1.Parameters.AddWithValue("@registration_date", registration_date);
+                                commandOrderRegistration1.Parameters.AddWithValue("@dueDate", dueDate);
+                                commandOrderRegistration1.Parameters.AddWithValue("@registrant", registrant);
+                                commandOrderRegistration1.Parameters.AddWithValue("@status", progress); // 여기서도 @status를 사용합니다.
+                                commandOrderRegistration1.ExecuteNonQuery();
+                            }
                         }
                     }
                     catch (Exception ex)
