@@ -81,6 +81,8 @@ namespace SuJinChemicalMES
             // dateTimePicker2에서 선택된 날짜를 DataGridView2의 등록일 열에 할당
             dataGridView2.Rows[index].Cells[6].Value = dateTimePicker2.Value.ToString("yyyy-MM-dd");
 
+            dataGridView2.Rows[index].Cells[5].Value = "임진우";
+
             // 등록자는 여기서는 생략했는데 필요하다면 적절한 값을 할당할 수 있습니다.
 
             // 텍스트박스1, 콤보박스1, 텍스트박스6, 텍스트박스4, 콤보박스2를 초기화
