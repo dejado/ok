@@ -15,15 +15,17 @@ namespace SuJinChemicalMES
     {
         private DataContainer dataContainer;
 
+
         public formOrderOkay()
         {
             InitializeComponent();
 
         }
+
         public formOrderOkay(DataContainer dataContainer)
         {
             InitializeComponent();
-            this.dataContainer = dataContainer;
+            dataContainer = dataContainer;
         }
         public TextBox TextBox3 => textBox3;
         public TextBox TextBox4 => textBox4;

@@ -1048,5 +1048,10 @@ namespace SuJinChemicalMES
             login_status = 0;
             Login_pn.Show();
         }
+
+        private void Logout_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

@@ -871,6 +871,7 @@ namespace SuJinChemicalMES
             this.Logout_pn.Name = "Logout_pn";
             this.Logout_pn.Size = new System.Drawing.Size(150, 28);
             this.Logout_pn.TabIndex = 6;
+            this.Logout_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.Logout_pn_Paint);
             // 
             // name_lb
             // 
