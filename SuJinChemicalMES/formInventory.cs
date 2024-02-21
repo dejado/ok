@@ -234,12 +234,7 @@ namespace SuJinChemicalMES
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
-
-            // 선택된 행의 각 셀의 데이터를 TextBox에 할당합니다.
-            Company_lb.Text = selectedRow.Cells["Column310"].Value.ToString();
-            Code_lb.Text = selectedRow.Cells["Column312"].Value.ToString();
-            ProductName_lb.Text = selectedRow.Cells["Column313"].Value.ToString();
+           
         }
 
 
@@ -348,6 +343,14 @@ namespace SuJinChemicalMES
             }
         }
 
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dataGridView2.Rows[dataGridView2.SelectedCells[0].RowIndex];
 
+            // 선택된 행의 각 셀의 데이터를 TextBox에 할당합니다.
+            Company_lb.Text = selectedRow.Cells["Column310"].Value.ToString();
+            Code_lb.Text = selectedRow.Cells["Column312"].Value.ToString();
+            ProductName_lb.Text = selectedRow.Cells["Column313"].Value.ToString();
+        }
     }
 }
