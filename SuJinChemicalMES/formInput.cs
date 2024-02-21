@@ -300,7 +300,8 @@ namespace SuJinChemicalMES
 
                             // InsertData 함수 호출
                             InsertData(connection, progress, company, productCode, productName, lotNo, quantity, date, registrant, Inlocation);
-                            InsertMedicine(company, productCode, productName, quantity);
+                            if (Inlocation.Equals("부자재IB"))
+                                InsertMedicine(company, productCode, productName, quantity);
                             DeleteInsert(lotNo);
                         }
                     }
