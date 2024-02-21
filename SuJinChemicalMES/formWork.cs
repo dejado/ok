@@ -97,7 +97,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 100; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Interval = 500; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
             timer.Tick += timer1_Tick;
             timer.Start();
         }
