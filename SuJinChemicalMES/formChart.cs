@@ -494,7 +494,7 @@ namespace SuJinChemicalMES
                 {
                     string query = @"
                 SELECT supplier, 
-                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' AND Test_Results = 'F' THEN Quantity ELSE 0 END), 0) AS ShipmentDefectQuantity,
+                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' AND Test_Results = 'FAIL' THEN Quantity ELSE 0 END), 0) AS ShipmentDefectQuantity,
                        COALESCE(SUM(CASE WHEN Progress = '출하검사완료' THEN Quantity ELSE 0 END), 0) AS TotalShipmentQuantity
                 FROM accumulated_data
                 GROUP BY supplier

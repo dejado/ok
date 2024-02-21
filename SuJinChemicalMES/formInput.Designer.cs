@@ -305,10 +305,10 @@ namespace SuJinChemicalMES
             this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 24);
+            this.label1.Size = new System.Drawing.Size(94, 23);
             this.label1.TabIndex = 19;
             this.label1.Text = "제품명";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
@@ -317,10 +317,10 @@ namespace SuJinChemicalMES
             this.label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(17, 51);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(105, 24);
+            this.label6.Size = new System.Drawing.Size(94, 23);
             this.label6.TabIndex = 18;
             this.label6.Text = "제품코드";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
@@ -329,10 +329,10 @@ namespace SuJinChemicalMES
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(17, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 24);
+            this.label5.Size = new System.Drawing.Size(94, 23);
             this.label5.TabIndex = 17;
             this.label5.Text = "회사";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -341,10 +341,10 @@ namespace SuJinChemicalMES
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(17, 156);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 24);
+            this.label7.Size = new System.Drawing.Size(94, 23);
             this.label7.TabIndex = 21;
             this.label7.Text = "등록일";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InputRe_bt
             // 
@@ -553,7 +553,7 @@ namespace SuJinChemicalMES
             "양품IA",
             "부자재IB",
             "반품"});
-            this.InWarehouse_com.Location = new System.Drawing.Point(122, 121);
+            this.InWarehouse_com.Location = new System.Drawing.Point(111, 121);
             this.InWarehouse_com.Margin = new System.Windows.Forms.Padding(2);
             this.InWarehouse_com.MaximumSize = new System.Drawing.Size(400, 0);
             this.InWarehouse_com.Name = "InWarehouse_com";
@@ -569,7 +569,7 @@ namespace SuJinChemicalMES
             this.InDate1.CustomFormat = "yyyy-MM-dd(ddd)";
             this.InDate1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.InDate1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.InDate1.Location = new System.Drawing.Point(122, 156);
+            this.InDate1.Location = new System.Drawing.Point(111, 156);
             this.InDate1.Margin = new System.Windows.Forms.Padding(2);
             this.InDate1.MaximumSize = new System.Drawing.Size(400, 23);
             this.InDate1.Name = "InDate1";
@@ -594,7 +594,7 @@ namespace SuJinChemicalMES
             "쉴드",
             "케미컬코리아",
             "튜브"});
-            this.InCompany_com.Location = new System.Drawing.Point(122, 16);
+            this.InCompany_com.Location = new System.Drawing.Point(111, 16);
             this.InCompany_com.Margin = new System.Windows.Forms.Padding(2);
             this.InCompany_com.MaximumSize = new System.Drawing.Size(400, 0);
             this.InCompany_com.Name = "InCompany_com";
@@ -607,7 +607,7 @@ namespace SuJinChemicalMES
             this.InName_txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.InName_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InName_txt.Location = new System.Drawing.Point(122, 86);
+            this.InName_txt.Location = new System.Drawing.Point(111, 86);
             this.InName_txt.Margin = new System.Windows.Forms.Padding(2);
             this.InName_txt.MaximumSize = new System.Drawing.Size(400, 23);
             this.InName_txt.Name = "InName_txt";
@@ -621,7 +621,7 @@ namespace SuJinChemicalMES
             this.InCode_txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.InCode_txt.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.InCode_txt.Location = new System.Drawing.Point(122, 51);
+            this.InCode_txt.Location = new System.Drawing.Point(111, 51);
             this.InCode_txt.Margin = new System.Windows.Forms.Padding(2);
             this.InCode_txt.MaximumSize = new System.Drawing.Size(400, 23);
             this.InCode_txt.Name = "InCode_txt";
@@ -637,10 +637,10 @@ namespace SuJinChemicalMES
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 121);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 24);
+            this.label3.Size = new System.Drawing.Size(94, 23);
             this.label3.TabIndex = 20;
             this.label3.Text = "창고위치";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InDateX_bt
             // 

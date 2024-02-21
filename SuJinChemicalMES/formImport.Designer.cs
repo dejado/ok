@@ -357,8 +357,8 @@ namespace SuJinChemicalMES
             this.ResultCb.FormattingEnabled = true;
             this.ResultCb.ItemHeight = 17;
             this.ResultCb.Items.AddRange(new object[] {
-            "P",
-            "F"});
+            "PASS",
+            "FAIL"});
             this.ResultCb.Location = new System.Drawing.Point(101, 112);
             this.ResultCb.MaximumSize = new System.Drawing.Size(320, 0);
             this.ResultCb.Name = "ResultCb";
