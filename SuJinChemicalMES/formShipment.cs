@@ -190,7 +190,7 @@ namespace SuJinChemicalMES
                     string DefectLotNo = DefectLotno.Text;
                     DateTime today = DateTime.Today;
 
-                    string formattedDate = today.ToString("yyyyMMdd");
+                  //  string formattedDate = today.ToString("yyyyMMdd");
 
                     using (MySqlConnection connection = new MySqlConnection(connectionString))
                     {
@@ -239,7 +239,7 @@ namespace SuJinChemicalMES
                             }
                             else
                             {
-                                string PQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                                string PQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector)";
                                 MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
                                 insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
                                 insertCommand.Parameters.AddWithValue("@data", "PASS");
@@ -253,7 +253,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
                                 insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
-                                insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                                
                                 insertCommand.ExecuteNonQuery();
                             }
                         }
@@ -262,9 +262,9 @@ namespace SuJinChemicalMES
                         {
                             connection.Open();
 
-                            string PQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, company, product_code, " +
-                                "product_name, lot_no, quantity, request_quantity, registration_date, registrant, cause_of_defect) " +
-                                "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                            string PQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, supplier, product_code, " +
+                                "product_name, lot_no, quantity, request_quantity, registration_date, registrant) " +
+                                "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector )";
                             MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
                             insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
                             insertCommand.Parameters.AddWithValue("@data", "PASS");
@@ -278,7 +278,7 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                             insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
                             insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
-                            insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                           
                             insertCommand.ExecuteNonQuery();
                         }
 
@@ -291,7 +291,7 @@ namespace SuJinChemicalMES
 
                             string checkQuery = "SELECT COUNT(*) FROM shipping_inspection_results WHERE lot_no = @lotNo";
                             MySqlCommand checkCommand = new MySqlCommand(checkQuery, connection);
-                            checkCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                            checkCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No + DefectLotNo);
                             int rowCount = Convert.ToInt32(checkCommand.ExecuteScalar());
 
                             if (rowCount > 0)
@@ -299,7 +299,7 @@ namespace SuJinChemicalMES
                                 string updateQuery = "UPDATE shipping_inspection_results SET quantity = quantity + @quantity WHERE lot_no = @lotNo";
                                 MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection);
                                 updateCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
-                                updateCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                                updateCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No + DefectLotNo);
                                 updateCommand.ExecuteNonQuery();
                             }
                             else
@@ -313,7 +313,7 @@ namespace SuJinChemicalMES
                                 insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
                                 insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
                                 insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
-                                insertCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                                insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No + DefectLotNo);
                                 insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
                                 insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                                 insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
@@ -327,7 +327,7 @@ namespace SuJinChemicalMES
                         {
                             connection.Open();
 
-                            string FQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, company, product_code, " +
+                            string FQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, supplier, product_code, " +
                                 "product_name, lot_no, quantity, request_quantity, registration_date, registrant, cause_of_defect) " +
                                 "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
                             MySqlCommand insertCommand = new MySqlCommand(FQuery, connection);
@@ -338,7 +338,7 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
                             insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
                             insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
-                            insertCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                            insertCommand.Parameters.AddWithValue("@lotNo", selectedLOT_No + DefectLotNo);
                             insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
                             insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
                             insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
