@@ -140,12 +140,14 @@ namespace SuJinChemicalMES
                                 }
                             }
 
+
                             SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
                             InitializePictureBoxEvents(secondCharacterAsInt - 1);
 
                         }
                     }
                 }
+                //bathTimer1.Start();
             }
             catch (Exception ex)
             {
@@ -157,24 +159,25 @@ namespace SuJinChemicalMES
             switch (chemicalType)
             {
                 case "인산(H3PO4)":
-                    //pictureBox.Image = Properties.Resources.tankak4;
-                    bathTimer1.Start();
+                    tankak4.Start();
                     if (count > 40) { break; }
-                    bathTimer1.Stop();
                     break;
-
-
                 case "암모니아(NH4OH)":
-                    pictureBox.Image = Properties.Resources.tankam4;
+                    tankam4.Start();
+                    if (count2 > 40) { break; }
                     break;
                 case "황산(H2SO4)":
-                    pictureBox.Image = Properties.Resources.tankbs4;
+                    tankbs4.Start();
+                    if (count2 > 40) { break; }
                     break;
                 case "과산화수소(H2O2)":
                     pictureBox.Image = Properties.Resources.tankgs4;
                     break;
                 case "불산(HF)":
-                    pictureBox.Image = Properties.Resources.tankhs4;
+                    //pictureBox.Image = Properties.Resources.tankhs4;
+                    tankak4.Start();
+                    if (count > 40) { break; }
+                    //bathTimer1.Stop();
                     break;
                 case "질산(NHO3)":
                     pictureBox.Image = Properties.Resources.tankis4;
@@ -202,11 +205,13 @@ namespace SuJinChemicalMES
 
         }
 
-        
+
         private void timer2_Tick(object sender, EventArgs e)
         {
-            
+
         }
+
+        //보라_tankak4_인산(H3PO4) 
         int b = 0;
         int count = 0;
         private void bathTimer1_Tick(object sender, EventArgs e)
@@ -247,12 +252,28 @@ namespace SuJinChemicalMES
                 bath1.Image = Properties.Resources.tankzak4_3;
                 if (b >= 1)
                 {
-                    bath1.Image = Properties.Resources.tankak4;
+                    bath1.Image = Properties.Resources.tankzak4_4;
                     b = 0;
                 }
                 else b++;
             }
-            else bath1.Image = Properties.Resources.tankak4;
+            else bath1.Image = Properties.Resources.tankzak4_4;
+        }
+
+        //노란_tankam4_암모니아(NH4OH)  
+        int b2 = 0;
+        int count2 = 0;
+        private void bathTimer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        //하얀_tankbs4_황산(H2SO4)
+        int b3 = 0;
+        int count3 = 0;
+        private void tankbs4_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
