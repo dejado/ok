@@ -84,6 +84,7 @@ namespace SuJinChemicalMES
 
         private void BindDataGridView()
         {
+            dataGridView2.Rows.Clear();
             string connectionString = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
             try
             {
@@ -194,6 +195,7 @@ namespace SuJinChemicalMES
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+           
             // 모든 콤보박스의 선택 여부 확인
             if (comboBox1.SelectedItem != null &&
                 !string.IsNullOrEmpty(textBox1.Text))
@@ -340,6 +342,7 @@ namespace SuJinChemicalMES
             {
                 MessageBox.Show("빈 칸을 채워주세요.");
             }
+            BindDataGridView();
 
         }
 
@@ -390,7 +393,7 @@ namespace SuJinChemicalMES
         private void Insert(string order_num, string lot, string code, string name, string bath, string quantity, string real_quantity, string time, string date, string registant)
         {
             string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-
+            
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 try
@@ -415,8 +418,12 @@ namespace SuJinChemicalMES
                     MessageBox.Show($"오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+
         }
 
+
+       
 
         private void dataGridView2_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -1052,7 +1059,7 @@ namespace SuJinChemicalMES
                 if (row.Cells[7].Value?.ToString() == "운행종료")
                 {
                     //DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                    string progress = row.Cells["Column1"].Value.ToString();
+                    string progress = row.Cells["Column1"].Value.ToString(); //발주서넘버인듯?
                     string orderNumber = row.Cells["Column2"].Value.ToString();
                     string dueDate = row.Cells["Column3"].Value.ToString();
                     string lotNo = row.Cells["Column4"].Value.ToString();
@@ -1082,6 +1089,19 @@ namespace SuJinChemicalMES
                         }
                     }
                     dataGridView1.Rows.Remove(row);
+
+                    string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection2 = new MySqlConnection(connectionString2))
+                    {
+                        connection2.Open();
+                        string accumulatedQuery = $"INSERT INTO accumulated_data(progress, order_number, due_date, lot_no, supplier, product_code, product_name, quantity, registration_date, registrant) " +
+                               $"VALUES ('{progress1}', '{progress}', '{dueDate2}','{orderNumber}', '{supplier}', '{dueDate}', '{lotNo}','{productName}', '{registrationDateShipment}','{registrantShipment}')";
+
+                        using (MySqlCommand command = new MySqlCommand(accumulatedQuery, connection2))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+                    }
                 }
 
             }
