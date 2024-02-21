@@ -38,6 +38,13 @@ namespace SuJinChemicalMES
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.PrGridView = new System.Windows.Forms.DataGridView();
+            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.due_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.defectivequantity = new System.Windows.Forms.TextBox();
@@ -90,13 +97,6 @@ namespace SuJinChemicalMES
             this.label12 = new System.Windows.Forms.Label();
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
-            this.due_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -252,6 +252,62 @@ namespace SuJinChemicalMES
             this.PrGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrGridView_CellContentClick);
             this.PrGridView.SelectionChanged += new System.EventHandler(this.PrGridView_SelectionChanged);
             // 
+            // order_number
+            // 
+            this.order_number.DataPropertyName = "order_number";
+            this.order_number.HeaderText = "발주서번호";
+            this.order_number.MinimumWidth = 93;
+            this.order_number.Name = "order_number";
+            this.order_number.ReadOnly = true;
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "product_name";
+            this.product_name.HeaderText = "제품명";
+            this.product_name.MinimumWidth = 130;
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            // 
+            // company_name
+            // 
+            this.company_name.DataPropertyName = "company";
+            this.company_name.HeaderText = "회사명";
+            this.company_name.MinimumWidth = 75;
+            this.company_name.Name = "company_name";
+            this.company_name.ReadOnly = true;
+            // 
+            // code
+            // 
+            this.code.DataPropertyName = "product_code";
+            this.code.HeaderText = "제품코드";
+            this.code.MinimumWidth = 85;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            // 
+            // Ex_Quantity
+            // 
+            this.Ex_Quantity.DataPropertyName = "quantity";
+            this.Ex_Quantity.HeaderText = "수량";
+            this.Ex_Quantity.MinimumWidth = 57;
+            this.Ex_Quantity.Name = "Ex_Quantity";
+            this.Ex_Quantity.ReadOnly = true;
+            // 
+            // LOTNO
+            // 
+            this.LOTNO.DataPropertyName = "lot_no";
+            this.LOTNO.HeaderText = "LOT NO.";
+            this.LOTNO.MinimumWidth = 70;
+            this.LOTNO.Name = "LOTNO";
+            this.LOTNO.ReadOnly = true;
+            // 
+            // due_date
+            // 
+            this.due_date.DataPropertyName = "due_date";
+            this.due_date.HeaderText = "납기일";
+            this.due_date.MinimumWidth = 80;
+            this.due_date.Name = "due_date";
+            this.due_date.ReadOnly = true;
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -289,7 +345,10 @@ namespace SuJinChemicalMES
             // 
             // defectivequantity
             // 
+            this.defectivequantity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.defectivequantity.Location = new System.Drawing.Point(101, 144);
+            this.defectivequantity.MaximumSize = new System.Drawing.Size(270, 23);
             this.defectivequantity.Name = "defectivequantity";
             this.defectivequantity.Size = new System.Drawing.Size(151, 23);
             this.defectivequantity.TabIndex = 75;
@@ -297,7 +356,10 @@ namespace SuJinChemicalMES
             // 
             // standardproduct
             // 
+            this.standardproduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.standardproduct.Location = new System.Drawing.Point(101, 112);
+            this.standardproduct.MaximumSize = new System.Drawing.Size(270, 23);
             this.standardproduct.Name = "standardproduct";
             this.standardproduct.Size = new System.Drawing.Size(151, 23);
             this.standardproduct.TabIndex = 74;
@@ -335,7 +397,7 @@ namespace SuJinChemicalMES
             this.label15.Location = new System.Drawing.Point(101, 16);
             this.label15.MaximumSize = new System.Drawing.Size(270, 23);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(152, 22);
+            this.label15.Size = new System.Drawing.Size(152, 23);
             this.label15.TabIndex = 65;
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -348,7 +410,7 @@ namespace SuJinChemicalMES
             this.Company_Lb.Location = new System.Drawing.Point(101, 48);
             this.Company_Lb.MaximumSize = new System.Drawing.Size(270, 23);
             this.Company_Lb.Name = "Company_Lb";
-            this.Company_Lb.Size = new System.Drawing.Size(152, 22);
+            this.Company_Lb.Size = new System.Drawing.Size(152, 23);
             this.Company_Lb.TabIndex = 69;
             this.Company_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -361,7 +423,7 @@ namespace SuJinChemicalMES
             this.Name_Lb.Location = new System.Drawing.Point(101, 80);
             this.Name_Lb.MaximumSize = new System.Drawing.Size(270, 23);
             this.Name_Lb.Name = "Name_Lb";
-            this.Name_Lb.Size = new System.Drawing.Size(152, 22);
+            this.Name_Lb.Size = new System.Drawing.Size(152, 23);
             this.Name_Lb.TabIndex = 66;
             this.Name_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -403,6 +465,8 @@ namespace SuJinChemicalMES
             // 
             // panel6
             // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel6.Controls.Add(this.LOT_No_Lb);
             this.panel6.Controls.Add(this.label18);
             this.panel6.Controls.Add(this.DefectLotno);
@@ -412,7 +476,6 @@ namespace SuJinChemicalMES
             this.panel6.Controls.Add(this.label10);
             this.panel6.Controls.Add(this.label2);
             this.panel6.Controls.Add(this.label11);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(264, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
             this.panel6.Name = "panel6";
@@ -428,7 +491,7 @@ namespace SuJinChemicalMES
             this.LOT_No_Lb.Location = new System.Drawing.Point(94, 48);
             this.LOT_No_Lb.MaximumSize = new System.Drawing.Size(270, 23);
             this.LOT_No_Lb.Name = "LOT_No_Lb";
-            this.LOT_No_Lb.Size = new System.Drawing.Size(151, 22);
+            this.LOT_No_Lb.Size = new System.Drawing.Size(151, 23);
             this.LOT_No_Lb.TabIndex = 75;
             this.LOT_No_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -446,7 +509,10 @@ namespace SuJinChemicalMES
             // 
             // DefectLotno
             // 
+            this.DefectLotno.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DefectLotno.Location = new System.Drawing.Point(94, 112);
+            this.DefectLotno.MaximumSize = new System.Drawing.Size(270, 23);
             this.DefectLotno.Name = "DefectLotno";
             this.DefectLotno.Size = new System.Drawing.Size(151, 23);
             this.DefectLotno.TabIndex = 73;
@@ -458,9 +524,9 @@ namespace SuJinChemicalMES
             this.Code_Lb.BackColor = System.Drawing.Color.LightGray;
             this.Code_Lb.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Code_Lb.Location = new System.Drawing.Point(94, 80);
-            this.Code_Lb.MaximumSize = new System.Drawing.Size(200, 23);
+            this.Code_Lb.MaximumSize = new System.Drawing.Size(270, 23);
             this.Code_Lb.Name = "Code_Lb";
-            this.Code_Lb.Size = new System.Drawing.Size(151, 22);
+            this.Code_Lb.Size = new System.Drawing.Size(151, 23);
             this.Code_Lb.TabIndex = 54;
             this.Code_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -479,7 +545,7 @@ namespace SuJinChemicalMES
             "파손",
             "오염"});
             this.DefectcauseCb.Location = new System.Drawing.Point(94, 144);
-            this.DefectcauseCb.MaximumSize = new System.Drawing.Size(200, 0);
+            this.DefectcauseCb.MaximumSize = new System.Drawing.Size(270, 0);
             this.DefectcauseCb.Name = "DefectcauseCb";
             this.DefectcauseCb.Size = new System.Drawing.Size(152, 23);
             this.DefectcauseCb.TabIndex = 55;
@@ -867,62 +933,6 @@ namespace SuJinChemicalMES
             this.Renewalbt.Text = "전체목록";
             this.Renewalbt.UseVisualStyleBackColor = true;
             this.Renewalbt.Click += new System.EventHandler(this.Renewalbt_Click);
-            // 
-            // due_date
-            // 
-            this.due_date.DataPropertyName = "due_date";
-            this.due_date.HeaderText = "납기일";
-            this.due_date.MinimumWidth = 80;
-            this.due_date.Name = "due_date";
-            this.due_date.ReadOnly = true;
-            // 
-            // LOTNO
-            // 
-            this.LOTNO.DataPropertyName = "lot_no";
-            this.LOTNO.HeaderText = "LOT NO.";
-            this.LOTNO.MinimumWidth = 70;
-            this.LOTNO.Name = "LOTNO";
-            this.LOTNO.ReadOnly = true;
-            // 
-            // Ex_Quantity
-            // 
-            this.Ex_Quantity.DataPropertyName = "quantity";
-            this.Ex_Quantity.HeaderText = "수량";
-            this.Ex_Quantity.MinimumWidth = 57;
-            this.Ex_Quantity.Name = "Ex_Quantity";
-            this.Ex_Quantity.ReadOnly = true;
-            // 
-            // code
-            // 
-            this.code.DataPropertyName = "product_code";
-            this.code.HeaderText = "제품코드";
-            this.code.MinimumWidth = 85;
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            // 
-            // company_name
-            // 
-            this.company_name.DataPropertyName = "company";
-            this.company_name.HeaderText = "회사명";
-            this.company_name.MinimumWidth = 75;
-            this.company_name.Name = "company_name";
-            this.company_name.ReadOnly = true;
-            // 
-            // product_name
-            // 
-            this.product_name.DataPropertyName = "product_name";
-            this.product_name.HeaderText = "제품명";
-            this.product_name.MinimumWidth = 130;
-            this.product_name.Name = "product_name";
-            this.product_name.ReadOnly = true;
-            // 
-            // order_number
-            // 
-            this.order_number.DataPropertyName = "order_number";
-            this.order_number.HeaderText = "발주서번호";
-            this.order_number.MinimumWidth = 93;
-            this.order_number.Name = "order_number";
-            this.order_number.ReadOnly = true;
             // 
             // formShipment
             // 
