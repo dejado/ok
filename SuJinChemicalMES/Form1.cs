@@ -67,10 +67,22 @@ namespace SuJinChemicalMES
             //Main_pb.Size = Properties.Resources.SeojinChemical_Logo_sq.Size;
             //Main_pb.Image = Properties.Resources.SeojinChemical_Logo_sq;
             //Properties.Resources.SeojinChemical_Logo_sq.Size.Width = 1000;
+
+            Loginpw_tb.KeyDown += Loginpw_tb_KeyDown;
             //**********************************************************************************************//
 
             dataContainer = new DataContainer();
 
+        }
+
+        private void Loginpw_tb_KeyDown(object sender, KeyEventArgs e)
+        {
+            // 만약 눌린 키가 Enter 키인지 확인합니다.
+            if (e.KeyCode == Keys.Enter)
+            {
+                // 버튼1을 클릭합니다.
+                Login_bt.PerformClick();
+            }
         }
 
         private void mdiProp()
@@ -1057,6 +1069,11 @@ namespace SuJinChemicalMES
         }
 
         private void Logout_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Loginpw_tb_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -930,9 +930,9 @@ namespace SuJinChemicalMES
             this.Login_pn.Controls.Add(this.Loginid_tb);
             this.Login_pn.Controls.Add(this.Loginpw_lb);
             this.Login_pn.Controls.Add(this.Loginid_lb);
-            this.Login_pn.Location = new System.Drawing.Point(1035, 602);
+            this.Login_pn.Location = new System.Drawing.Point(998, 587);
             this.Login_pn.Name = "Login_pn";
-            this.Login_pn.Size = new System.Drawing.Size(370, 158);
+            this.Login_pn.Size = new System.Drawing.Size(323, 168);
             this.Login_pn.TabIndex = 3;
             this.Login_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.Login_pn_Paint);
             // 
@@ -940,10 +940,10 @@ namespace SuJinChemicalMES
             // 
             this.Login_bt.BackColor = System.Drawing.Color.White;
             this.Login_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Login_bt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login_bt.Location = new System.Drawing.Point(93, 91);
+            this.Login_bt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Login_bt.Location = new System.Drawing.Point(93, 108);
             this.Login_bt.Name = "Login_bt";
-            this.Login_bt.Size = new System.Drawing.Size(245, 37);
+            this.Login_bt.Size = new System.Drawing.Size(204, 42);
             this.Login_bt.TabIndex = 4;
             this.Login_bt.Text = "로그인";
             this.Login_bt.UseVisualStyleBackColor = false;
@@ -951,25 +951,26 @@ namespace SuJinChemicalMES
             // 
             // Loginpw_tb
             // 
-            this.Loginpw_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginpw_tb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Loginpw_tb.Location = new System.Drawing.Point(93, 59);
             this.Loginpw_tb.Name = "Loginpw_tb";
-            this.Loginpw_tb.Size = new System.Drawing.Size(245, 27);
+            this.Loginpw_tb.Size = new System.Drawing.Size(204, 34);
             this.Loginpw_tb.TabIndex = 3;
+            this.Loginpw_tb.TextChanged += new System.EventHandler(this.Loginpw_tb_TextChanged);
             // 
             // Loginid_tb
             // 
-            this.Loginid_tb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Loginid_tb.Location = new System.Drawing.Point(93, 24);
+            this.Loginid_tb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginid_tb.Location = new System.Drawing.Point(93, 10);
             this.Loginid_tb.Name = "Loginid_tb";
-            this.Loginid_tb.Size = new System.Drawing.Size(245, 27);
+            this.Loginid_tb.Size = new System.Drawing.Size(204, 34);
             this.Loginid_tb.TabIndex = 2;
             // 
             // Loginpw_lb
             // 
-            this.Loginpw_lb.BackColor = System.Drawing.Color.LightCyan;
-            this.Loginpw_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Loginpw_lb.Location = new System.Drawing.Point(19, 59);
+            this.Loginpw_lb.BackColor = System.Drawing.Color.GreenYellow;
+            this.Loginpw_lb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginpw_lb.Location = new System.Drawing.Point(20, 59);
             this.Loginpw_lb.Name = "Loginpw_lb";
             this.Loginpw_lb.Size = new System.Drawing.Size(67, 27);
             this.Loginpw_lb.TabIndex = 1;
@@ -978,9 +979,9 @@ namespace SuJinChemicalMES
             // 
             // Loginid_lb
             // 
-            this.Loginid_lb.BackColor = System.Drawing.Color.LightCyan;
-            this.Loginid_lb.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Loginid_lb.Location = new System.Drawing.Point(19, 24);
+            this.Loginid_lb.BackColor = System.Drawing.Color.GreenYellow;
+            this.Loginid_lb.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Loginid_lb.Location = new System.Drawing.Point(20, 10);
             this.Loginid_lb.Name = "Loginid_lb";
             this.Loginid_lb.Size = new System.Drawing.Size(67, 27);
             this.Loginid_lb.TabIndex = 0;
@@ -993,7 +994,7 @@ namespace SuJinChemicalMES
             this.Main_pb.Image = global::SuJinChemicalMES.Properties.Resources.SujinChe_Logo_sq;
             this.Main_pb.Location = new System.Drawing.Point(350, 207);
             this.Main_pb.Name = "Main_pb";
-            this.Main_pb.Size = new System.Drawing.Size(1055, 290);
+            this.Main_pb.Size = new System.Drawing.Size(1058, 305);
             this.Main_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Main_pb.TabIndex = 5;
             this.Main_pb.TabStop = false;
