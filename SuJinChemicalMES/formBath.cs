@@ -61,5 +61,10 @@ namespace SuJinChemicalMES
                 MessageBox.Show("데이터 로드 중 오류 발생: " + ex.Message);
             }
         }
+
+        private void bath_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -84,9 +84,9 @@ namespace SuJinChemicalMES
             this.label19.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.Location = new System.Drawing.Point(3, 2);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(115, 19);
+            this.label19.Size = new System.Drawing.Size(101, 19);
             this.label19.TabIndex = 2;
-            this.label19.Text = "레시피 등록 대기";
+            this.label19.Text = "제품 등록 대기";
             // 
             // panel6
             // 
@@ -106,9 +106,9 @@ namespace SuJinChemicalMES
             this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 2);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 19);
+            this.label7.Size = new System.Drawing.Size(101, 19);
             this.label7.TabIndex = 2;
-            this.label7.Text = "레시피 정보 입력";
+            this.label7.Text = "제품 정보 입력";
             // 
             // dataGridView2
             // 
@@ -211,7 +211,7 @@ namespace SuJinChemicalMES
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(125, 29);
             this.button6.TabIndex = 59;
-            this.button6.Text = "저장";
+            this.button6.Text = "등록";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -429,7 +429,7 @@ namespace SuJinChemicalMES
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formAddproductOkay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "레시피 등록";
+            this.Text = "제품 등록";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
