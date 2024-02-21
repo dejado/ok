@@ -157,8 +157,13 @@ namespace SuJinChemicalMES
             switch (chemicalType)
             {
                 case "인산(H3PO4)":
-                    pictureBox.Image = Properties.Resources.tankak4;
+                    //pictureBox.Image = Properties.Resources.tankak4;
+                    bathTimer1.Start();
+                    if (count > 40) { break; }
+                    bathTimer1.Stop();
                     break;
+
+
                 case "암모니아(NH4OH)":
                     pictureBox.Image = Properties.Resources.tankam4;
                     break;
@@ -195,6 +200,59 @@ namespace SuJinChemicalMES
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            
+        }
+        int b = 0;
+        int count = 0;
+        private void bathTimer1_Tick(object sender, EventArgs e)
+        {
+            count++;
+            if (count <= 10)
+            {
+                bath1.Image = Properties.Resources.tankzak4_1;
+                if (b >= 1)
+                {
+                    bath1.Image = Properties.Resources.tamk02;
+                    b = 0;
+                }
+                else b++;
+            }
+            else if (count <= 20)
+            {
+                bath1.Image = Properties.Resources.tankzak4_1;
+                if (b >= 1)
+                {
+                    bath1.Image = Properties.Resources.tankzak4_2;
+                    b = 0;
+                }
+                else b++;
+            }
+            else if (count <= 30)
+            {
+                bath1.Image = Properties.Resources.tankzak4_2;
+                if (b >= 1)
+                {
+                    bath1.Image = Properties.Resources.tankzak4_3;
+                    b = 0;
+                }
+                else b++;
+            }
+            else if (count <= 40)
+            {
+                bath1.Image = Properties.Resources.tankzak4_3;
+                if (b >= 1)
+                {
+                    bath1.Image = Properties.Resources.tankak4;
+                    b = 0;
+                }
+                else b++;
+            }
+            else bath1.Image = Properties.Resources.tankak4;
         }
     }
 }

@@ -32,13 +32,14 @@ namespace SuJinChemicalMES
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.bath5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.bathTimer1 = new System.Windows.Forms.Timer(this.components);
+            this.bath5 = new System.Windows.Forms.PictureBox();
             this.bath1 = new System.Windows.Forms.PictureBox();
             this.bath2 = new System.Windows.Forms.PictureBox();
             this.bath3 = new System.Windows.Forms.PictureBox();
@@ -86,21 +87,6 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 758);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // bath5
-            // 
-            this.bath5.BackColor = System.Drawing.Color.Transparent;
-            this.bath5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bath5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bath5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath5.Location = new System.Drawing.Point(420, 400);
-            this.bath5.Margin = new System.Windows.Forms.Padding(0);
-            this.bath5.MinimumSize = new System.Drawing.Size(415, 350);
-            this.bath5.Name = "bath5";
-            this.bath5.Size = new System.Drawing.Size(421, 358);
-            this.bath5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.bath5.TabIndex = 29;
-            this.bath5.TabStop = false;
             // 
             // label1
             // 
@@ -174,12 +160,30 @@ namespace SuJinChemicalMES
             this.label6.TabIndex = 24;
             this.label6.Text = "베스 6호";
             // 
+            // bathTimer1
+            // 
+            this.bathTimer1.Tick += new System.EventHandler(this.bathTimer1_Tick);
+            // 
+            // bath5
+            // 
+            this.bath5.BackColor = System.Drawing.Color.Transparent;
+            this.bath5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bath5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bath5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.bath5.Location = new System.Drawing.Point(420, 400);
+            this.bath5.Margin = new System.Windows.Forms.Padding(0);
+            this.bath5.MinimumSize = new System.Drawing.Size(415, 350);
+            this.bath5.Name = "bath5";
+            this.bath5.Size = new System.Drawing.Size(421, 358);
+            this.bath5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bath5.TabIndex = 29;
+            this.bath5.TabStop = false;
+            // 
             // bath1
             // 
             this.bath1.BackColor = System.Drawing.Color.Transparent;
             this.bath1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bath1.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
             this.bath1.Location = new System.Drawing.Point(0, 22);
             this.bath1.Margin = new System.Windows.Forms.Padding(0);
             this.bath1.MinimumSize = new System.Drawing.Size(300, 300);
@@ -286,5 +290,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.PictureBox bath3;
         private System.Windows.Forms.PictureBox bath6;
         private System.Windows.Forms.PictureBox bath4;
+        private System.Windows.Forms.Timer bathTimer1;
     }
 }
