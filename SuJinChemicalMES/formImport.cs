@@ -252,11 +252,8 @@ namespace SuJinChemicalMES
 
         private void Renewalbt_Click(object sender, EventArgs e)
         {
-            // dataGridView1 새로고침
             LoadDataIntoDataGridView();
-
             LoadSmallDataGridView();
-            // 다른 필요한 초기화 작업 수행
             LoadCompanies();
             CompanyCb.SelectedIndex = -1;
             Product_TypeCb.SelectedIndex = -1;
@@ -321,6 +318,7 @@ namespace SuJinChemicalMES
                     Console.WriteLine("오류 발생: " + ex.Message);
                 }
             }
+            dataGridView1.ClearSelection();
         }
 
         private void LoadCompanies()
