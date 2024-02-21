@@ -30,24 +30,12 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.Main_tlpn = new System.Windows.Forms.TableLayoutPanel();
-            this.Calendar_pn = new System.Windows.Forms.Panel();
-            this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
-            this.Calendar_lb = new System.Windows.Forms.Label();
-            this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
-            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.Achieve_lb = new System.Windows.Forms.Label();
-            this.CalendarControl_pn = new System.Windows.Forms.Panel();
-            this.CalendarPick_bt = new System.Windows.Forms.Button();
-            this.Calendar_cal = new Calendar.NET.Calendar();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.MainMoni_lb = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,12 +49,19 @@ namespace SuJinChemicalMES
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.Calendar_pn = new System.Windows.Forms.Panel();
+            this.Calendar_dtp = new System.Windows.Forms.DateTimePicker();
+            this.Calendar_lb = new System.Windows.Forms.Label();
+            this.Mainright_tlpn = new System.Windows.Forms.TableLayoutPanel();
+            this.Achieve_ct = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.Achieve_lb = new System.Windows.Forms.Label();
+            this.CalendarControl_pn = new System.Windows.Forms.Panel();
+            this.CalendarPick_bt = new System.Windows.Forms.Button();
+            this.Calendar_cal = new Calendar.NET.Calendar();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.MainMoni_lb = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Main_tlpn.SuspendLayout();
-            this.Calendar_pn.SuspendLayout();
-            this.Mainright_tlpn.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).BeginInit();
-            this.CalendarControl_pn.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,6 +69,11 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.Calendar_pn.SuspendLayout();
+            this.Mainright_tlpn.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).BeginInit();
+            this.CalendarControl_pn.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // Main_tlpn
@@ -94,6 +94,182 @@ namespace SuJinChemicalMES
             this.Main_tlpn.Size = new System.Drawing.Size(1263, 758);
             this.Main_tlpn.TabIndex = 1;
             this.Main_tlpn.Paint += new System.Windows.Forms.PaintEventHandler(this.Main_tlpn_Paint);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox6, 1, 5);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 62);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(23, 3, 23, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 6;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(489, 693);
+            this.tableLayoutPanel1.TabIndex = 26;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 482);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(200, 200);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox1.Size = new System.Drawing.Size(244, 211);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 17);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "베스1호";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox5.Location = new System.Drawing.Point(0, 26);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox5.Size = new System.Drawing.Size(244, 198);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 27;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(247, 3);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 17);
+            this.label2.TabIndex = 28;
+            this.label2.Text = "베스2호";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox4.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox4.Location = new System.Drawing.Point(244, 20);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox4.Size = new System.Drawing.Size(245, 211);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(3, 234);
+            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 17);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "베스3호";
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(247, 234);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(217, 17);
+            this.label4.TabIndex = 31;
+            this.label4.Text = "베스4호";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox3.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox3.Location = new System.Drawing.Point(0, 251);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox3.Size = new System.Drawing.Size(244, 211);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 32;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox2.Location = new System.Drawing.Point(244, 251);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox2.Size = new System.Drawing.Size(245, 211);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 33;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(3, 465);
+            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 17);
+            this.label5.TabIndex = 34;
+            this.label5.Text = "베스5호";
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(247, 465);
+            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(217, 17);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "베스6호";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
+            this.pictureBox6.Location = new System.Drawing.Point(244, 482);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.pictureBox6.Size = new System.Drawing.Size(245, 211);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 37;
+            this.pictureBox6.TabStop = false;
             // 
             // Calendar_pn
             // 
@@ -150,28 +326,28 @@ namespace SuJinChemicalMES
             // 
             // Achieve_ct
             // 
-            chartArea3.Name = "ChartArea1";
-            this.Achieve_ct.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.Achieve_ct.ChartAreas.Add(chartArea1);
             this.Achieve_ct.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.Achieve_ct.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.Achieve_ct.Legends.Add(legend1);
             this.Achieve_ct.Location = new System.Drawing.Point(3, 432);
             this.Achieve_ct.Name = "Achieve_ct";
             this.Achieve_ct.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "PlanSum_s";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "CompleteSum_s";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series9.Legend = "Legend1";
-            series9.Name = "CompleteRate_s";
-            series9.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.Achieve_ct.Series.Add(series7);
-            this.Achieve_ct.Series.Add(series8);
-            this.Achieve_ct.Series.Add(series9);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "PlanSum_s";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "CompleteSum_s";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "CompleteRate_s";
+            series3.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.Achieve_ct.Series.Add(series1);
+            this.Achieve_ct.Series.Add(series2);
+            this.Achieve_ct.Series.Add(series3);
             this.Achieve_ct.Size = new System.Drawing.Size(696, 258);
             this.Achieve_ct.TabIndex = 7;
             this.Achieve_ct.Text = "Achieve_ct";
@@ -264,182 +440,6 @@ namespace SuJinChemicalMES
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox5, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox4, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox3, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox2, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox6, 1, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(23, 62);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(23, 3, 23, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 6;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(489, 693);
-            this.tableLayoutPanel1.TabIndex = 26;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 480);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(200, 200);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox1.Size = new System.Drawing.Size(244, 213);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.Location = new System.Drawing.Point(3, 3);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 17);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "베스1호";
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 26);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox5.Size = new System.Drawing.Size(244, 198);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 27;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(247, 3);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 17);
-            this.label2.TabIndex = 28;
-            this.label2.Text = "베스2호";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox4.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox4.Location = new System.Drawing.Point(244, 20);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox4.Size = new System.Drawing.Size(245, 210);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.Location = new System.Drawing.Point(3, 233);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(217, 17);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "베스3호";
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(247, 233);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(217, 17);
-            this.label4.TabIndex = 31;
-            this.label4.Text = "베스4호";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox3.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 250);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox3.Size = new System.Drawing.Size(244, 210);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 32;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox2.Location = new System.Drawing.Point(244, 250);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox2.Size = new System.Drawing.Size(245, 210);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 33;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(3, 463);
-            this.label5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(217, 17);
-            this.label5.TabIndex = 34;
-            this.label5.Text = "베스5호";
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(247, 463);
-            this.label6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(217, 17);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "베스6호";
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox6.Location = new System.Drawing.Point(244, 480);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
-            this.pictureBox6.Size = new System.Drawing.Size(245, 213);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 37;
-            this.pictureBox6.TabStop = false;
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -454,11 +454,6 @@ namespace SuJinChemicalMES
             this.Text = "formMain";
             this.Load += new System.EventHandler(this.formMain_Load);
             this.Main_tlpn.ResumeLayout(false);
-            this.Calendar_pn.ResumeLayout(false);
-            this.Mainright_tlpn.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).EndInit();
-            this.CalendarControl_pn.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -466,6 +461,11 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.Calendar_pn.ResumeLayout(false);
+            this.Mainright_tlpn.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Achieve_ct)).EndInit();
+            this.CalendarControl_pn.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

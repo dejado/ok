@@ -497,14 +497,22 @@ namespace SuJinChemicalMES
 
         private void ShowDefectGraph()   //결함
         {
+         
+         //   chart.Series["DefectRate"].Points.Clear();
+         
             string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
             List<string> highDefectCompanies = new List<string>();
-           
+
             Chart chart = new Chart();
             chart.ChartAreas.Add("ChartArea");
             chart.Dock = DockStyle.Fill;
-          
+
             Series DefectSeries = chart.Series.Add("DefectRate");
+            DefectSeries.ChartType = SeriesChartType.Column;
+            chart.Series["DefectRate"]["PixelPointWidth"] = "30";
+            chart.ChartAreas["ChartArea"].AxisY.LabelStyle.Format = "{0}%";
+
+            chart.Dock = DockStyle.Fill;
             DefectSeries.ChartType = SeriesChartType.Column;
             chart.Series["DefectRate"]["PixelPointWidth"] = "30";
             chart.ChartAreas["ChartArea"].AxisY.LabelStyle.Format = "{0}%";
@@ -584,6 +592,14 @@ namespace SuJinChemicalMES
             }
             DefectChart.Controls.Add(chart);
             AlarmPn.Controls.Add(textAlarm);
+        }
+
+        private void Load_bt_Click(object sender, EventArgs e)
+        {
+            ShowDefectGraph();
+          //  ShowDefectText();
+          //  ShowLoadingRateGraph();
+          //  ShowProgressGraph();
         }
     }
 }
