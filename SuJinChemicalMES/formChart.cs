@@ -417,7 +417,8 @@ namespace SuJinChemicalMES
             {
                 MySqlCommand command = new MySqlCommand();
                 command.Connection = connection;
-                command.CommandText = "SELECT cause_of_defect FROM accumulated_data WHERE cause_of_defect IS NOT NULL AND cause_of_defect <> ''";
+                //   command.CommandText = "SELECT cause_of_defect FROM accumulated_data WHERE cause_of_defect IS NOT NULL AND cause_of_defect <> ''";
+                command.CommandText = "SELECT cause_of_defect FROM accumulated_data WHERE progress = '출하검사' AND cause_of_defect IS NOT NULL AND cause_of_defect <> ''";
 
                 try
                 {
