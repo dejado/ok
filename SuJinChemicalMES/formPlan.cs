@@ -25,7 +25,9 @@ namespace SuJinChemicalMES
         private Timer timer11;
         private Timer timer12;
 
-        public formPlan()
+        private DataContainer dataContainer;
+
+        public formPlan(DataContainer dataContainer)
         {
             InitializeComponent();
 
@@ -39,7 +41,7 @@ namespace SuJinChemicalMES
             InitializeTimer4();
             InitializeTimer5();
             InitializeTimer6();
-
+            this.dataContainer = dataContainer;
         }
 
         private void formPlan_Load(object sender, EventArgs e)
@@ -1012,7 +1014,7 @@ namespace SuJinChemicalMES
                     string productName = row.Cells["Column7"].Value.ToString();
                     //string quantity = selectedRow.Cells["Column8"].Value.ToString();
                     string registrationDateShipment = row.Cells["Column16"].Value.ToString();
-                    string registrantShipment = row.Cells["Column9"].Value.ToString();
+                    string registrantShipment = dataContainer.Name;
                     string progress1 = row.Cells["Column19"].Value.ToString();
                     string supplier = row.Cells["Column20"].Value.ToString();
                     string dueDate2 = row.Cells["Column21"].Value.ToString();

@@ -242,7 +242,7 @@ namespace SuJinChemicalMES
                                 string PQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
                                 MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
                                 insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
-                                insertCommand.Parameters.AddWithValue("@data", "P");
+                                insertCommand.Parameters.AddWithValue("@data", "PASS");
                                 insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
                                 insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
                                 insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
@@ -267,7 +267,7 @@ namespace SuJinChemicalMES
                                 "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
                             MySqlCommand insertCommand = new MySqlCommand(PQuery, connection);
                             insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
-                            insertCommand.Parameters.AddWithValue("@data", "P");
+                            insertCommand.Parameters.AddWithValue("@data", "PASS");
                             insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
                             insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
                             insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
@@ -307,7 +307,7 @@ namespace SuJinChemicalMES
                                 string FQuery = "INSERT INTO shipping_inspection_results (progress, test_results, order_number, due_date, company, product_code, product_name, lot_no, quantity, order_quantity, registration_date_inspection, registrant_inspection, cause_of_defect) VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
                                 MySqlCommand insertCommand = new MySqlCommand(FQuery, connection);
                                 insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
-                                insertCommand.Parameters.AddWithValue("@data", "F");
+                                insertCommand.Parameters.AddWithValue("@data", "FAIL");
                                 insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
                                 insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
                                 insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
@@ -322,6 +322,34 @@ namespace SuJinChemicalMES
                                 insertCommand.ExecuteNonQuery();
                             }
                         }
+                        string connectionString2 = "Server=10.10.32.82;Database=accumulated_data;Uid=team;Pwd=team1234;";
+                        using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                        {
+                            connection.Open();
+
+                            string FQuery = "INSERT INTO accumulated_data (progress, test_results, order_number, due_date, company, product_code, " +
+                                "product_name, lot_no, quantity, request_quantity, registration_date, registrant, cause_of_defect) " +
+                                "VALUES (@inspectionType, @data, @selectedOrderNumber, @Duedate, @companyName, @productCode, @productName, @lotNo, @quantity, @Orderquantity, @inspectionDate, @inspector, @defectCause)";
+                            MySqlCommand insertCommand = new MySqlCommand(FQuery, connection);
+                            insertCommand.Parameters.AddWithValue("@inspectionType", "출하검사");
+                            insertCommand.Parameters.AddWithValue("@data", "FAIL");
+                            insertCommand.Parameters.AddWithValue("@selectedOrderNumber", selectedOrderNumber);
+                            insertCommand.Parameters.AddWithValue("@Duedate", Duedate);
+                            insertCommand.Parameters.AddWithValue("@companyName", selectedCompanyName);
+                            insertCommand.Parameters.AddWithValue("@productCode", selectedCode);
+                            insertCommand.Parameters.AddWithValue("@productName", selectedProductName);
+                            insertCommand.Parameters.AddWithValue("@lotNo", formattedDate + DefectLotNo);
+                            insertCommand.Parameters.AddWithValue("@quantity", DefectiveQuantity);
+                            insertCommand.Parameters.AddWithValue("@Orderquantity", OrderQuantity);
+                            insertCommand.Parameters.AddWithValue("@inspectionDate", DateTime.Now.ToString("yyyy-MM-dd"));
+                            insertCommand.Parameters.AddWithValue("@inspector", dataContainer.Name);
+                            insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
+                            insertCommand.ExecuteNonQuery();
+                        }
+
+
+
+
                     }
                     // 선택 해제
                     PrGridView.Rows.RemoveAt(PrGridView.SelectedRows[0].Index);

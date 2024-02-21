@@ -13,9 +13,12 @@ namespace SuJinChemicalMES
 {
     public partial class formRecipe : Form
     {
+        
+
         public formRecipe()
         {
             InitializeComponent();
+
         }
 
         private void formRecipe_Load(object sender, EventArgs e)

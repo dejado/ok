@@ -13,11 +13,18 @@ namespace SuJinChemicalMES
 {
     public partial class formOrderOkay : Form
     {
+        private DataContainer dataContainer;
+
         public formOrderOkay()
         {
             InitializeComponent();
-        }
 
+        }
+        public formOrderOkay(DataContainer dataContainer)
+        {
+            InitializeComponent();
+            this.dataContainer = dataContainer;
+        }
         public TextBox TextBox3 => textBox3;
         public TextBox TextBox4 => textBox4;
 
@@ -188,7 +195,7 @@ namespace SuJinChemicalMES
             dataGridView2.Rows[index].Cells[8].Value = dateTimePicker2.Value.ToString("yyyy-MM-dd");
 
             // 등록자 할당
-            dataGridView2.Rows[index].Cells[9].Value = "임진우";
+            dataGridView2.Rows[index].Cells[9].Value = dataContainer.Name;
 
             // 진행상태에 발주서등록 할당
             dataGridView2.Rows[index].Cells[10].Value = "발주서등록";
