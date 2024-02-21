@@ -329,6 +329,99 @@ namespace SuJinChemicalMES
                     MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
                 }
 
+                string connectionString2 = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+
+                // DataGridView에서 선택된 행이 있는지 확인
+                if (dataGridView2.SelectedCells.Count > 0)
+                {
+                    // 선택된 셀의 행 인덱스와 열 인덱스 가져오기
+                    int rowIndex = dataGridView2.SelectedCells[0].RowIndex;
+                    int columnIndex = dataGridView2.Columns["Column10"].Index; // order_number 열의 인덱스
+
+                    // DataGridView에서 선택된 행 삭제
+                    dataGridView2.Rows.RemoveAt(rowIndex);
+
+                    try
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                        {
+                            connection.Open();
+
+                            // MySQL 데이터베이스에서도 해당 행을 삭제하는 쿼리 작성
+                            string selectedData = dataGridView2.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                            string deleteQuery = $"DELETE FROM order_registration1 WHERE order_number = '{selectedData}'";
+
+                            using (MySqlCommand command = new MySqlCommand(deleteQuery, connection))
+                            {
+                                int affectedRows = command.ExecuteNonQuery();
+
+                                if (affectedRows > 0)
+                                {
+                                    MessageBox.Show("데이터베이스에서 행이 삭제되었습니다.");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("삭제할 행이 없거나 삭제에 실패했습니다.");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("삭제할 행을 선택하세요.");
+                }
+
+                string connectionString3 = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+
+                // DataGridView에서 선택된 행이 있는지 확인
+                if (dataGridView2.SelectedCells.Count > 0)
+                {
+                    // 선택된 셀의 행 인덱스와 열 인덱스 가져오기
+                    int rowIndex = dataGridView2.SelectedCells[0].RowIndex;
+                    int columnIndex = dataGridView2.Columns["Column1"].Index; // order_number 열의 인덱스
+
+
+
+                    try
+                    {
+                        using (MySqlConnection connection = new MySqlConnection(connectionString2))
+                        {
+                            connection.Open();
+
+                            // MySQL 데이터베이스에서도 해당 행을 삭제하는 쿼리 작성
+                            string selectedData = dataGridView2.Rows[rowIndex].Cells[columnIndex].Value.ToString();
+                            string deleteQuery = $"DELETE FROM incoming WHERE lot_no = '{selectedData}'";
+
+                            using (MySqlCommand command = new MySqlCommand(deleteQuery, connection))
+                            {
+                                int affectedRows = command.ExecuteNonQuery();
+
+                                if (affectedRows > 0)
+                                {
+                                    MessageBox.Show("데이터베이스에서 행이 삭제되었습니다.");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("삭제할 행이 없거나 삭제에 실패했습니다.");
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("삭제할 행을 선택하세요.");
+                }
+
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
                 dataGridView1.CurrentCell = null; // 현재 선택된 셀 해제
                 Insert(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, workingtime, currentDate, "나현진");
