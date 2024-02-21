@@ -29,8 +29,8 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@ namespace SuJinChemicalMES
             this.WarehouseChart3 = new System.Windows.Forms.Panel();
             this.WarehouseChart1 = new System.Windows.Forms.Panel();
             this.WarehouseChart2 = new System.Windows.Forms.Panel();
-            this.Loac_bt = new System.Windows.Forms.Button();
+            this.Load_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -134,7 +134,7 @@ namespace SuJinChemicalMES
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel2.Controls.Add(this.Loac_bt);
+            this.panel2.Controls.Add(this.Load_bt);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(781, 42);
             this.panel2.Margin = new System.Windows.Forms.Padding(10, 42, 29, 0);
@@ -229,8 +229,8 @@ namespace SuJinChemicalMES
             // 
             // DefectChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.DefectChart.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.DefectChart.ChartAreas.Add(chartArea1);
             this.DefectChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DefectChart.Location = new System.Drawing.Point(26, 445);
             this.DefectChart.Margin = new System.Windows.Forms.Padding(26, 0, 5, 32);
@@ -241,8 +241,8 @@ namespace SuJinChemicalMES
             // 
             // ProgressChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.ProgressChart.ChartAreas.Add(chartArea4);
+            chartArea2.Name = "ChartArea1";
+            this.ProgressChart.ChartAreas.Add(chartArea2);
             this.ProgressChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ProgressChart.Enabled = false;
             this.ProgressChart.Location = new System.Drawing.Point(26, 66);
@@ -322,15 +322,15 @@ namespace SuJinChemicalMES
             this.WarehouseChart2.Size = new System.Drawing.Size(137, 313);
             this.WarehouseChart2.TabIndex = 2;
             // 
-            // Loac_bt
+            // Load_bt
             // 
-            this.Loac_bt.Location = new System.Drawing.Point(352, 0);
-            this.Loac_bt.Name = "Loac_bt";
-            this.Loac_bt.Size = new System.Drawing.Size(75, 23);
-            this.Loac_bt.TabIndex = 0;
-            this.Loac_bt.Text = "button1";
-            this.Loac_bt.UseVisualStyleBackColor = true;
-            this.Loac_bt.Click += new System.EventHandler(this.Load_bt_Click);
+            this.Load_bt.Location = new System.Drawing.Point(375, 1);
+            this.Load_bt.Name = "Load_bt";
+            this.Load_bt.Size = new System.Drawing.Size(75, 23);
+            this.Load_bt.TabIndex = 0;
+            this.Load_bt.Text = "새로고침";
+            this.Load_bt.UseVisualStyleBackColor = true;
+            this.Load_bt.Click += new System.EventHandler(this.Load_bt_Click);
             // 
             // formChart
             // 
@@ -383,6 +383,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Loac_bt;
+        private System.Windows.Forms.Button Load_bt;
     }
 }

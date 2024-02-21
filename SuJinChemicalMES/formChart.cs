@@ -345,6 +345,9 @@ namespace SuJinChemicalMES
             chart.Dock = DockStyle.Fill;
             chart.ChartAreas.Add("ChartArea");
             Series warehouseSeries = chart.Series.Add("Series");
+          
+
+
             warehouseSeries.ChartType = SeriesChartType.Doughnut;
 
             double loadedPercentage = Math.Min(loadingRate * 100, 100); // 적재율이 100%를 초과하지 않도록 제한
@@ -517,7 +520,6 @@ namespace SuJinChemicalMES
             chart.Series["DefectRate"]["PixelPointWidth"] = "30";
             chart.ChartAreas["ChartArea"].AxisY.LabelStyle.Format = "{0}%";
             
-        
             chart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
             chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
 
@@ -594,12 +596,16 @@ namespace SuJinChemicalMES
             AlarmPn.Controls.Add(textAlarm);
         }
 
+
         private void Load_bt_Click(object sender, EventArgs e)
         {
-            ShowDefectGraph();
-          //  ShowDefectText();
-          //  ShowLoadingRateGraph();
-          //  ShowProgressGraph();
+
+            WarehouseChart1.Controls.Clear();
+            WarehouseChart2.Controls.Clear();
+            WarehouseChart3.Controls.Clear();
+
+            // 차트 데이터 재로딩
+            ShowLoadingRateGraph();
         }
     }
 }
