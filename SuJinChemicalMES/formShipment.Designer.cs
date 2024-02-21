@@ -38,13 +38,6 @@ namespace SuJinChemicalMES
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.PrGridView = new System.Windows.Forms.DataGridView();
-            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.due_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.defectivequantity = new System.Windows.Forms.TextBox();
@@ -97,6 +90,13 @@ namespace SuJinChemicalMES
             this.label12 = new System.Windows.Forms.Label();
             this.Search_Bt = new System.Windows.Forms.Button();
             this.Renewalbt = new System.Windows.Forms.Button();
+            this.order_number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.product_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ex_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LOTNO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.due_date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Qc_pn.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -228,7 +228,6 @@ namespace SuJinChemicalMES
             // PrGridView
             // 
             this.PrGridView.AllowUserToAddRows = false;
-            this.PrGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PrGridView.BackgroundColor = System.Drawing.Color.White;
             this.PrGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PrGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -251,62 +250,6 @@ namespace SuJinChemicalMES
             this.PrGridView.TabIndex = 41;
             this.PrGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PrGridView_CellContentClick);
             this.PrGridView.SelectionChanged += new System.EventHandler(this.PrGridView_SelectionChanged);
-            // 
-            // order_number
-            // 
-            this.order_number.DataPropertyName = "order_number";
-            this.order_number.HeaderText = "발주서번호";
-            this.order_number.MinimumWidth = 93;
-            this.order_number.Name = "order_number";
-            this.order_number.ReadOnly = true;
-            // 
-            // product_name
-            // 
-            this.product_name.DataPropertyName = "product_name";
-            this.product_name.HeaderText = "제품명";
-            this.product_name.MinimumWidth = 130;
-            this.product_name.Name = "product_name";
-            this.product_name.ReadOnly = true;
-            // 
-            // company_name
-            // 
-            this.company_name.DataPropertyName = "company";
-            this.company_name.HeaderText = "회사명";
-            this.company_name.MinimumWidth = 75;
-            this.company_name.Name = "company_name";
-            this.company_name.ReadOnly = true;
-            // 
-            // code
-            // 
-            this.code.DataPropertyName = "product_code";
-            this.code.HeaderText = "제품코드";
-            this.code.MinimumWidth = 85;
-            this.code.Name = "code";
-            this.code.ReadOnly = true;
-            // 
-            // Ex_Quantity
-            // 
-            this.Ex_Quantity.DataPropertyName = "quantity";
-            this.Ex_Quantity.HeaderText = "수량";
-            this.Ex_Quantity.MinimumWidth = 57;
-            this.Ex_Quantity.Name = "Ex_Quantity";
-            this.Ex_Quantity.ReadOnly = true;
-            // 
-            // LOTNO
-            // 
-            this.LOTNO.DataPropertyName = "lot_no";
-            this.LOTNO.HeaderText = "LOT NO.";
-            this.LOTNO.MinimumWidth = 70;
-            this.LOTNO.Name = "LOTNO";
-            this.LOTNO.ReadOnly = true;
-            // 
-            // due_date
-            // 
-            this.due_date.DataPropertyName = "due_date";
-            this.due_date.HeaderText = "납기일";
-            this.due_date.MinimumWidth = 80;
-            this.due_date.Name = "due_date";
-            this.due_date.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -933,6 +876,69 @@ namespace SuJinChemicalMES
             this.Renewalbt.Text = "전체목록";
             this.Renewalbt.UseVisualStyleBackColor = true;
             this.Renewalbt.Click += new System.EventHandler(this.Renewalbt_Click);
+            // 
+            // order_number
+            // 
+            this.order_number.DataPropertyName = "order_number";
+            this.order_number.HeaderText = "발주서번호";
+            this.order_number.MinimumWidth = 93;
+            this.order_number.Name = "order_number";
+            this.order_number.ReadOnly = true;
+            this.order_number.Width = 93;
+            // 
+            // product_name
+            // 
+            this.product_name.DataPropertyName = "product_name";
+            this.product_name.HeaderText = "제품명";
+            this.product_name.MinimumWidth = 211;
+            this.product_name.Name = "product_name";
+            this.product_name.ReadOnly = true;
+            this.product_name.Width = 211;
+            // 
+            // company_name
+            // 
+            this.company_name.DataPropertyName = "company";
+            this.company_name.HeaderText = "회사명";
+            this.company_name.MinimumWidth = 75;
+            this.company_name.Name = "company_name";
+            this.company_name.ReadOnly = true;
+            this.company_name.Width = 75;
+            // 
+            // code
+            // 
+            this.code.DataPropertyName = "product_code";
+            this.code.HeaderText = "제품코드";
+            this.code.MinimumWidth = 85;
+            this.code.Name = "code";
+            this.code.ReadOnly = true;
+            this.code.Width = 85;
+            // 
+            // Ex_Quantity
+            // 
+            this.Ex_Quantity.DataPropertyName = "quantity";
+            this.Ex_Quantity.HeaderText = "수량";
+            this.Ex_Quantity.MinimumWidth = 57;
+            this.Ex_Quantity.Name = "Ex_Quantity";
+            this.Ex_Quantity.ReadOnly = true;
+            this.Ex_Quantity.Width = 57;
+            // 
+            // LOTNO
+            // 
+            this.LOTNO.DataPropertyName = "lot_no";
+            this.LOTNO.HeaderText = "LOT NO.";
+            this.LOTNO.MinimumWidth = 120;
+            this.LOTNO.Name = "LOTNO";
+            this.LOTNO.ReadOnly = true;
+            this.LOTNO.Width = 120;
+            // 
+            // due_date
+            // 
+            this.due_date.DataPropertyName = "due_date";
+            this.due_date.HeaderText = "납기일";
+            this.due_date.MinimumWidth = 80;
+            this.due_date.Name = "due_date";
+            this.due_date.ReadOnly = true;
+            this.due_date.Width = 80;
             // 
             // formShipment
             // 

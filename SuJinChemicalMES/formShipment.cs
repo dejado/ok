@@ -23,7 +23,7 @@ namespace SuJinChemicalMES
             ShowSHdatagridview();
             PrGridView.MultiSelect = false;
             SHdatagridview.MultiSelect = false;
-              CompanyCb.SelectedIndexChanged += CompanyCb_SelectedIndexChanged;
+            CompanyCb.SelectedIndexChanged += CompanyCb_SelectedIndexChanged;
             LoadCompanies();
             DefectcauseCb.Enabled = false;
             dataContainer = container;
@@ -346,9 +346,6 @@ namespace SuJinChemicalMES
                             insertCommand.Parameters.AddWithValue("@defectCause", defectCause);
                             insertCommand.ExecuteNonQuery();
                         }
-
-
-
 
                     }
                     // 선택 해제
