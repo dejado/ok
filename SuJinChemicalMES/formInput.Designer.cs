@@ -30,6 +30,7 @@ namespace SuJinChemicalMES
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Input_grid = new System.Windows.Forms.DataGridView();
             this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -129,6 +130,14 @@ namespace SuJinChemicalMES
             this.Indate,
             this.Inregistant,
             this.Inlocation});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Input_grid.DefaultCellStyle = dataGridViewCellStyle2;
             this.Input_grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Input_grid.Location = new System.Drawing.Point(23, 47);
             this.Input_grid.Margin = new System.Windows.Forms.Padding(23, 2, 23, 30);
