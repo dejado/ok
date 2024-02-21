@@ -29,6 +29,7 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.UserPW_tb = new System.Windows.Forms.TextBox();
             this.UserRegistration_lb = new System.Windows.Forms.Label();
             this.RegiUserList_lb = new System.Windows.Forms.Label();
@@ -119,6 +120,8 @@ namespace SuJinChemicalMES
             // 
             // RegiUserList_dgv
             // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.RegiUserList_dgv.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.RegiUserList_dgv.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.RegiUserList_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RegiUserList_dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {

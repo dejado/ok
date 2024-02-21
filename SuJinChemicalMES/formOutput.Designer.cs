@@ -29,6 +29,13 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.OutModify_bt = new System.Windows.Forms.Button();
             this.OutDelete_bt = new System.Windows.Forms.Button();
@@ -96,12 +103,11 @@ namespace SuJinChemicalMES
             // label2
             // 
             this.label2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Location = new System.Drawing.Point(4, 2);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 32);
+            this.label2.Size = new System.Drawing.Size(68, 26);
             this.label2.TabIndex = 28;
             this.label2.Text = "자재현황";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -155,11 +161,21 @@ namespace SuJinChemicalMES
             // Output_grid
             // 
             this.Output_grid.AllowDrop = true;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Output_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.Output_grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Output_grid.BackgroundColor = System.Drawing.Color.White;
             this.Output_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Output_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.Output_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Output_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -175,10 +191,26 @@ namespace SuJinChemicalMES
             this.shipmentdate,
             this.shipmentregister,
             this.shipmentlocation});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Output_grid.DefaultCellStyle = dataGridViewCellStyle10;
             this.Output_grid.Location = new System.Drawing.Point(23, 47);
             this.Output_grid.Margin = new System.Windows.Forms.Padding(23, 2, 23, 2);
             this.Output_grid.MinimumSize = new System.Drawing.Size(875, 256);
             this.Output_grid.Name = "Output_grid";
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Output_grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.Output_grid.RowHeadersWidth = 4;
             this.Output_grid.RowTemplate.Height = 30;
             this.Output_grid.Size = new System.Drawing.Size(1059, 294);
@@ -544,8 +576,18 @@ namespace SuJinChemicalMES
             // OutOk_grid
             // 
             this.OutOk_grid.AllowDrop = true;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.OutOk_grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.OutOk_grid.BackgroundColor = System.Drawing.Color.White;
             this.OutOk_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.OutOk_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.OutOk_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OutOk_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OutOkCheck,
@@ -562,6 +604,14 @@ namespace SuJinChemicalMES
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.OutOk_grid.DefaultCellStyle = dataGridViewCellStyle14;
             this.OutOk_grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.OutOk_grid.Location = new System.Drawing.Point(23, 60);
             this.OutOk_grid.Margin = new System.Windows.Forms.Padding(23, 2, 5, 2);

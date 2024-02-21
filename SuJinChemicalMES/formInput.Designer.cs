@@ -29,6 +29,7 @@ namespace SuJinChemicalMES
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Input_grid = new System.Windows.Forms.DataGridView();
             this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -108,6 +109,14 @@ namespace SuJinChemicalMES
             this.Input_grid.AllowDrop = true;
             this.Input_grid.BackgroundColor = System.Drawing.Color.White;
             this.Input_grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Input_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.Input_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Input_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InCheck,
