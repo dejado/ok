@@ -176,7 +176,7 @@ namespace SuJinChemicalMES
             mok.Show();
         }
 
-        private void AddChart()
+       private void AddChart()
         {
             Achieve_ct.Series["PlanSum_s"].Points.Clear();
             Achieve_ct.Series["CompleteSum_s"].Points.Clear();
@@ -223,7 +223,7 @@ namespace SuJinChemicalMES
             reader.Close();
             con.Close();
         }
-
+       
         //************************************************************************************************************//
 
         private void Main_tlpn_Paint(object sender, PaintEventArgs e)
