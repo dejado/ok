@@ -73,8 +73,8 @@ namespace SuJinChemicalMES
                         using (MySqlConnection connectionAccumulatedData = new MySqlConnection(accumulatedDataConnectionString))
                         {
                             connectionAccumulatedData.Open();
-                            string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, due_date_request, registrant, progress, due_date, registration_date, quantity) " +
-                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @requestQuantity, @dueDateRequest, @registrant, @progress, @dueDate, @registrationDate, @quantity)";
+                            string insertQueryAccumulatedData = "INSERT INTO accumulated_data (order_number, supplier, product_code, product_name, lot_no, request_quantity, registrant, progress, due_date, registration_date,) " +
+                                "VALUES (@orderNumber, @supplier, @productCode, @productName, @lotNo, @requestQuantity, @registrant, @progress, @dueDate, @registrationDate,)";
                             MySqlCommand commandAccumulatedData = new MySqlCommand(insertQueryAccumulatedData, connectionAccumulatedData);
                             commandAccumulatedData.Parameters.AddWithValue("@orderNumber", orderNumber);
                             commandAccumulatedData.Parameters.AddWithValue("@supplier", supplier);
@@ -82,12 +82,10 @@ namespace SuJinChemicalMES
                             commandAccumulatedData.Parameters.AddWithValue("@productName", productName);
                             commandAccumulatedData.Parameters.AddWithValue("@lotNo", lotNo);
                             commandAccumulatedData.Parameters.AddWithValue("@requestQuantity", quantity);
-                            commandAccumulatedData.Parameters.AddWithValue("@dueDateRequest", dueDate);
                             commandAccumulatedData.Parameters.AddWithValue("@registrant", registrant);
                             commandAccumulatedData.Parameters.AddWithValue("@progress", progress);
                             commandAccumulatedData.Parameters.AddWithValue("@dueDate", dueDate);
                             commandAccumulatedData.Parameters.AddWithValue("@registrationDate", registration_date);
-                            commandAccumulatedData.Parameters.AddWithValue("@quantity", quantity);
                             commandAccumulatedData.ExecuteNonQuery();
                         }
 
