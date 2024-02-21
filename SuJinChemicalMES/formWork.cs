@@ -160,10 +160,12 @@ namespace SuJinChemicalMES
             {
                 case "인산(H3PO4)":
                     tankak4.Start();
+                    bathH(pictureBox);
                     if (count > 40) { break; }
                     break;
                 case "암모니아(NH4OH)":
                     tankam4.Start();
+                    bathN(pictureBox);
                     if (count2 > 40) { break; }
                     break;
                 case "황산(H2SO4)":
@@ -217,9 +219,14 @@ namespace SuJinChemicalMES
         private void bathTimer1_Tick(object sender, EventArgs e)
         {
             count++;
+
+        }
+        private void bathH(PictureBox pictureBox)
+        {
+
             if (count <= 10)
             {
-                bath1.Image = Properties.Resources.tankzak4_1;
+                pictureBox.Image = Properties.Resources.tankzak4_1;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tamk02;
@@ -229,7 +236,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 20)
             {
-                bath1.Image = Properties.Resources.tankzak4_1;
+                pictureBox.Image = Properties.Resources.tankzak4_1;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_2;
@@ -239,7 +246,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 30)
             {
-                bath1.Image = Properties.Resources.tankzak4_2;
+                pictureBox.Image = Properties.Resources.tankzak4_2;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_3;
@@ -249,7 +256,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 40)
             {
-                bath1.Image = Properties.Resources.tankzak4_3;
+                pictureBox.Image = Properties.Resources.tankzak4_3;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_4;
@@ -257,21 +264,199 @@ namespace SuJinChemicalMES
                 }
                 else b++;
             }
-            else bath1.Image = Properties.Resources.tankzak4_4;
+            else pictureBox.Image = Properties.Resources.tankzak4_4;
         }
+
 
         //노란_tankam4_암모니아(NH4OH)  
         int b2 = 0;
         int count2 = 0;
         private void bathTimer2_Tick(object sender, EventArgs e)
         {
+            count2++;
 
+        }
+
+        public void bathN(PictureBox pictureBox)
+        {
+            if (count2 <= 10)
+            {
+                pictureBox.Image = Properties.Resources.tankam4_1;
+                if (b2 >= 1)
+                {
+                    bath2.Image = Properties.Resources.tamk02;
+                    b2 = 0;
+                }
+                else b2++;
+            }
+            else if (count2 <= 20)
+            {
+                pictureBox.Image = Properties.Resources.tankam4_1;
+                if (b2 >= 1)
+                {
+                    pictureBox.Image = Properties.Resources.tankam4_2;
+                    b2 = 0;
+                }
+                else b2++;
+            }
+            else if (count2 <= 30)
+            {
+                pictureBox.Image = Properties.Resources.tankam4_2;
+                if (b2 >= 1)
+                {
+                    bath2.Image = Properties.Resources.tankam4_3;
+                    b2 = 0;
+                }
+                else b2++;
+            }
+            else if (count2 <= 40)
+            {
+                pictureBox.Image = Properties.Resources.tankam4_3;
+                if (b2 >= 1)
+                {
+                    bath2.Image = Properties.Resources.tankam4_4;
+                    b2 = 0;
+                }
+                else b2++;
+            }
+            else pictureBox.Image = Properties.Resources.tankam4_4;
         }
 
         //하얀_tankbs4_황산(H2SO4)
         int b3 = 0;
         int count3 = 0;
         private void tankbs4_Tick(object sender, EventArgs e)
+        {
+            count3++;
+            if (count3 <= 10)
+            {
+                bath3.Image = Properties.Resources.tankbs4_1;
+                if (b3 >= 1)
+                {
+                    bath3.Image = Properties.Resources.tamk02;
+                    b3 = 0;
+                }
+                else b3++;
+            }
+            else if (count3 <= 20)
+            {
+                bath3.Image = Properties.Resources.tankbs4_1;
+                if (b3 >= 1)
+                {
+                    bath3.Image = Properties.Resources.tankbs4_2;
+                    b3 = 0;
+                }
+                else b3++;
+            }
+            else if (count3 <= 30)
+            {
+                bath3.Image = Properties.Resources.tankbs4_2;
+                if (b3 >= 1)
+                {
+                    bath3.Image = Properties.Resources.tankbs4_3;
+                    b3 = 0;
+                }
+                else b3++;
+            }
+            else if (count3 <= 40)
+            {
+                bath3.Image = Properties.Resources.tankbs4_3;
+                if (b3 >= 1)
+                {
+                    bath3.Image = Properties.Resources.tankbs4_4;
+                    b3 = 0;
+                }
+                else b3++;
+            }
+            else bath3.Image = Properties.Resources.tankbs4_4;
+        }
+
+        private void tankgs4_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bath4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer7_Tick(object sender, EventArgs e)
         {
 
         }
