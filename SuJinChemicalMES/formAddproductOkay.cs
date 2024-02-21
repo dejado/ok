@@ -13,13 +13,21 @@ namespace SuJinChemicalMES
 {
     public partial class formAddproductOkay : Form
     {
-
+        private DataContainer dataContainer;
 
         public formAddproductOkay()
         {
             InitializeComponent();
             textBox6.Click += textBox6_Click;
             textBox4.Click += textBox4_Click;
+
+        }
+        public formAddproductOkay(DataContainer dataContainer)
+        {
+            InitializeComponent();
+            textBox6.Click += textBox6_Click;
+            textBox4.Click += textBox4_Click;
+            this.dataContainer = dataContainer;
         }
 
 
@@ -81,7 +89,7 @@ namespace SuJinChemicalMES
             // dateTimePicker2에서 선택된 날짜를 DataGridView2의 등록일 열에 할당
             dataGridView2.Rows[index].Cells[6].Value = dateTimePicker2.Value.ToString("yyyy-MM-dd");
 
-            dataGridView2.Rows[index].Cells[5].Value = "임진우";
+            dataGridView2.Rows[index].Cells[5].Value = dataContainer.Name;
 
             // 등록자는 여기서는 생략했는데 필요하다면 적절한 값을 할당할 수 있습니다.
 
@@ -181,6 +189,7 @@ namespace SuJinChemicalMES
                     string product_code = row.Cells[3].Value?.ToString() ?? ""; // 제품코드
                     string product_name = row.Cells[4].Value?.ToString() ?? ""; // 제품명
                     string Test_Method = row.Cells[5].Value?.ToString() ?? ""; // 검사방법
+                    string registrant = row.Cells[7].Value?.ToString();
 
                     // dateTimePicker2에서 선택된 날짜를 MySQL DATETIME 형식으로 변환
                     string registration_date = dateTimePicker2.Value.ToString("yyyy-MM-dd HH:mm:ss");
@@ -188,7 +197,7 @@ namespace SuJinChemicalMES
                     // MySQL에 데이터를 삽입하는 SQL 쿼리 작성
                     string query = $"INSERT INTO product_registration (company, item_type, product_code, product_name, Test_Method, registration_date) VALUES " +
                         $"('{company.Replace("'", "''")}', '{item_type.Replace("'", "''")}', '{product_code.Replace("'", "''")}', " +
-                        $"'{product_name.Replace("'", "''")}', '{Test_Method.Replace("'", "''")}', '{registration_date}');";
+                        $"'{product_name.Replace("'", "''")}', '{Test_Method.Replace("'", "''")}', '{registration_date}'), '{registrant.Replace("'", "''")};";
 
                     // 디버깅용으로 콘솔에 SQL 쿼리 출력
                     Console.WriteLine(query);

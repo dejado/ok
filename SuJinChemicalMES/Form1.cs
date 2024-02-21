@@ -243,7 +243,7 @@ namespace SuJinChemicalMES
         {
             if (plan == null)
             {
-                plan = new formPlan();
+                plan = new formPlan(dataContainer);
                 plan.FormClosed += Plan_FormClosed;
                 plan.MdiParent = this;
                 plan.Dock = DockStyle.Fill;
