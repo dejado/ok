@@ -70,7 +70,6 @@ namespace SuJinChemicalMES
             // 
             // bathTimer1
             // 
-            this.bathTimer1.Tick += new System.EventHandler(this.bathTimer1_Tick);
             // 
             // tankbs4
             // 
