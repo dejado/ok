@@ -63,6 +63,26 @@ namespace SuJinChemicalMES.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap SeojinChemical_Logo_sq {
+            get {
+                object obj = ResourceManager.GetObject("SeojinChemical_Logo_sq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap SujinChe_Logo_sq {
+            get {
+                object obj = ResourceManager.GetObject("SujinChe_Logo_sq", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap tamk01 {
             get {
                 object obj = ResourceManager.GetObject("tamk01", resourceCulture);
