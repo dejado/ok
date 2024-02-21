@@ -106,7 +106,8 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Controls.Add(this.bath3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.bath6, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.bath4, 0, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 8);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
