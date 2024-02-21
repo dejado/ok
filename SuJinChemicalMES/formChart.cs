@@ -114,6 +114,8 @@ namespace SuJinChemicalMES
         }
         private void DrawChart(Chart chart, Dictionary<string, int> 출고부품수량, Dictionary<string, int> 입고부품수량)
         {
+            chart.Legends.Clear();
+            chart.Titles.Clear();
             HashSet<string> 회사목록 = new HashSet<string>(출고부품수량.Keys);
             회사목록.UnionWith(입고부품수량.Keys);
             Dictionary<string, double> 진행률 = new Dictionary<string, double>();
@@ -500,9 +502,10 @@ namespace SuJinChemicalMES
 
         private void ShowDefectGraph()   //결함
         {
-         
-         //   chart.Series["DefectRate"].Points.Clear();
-         
+
+            //   chart.Series["DefectRate"].Points.Clear();
+           DefectChart.Series.Clear();
+            DefectChart.Legends.Clear();
             string connectionString = "Server = 10.10.32.82; Database=accumulated_data;Uid=team;Pwd=team1234;";
             List<string> highDefectCompanies = new List<string>();
 
@@ -529,8 +532,8 @@ namespace SuJinChemicalMES
                 {
                     string query = @"
                 SELECT supplier, 
-                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' AND Test_Results = 'FAIL' THEN Quantity ELSE 0 END), 0) AS ShipmentDefectQuantity,
-                       COALESCE(SUM(CASE WHEN Progress = '출하검사완료' THEN Quantity ELSE 0 END), 0) AS TotalShipmentQuantity
+                       COALESCE(SUM(CASE WHEN Progress = '출하검사' AND Test_Results = 'FAIL' THEN Quantity ELSE 0 END), 0) AS ShipmentDefectQuantity,
+                       COALESCE(SUM(CASE WHEN Progress = '출하검사' THEN Quantity ELSE 0 END), 0) AS TotalShipmentQuantity
                 FROM accumulated_data
                 GROUP BY supplier
                 HAVING TotalShipmentQuantity > 0";
@@ -603,9 +606,12 @@ namespace SuJinChemicalMES
             WarehouseChart1.Controls.Clear();
             WarehouseChart2.Controls.Clear();
             WarehouseChart3.Controls.Clear();
+            ProgressChart.Series.Clear();
+            ShowDefectGraph();
 
-            // 차트 데이터 재로딩
+            ShowProgressGraph();
             ShowLoadingRateGraph();
+            ShowDefectText();
         }
     }
 }
