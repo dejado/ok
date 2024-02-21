@@ -97,61 +97,68 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 500; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Interval = 5000; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
             timer.Tick += timer1_Tick;
             timer.Start();
         }
-
         public void LoadImageFromDatabase()
+{
+    List<PictureBox> pictureBoxList = new List<PictureBox>
+    {bath1, bath2, bath3, bath4, bath5, bath6 };
+
+    try
+    {
+        using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
-            List<PictureBox> pictureBoxList = new List<PictureBox>
-        {bath1, bath2, bath3, bath4, bath5, bath6 };
+            connection.Open();
 
-            try
+            string query = "SELECT bath_num, medicine_type FROM bath";
+
+            using (MySqlCommand command = new MySqlCommand(query, connection))
+            using (MySqlDataReader reader = command.ExecuteReader())
             {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                while (reader.Read())
                 {
-                    connection.Open();
+                    string bethNumber = reader["bath_num"].ToString();
+                    string chemicalType = reader["medicine_type"].ToString();
 
-                    string query = "SELECT bath_num, medicine_type FROM bath";
+                    int secondCharacterAsInt = 0;
 
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
                     {
-                        while (reader.Read())
+                        char secondCharacter = bethNumber[2];
+
+                        if (int.TryParse(secondCharacter.ToString(), out int result))
                         {
-                            string bethNumber = reader["bath_num"].ToString();
-                            string chemicalType = reader["medicine_type"].ToString();
-
-                            int secondCharacterAsInt = 0;
-
-                            if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
-                            {
-                                char secondCharacter = bethNumber[2];
-
-                                if (int.TryParse(secondCharacter.ToString(), out int result))
-                                {
-                                    secondCharacterAsInt = result;
-
-                                }
-                                else
-                                {
-                                    MessageBox.Show("변환 실패");
-                                }
-                            }
-
-                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
-                            InitializePictureBoxEvents(secondCharacterAsInt - 1);
-
+                            secondCharacterAsInt = result;
+                        }
+                        else
+                        {
+                            MessageBox.Show("변환 실패");
                         }
                     }
+
+                    SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+                    InitializePictureBoxEvents(secondCharacterAsInt - 1);
                 }
             }
-            catch (Exception ex)
+
+            // 기존 데이터베이스에는 있었지만 현재 데이터베이스에는 없는 경우 원래 이미지로 복원
+            foreach (var pictureBox in pictureBoxList)
             {
-                MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
+                if (pictureBox.Tag != null && !pictureBoxList.Any(pb => pb.Tag?.ToString() == pictureBox.Tag?.ToString()))
+                {
+                    pictureBox.Image = Properties.Resources.tamk02; // 원래 이미지로 복원 (예시)
+                    pictureBox.Tag = null;
+                }
             }
         }
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
+    }
+}
         private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
         {
             switch (chemicalType)
