@@ -990,9 +990,11 @@ namespace SuJinChemicalMES
             // Main_pb
             // 
             this.Main_pb.BackColor = System.Drawing.Color.Transparent;
+            this.Main_pb.Image = global::SuJinChemicalMES.Properties.Resources.SujinChe_Logo_sq;
             this.Main_pb.Location = new System.Drawing.Point(350, 207);
             this.Main_pb.Name = "Main_pb";
             this.Main_pb.Size = new System.Drawing.Size(1055, 290);
+            this.Main_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Main_pb.TabIndex = 5;
             this.Main_pb.TabStop = false;
             // 
