@@ -212,7 +212,7 @@ namespace SuJinChemicalMES
                     }
 
                     // 데이터 전송 후 작업 완료 메시지 표시
-                    MessageBox.Show("데이터 전송이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //     MessageBox.Show("데이터 전송이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (MySqlException ex)
                 {
