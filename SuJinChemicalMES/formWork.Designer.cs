@@ -32,19 +32,19 @@ namespace SuJinChemicalMES
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.bath5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.bathTimer1 = new System.Windows.Forms.Timer(this.components);
-            this.bath5 = new System.Windows.Forms.PictureBox();
             this.bath1 = new System.Windows.Forms.PictureBox();
             this.bath2 = new System.Windows.Forms.PictureBox();
             this.bath3 = new System.Windows.Forms.PictureBox();
             this.bath6 = new System.Windows.Forms.PictureBox();
             this.bath4 = new System.Windows.Forms.PictureBox();
+            this.bathTimer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bath5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath1)).BeginInit();
@@ -88,82 +88,6 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 758);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(420, 22);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "베스 1호";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(841, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(422, 22);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "베스 3호";
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(420, 0);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(421, 22);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "베스 2호";
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(0, 378);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(420, 22);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "베스 4호";
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(420, 378);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(421, 22);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "베스 5호";
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(841, 378);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(422, 22);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "베스 6호";
-            // 
-            // bathTimer1
-            // 
-            this.bathTimer1.Tick += new System.EventHandler(this.bathTimer1_Tick);
-            // 
             // bath5
             // 
             this.bath5.BackColor = System.Drawing.Color.Transparent;
@@ -178,6 +102,78 @@ namespace SuJinChemicalMES
             this.bath5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath5.TabIndex = 29;
             this.bath5.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.GreenYellow;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(420, 22);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "베스 1호";
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.GreenYellow;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(841, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(422, 22);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "베스 3호";
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.GreenYellow;
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label7.Location = new System.Drawing.Point(420, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(421, 22);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "베스 2호";
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.GreenYellow;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label4.Location = new System.Drawing.Point(0, 378);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(420, 22);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "베스 4호";
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.GreenYellow;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label5.Location = new System.Drawing.Point(420, 378);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(421, 22);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "베스 5호";
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.GreenYellow;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label6.Location = new System.Drawing.Point(841, 378);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(422, 22);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "베스 6호";
             // 
             // bath1
             // 
@@ -253,11 +249,15 @@ namespace SuJinChemicalMES
             this.bath4.TabIndex = 28;
             this.bath4.TabStop = false;
             // 
+            // bathTimer1
+            // 
+            this.bathTimer1.Tick += new System.EventHandler(this.bathTimer1_Tick);
+            // 
             // formWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
