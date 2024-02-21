@@ -23,7 +23,7 @@ namespace SuJinChemicalMES
             InitializeComponent();
 
             LoadImageFromDatabase();
-            InitializeTimer();
+            //InitializeTimer();
 
 
 
@@ -142,16 +142,6 @@ namespace SuJinChemicalMES
                     InitializePictureBoxEvents(secondCharacterAsInt - 1);
                 }
             }
-
-            // 기존 데이터베이스에는 있었지만 현재 데이터베이스에는 없는 경우 원래 이미지로 복원
-            foreach (var pictureBox in pictureBoxList)
-            {
-                if (pictureBox.Tag != null && !pictureBoxList.Any(pb => pb.Tag?.ToString() == pictureBox.Tag?.ToString()))
-                {
-                    pictureBox.Image = Properties.Resources.tamk02; // 원래 이미지로 복원 (예시)
-                    pictureBox.Tag = null;
-                }
-            }
         }
     }
     catch (Exception ex)
@@ -189,7 +179,9 @@ namespace SuJinChemicalMES
                 case "염산":
                     pictureBox.Image = Properties.Resources.tankys4;
                     break;
-                    // 다른 경우에 대한 처리도 추가 가능
+                default:
+                    pictureBox.Image = Properties.Resources.tamk02;
+                    break;
             }
         }
 
@@ -202,6 +194,12 @@ namespace SuJinChemicalMES
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadImageFromDatabase();
+          
         }
     }
 }

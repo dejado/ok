@@ -44,7 +44,6 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.bath5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,6 +53,9 @@ namespace SuJinChemicalMES
             this.bath3 = new System.Windows.Forms.PictureBox();
             this.bath6 = new System.Windows.Forms.PictureBox();
             this.bath4 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bath5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath1)).BeginInit();
@@ -61,6 +63,7 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.bath3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath4)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -92,7 +95,6 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel1.Controls.Add(this.bath5, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label5, 1, 2);
@@ -102,6 +104,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Controls.Add(this.bath3, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.bath6, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.bath4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.panel1, 2, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -139,18 +142,6 @@ namespace SuJinChemicalMES
             this.label1.Size = new System.Drawing.Size(420, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "베스 1호";
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(841, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(422, 22);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "베스 3호";
             // 
             // label7
             // 
@@ -247,9 +238,10 @@ namespace SuJinChemicalMES
             // 
             // bath6
             // 
+            this.bath6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.bath6.BackColor = System.Drawing.SystemColors.Control;
             this.bath6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bath6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
             this.bath6.Location = new System.Drawing.Point(841, 400);
             this.bath6.Margin = new System.Windows.Forms.Padding(0);
@@ -275,6 +267,42 @@ namespace SuJinChemicalMES
             this.bath4.TabIndex = 28;
             this.bath4.TabStop = false;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(841, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(422, 22);
+            this.panel1.TabIndex = 31;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(301, 22);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "베스 3호";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Location = new System.Drawing.Point(304, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 22);
+            this.button1.TabIndex = 24;
+            this.button1.Text = "새로고침";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // formWork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -294,6 +322,7 @@ namespace SuJinChemicalMES
             ((System.ComponentModel.ISupportInitialize)(this.bath3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath4)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -313,7 +342,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox bath5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -323,5 +351,8 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.PictureBox bath3;
         private System.Windows.Forms.PictureBox bath6;
         private System.Windows.Forms.PictureBox bath4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
     }
 }
