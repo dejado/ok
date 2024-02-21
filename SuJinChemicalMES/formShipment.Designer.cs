@@ -344,7 +344,7 @@ namespace SuJinChemicalMES
             // 
             // defectivequantity
             // 
-            this.defectivequantity.Location = new System.Drawing.Point(101, 143);
+            this.defectivequantity.Location = new System.Drawing.Point(101, 144);
             this.defectivequantity.Name = "defectivequantity";
             this.defectivequantity.Size = new System.Drawing.Size(151, 23);
             this.defectivequantity.TabIndex = 75;
@@ -352,7 +352,7 @@ namespace SuJinChemicalMES
             // 
             // standardproduct
             // 
-            this.standardproduct.Location = new System.Drawing.Point(101, 109);
+            this.standardproduct.Location = new System.Drawing.Point(101, 112);
             this.standardproduct.Name = "standardproduct";
             this.standardproduct.Size = new System.Drawing.Size(151, 23);
             this.standardproduct.TabIndex = 74;
@@ -362,7 +362,7 @@ namespace SuJinChemicalMES
             this.label13.BackColor = System.Drawing.Color.LightCyan;
             this.label13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(9, 108);
+            this.label13.Location = new System.Drawing.Point(10, 112);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(92, 22);
             this.label13.TabIndex = 73;
@@ -374,7 +374,7 @@ namespace SuJinChemicalMES
             this.label17.BackColor = System.Drawing.Color.LightCyan;
             this.label17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(8, 144);
+            this.label17.Location = new System.Drawing.Point(10, 144);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(92, 22);
             this.label17.TabIndex = 72;
@@ -494,14 +494,14 @@ namespace SuJinChemicalMES
             this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(3, 48);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 22);
+            this.label18.Size = new System.Drawing.Size(92, 22);
             this.label18.TabIndex = 74;
             this.label18.Text = "Lot No.";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DefectLotno
             // 
-            this.DefectLotno.Location = new System.Drawing.Point(94, 108);
+            this.DefectLotno.Location = new System.Drawing.Point(94, 112);
             this.DefectLotno.Name = "DefectLotno";
             this.DefectLotno.Size = new System.Drawing.Size(151, 23);
             this.DefectLotno.TabIndex = 73;
@@ -533,7 +533,7 @@ namespace SuJinChemicalMES
             "크랙",
             "파손",
             "오염"});
-            this.DefectcauseCb.Location = new System.Drawing.Point(93, 140);
+            this.DefectcauseCb.Location = new System.Drawing.Point(94, 144);
             this.DefectcauseCb.MaximumSize = new System.Drawing.Size(200, 0);
             this.DefectcauseCb.Name = "DefectcauseCb";
             this.DefectcauseCb.Size = new System.Drawing.Size(152, 23);
@@ -559,7 +559,7 @@ namespace SuJinChemicalMES
             this.label10.BackColor = System.Drawing.Color.LightCyan;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 140);
+            this.label10.Location = new System.Drawing.Point(3, 144);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 22);
             this.label10.TabIndex = 56;
@@ -571,7 +571,7 @@ namespace SuJinChemicalMES
             this.label2.BackColor = System.Drawing.Color.LightCyan;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 108);
+            this.label2.Location = new System.Drawing.Point(3, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 22);
             this.label2.TabIndex = 62;
@@ -583,7 +583,7 @@ namespace SuJinChemicalMES
             this.label11.BackColor = System.Drawing.Color.LightCyan;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(5, 80);
+            this.label11.Location = new System.Drawing.Point(3, 80);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 22);
             this.label11.TabIndex = 53;
@@ -832,7 +832,7 @@ namespace SuJinChemicalMES
             // product_codetb
             // 
             this.product_codetb.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_codetb.Location = new System.Drawing.Point(339, 46);
+            this.product_codetb.Location = new System.Drawing.Point(340, 46);
             this.product_codetb.Margin = new System.Windows.Forms.Padding(2);
             this.product_codetb.Name = "product_codetb";
             this.product_codetb.Size = new System.Drawing.Size(126, 25);
@@ -852,7 +852,7 @@ namespace SuJinChemicalMES
             this.label16.BackColor = System.Drawing.Color.LightCyan;
             this.label16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(250, 10);
+            this.label16.Location = new System.Drawing.Point(250, 11);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(92, 22);
             this.label16.TabIndex = 64;

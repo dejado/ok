@@ -463,6 +463,7 @@ namespace SuJinChemicalMES
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formRecipeOkay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "레시피 등록";
             this.Load += new System.EventHandler(this.formRecipeOkay_Load);
             this.panel3.ResumeLayout(false);
