@@ -331,13 +331,59 @@ namespace SuJinChemicalMES
 
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
                 dataGridView1.CurrentCell = null; // 현재 선택된 셀 해제
-                Insert(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, workingtime, currentDate, "나현진");
+                Insert(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, workingtime, currentDate, dataContainer.Name);
+                DeleteInput(label16Text);
+                DeleteOrder(label15Text);
             }
             else
             {
                 MessageBox.Show("빈 칸을 채워주세요.");
             }
 
+        }
+
+        public void DeleteInput(string LotNum)
+        {
+            string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+            using (MySqlConnection connection = new MySqlConnection(cnn))
+            {
+                // SQL 서버와 연결, database=스키마 이름
+                connection.Open();
+
+                // 입력할 문자 받아옴
+                string insertQuery = "DELETE FROM incoming WHERE lot_no=@LotNum";
+
+                // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
+                // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
+                // 위 정보를 command 변수에 저장
+                MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                command.Parameters.AddWithValue("@LotNum", LotNum);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
+        public void DeleteOrder(string OrderNum)
+        {
+            string cnn = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+            using (MySqlConnection connection = new MySqlConnection(cnn))
+            {
+                // SQL 서버와 연결, database=스키마 이름
+                connection.Open();
+
+                // 입력할 문자 받아옴
+                string insertQuery = "DELETE FROM order_registration1 WHERE order_number=@OrderNum";
+
+                // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
+                // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
+                // 위 정보를 command 변수에 저장
+                MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                command.Parameters.AddWithValue("@OrderNum", OrderNum);
+
+                command.ExecuteNonQuery();
+                connection.Close();
+
+            }
         }
 
         private void Insert(string order_num, string lot, string code, string name, string bath, string quantity, string real_quantity, string time, string date, string registant)
@@ -1060,8 +1106,10 @@ namespace SuJinChemicalMES
 
         }
 
-
-
+        private void Re_bt_Click(object sender, EventArgs e)
+        {
+            BindDataGridView();
+        }
     }
 
 }

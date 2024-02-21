@@ -116,8 +116,8 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1105, 606);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 758);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanel2
@@ -138,7 +138,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel2.Controls.Add(this.pictureBox3, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox4, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.pictureBox5, 0, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 590);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 738);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -146,7 +146,7 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(362, 13);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(414, 16);
             this.tableLayoutPanel2.TabIndex = 31;
             // 
             // pictureBox1
@@ -155,11 +155,11 @@ namespace SuJinChemicalMES
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox1.Location = new System.Drawing.Point(120, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(137, 7);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(363, 280);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(415, 350);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(363, 280);
+            this.pictureBox1.Size = new System.Drawing.Size(415, 350);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
@@ -172,7 +172,7 @@ namespace SuJinChemicalMES
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 1);
+            this.label3.Size = new System.Drawing.Size(137, 1);
             this.label3.TabIndex = 19;
             this.label3.Text = "베스 1호";
             // 
@@ -181,10 +181,10 @@ namespace SuJinChemicalMES
             this.label8.BackColor = System.Drawing.Color.GreenYellow;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label8.Location = new System.Drawing.Point(240, 0);
+            this.label8.Location = new System.Drawing.Point(275, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(122, 1);
+            this.label8.Size = new System.Drawing.Size(139, 1);
             this.label8.TabIndex = 21;
             this.label8.Text = "베스 3호";
             // 
@@ -193,10 +193,10 @@ namespace SuJinChemicalMES
             this.label9.BackColor = System.Drawing.Color.GreenYellow;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label9.Location = new System.Drawing.Point(120, 0);
+            this.label9.Location = new System.Drawing.Point(137, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(120, 1);
+            this.label9.Size = new System.Drawing.Size(138, 1);
             this.label9.TabIndex = 20;
             this.label9.Text = "베스 2호";
             // 
@@ -205,10 +205,10 @@ namespace SuJinChemicalMES
             this.label10.BackColor = System.Drawing.Color.GreenYellow;
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label10.Location = new System.Drawing.Point(0, 6);
+            this.label10.Location = new System.Drawing.Point(0, 7);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(120, 1);
+            this.label10.Size = new System.Drawing.Size(137, 1);
             this.label10.TabIndex = 22;
             this.label10.Text = "베스 4호";
             // 
@@ -217,10 +217,10 @@ namespace SuJinChemicalMES
             this.label11.BackColor = System.Drawing.Color.GreenYellow;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label11.Location = new System.Drawing.Point(120, 6);
+            this.label11.Location = new System.Drawing.Point(137, 7);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(120, 1);
+            this.label11.Size = new System.Drawing.Size(138, 1);
             this.label11.TabIndex = 23;
             this.label11.Text = "베스 5호";
             // 
@@ -229,10 +229,10 @@ namespace SuJinChemicalMES
             this.label12.BackColor = System.Drawing.Color.GreenYellow;
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label12.Location = new System.Drawing.Point(240, 6);
+            this.label12.Location = new System.Drawing.Point(275, 7);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 1);
+            this.label12.Size = new System.Drawing.Size(139, 1);
             this.label12.TabIndex = 24;
             this.label12.Text = "베스 6호";
             // 
@@ -244,9 +244,9 @@ namespace SuJinChemicalMES
             this.pictureBox6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
             this.pictureBox6.Location = new System.Drawing.Point(0, 0);
             this.pictureBox6.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox6.MinimumSize = new System.Drawing.Size(262, 240);
+            this.pictureBox6.MinimumSize = new System.Drawing.Size(299, 300);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(262, 240);
+            this.pictureBox6.Size = new System.Drawing.Size(299, 300);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox6.TabIndex = 25;
             this.pictureBox6.TabStop = false;
@@ -257,11 +257,11 @@ namespace SuJinChemicalMES
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox2.Location = new System.Drawing.Point(120, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(137, 0);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.MinimumSize = new System.Drawing.Size(363, 280);
+            this.pictureBox2.MinimumSize = new System.Drawing.Size(415, 350);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(363, 280);
+            this.pictureBox2.Size = new System.Drawing.Size(415, 350);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 26;
             this.pictureBox2.TabStop = false;
@@ -272,11 +272,11 @@ namespace SuJinChemicalMES
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox3.Location = new System.Drawing.Point(240, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(275, 0);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox3.MinimumSize = new System.Drawing.Size(363, 280);
+            this.pictureBox3.MinimumSize = new System.Drawing.Size(415, 350);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(363, 280);
+            this.pictureBox3.Size = new System.Drawing.Size(415, 350);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 27;
             this.pictureBox3.TabStop = false;
@@ -287,11 +287,11 @@ namespace SuJinChemicalMES
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox4.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox4.Location = new System.Drawing.Point(240, 6);
+            this.pictureBox4.Location = new System.Drawing.Point(275, 7);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox4.MinimumSize = new System.Drawing.Size(363, 280);
+            this.pictureBox4.MinimumSize = new System.Drawing.Size(415, 350);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(363, 280);
+            this.pictureBox4.Size = new System.Drawing.Size(415, 350);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 30;
             this.pictureBox4.TabStop = false;
@@ -302,11 +302,11 @@ namespace SuJinChemicalMES
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.pictureBox5.Location = new System.Drawing.Point(0, 6);
+            this.pictureBox5.Location = new System.Drawing.Point(0, 7);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox5.MinimumSize = new System.Drawing.Size(363, 280);
+            this.pictureBox5.MinimumSize = new System.Drawing.Size(415, 350);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(363, 280);
+            this.pictureBox5.Size = new System.Drawing.Size(415, 350);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 28;
             this.pictureBox5.TabStop = false;
@@ -316,11 +316,11 @@ namespace SuJinChemicalMES
             this.bath1.BackColor = System.Drawing.Color.Transparent;
             this.bath1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bath1.Location = new System.Drawing.Point(0, 17);
+            this.bath1.Location = new System.Drawing.Point(0, 22);
             this.bath1.Margin = new System.Windows.Forms.Padding(0);
-            this.bath1.MinimumSize = new System.Drawing.Size(262, 240);
+            this.bath1.MinimumSize = new System.Drawing.Size(299, 300);
             this.bath1.Name = "bath1";
-            this.bath1.Size = new System.Drawing.Size(368, 277);
+            this.bath1.Size = new System.Drawing.Size(420, 346);
             this.bath1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath1.TabIndex = 25;
             this.bath1.TabStop = false;
@@ -331,11 +331,11 @@ namespace SuJinChemicalMES
             this.bath5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath5.Location = new System.Drawing.Point(0, 311);
+            this.bath5.Location = new System.Drawing.Point(0, 390);
             this.bath5.Margin = new System.Windows.Forms.Padding(0);
-            this.bath5.MinimumSize = new System.Drawing.Size(363, 280);
+            this.bath5.MinimumSize = new System.Drawing.Size(415, 350);
             this.bath5.Name = "bath5";
-            this.bath5.Size = new System.Drawing.Size(368, 280);
+            this.bath5.Size = new System.Drawing.Size(420, 350);
             this.bath5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath5.TabIndex = 29;
             this.bath5.TabStop = false;
@@ -348,7 +348,7 @@ namespace SuJinChemicalMES
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(368, 17);
+            this.label1.Size = new System.Drawing.Size(420, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "베스 1호";
             // 
@@ -357,10 +357,10 @@ namespace SuJinChemicalMES
             this.label2.BackColor = System.Drawing.Color.GreenYellow;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(736, 0);
+            this.label2.Location = new System.Drawing.Point(841, 0);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(369, 17);
+            this.label2.Size = new System.Drawing.Size(422, 22);
             this.label2.TabIndex = 21;
             this.label2.Text = "베스 3호";
             // 
@@ -369,10 +369,10 @@ namespace SuJinChemicalMES
             this.label7.BackColor = System.Drawing.Color.GreenYellow;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(368, 0);
+            this.label7.Location = new System.Drawing.Point(420, 0);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(368, 17);
+            this.label7.Size = new System.Drawing.Size(421, 22);
             this.label7.TabIndex = 20;
             this.label7.Text = "베스 2호";
             // 
@@ -381,10 +381,10 @@ namespace SuJinChemicalMES
             this.label4.BackColor = System.Drawing.Color.GreenYellow;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label4.Location = new System.Drawing.Point(0, 294);
+            this.label4.Location = new System.Drawing.Point(0, 368);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(368, 17);
+            this.label4.Size = new System.Drawing.Size(420, 22);
             this.label4.TabIndex = 22;
             this.label4.Text = "베스 4호";
             // 
@@ -393,10 +393,10 @@ namespace SuJinChemicalMES
             this.label5.BackColor = System.Drawing.Color.GreenYellow;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label5.Location = new System.Drawing.Point(368, 294);
+            this.label5.Location = new System.Drawing.Point(420, 368);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(368, 17);
+            this.label5.Size = new System.Drawing.Size(421, 22);
             this.label5.TabIndex = 23;
             this.label5.Text = "베스 5호";
             // 
@@ -405,10 +405,10 @@ namespace SuJinChemicalMES
             this.label6.BackColor = System.Drawing.Color.GreenYellow;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(736, 294);
+            this.label6.Location = new System.Drawing.Point(841, 368);
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(369, 17);
+            this.label6.Size = new System.Drawing.Size(422, 22);
             this.label6.TabIndex = 24;
             this.label6.Text = "베스 6호";
             // 
@@ -418,11 +418,11 @@ namespace SuJinChemicalMES
             this.bath2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath2.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath2.Location = new System.Drawing.Point(368, 17);
+            this.bath2.Location = new System.Drawing.Point(420, 22);
             this.bath2.Margin = new System.Windows.Forms.Padding(0);
-            this.bath2.MinimumSize = new System.Drawing.Size(363, 280);
+            this.bath2.MinimumSize = new System.Drawing.Size(415, 350);
             this.bath2.Name = "bath2";
-            this.bath2.Size = new System.Drawing.Size(368, 280);
+            this.bath2.Size = new System.Drawing.Size(421, 350);
             this.bath2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath2.TabIndex = 26;
             this.bath2.TabStop = false;
@@ -433,11 +433,11 @@ namespace SuJinChemicalMES
             this.bath3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath3.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath3.Location = new System.Drawing.Point(736, 17);
+            this.bath3.Location = new System.Drawing.Point(841, 22);
             this.bath3.Margin = new System.Windows.Forms.Padding(0);
-            this.bath3.MinimumSize = new System.Drawing.Size(363, 280);
+            this.bath3.MinimumSize = new System.Drawing.Size(415, 350);
             this.bath3.Name = "bath3";
-            this.bath3.Size = new System.Drawing.Size(369, 280);
+            this.bath3.Size = new System.Drawing.Size(422, 350);
             this.bath3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath3.TabIndex = 27;
             this.bath3.TabStop = false;
@@ -448,11 +448,11 @@ namespace SuJinChemicalMES
             this.bath6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath6.Location = new System.Drawing.Point(736, 311);
+            this.bath6.Location = new System.Drawing.Point(841, 390);
             this.bath6.Margin = new System.Windows.Forms.Padding(0);
-            this.bath6.MinimumSize = new System.Drawing.Size(363, 280);
+            this.bath6.MinimumSize = new System.Drawing.Size(415, 350);
             this.bath6.Name = "bath6";
-            this.bath6.Size = new System.Drawing.Size(369, 280);
+            this.bath6.Size = new System.Drawing.Size(422, 350);
             this.bath6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath6.TabIndex = 30;
             this.bath6.TabStop = false;
@@ -463,11 +463,11 @@ namespace SuJinChemicalMES
             this.bath4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath4.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
-            this.bath4.Location = new System.Drawing.Point(368, 311);
+            this.bath4.Location = new System.Drawing.Point(420, 390);
             this.bath4.Margin = new System.Windows.Forms.Padding(0);
-            this.bath4.MinimumSize = new System.Drawing.Size(363, 280);
+            this.bath4.MinimumSize = new System.Drawing.Size(415, 350);
             this.bath4.Name = "bath4";
-            this.bath4.Size = new System.Drawing.Size(368, 280);
+            this.bath4.Size = new System.Drawing.Size(421, 350);
             this.bath4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bath4.TabIndex = 28;
             this.bath4.TabStop = false;
@@ -494,10 +494,10 @@ namespace SuJinChemicalMES
             // 
             // formWork
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(1105, 606);
+            this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
