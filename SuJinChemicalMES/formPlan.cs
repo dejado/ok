@@ -478,7 +478,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 150; // 1초 간격으로 설정
+            timer.Interval = 300; // 1초 간격으로 설정
             timer.Tick += timer1_Tick;
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -558,7 +558,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer2()
         {
             timer3 = new Timer();
-            timer3.Interval = 150; // 1초 간격으로 설정
+            timer3.Interval = 300; // 1초 간격으로 설정
             timer3.Tick += timer3_Tick;
             timer3.Start();
         }
@@ -639,7 +639,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer3()
         {
             timer5 = new Timer();
-            timer5.Interval = 150; // 1초 간격으로 설정
+            timer5.Interval = 300; // 1초 간격으로 설정
             timer5.Tick += timer5_Tick;
             timer5.Start();
         }
@@ -720,7 +720,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer4()
         {
             timer7 = new Timer();
-            timer7.Interval = 150; // 1초 간격으로 설정
+            timer7.Interval = 300; // 1초 간격으로 설정
             timer7.Tick += timer7_Tick;
             timer7.Start();
         }
@@ -801,7 +801,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer5()
         {
             timer9 = new Timer();
-            timer9.Interval = 150; // 1초 간격으로 설정
+            timer9.Interval = 300; // 1초 간격으로 설정
             timer9.Tick += timer9_Tick;
             timer9.Start();
         }
@@ -882,7 +882,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer6()
         {
             timer11 = new Timer();
-            timer11.Interval = 150; // 1초 간격으로 설정
+            timer11.Interval = 300; // 1초 간격으로 설정
             timer11.Tick += timer11_Tick;
             timer11.Start();
         }
