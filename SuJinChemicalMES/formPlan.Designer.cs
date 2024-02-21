@@ -93,6 +93,7 @@ namespace SuJinChemicalMES
             this.timer16 = new System.Windows.Forms.Timer(this.components);
             this.timer17 = new System.Windows.Forms.Timer(this.components);
             this.timer18 = new System.Windows.Forms.Timer(this.components);
+            this.Re_bt = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -521,6 +522,7 @@ namespace SuJinChemicalMES
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel3.Controls.Add(this.Re_bt);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Font = new System.Drawing.Font("굴림", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.panel3.Location = new System.Drawing.Point(26, 24);
@@ -717,6 +719,21 @@ namespace SuJinChemicalMES
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 331);
             this.tableLayoutPanel1.TabIndex = 45;
             // 
+            // Re_bt
+            // 
+            this.Re_bt.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.Re_bt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Re_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Re_bt.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Re_bt.Location = new System.Drawing.Point(1098, 0);
+            this.Re_bt.Margin = new System.Windows.Forms.Padding(2);
+            this.Re_bt.Name = "Re_bt";
+            this.Re_bt.Size = new System.Drawing.Size(113, 30);
+            this.Re_bt.TabIndex = 26;
+            this.Re_bt.Text = "새로고침";
+            this.Re_bt.UseVisualStyleBackColor = true;
+            this.Re_bt.Click += new System.EventHandler(this.Re_bt_Click);
+            // 
             // formPlan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -815,5 +832,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.Timer timer16;
         private System.Windows.Forms.Timer timer17;
         private System.Windows.Forms.Timer timer18;
+        private System.Windows.Forms.Button Re_bt;
     }
 }
