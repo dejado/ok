@@ -152,7 +152,64 @@ namespace SuJinChemicalMES
                     }
                 }
             }
+            string connectionString1 = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString1))
+            {
+                connection.Open();
+
+                // 데이터베이스에서 동일한 이름의 첫 번째 데이터를 확인합니다.
+                string selectQuery = $"SELECT * FROM incoming WHERE product_name = @name ORDER BY registration_date_incoming LIMIT 1";
+
+                using (MySqlCommand selectCommand = new MySqlCommand(selectQuery, connection))
+                {
+                    // 파라미터를 사용하여 SQL 인젝션을 방지합니다.
+                    selectCommand.Parameters.AddWithValue("@name", name);
+
+                    using (MySqlDataReader reader1 = selectCommand.ExecuteReader())
+                    {
+                        if (reader1.Read())
+                        {
+                            // 동일한 이름의 데이터가 이미 존재하면 수량(quantity)을 업데이트합니다.
+                            string currentQuantity = reader1.GetString("quantity");
+                            int newQuantity = int.Parse(currentQuantity) - int.Parse(quantityToMinus);
+
+                            reader1.Close();
+
+                            // 업데이트 쿼리를 사용하여 첫 번째 행의 수량을 업데이트합니다.
+                            string updateQuery = $"UPDATE incoming SET quantity = @newQuantity WHERE product_name = @name";
+
+                            using (MySqlCommand updateCommand = new MySqlCommand(updateQuery, connection))
+                            {
+                                // 파라미터를 사용하여 SQL 인젝션을 방지합니다.
+                                updateCommand.Parameters.AddWithValue("@newQuantity", newQuantity);
+                                updateCommand.Parameters.AddWithValue("@name", name);
+
+                                updateCommand.ExecuteNonQuery();
+                                Console.WriteLine("약품 수량이 수정되었습니다.");
+
+                                // 만약 quantity가 0이라면 현재 행을 삭제하고 다음 행을 업데이트합니다.
+                                if (newQuantity == 0)
+                                {
+                                    string deleteQuery = $"DELETE FROM incoming  WHERE product_name = @name";
+
+                                    using (MySqlCommand deleteCommand = new MySqlCommand(deleteQuery, connection))
+                                    {
+                                        // 파라미터를 사용하여 SQL 인젝션을 방지합니다.
+                                        deleteCommand.Parameters.AddWithValue("@name", name);
+
+                                        deleteCommand.ExecuteNonQuery();
+                                        Console.WriteLine("약품 수량이 0이므로 행이 삭제되었습니다.");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
         }
+
         // InsertData 함수 정의
         private void InsertData(string bath, string medicine, string num, string acidity, string progress, string registrant, string date)
         {
