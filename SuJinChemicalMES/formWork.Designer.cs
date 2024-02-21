@@ -68,9 +68,6 @@ namespace SuJinChemicalMES
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // bathTimer1
-            // 
-            // 
             // tankbs4
             // 
             this.tankbs4.Interval = 800;
@@ -118,7 +115,7 @@ namespace SuJinChemicalMES
             // 
             // bath5
             // 
-            this.bath5.BackColor = System.Drawing.Color.Transparent;
+            this.bath5.BackColor = System.Drawing.SystemColors.Control;
             this.bath5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath5.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -133,7 +130,7 @@ namespace SuJinChemicalMES
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.GreenYellow;
+            this.label1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(0, 0);
@@ -145,7 +142,7 @@ namespace SuJinChemicalMES
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.GreenYellow;
+            this.label2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(841, 0);
@@ -157,7 +154,7 @@ namespace SuJinChemicalMES
             // 
             // label7
             // 
-            this.label7.BackColor = System.Drawing.Color.GreenYellow;
+            this.label7.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label7.Location = new System.Drawing.Point(420, 0);
@@ -169,7 +166,7 @@ namespace SuJinChemicalMES
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.Color.GreenYellow;
+            this.label4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(0, 378);
@@ -181,7 +178,7 @@ namespace SuJinChemicalMES
             // 
             // label5
             // 
-            this.label5.BackColor = System.Drawing.Color.GreenYellow;
+            this.label5.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label5.Location = new System.Drawing.Point(420, 378);
@@ -193,7 +190,7 @@ namespace SuJinChemicalMES
             // 
             // label6
             // 
-            this.label6.BackColor = System.Drawing.Color.GreenYellow;
+            this.label6.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label6.Location = new System.Drawing.Point(841, 378);
@@ -205,7 +202,7 @@ namespace SuJinChemicalMES
             // 
             // bath1
             // 
-            this.bath1.BackColor = System.Drawing.Color.Transparent;
+            this.bath1.BackColor = System.Drawing.SystemColors.Control;
             this.bath1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath1.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -220,7 +217,7 @@ namespace SuJinChemicalMES
             // 
             // bath2
             // 
-            this.bath2.BackColor = System.Drawing.Color.Transparent;
+            this.bath2.BackColor = System.Drawing.SystemColors.Control;
             this.bath2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath2.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -235,7 +232,7 @@ namespace SuJinChemicalMES
             // 
             // bath3
             // 
-            this.bath3.BackColor = System.Drawing.Color.Transparent;
+            this.bath3.BackColor = System.Drawing.SystemColors.Control;
             this.bath3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath3.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -250,7 +247,7 @@ namespace SuJinChemicalMES
             // 
             // bath6
             // 
-            this.bath6.BackColor = System.Drawing.Color.Transparent;
+            this.bath6.BackColor = System.Drawing.SystemColors.Control;
             this.bath6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath6.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -265,7 +262,7 @@ namespace SuJinChemicalMES
             // 
             // bath4
             // 
-            this.bath4.BackColor = System.Drawing.Color.Transparent;
+            this.bath4.BackColor = System.Drawing.SystemColors.Control;
             this.bath4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bath4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bath4.Image = global::SuJinChemicalMES.Properties.Resources.tamk02;
@@ -282,7 +279,7 @@ namespace SuJinChemicalMES
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1263, 758);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
