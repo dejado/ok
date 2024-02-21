@@ -230,7 +230,6 @@ namespace SuJinChemicalMES
                 command.Parameters.AddWithValue("@LotNum", LotNum);
 
                 command.ExecuteNonQuery();
-                MessageBox.Show("삭제되었습니다.");
                 connection.Close();
             }
         }
@@ -460,7 +459,6 @@ namespace SuJinChemicalMES
                 command.Parameters.AddWithValue("@LotNum", LotNum);
 
                 command.ExecuteNonQuery();
-                MessageBox.Show("삭제되었습니다.");
                 connection.Close();
             }
         }

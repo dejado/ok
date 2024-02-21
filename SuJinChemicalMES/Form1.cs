@@ -864,6 +864,7 @@ namespace SuJinChemicalMES
                             department = reader["department"].ToString();
                             dataContainer.Name = reader["name"].ToString();
                         }
+                     
                     }
                     reader.Close();
                     con.Close(); //데이터베이스 연결 닫음

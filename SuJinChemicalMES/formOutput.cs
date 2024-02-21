@@ -135,7 +135,7 @@ namespace SuJinChemicalMES
                             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
                             string query = $"INSERT INTO shipment (progress,order_number,due_date," +
                                 $"company,product_code,product_name,lot_no,quantity,order_quantity,registration_date_shipment," +
-                                $"registrant_shipment,location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
+                                $"registrant_shipment,location,test_results) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
                                 $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
                                 $" '{Outlocation}','{result}')";
 
@@ -199,7 +199,7 @@ namespace SuJinChemicalMES
                             // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
                             string query = $"INSERT INTO accumulated_data (progress,order_number,due_date," +
                                 $"supplier,product_code,product_name,lot_no,quantity,production_plan_quantity,registration_date," +
-                                $"registrant,warehouse_location,test_results,cause_of_defect) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
+                                $"registrant,warehouse_location,test_results) VALUES ('{progress}', '{order_num}','{due_date}', '{company}', " +
                                 $"'{productCode}', '{productName}', '{lotNo}', '{quantity}','{order_quantity}',  '{date}', '{registrant}'," +
                                 $" '{Outlocation}','{result}')";
 
@@ -240,7 +240,7 @@ namespace SuJinChemicalMES
                 command.Parameters.AddWithValue("@LotNum", LotNum);
 
                 command.ExecuteNonQuery();
-                MessageBox.Show("삭제되었습니다.");
+               
                 connection.Close();
             }
         }
@@ -402,7 +402,7 @@ namespace SuJinChemicalMES
                 command.Parameters.AddWithValue("@LotNum", LotNum);
 
                 command.ExecuteNonQuery();
-                MessageBox.Show("삭제되었습니다.");
+                
                 connection.Close();
             }
         }
