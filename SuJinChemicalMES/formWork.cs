@@ -16,6 +16,7 @@ namespace SuJinChemicalMES
 
         private string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
         private Timer timer;
+        private formBath bath;
 
         public formWork()
         {
@@ -23,7 +24,68 @@ namespace SuJinChemicalMES
 
             LoadImageFromDatabase();
             InitializeTimer();
+
+
+
         }
+        private void InitializePictureBoxEvents(int pictureBoxIndex)
+        {
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+            {bath1, bath2, bath3, bath4, bath5, bath6 };
+
+            // PictureBoxIndex에 해당하는 PictureBox에만 이벤트 핸들러를 추가합니다.
+            pictureBoxList[pictureBoxIndex].MouseEnter += PictureBox_MouseEnter;
+            pictureBoxList[pictureBoxIndex].MouseLeave += PictureBox_MouseLeave;
+        }
+        private void PictureBox_MouseEnter(object sender, EventArgs e)
+        {
+            // PictureBox 위에 마우스가 올라갈 때 실행되는 코드
+            PictureBox pictureBox = (PictureBox)sender;
+            OpenBathForm(pictureBox.Name);
+        }
+
+        private void PictureBox_MouseLeave(object sender, EventArgs e)
+        {
+            // PictureBox에서 마우스가 빠져나갈 때 실행되는 코드
+            CloseBathForm();
+        }
+        private void OpenBathForm(string pictureBoxName)
+        {
+            // 이미 열려 있는지 확인
+            if (bath == null || bath.IsDisposed)
+            {
+                // 폼이 열려있지 않으면 새로운 인스턴스 생성 및 열기
+                bath = new formBath();
+                bath.Text = "Form for " + pictureBoxName; // 예시로 폼의 타이틀을 설정
+                string fifthCharacter = pictureBoxName[4].ToString();
+                bath.SetSecondCharacter(fifthCharacter);
+                bath.Show();
+            }
+            else if (!bath.Visible) // Check if the form is not visible (closed)
+            {
+                // 이미 열려 있는 경우 해당 폼을 다시 표시
+                bath.Text = "Form for " + pictureBoxName;
+                string fifthCharacter = pictureBoxName[4].ToString();
+                bath.SetSecondCharacter(fifthCharacter);
+                bath.Show();
+            }
+            else
+            {
+                // 이미 열려 있는 경우 해당 폼을 활성화
+                bath.Activate();
+            }
+        }
+
+        private void CloseBathForm()
+        {
+            // FormBath가 열려있을 경우 닫습니다.
+            if (bath != null && !bath.IsDisposed)
+            {
+                bath.Close();
+            }
+        }
+
+
 
         private void formWork_Load(object sender, EventArgs e)
         {
@@ -31,7 +93,7 @@ namespace SuJinChemicalMES
 
 
         }
-        
+
         private void InitializeTimer()
         {
             timer = new Timer();
@@ -43,7 +105,7 @@ namespace SuJinChemicalMES
         public void LoadImageFromDatabase()
         {
             List<PictureBox> pictureBoxList = new List<PictureBox>
-        {bath5, bath2, bath4, bath1, bath3, bath6 };
+        {bath1, bath2, bath3, bath4, bath5, bath6 };
 
             try
             {
@@ -70,6 +132,7 @@ namespace SuJinChemicalMES
                                 if (int.TryParse(secondCharacter.ToString(), out int result))
                                 {
                                     secondCharacterAsInt = result;
+
                                 }
                                 else
                                 {
@@ -78,6 +141,8 @@ namespace SuJinChemicalMES
                             }
 
                             SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+                            InitializePictureBoxEvents(secondCharacterAsInt - 1);
+
                         }
                     }
                 }
@@ -127,5 +192,9 @@ namespace SuJinChemicalMES
             LoadImageFromDatabase();
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

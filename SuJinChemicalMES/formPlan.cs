@@ -329,13 +329,43 @@ namespace SuJinChemicalMES
 
                 dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
                 dataGridView1.CurrentCell = null; // 현재 선택된 셀 해제
-
+                Insert(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, workingtime, currentDate, "나현진");
             }
             else
             {
                 MessageBox.Show("빈 칸을 채워주세요.");
             }
 
+        }
+
+        private void Insert(string order_num, string lot, string code, string name, string bath, string quantity, string real_quantity, string time, string date, string registant)
+        {
+            string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    // MySQL 데이터베이스로 데이터 전송을 위한 SQL 쿼리 작성
+                    string query = $"INSERT INTO working (order_num, lot_no, code, name, bath, quantity, real_quantity, time, date, registant) " +
+                $"VALUES ('{order_num}', '{lot}', '{code}', '{name}', '{bath}', '{quantity}', '{real_quantity}', " +
+                $"'{time}', '{date}', '{registant}')";
+
+                    // 쿼리 실행
+                    using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                    {
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    // 데이터 전송 후 작업 완료 메시지 표시
+                    MessageBox.Show("데이터 전송이 완료되었습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show($"오류 발생: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
 
@@ -451,6 +481,20 @@ namespace SuJinChemicalMES
                             command.ExecuteNonQuery();
                         }
                     }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스1호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                    }
                 }
             }
         }
@@ -517,6 +561,20 @@ namespace SuJinChemicalMES
                         {
                             command.ExecuteNonQuery();
                         }
+                    }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스2호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
                     }
                 }
             }
@@ -585,6 +643,20 @@ namespace SuJinChemicalMES
                             command.ExecuteNonQuery();
                         }
                     }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스3호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                    }
                 }
             }
         }
@@ -651,6 +723,20 @@ namespace SuJinChemicalMES
                         {
                             command.ExecuteNonQuery();
                         }
+                    }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스4호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
                     }
                 }
             }
@@ -719,6 +805,20 @@ namespace SuJinChemicalMES
                             command.ExecuteNonQuery();
                         }
                     }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스5호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
+                    }
                 }
             }
         }
@@ -785,6 +885,20 @@ namespace SuJinChemicalMES
                         {
                             command.ExecuteNonQuery();
                         }
+                    }
+                    string connectionString1 = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
+                    using (MySqlConnection connection1 = new MySqlConnection(connectionString1))
+                    {
+                        connection1.Open();
+
+                        // MySQL 쿼리 작성
+                        string query1 = $"DELETE FROM working WHERE bath = '베스6호'";
+
+                        using (MySqlCommand command = new MySqlCommand(query1, connection1))
+                        {
+                            command.ExecuteNonQuery();
+                        }
+
                     }
                 }
             }
