@@ -141,7 +141,7 @@ namespace SuJinChemicalMES
                             }
 
 
-                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], bethNumber);
                             InitializePictureBoxEvents(secondCharacterAsInt - 1);
 
                         }
@@ -154,18 +154,17 @@ namespace SuJinChemicalMES
                 MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
             }
         }
-        private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
+        private void SetPictureBoxImage(PictureBox pictureBox, string bethNumber)
         {
-            switch (chemicalType)
+            switch (bethNumber)
             {
+                /*
                 case "인산(H3PO4)":
                     tankak4.Start();
-                    bathH(pictureBox);
                     if (count > 40) { break; }
                     break;
                 case "암모니아(NH4OH)":
                     tankam4.Start();
-                    bathN(pictureBox);
                     if (count2 > 40) { break; }
                     break;
                 case "황산(H2SO4)":
@@ -193,6 +192,32 @@ namespace SuJinChemicalMES
                     pictureBox.Image = Properties.Resources.tankys4;
                     break;
                     // 다른 경우에 대한 처리도 추가 가능
+                    */
+                case "베스1호":
+                    //if(a==1) bath1.Image = Properties.Resources.tankgs4;
+                    tankak4.Start();
+                    //bathH(pictureBox);
+                    if (count > 40) { break; }
+                    //bathTimer1.Stop();
+                    break;
+                case "베스2호":
+                    tankam4.Start();
+                    if (count2 > 40) { break; }
+                    break;
+                case "베스3호":
+                    tankbs4.Start();
+                    if (count2 > 40) { break; }
+                    break;
+                case "베스4호":
+                    pictureBox.Image = Properties.Resources.tankgs4;
+                    break;
+                case "베스5호":
+                    //pictureBox.Image = Properties.Resources.tankhs4;
+                    //bathTimer1.Stop();
+                    break;
+                case "베스6호":
+                    bath6.Image = Properties.Resources.tankis4;
+                    break;
             }
         }
 
@@ -219,14 +244,9 @@ namespace SuJinChemicalMES
         private void bathTimer1_Tick(object sender, EventArgs e)
         {
             count++;
-
-        }
-        private void bathH(PictureBox pictureBox)
-        {
-
             if (count <= 10)
             {
-                pictureBox.Image = Properties.Resources.tankzak4_1;
+                bath1.Image = Properties.Resources.tankzak4_1;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tamk02;
@@ -236,7 +256,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 20)
             {
-                pictureBox.Image = Properties.Resources.tankzak4_1;
+                bath1.Image = Properties.Resources.tankzak4_1;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_2;
@@ -246,7 +266,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 30)
             {
-                pictureBox.Image = Properties.Resources.tankzak4_2;
+                bath1.Image = Properties.Resources.tankzak4_2;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_3;
@@ -256,7 +276,7 @@ namespace SuJinChemicalMES
             }
             else if (count <= 40)
             {
-                pictureBox.Image = Properties.Resources.tankzak4_3;
+                bath1.Image = Properties.Resources.tankzak4_3;
                 if (b >= 1)
                 {
                     bath1.Image = Properties.Resources.tankzak4_4;
@@ -264,9 +284,8 @@ namespace SuJinChemicalMES
                 }
                 else b++;
             }
-            else pictureBox.Image = Properties.Resources.tankzak4_4;
+            else bath1.Image = Properties.Resources.tankzak4_4;
         }
-
 
         //노란_tankam4_암모니아(NH4OH)  
         int b2 = 0;
@@ -274,14 +293,9 @@ namespace SuJinChemicalMES
         private void bathTimer2_Tick(object sender, EventArgs e)
         {
             count2++;
-
-        }
-
-        public void bathN(PictureBox pictureBox)
-        {
             if (count2 <= 10)
             {
-                pictureBox.Image = Properties.Resources.tankam4_1;
+                bath2.Image = Properties.Resources.tankam4_1;
                 if (b2 >= 1)
                 {
                     bath2.Image = Properties.Resources.tamk02;
@@ -291,17 +305,17 @@ namespace SuJinChemicalMES
             }
             else if (count2 <= 20)
             {
-                pictureBox.Image = Properties.Resources.tankam4_1;
+                bath2.Image = Properties.Resources.tankam4_1;
                 if (b2 >= 1)
                 {
-                    pictureBox.Image = Properties.Resources.tankam4_2;
+                    bath2.Image = Properties.Resources.tankam4_2;
                     b2 = 0;
                 }
                 else b2++;
             }
             else if (count2 <= 30)
             {
-                pictureBox.Image = Properties.Resources.tankam4_2;
+                bath2.Image = Properties.Resources.tankam4_2;
                 if (b2 >= 1)
                 {
                     bath2.Image = Properties.Resources.tankam4_3;
@@ -311,7 +325,7 @@ namespace SuJinChemicalMES
             }
             else if (count2 <= 40)
             {
-                pictureBox.Image = Properties.Resources.tankam4_3;
+                bath2.Image = Properties.Resources.tankam4_3;
                 if (b2 >= 1)
                 {
                     bath2.Image = Properties.Resources.tankam4_4;
@@ -319,7 +333,7 @@ namespace SuJinChemicalMES
                 }
                 else b2++;
             }
-            else pictureBox.Image = Properties.Resources.tankam4_4;
+            else bath2.Image = Properties.Resources.tankam4_4;
         }
 
         //하얀_tankbs4_황산(H2SO4)
