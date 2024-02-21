@@ -288,7 +288,7 @@ namespace SuJinChemicalMES
             this.Calendar_dtp.Dock = System.Windows.Forms.DockStyle.Right;
             this.Calendar_dtp.Location = new System.Drawing.Point(534, 0);
             this.Calendar_dtp.Name = "Calendar_dtp";
-            this.Calendar_dtp.Size = new System.Drawing.Size(168, 23);
+            this.Calendar_dtp.Size = new System.Drawing.Size(168, 27);
             this.Calendar_dtp.TabIndex = 8;
             this.Calendar_dtp.ValueChanged += new System.EventHandler(this.Calendar_dtp_ValueChanged);
             // 
@@ -442,7 +442,7 @@ namespace SuJinChemicalMES
             // 
             // formMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1263, 758);

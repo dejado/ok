@@ -31,6 +31,8 @@ namespace SuJinChemicalMES
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.Input_grid = new System.Windows.Forms.DataGridView();
             this.InCheck = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -400,6 +402,14 @@ namespace SuJinChemicalMES
             // InputOk_grid
             // 
             this.InputOk_grid.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.InputOk_grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.InputOk_grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.InputOk_grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
@@ -413,6 +423,14 @@ namespace SuJinChemicalMES
             this.num1,
             this.Column1,
             this.register1});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.InputOk_grid.DefaultCellStyle = dataGridViewCellStyle4;
             this.InputOk_grid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.InputOk_grid.Location = new System.Drawing.Point(23, 60);
             this.InputOk_grid.Margin = new System.Windows.Forms.Padding(23, 2, 3, 12);

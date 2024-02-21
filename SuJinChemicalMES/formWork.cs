@@ -17,7 +17,6 @@ namespace SuJinChemicalMES
         private string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
         private Timer timer;
         private formBath bath;
-        int a;
 
         public formWork()
         {
@@ -98,7 +97,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 100; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Interval = 500; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
             timer.Tick += timer1_Tick;
             timer.Start();
         }
@@ -140,54 +139,37 @@ namespace SuJinChemicalMES
                                     MessageBox.Show("변환 실패");
                                 }
                             }
-                            if (chemicalType == "인산(H3PO4)") { a = 1; }
-                            if (chemicalType == "암모니아(NH4OH)") { a = 2; }
-                            if (chemicalType == "황산(H2SO4)") { a = 3; }
-                            if (chemicalType == "과산화수소(H2O2)") { a = 4; }
-                            if (chemicalType == "불산(HF)") { a = 5; }
-                            if (chemicalType == "질산(NHO3)") { a = 6; }
-                            if (chemicalType == "알카리") { a = 7; }
-                            if (chemicalType == "염산(HCl)") { a = 8; }
-                            if (chemicalType == "염산") { a = 8; }
 
-                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], bethNumber);
+                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
                             InitializePictureBoxEvents(secondCharacterAsInt - 1);
 
                         }
                     }
                 }
-                //bathTimer1.Start();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
             }
         }
-        private void SetPictureBoxImage(PictureBox pictureBox, string bethNumber)
+        private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
         {
-            switch (bethNumber)
+            switch (chemicalType)
             {
-                /*
                 case "인산(H3PO4)":
-                    tankak4.Start();
-                    if (count > 40) { break; }
+                    pictureBox.Image = Properties.Resources.tankak4;
                     break;
                 case "암모니아(NH4OH)":
-                    tankam4.Start();
-                    if (count2 > 40) { break; }
+                    pictureBox.Image = Properties.Resources.tankam4;
                     break;
                 case "황산(H2SO4)":
-                    tankbs4.Start();
-                    if (count2 > 40) { break; }
+                    pictureBox.Image = Properties.Resources.tankbs4;
                     break;
                 case "과산화수소(H2O2)":
                     pictureBox.Image = Properties.Resources.tankgs4;
                     break;
                 case "불산(HF)":
-                    //pictureBox.Image = Properties.Resources.tankhs4;
-                    tankak4.Start();
-                    if (count > 40) { break; }
-                    //bathTimer1.Stop();
+                    pictureBox.Image = Properties.Resources.tankhs4;
                     break;
                 case "질산(NHO3)":
                     pictureBox.Image = Properties.Resources.tankis4;
@@ -201,32 +183,6 @@ namespace SuJinChemicalMES
                     pictureBox.Image = Properties.Resources.tankys4;
                     break;
                     // 다른 경우에 대한 처리도 추가 가능
-                    */
-                case "베스1호":
-                    //if(a==1) bath1.Image = Properties.Resources.tankgs4;
-                    tankak4.Start();
-                    //bathH(pictureBox);
-                    if (count > 40) { break; }
-                    //bathTimer1.Stop();
-                    break;
-                case "베스2호":
-                    tankam4.Start();
-                    if (count2 > 40) { break; }
-                    break;
-                case "베스3호":
-                    tankbs4.Start();
-                    if (count2 > 40) { break; }
-                    break;
-                case "베스4호":
-                    pictureBox.Image = Properties.Resources.tankgs4;
-                    break;
-                case "베스5호":
-                    //pictureBox.Image = Properties.Resources.tankhs4;
-                    //bathTimer1.Stop();
-                    break;
-                case "베스6호":
-                    bath6.Image = Properties.Resources.tankis4;
-                    break;
             }
         }
 
@@ -237,340 +193,6 @@ namespace SuJinChemicalMES
         }
 
         private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        //보라_tankak4_인산(H3PO4) 
-        int b = 0;
-        int count = 0;
-        private void bathTimer1_Tick(object sender, EventArgs e)
-        {
-            if (a == 1)
-            {
-                count++;
-                if (count <= 10)
-                {
-                    bath1.Image = Properties.Resources.tankzak4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tamk02;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 20)
-                {
-                    bath1.Image = Properties.Resources.tankzak4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankzak4_2;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 30)
-                {
-                    bath1.Image = Properties.Resources.tankzak4_2;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankzak4_3;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 40)
-                {
-                    bath1.Image = Properties.Resources.tankzak4_3;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankzak4_4;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else bath1.Image = Properties.Resources.tankzak4_4;
-            }
-            else if (a == 2)    // 암모니아 베스1호
-            {
-                if (count <= 10)
-                {
-                    bath1.Image = Properties.Resources.tankam4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tamk02;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 20)
-                {
-                    bath1.Image = Properties.Resources.tankam4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankam4_2;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 30)
-                {
-                    bath1.Image = Properties.Resources.tankam4_2;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankam4_3;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 40)
-                {
-                    bath1.Image = Properties.Resources.tankam4_3;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankam4_4;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else bath1.Image = Properties.Resources.tankam4_4;
-            }
-            else if (a == 2)    // 황산 베스1호
-            {
-                if (count <= 10)
-                {
-                    bath1.Image = Properties.Resources.tankbs4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tamk02;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 20)
-                {
-                    bath1.Image = Properties.Resources.tankbs4_1;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankbs4_2;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 30)
-                {
-                    bath1.Image = Properties.Resources.tankbs4_2;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankbs4_3;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else if (count <= 40)
-                {
-                    bath1.Image = Properties.Resources.tankbs4_3;
-                    if (b >= 1)
-                    {
-                        bath1.Image = Properties.Resources.tankbs4_4;
-                        b = 0;
-                    }
-                    else b++;
-                }
-                else bath1.Image = Properties.Resources.tankbs4_4;
-            }
-        }
-
-        //노란_tankam4_암모니아(NH4OH)  
-        int b2 = 0;
-        int count2 = 0;
-        private void bathTimer2_Tick(object sender, EventArgs e)
-        {
-            count2++;
-            if (count2 <= 10)
-            {
-                bath2.Image = Properties.Resources.tankam4_1;
-                if (b2 >= 1)
-                {
-                    bath2.Image = Properties.Resources.tamk02;
-                    b2 = 0;
-                }
-                else b2++;
-            }
-            else if (count2 <= 20)
-            {
-                bath2.Image = Properties.Resources.tankam4_1;
-                if (b2 >= 1)
-                {
-                    bath2.Image = Properties.Resources.tankam4_2;
-                    b2 = 0;
-                }
-                else b2++;
-            }
-            else if (count2 <= 30)
-            {
-                bath2.Image = Properties.Resources.tankam4_2;
-                if (b2 >= 1)
-                {
-                    bath2.Image = Properties.Resources.tankam4_3;
-                    b2 = 0;
-                }
-                else b2++;
-            }
-            else if (count2 <= 40)
-            {
-                bath2.Image = Properties.Resources.tankam4_3;
-                if (b2 >= 1)
-                {
-                    bath2.Image = Properties.Resources.tankam4_4;
-                    b2 = 0;
-                }
-                else b2++;
-            }
-            else bath2.Image = Properties.Resources.tankam4_4;
-        }
-
-        //하얀_tankbs4_황산(H2SO4)
-        int b3 = 0;
-        int count3 = 0;
-        private void tankbs4_Tick(object sender, EventArgs e)
-        {
-            count3++;
-            if (count3 <= 10)
-            {
-                bath3.Image = Properties.Resources.tankbs4_1;
-                if (b3 >= 1)
-                {
-                    bath3.Image = Properties.Resources.tamk02;
-                    b3 = 0;
-                }
-                else b3++;
-            }
-            else if (count3 <= 20)
-            {
-                bath3.Image = Properties.Resources.tankbs4_1;
-                if (b3 >= 1)
-                {
-                    bath3.Image = Properties.Resources.tankbs4_2;
-                    b3 = 0;
-                }
-                else b3++;
-            }
-            else if (count3 <= 30)
-            {
-                bath3.Image = Properties.Resources.tankbs4_2;
-                if (b3 >= 1)
-                {
-                    bath3.Image = Properties.Resources.tankbs4_3;
-                    b3 = 0;
-                }
-                else b3++;
-            }
-            else if (count3 <= 40)
-            {
-                bath3.Image = Properties.Resources.tankbs4_3;
-                if (b3 >= 1)
-                {
-                    bath3.Image = Properties.Resources.tankbs4_4;
-                    b3 = 0;
-                }
-                else b3++;
-            }
-            else bath3.Image = Properties.Resources.tankbs4_4;
-        }
-
-        private void tankgs4_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bath4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer4_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer5_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer6_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timer7_Tick(object sender, EventArgs e)
         {
 
         }
