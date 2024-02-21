@@ -13,13 +13,21 @@ namespace SuJinChemicalMES
 {
     public partial class formAddproductOkay : Form
     {
-
+        private DataContainer dataContainer;
 
         public formAddproductOkay()
         {
             InitializeComponent();
             textBox6.Click += textBox6_Click;
             textBox4.Click += textBox4_Click;
+
+        }
+        public formAddproductOkay(DataContainer dataContainer)
+        {
+            InitializeComponent();
+            textBox6.Click += textBox6_Click;
+            textBox4.Click += textBox4_Click;
+            this.dataContainer = dataContainer;
         }
 
 
@@ -81,7 +89,7 @@ namespace SuJinChemicalMES
             // dateTimePicker2에서 선택된 날짜를 DataGridView2의 등록일 열에 할당
             dataGridView2.Rows[index].Cells[6].Value = dateTimePicker2.Value.ToString("yyyy-MM-dd");
 
-            dataGridView2.Rows[index].Cells[5].Value = "임진우";
+            dataGridView2.Rows[index].Cells[5].Value = dataContainer.Name;
 
             // 등록자는 여기서는 생략했는데 필요하다면 적절한 값을 할당할 수 있습니다.
 

@@ -13,14 +13,23 @@ namespace SuJinChemicalMES
 {
     public partial class formRecipeOkay : Form
     {
+        private DataContainer dataContainer;
         public formRecipeOkay()
         {
             InitializeComponent();
             textBox3.Click += textBox3_Click;
             textBox2.Click += textBox2_Click;
 
-        }
 
+        }
+        public formRecipeOkay(DataContainer dataContainer)
+        {
+            InitializeComponent();
+            textBox3.Click += textBox3_Click;
+            textBox2.Click += textBox2_Click;
+            this.dataContainer = dataContainer;
+
+        }
         private void formRecipeOkay_Load(object sender, EventArgs e)
         {
 
@@ -69,8 +78,7 @@ namespace SuJinChemicalMES
             dataGridView2.Rows[index].Cells[8].Value = textBox7.Text;
 
             // 데이터그리드뷰2의 9번 셀에 "임진우" 입력
-            dataGridView2.Rows[index].Cells[9].Value = "임진우";
-
+            dataGridView2.Rows[index].Cells[9].Value = dataContainer.Name;
             // 등록자는 여기서는 생략
 
             // 텍스트박스1부터 텍스트박스7까지 초기화
