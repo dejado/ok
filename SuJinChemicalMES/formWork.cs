@@ -23,7 +23,7 @@ namespace SuJinChemicalMES
             InitializeComponent();
 
             LoadImageFromDatabase();
-            //InitializeTimer();
+            InitializeTimer();
 
 
 
@@ -102,61 +102,70 @@ namespace SuJinChemicalMES
             timer.Start();
         }
         public void LoadImageFromDatabase()
-{
-    List<PictureBox> pictureBoxList = new List<PictureBox>
-    {bath1, bath2, bath3, bath4, bath5, bath6 };
-
-    try
-    {
-        using (MySqlConnection connection = new MySqlConnection(connectionString))
         {
-            connection.Open();
-
-            string query = "SELECT bath_num, medicine_type FROM bath";
-
-            using (MySqlCommand command = new MySqlCommand(query, connection))
-            using (MySqlDataReader reader = command.ExecuteReader())
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+            {bath1, bath2, bath3, bath4, bath5, bath6 };
+            List <int>bath=new List <int>();
+            try
             {
-                while (reader.Read())
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string bethNumber = reader["bath_num"].ToString();
-                    string chemicalType = reader["medicine_type"].ToString();
+                    connection.Open();
 
-                    int secondCharacterAsInt = 0;
+                    string query = "SELECT bath_num, medicine_type FROM bath";
 
-                    if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        char secondCharacter = bethNumber[2];
+                        while (reader.Read())
+                        {
+                            string bethNumber = reader["bath_num"].ToString();
+                            string chemicalType = reader["medicine_type"].ToString();
 
-                        if (int.TryParse(secondCharacter.ToString(), out int result))
-                        {
-                            secondCharacterAsInt = result;
-                        }
-                        else
-                        {
-                            MessageBox.Show("변환 실패");
-                        }
-                    }
+                            int secondCharacterAsInt = 0;
 
-                    SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
-                    InitializePictureBoxEvents(secondCharacterAsInt - 1);
-                }
-                        // Set default image for unselected PictureBoxes
-                        foreach (PictureBox pictureBox in pictureBoxList)
-                        {
-                            if (!pictureBoxList.Contains(pictureBox))
+                            if (!string.IsNullOrEmpty(bethNumber) && bethNumber.Length >= 2)
                             {
-                                pictureBox.Image = Properties.Resources.tamk02;
+                                char secondCharacter = bethNumber[2];
+
+                                if (int.TryParse(secondCharacter.ToString(), out int result))
+                                {
+                                    secondCharacterAsInt = result;
+                                    bath.Add(secondCharacterAsInt-1);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("변환 실패");
+                                }
                             }
+
+                            SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+                            InitializePictureBoxEvents(secondCharacterAsInt - 1);
+                            
                         }
                     }
+                    DefaultImage(bath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
+            }
         }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
-    }
-}
+        private void DefaultImage(List <int>bath)
+        {
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+            { bath1, bath2, bath3, bath4, bath5, bath6 };
+
+            for (int i = 0; i < pictureBoxList.Count; i++)
+            {
+                if (!bath.Contains(i))
+                {
+                    pictureBoxList[i].Image = Properties.Resources.tamk02;
+                }
+            }
+
+        }
         private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
         {
             switch (chemicalType)
@@ -188,7 +197,7 @@ namespace SuJinChemicalMES
                     pictureBox.Image = Properties.Resources.tankys4;
                     break;
                 default:
-                    pictureBox.Image = Properties.Resources.tamk02;
+                    pictureBox.Image = Properties.Resources.tankak4;
                     break;
             }
         }
@@ -204,10 +213,5 @@ namespace SuJinChemicalMES
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoadImageFromDatabase();
-          
-        }
     }
 }

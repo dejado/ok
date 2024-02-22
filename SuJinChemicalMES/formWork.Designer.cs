@@ -55,7 +55,6 @@ namespace SuJinChemicalMES
             this.bath4 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bath5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bath1)).BeginInit();
@@ -270,7 +269,6 @@ namespace SuJinChemicalMES
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(841, 0);
@@ -290,18 +288,6 @@ namespace SuJinChemicalMES
             this.label2.Size = new System.Drawing.Size(301, 22);
             this.label2.TabIndex = 23;
             this.label2.Text = "베스 3호";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(304, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 22);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "새로고침";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // formWork
             // 
@@ -352,7 +338,6 @@ namespace SuJinChemicalMES
         private System.Windows.Forms.PictureBox bath6;
         private System.Windows.Forms.PictureBox bath4;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
     }
 }
