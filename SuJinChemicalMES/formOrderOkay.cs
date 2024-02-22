@@ -13,7 +13,6 @@ namespace SuJinChemicalMES
 {
     public partial class formOrderOkay : Form
     {
-        private DataContainer dataContainer;
 
 
         public formOrderOkay()
@@ -25,7 +24,7 @@ namespace SuJinChemicalMES
         public formOrderOkay(DataContainer dataContainer)
         {
             InitializeComponent();
-            dataContainer = dataContainer;
+
         }
         public TextBox TextBox3 => textBox3;
         public TextBox TextBox4 => textBox4;
@@ -250,8 +249,21 @@ namespace SuJinChemicalMES
             // 납기요청일에 dateTimePicker2에서 선택한 날짜 할당
             dataGridView2.Rows[index].Cells[8].Value = dateTimePicker2.Value.ToString("yyyy-MM-dd");
 
-            // 등록자 할당
-            dataGridView2.Rows[index].Cells[9].Value = "마스터";
+            // Form1의 인스턴스를 얻어옵니다.
+            Form1 form1Instance = Application.OpenForms.OfType<Form1>().FirstOrDefault();
+
+            // Form1이 존재하고, name_lb 라벨이 존재하는지 확인합니다.
+            if (form1Instance != null && form1Instance.Controls.Find("name_lb", true).Length > 0)
+            {
+                // name_lb 라벨의 텍스트 값을 가져와서 '사용자 : ' 부분을 제거한 뒤 dataGridView2의 셀에 할당합니다.
+                string labelText = form1Instance.Controls.Find("name_lb", true)[0].Text;
+                int colonIndex = labelText.IndexOf(':');
+                if (colonIndex != -1 && colonIndex + 2 < labelText.Length) // ':'이 발견되고, ':' 이후에 문자가 존재하는지 확인
+                {
+                    dataGridView2.Rows[index].Cells[9].Value = labelText.Substring(colonIndex + 2);
+                }
+
+            }
 
             // 진행상태에 발주서등록 할당
             dataGridView2.Rows[index].Cells[10].Value = "발주서등록";
