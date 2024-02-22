@@ -43,7 +43,7 @@ namespace SuJinChemicalMES
             CalendarPick_gv.Columns.Add("order_number", "주문번호");
             CalendarPick_gv.Columns.Add("due_date", "납기일");
             CalendarPick_gv.Columns.Add("lot_no", "Lot No.");
-            CalendarPick_gv.Columns.Add("company", "회사명");
+            CalendarPick_gv.Columns.Add("supplier", "회사명");
             CalendarPick_gv.Columns.Add("product_code", "제품코드");
             CalendarPick_gv.Columns.Add("product_code", "제품이름");
             CalendarPick_gv.Columns.Add("quantity", "제품수량");
@@ -60,7 +60,7 @@ namespace SuJinChemicalMES
 
         private void formMainOkay_Load(object sender, EventArgs e)
         {
-            CalendarPickList_lb.Text = CalendarPick_st + "생산일정";
+            CalendarPickList_lb.Text = CalendarPick_st + "생산 로그";
             DayListLoad();
         }
 
@@ -73,7 +73,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT order_number, due_date, lot_no, company, product_code, product_name, quantity FROM accumulated_data WHERE  registration_date = @CalendarPickday AND progress = '생산완료'";
+                string Query = "SELECT order_number, due_date, lot_no, supplier, product_code, product_name, quantity FROM accumulated_data WHERE  registration_date = @CalendarPickday AND progress = '생산완료'";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 

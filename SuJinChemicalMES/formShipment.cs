@@ -453,6 +453,7 @@ namespace SuJinChemicalMES
         {
             ShowSHdatagridview();
             LoadCompanies();
+            ShowGridView1();
             CompanyCb.SelectedIndex = -1;
             product_nametb.Text = "";
             product_codetb.Text = "";

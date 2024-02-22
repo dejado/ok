@@ -178,8 +178,8 @@ namespace SuJinChemicalMES
 
        private void AddChart()
         {
-            Achieve_ct.Series["PlanSum_s"].Points.Clear();
-            Achieve_ct.Series["CompleteSum_s"].Points.Clear();
+            Achieve_ct.Series["IncomingSum_s"].Points.Clear();
+            Achieve_ct.Series["PruductSum_s"].Points.Clear();
             Achieve_ct.Series["CompleteRate_s"].Points.Clear();
 
             MySqlConnection con = new MySqlConnection("Server = 10.10.32.82; Database = accumulated_data; User id = team; Password = team1234");
@@ -187,7 +187,43 @@ namespace SuJinChemicalMES
             con.Open();
             //SQL 서버 연결.
 
-            string Query = "SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
+            string Query = @"SELECT D.supplier, D.in_quantity, E.out_quantity, F.day_quantity
+                            FROM ((
+                                SELECT b.supplier AS supplier, SUM(CASE WHEN a.progress = '입고' AND a.warehouse_location = '양품IA' THEN a.quantity ELSE 0 END) AS in_quantity 
+                                FROM accumulated_data a
+                                JOIN accumulated_data b ON a.lot_no = b.lot_no AND b.progress = '발주서등록'
+                                WHERE a.progress = '입고'
+                                AND STR_TO_DATE(a.registration_date, '%Y-%m-%d') <= STR_TO_DATE(@baseday_dt, '%Y-%m-%d') 
+                                AND NOT EXISTS (
+                                    SELECT 1 
+                                    FROM accumulated_data c 
+                                    WHERE c.lot_no = a.lot_no 
+                                    AND c.progress = '발주서등록' 
+                                    AND (
+                                        c.product_name LIKE '%황산%' OR 
+                                        c.product_name LIKE '%염산%' OR 
+                                        c.product_name LIKE '%과산화%' OR 
+                                        c.product_name LIKE '%불산%' OR 
+                                        c.product_name LIKE '%알카리%' OR 
+                                        c.product_name LIKE '%암모니아%' OR 
+                                        c.product_name LIKE '%인산%' OR 
+                                        c.product_name LIKE '%질산%'))
+                                GROUP BY b.supplier) D,
+                                (SELECT supplier, SUM(CASE WHEN quantity IS NOT NULL THEN quantity ELSE 0 END) AS out_quantity
+                                FROM accumulated_data
+                                WHERE progress = '생산완료'
+                                AND STR_TO_DATE(registration_date, '%Y-%m-%d') < STR_TO_DATE(@baseday_dt, '%Y-%m-%d') 
+                                GROUP BY supplier) E,
+                                (SELECT supplier, SUM(CASE WHEN quantity IS NOT NULL THEN quantity ELSE 0 END) AS day_quantity
+                                FROM accumulated_data
+                                WHERE progress = '생산완료'
+                                AND registration_date = @baseday_dt
+                                GROUP BY supplier) F)
+                            WHERE D.supplier = E.supplier
+                            AND E.supplier = F.supplier;";
+
+             //"SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
+            
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
             com.Parameters.AddWithValue("@baseday_dt", CalendarPickDay_st);
@@ -196,15 +232,21 @@ namespace SuJinChemicalMES
             while (reader.Read())
             {
                 string supplier = reader.GetString(0);
-                int planQuantity = reader.GetInt32(2);
-                int completeQuantity = reader.GetInt32(1);
+                int in_Quantity = reader.GetInt32(1);
+                int out_Quantity = reader.GetInt32(2);
+                int day_Quantity = reader.GetInt32(3);
                 //double completeRate = (completeQuantity * 100.0 / planQuantity);
-                double completeRate = Math.Min((completeQuantity * 100.0 / planQuantity), 100);// 최대 100%
 
+                int notcomplete = in_Quantity - out_Quantity;
+                double completeRate = Math.Min((day_Quantity * 100.0 / (notcomplete) ), 100);// 최대 100%
 
+                if (in_Quantity == 0 || day_Quantity == 0)
+                {
+                    Achieve_lb.Text += "," + supplier + "에 해당하는 데이트가 없습니다.";
+                }
 
-                Achieve_ct.Series["PlanSum_s"].Points.AddXY(supplier, planQuantity);
-                Achieve_ct.Series["CompleteSum_s"].Points.AddXY(supplier, completeQuantity);
+                Achieve_ct.Series["IncomingSum_s"].Points.AddXY(supplier, notcomplete);
+                Achieve_ct.Series["PruductSum_s"].Points.AddXY(supplier, day_Quantity);
                 Achieve_ct.Series["CompleteRate_s"].Points.AddXY(supplier, completeRate);
 
                 Achieve_ct.Series["CompleteRate_s"].Color = Color.Red;
@@ -329,6 +371,11 @@ namespace SuJinChemicalMES
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             LoadImageFromDatabase();
+        }
+
+        private void Achieve_ct_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
