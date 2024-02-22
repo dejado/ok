@@ -323,7 +323,7 @@ namespace SuJinChemicalMES
 
             try
             {
-                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;");
+                MySqlConnection connection = new MySqlConnection("Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;");
                 connection.Open();
 
                 // 데이터베이스에서 필요한 정보를 가져올 SQL 쿼리 작성
