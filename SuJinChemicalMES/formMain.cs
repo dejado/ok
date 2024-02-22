@@ -33,7 +33,7 @@ namespace SuJinChemicalMES
             LoadImageFromDatabase();
             InitializeTimer();
         }
-      
+
         string CalendarPickDay_st;
 
         private void formMain_Load(object sender, EventArgs e)
@@ -44,6 +44,8 @@ namespace SuJinChemicalMES
 
 
             CalendarPickDay_st = DateTime.Now.ToString("yyyy-MM-dd");
+
+            AddChart();
         }
 
         private void AddCalendar()
@@ -176,7 +178,7 @@ namespace SuJinChemicalMES
             mok.Show();
         }
 
-       private void AddChart()
+        private void AddChart()
         {
             Achieve_ct.Series["IncomingSum_s"].Points.Clear();
             Achieve_ct.Series["PruductSum_s"].Points.Clear();
@@ -222,36 +224,51 @@ namespace SuJinChemicalMES
                             WHERE D.supplier = E.supplier
                             AND E.supplier = F.supplier;";
 
-             //"SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
-            
+            //"SELECT A.supplier, A.quantity, B.production_plan_quantity FROM ((SELECT SUM(quantity) AS quantity, supplier FROM accumulated_data WHERE registration_date = @baseday_dt AND progress = '생산완료' GROUP BY supplier) A, (SELECT SUM(production_plan_quantity) AS production_plan_quantity, supplier FROM accumulated_data WHERE scheduled_production_date = @baseday_dt AND progress = '생산계획등록' GROUP BY supplier) B) WHERE A.supplier = B.supplier";
+
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
             com.Parameters.AddWithValue("@baseday_dt", CalendarPickDay_st);
-            DataTable dt = new DataTable();
-            dt.Load(com.ExecuteReader());
+            MySqlDataReader reader = com.ExecuteReader();
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            while (reader.Read())
             {
-                DataRow row = dt.Rows[i];
-
-                string supplier = row["supplier"].ToString();
-                int in_Quantity = Convert.ToInt32(row["in_quantity"]);
-                int out_Quantity = Convert.ToInt32(row["out_quantity"]);
-                int day_Quantity = Convert.ToInt32(row["day_quantity"]);
+                string supplier = reader.GetString(0);
+                int in_Quantity = reader.GetInt32(1);
+                int out_Quantity = reader.GetInt32(2);
+                int day_Quantity = reader.GetInt32(3);
+                //double completeRate = (completeQuantity * 100.0 / planQuantity);
 
                 int notcomplete = in_Quantity - out_Quantity;
-                double completeRate = Math.Min((day_Quantity * 100.0 / notcomplete), 100);
+                double completeRate = Math.Min((day_Quantity * 100.0 / notcomplete), 100);// 최대 100%
 
+                /*
                 if (in_Quantity == 0 || day_Quantity == 0)
                 {
                     Achieve_lb.Text += "," + supplier + "에 해당하는 데이트가 없습니다.";
                 }
+                */
+
 
                 Achieve_ct.Series["IncomingSum_s"].Points.AddXY(supplier, notcomplete);
                 Achieve_ct.Series["PruductSum_s"].Points.AddXY(supplier, day_Quantity);
                 Achieve_ct.Series["CompleteRate_s"].Points.AddXY(supplier, completeRate);
-            }
 
+                Achieve_ct.Series["CompleteRate_s"].Color = Color.Red;
+                Achieve_ct.Series["CompleteRate_s"].BorderWidth = 2;
+
+                Achieve_ct.ChartAreas[0].AxisY2.Minimum = 0;
+                Achieve_ct.ChartAreas[0].AxisY2.Maximum = 100;
+
+                Achieve_ct.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
+                Achieve_ct.ChartAreas[0].AxisY2.MajorGrid.LineColor = Color.LightGray;
+                Achieve_ct.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.DimGray;
+
+                Achieve_ct.ChartAreas[0].AxisY.Title = "수량(개)";
+                Achieve_ct.ChartAreas[0].AxisY2.Title = "생산 달성률(%)";
+            }
+            reader.Close();
+            con.Close();
         }
 
         //************************************************************************************************************//
@@ -269,7 +286,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 5000; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Interval = 100; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
             timer.Tick += timer1_Tick_1;
             timer.Start();
         }
@@ -277,7 +294,7 @@ namespace SuJinChemicalMES
         public void LoadImageFromDatabase()
         {
             List<PictureBox> pictureBoxList = new List<PictureBox>
-            {bath1, bath2, bath3, bath4, bath5, bath6 };
+     {bath1, bath2, bath3, bath4, bath5, bath6 };
             List<int> bath = new List<int>();
             string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
             try
@@ -328,7 +345,7 @@ namespace SuJinChemicalMES
         private void DefaultImage(List<int> bath)
         {
             List<PictureBox> pictureBoxList = new List<PictureBox>
-            { bath1, bath2, bath3, bath4, bath5, bath6 };
+     { bath1, bath2, bath3, bath4, bath5, bath6 };
 
             for (int i = 0; i < pictureBoxList.Count; i++)
             {
@@ -374,7 +391,6 @@ namespace SuJinChemicalMES
                     break;
             }
         }
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             LoadImageFromDatabase();
