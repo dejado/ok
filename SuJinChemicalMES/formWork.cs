@@ -161,7 +161,7 @@ namespace SuJinChemicalMES
             {
                 if (!bath.Contains(i))
                 {
-                    pictureBoxList[i].Image = Properties.Resources.tamk02;
+                    pictureBoxList[i].Image = Properties.Resources.tankzak5_6;
                 }
             }
 

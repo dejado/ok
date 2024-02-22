@@ -269,7 +269,7 @@ namespace SuJinChemicalMES
         private void InitializeTimer()
         {
             timer = new Timer();
-            timer.Interval = 100; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
+            timer.Interval = 5000; // 5초 간격으로 설정 (원하는 간격으로 수정 가능)
             timer.Tick += timer1_Tick_1;
             timer.Start();
         }
@@ -277,9 +277,9 @@ namespace SuJinChemicalMES
         public void LoadImageFromDatabase()
         {
             List<PictureBox> pictureBoxList = new List<PictureBox>
-        {pictureBox5, pictureBox4, pictureBox3, pictureBox2, pictureBox1, pictureBox6 };
+            {bath1, bath2, bath3, bath4, bath5, bath6 };
+            List<int> bath = new List<int>();
             string connectionString = "Server=10.10.32.82;Database=production_management;Uid=team;Pwd=team1234;";
-
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -305,6 +305,7 @@ namespace SuJinChemicalMES
                                 if (int.TryParse(secondCharacter.ToString(), out int result))
                                 {
                                     secondCharacterAsInt = result;
+                                    bath.Add(secondCharacterAsInt - 1);
                                 }
                                 else
                                 {
@@ -313,14 +314,30 @@ namespace SuJinChemicalMES
                             }
 
                             SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
+
                         }
                     }
+                    DefaultImage(bath);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("이미지 로드 중 오류 발생: " + ex.Message);
             }
+        }
+        private void DefaultImage(List<int> bath)
+        {
+            List<PictureBox> pictureBoxList = new List<PictureBox>
+            { bath1, bath2, bath3, bath4, bath5, bath6 };
+
+            for (int i = 0; i < pictureBoxList.Count; i++)
+            {
+                if (!bath.Contains(i))
+                {
+                    pictureBoxList[i].Image = Properties.Resources.tamk02;
+                }
+            }
+
         }
         private void SetPictureBoxImage(PictureBox pictureBox, string chemicalType)
         {
@@ -352,7 +369,9 @@ namespace SuJinChemicalMES
                 case "염산":
                     pictureBox.Image = Properties.Resources.tankys4;
                     break;
-                    // 다른 경우에 대한 처리도 추가 가능
+                default:
+                    pictureBox.Image = Properties.Resources.tankak4;
+                    break;
             }
         }
 

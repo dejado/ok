@@ -80,8 +80,8 @@ namespace SuJinChemicalMES
             // 모든 콤보박스의 선택 여부 확인
             if (BathNum_com.SelectedItem != null &&
                  Acidity_com.SelectedItem != null &&
-                MedicineNum_com.SelectedItem != null &&
-                Medicine_com.SelectedItem != null)
+                MedicineNum_com.SelectedItem != null 
+                &&Medicine_com.SelectedItem != null)
             {
                 // 콤보박스에서 선택된 값 가져오기
                 string bathNum = BathNum_com.SelectedItem.ToString();
