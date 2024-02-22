@@ -332,7 +332,7 @@ namespace SuJinChemicalMES
                     MessageBox.Show("데이터베이스 조회 중 오류 발생: " + ex.Message);
                 }
 
-                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, "나현진", progress, label10Text, duedate2);
+                dataGridView1.Rows.Add(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, state, workingtime, currentDate, dataContainer.Name, progress, label10Text, duedate2);
                 dataGridView1.CurrentCell = null; // 현재 선택된 셀 해제
                 Insert(label15Text, label16Text, label17Text, label18Text, combobox1Text, label19Text, textbox1Text, workingtime, currentDate, dataContainer.Name);
                 DeleteInput(label16Text);
@@ -348,47 +348,64 @@ namespace SuJinChemicalMES
 
         public void DeleteInput(string LotNum)
         {
-            string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
-            using (MySqlConnection connection = new MySqlConnection(cnn))
+            try
             {
-                // SQL 서버와 연결, database=스키마 이름
-                connection.Open();
+                string cnn = "Server=10.10.32.82;Database=material;Uid=team;Pwd=team1234;";
+                using (MySqlConnection connection = new MySqlConnection(cnn))
+                {
+                    // SQL 서버와 연결, database=스키마 이름
+                    connection.Open();
 
-                // 입력할 문자 받아옴
-                string insertQuery = "DELETE FROM incoming WHERE lot_no=@LotNum";
+                    // 입력할 문자 받아옴
+                    string insertQuery = "DELETE FROM incoming WHERE lot_no=@LotNum";
 
-                // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
-                // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
-                // 위 정보를 command 변수에 저장
-                MySqlCommand command = new MySqlCommand(insertQuery, connection);
-                command.Parameters.AddWithValue("@LotNum", LotNum);
+                    // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
+                    // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
+                    // 위 정보를 command 변수에 저장
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    command.Parameters.AddWithValue("@LotNum", LotNum);
 
-                command.ExecuteNonQuery();
-                connection.Close();
+                    command.ExecuteNonQuery();
+                    MessageBox.Show("성공");
+                    connection.Close();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
         public void DeleteOrder(string OrderNum)
         {
-            string cnn = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
-            using (MySqlConnection connection = new MySqlConnection(cnn))
+            try
             {
-                // SQL 서버와 연결, database=스키마 이름
-                connection.Open();
+                string cnn = "Server=10.10.32.82;Database=managerproduct;Uid=team;Pwd=team1234;";
+                using (MySqlConnection connection = new MySqlConnection(cnn))
+                {
+                    // SQL 서버와 연결, database=스키마 이름
+                    connection.Open();
 
-                // 입력할 문자 받아옴
-                string insertQuery = "DELETE FROM order_registration1 WHERE order_number=@OrderNum";
+                    // 입력할 문자 받아옴
+                    string insertQuery = "DELETE FROM order_registration1 WHERE order_number=@OrderNum";
 
-                // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
-                // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
-                // 위 정보를 command 변수에 저장
-                MySqlCommand command = new MySqlCommand(insertQuery, connection);
-                command.Parameters.AddWithValue("@OrderNum", OrderNum);
+                    // MySqlCommand는 MYSQL로 명령어를 전송하기 위한 클래스
+                    // MYSQL에 insertQuery 값을 보내고, connection 값을 보내 연결을 실시한다.
+                    // 위 정보를 command 변수에 저장
+                    MySqlCommand command = new MySqlCommand(insertQuery, connection);
+                    command.Parameters.AddWithValue("@OrderNum", OrderNum);
 
-                command.ExecuteNonQuery();
-                connection.Close();
+                    command.ExecuteNonQuery();
+                    connection.Close();
+
+                }
 
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
 
         private void Insert(string order_num, string lot, string code, string name, string bath, string quantity, string real_quantity, string time, string date, string registant)
         {
