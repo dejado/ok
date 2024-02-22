@@ -37,6 +37,7 @@ namespace SuJinChemicalMES
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.Load_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.AlarmPn = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,7 +53,6 @@ namespace SuJinChemicalMES
             this.WarehouseChart3 = new System.Windows.Forms.Panel();
             this.WarehouseChart1 = new System.Windows.Forms.Panel();
             this.WarehouseChart2 = new System.Windows.Forms.Panel();
-            this.Load_bt = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -141,6 +141,17 @@ namespace SuJinChemicalMES
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(453, 24);
             this.panel2.TabIndex = 6;
+            // 
+            // Load_bt
+            // 
+            this.Load_bt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Load_bt.Location = new System.Drawing.Point(375, 1);
+            this.Load_bt.Name = "Load_bt";
+            this.Load_bt.Size = new System.Drawing.Size(75, 23);
+            this.Load_bt.TabIndex = 0;
+            this.Load_bt.Text = "새로고침";
+            this.Load_bt.UseVisualStyleBackColor = true;
+            this.Load_bt.Click += new System.EventHandler(this.Load_bt_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -321,16 +332,6 @@ namespace SuJinChemicalMES
             this.WarehouseChart2.Name = "WarehouseChart2";
             this.WarehouseChart2.Size = new System.Drawing.Size(137, 313);
             this.WarehouseChart2.TabIndex = 2;
-            // 
-            // Load_bt
-            // 
-            this.Load_bt.Location = new System.Drawing.Point(375, 1);
-            this.Load_bt.Name = "Load_bt";
-            this.Load_bt.Size = new System.Drawing.Size(75, 23);
-            this.Load_bt.TabIndex = 0;
-            this.Load_bt.Text = "새로고침";
-            this.Load_bt.UseVisualStyleBackColor = true;
-            this.Load_bt.Click += new System.EventHandler(this.Load_bt_Click);
             // 
             // formChart
             // 

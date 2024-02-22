@@ -93,6 +93,7 @@ namespace SuJinChemicalMES
             SHdatagridview.Columns[8].ReadOnly = true;
             SHdatagridview.Columns[9].ReadOnly = true;
             SHdatagridview.Columns[10].ReadOnly = true;
+            SHdatagridview.Columns[11].ReadOnly = true;
             SHdatagridview.ClearSelection();
             PrGridView.ClearSelection();
             SHdatagridview.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
