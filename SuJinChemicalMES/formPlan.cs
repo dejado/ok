@@ -345,6 +345,13 @@ namespace SuJinChemicalMES
             BindDataGridView();
             comboBox1.Text = "";
             textBox1.Text = "";
+            label15.Text = "";
+            label16.Text = "";
+            label21.Text = "";
+            label18.Text = "";
+            label19.Text = "";
+            label17.Text = "";
+            label10.Text = "";
         }
 
         public void DeleteInput(string LotNum)
