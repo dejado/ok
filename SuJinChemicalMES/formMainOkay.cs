@@ -73,7 +73,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT order_number, due_date, lot_no, supplier, product_code, product_name, quantity FROM accumulated_data WHERE  registration_date = @CalendarPickday AND progress = '생산완료'";
+                string Query = "SELECT order_number, DATE_FORMAT(due_date, '%Y-%m-%d') AS due_date_formatted, lot_no, supplier, product_code, product_name, quantity FROM accumulated_data WHERE  registration_date = @CalendarPickday AND progress = '생산완료'";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
