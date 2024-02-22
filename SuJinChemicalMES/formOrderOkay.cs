@@ -39,7 +39,16 @@ namespace SuJinChemicalMES
 
             try
             {
-                bool duplicateDetected = false;
+                bool dataToProcess = false; // 데이터 전송 여부 확인을 위한 변수
+
+                // 체크된 행의 수 확인
+                int checkedRowsCount = dataGridView2.Rows.Cast<DataGridViewRow>().Count(row => !row.IsNewRow && Convert.ToBoolean(row.Cells["dataGridViewCheckBoxColumn1"].Value));
+
+                if (checkedRowsCount == 0)
+                {
+                    MessageBox.Show("체크된 항목이 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
 
                 foreach (DataGridViewRow row in dataGridView2.Rows)
                 {
@@ -62,15 +71,18 @@ namespace SuJinChemicalMES
                             {
                                 // 중복 데이터가 있을 경우 경고 메시지 표시
                                 MessageBox.Show("중복된 데이터가 있습니다: 발주서번호 - " + orderNumber + ", 로트넘버 - " + lotNo, "경고", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                duplicateDetected = true;
-                                break; // 전송 중지
+                            }
+                            else
+                            {
+                                dataToProcess = true; // 데이터 전송 대상이 있음을 표시
                             }
                         }
                     }
                 }
 
                 // 중복이 없는 경우에만 데이터 전송 수행
-                if (!duplicateDetected)
+                // 데이터 전송 수행
+                if (dataToProcess)
                 {
                     foreach (DataGridViewRow row in dataGridView2.Rows)
                     {
@@ -159,6 +171,7 @@ namespace SuJinChemicalMES
                             {
                                 MessageBox.Show("데이터 전송 중 오류가 발생했습니다: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
+                            row.DataGridView.Rows.Remove(row);
                         }
                     }
 
