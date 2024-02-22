@@ -136,7 +136,13 @@ namespace SuJinChemicalMES
                         insertCommand.ExecuteNonQuery();
                     }
                 }
-                // 선택 해제
+                else if (result == DialogResult.No)
+                {
+                   
+                    return;
+                }
+
+
                 dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
                     QCdatagridview.ClearSelection();
                     MessageBox.Show("데이터가 등록되었습니다.");
