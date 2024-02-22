@@ -523,6 +523,16 @@ namespace SuJinChemicalMES.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap tankzak5_6 {
+            get {
+                object obj = ResourceManager.GetObject("tankzak5_6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap zak4 {
             get {
                 object obj = ResourceManager.GetObject("zak4", resourceCulture);
