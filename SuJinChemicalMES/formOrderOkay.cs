@@ -201,7 +201,7 @@ namespace SuJinChemicalMES
         private void button1_Click(object sender, EventArgs e)
         {
             // 필수 입력 필드가 비어 있는지 확인
-            if (string.IsNullOrWhiteSpace(textBox2.Text) ||
+            if (string.IsNullOrWhiteSpace(comboBox1.Text) ||
                 string.IsNullOrWhiteSpace(textBox3.Text) ||
                 string.IsNullOrWhiteSpace(textBox4.Text) ||
                 string.IsNullOrWhiteSpace(textBox5.Text))
@@ -228,7 +228,7 @@ namespace SuJinChemicalMES
             dataGridView2.Rows[index].Cells[1].Value = orderNumber;
 
             // 납품처 할당
-            dataGridView2.Rows[index].Cells[2].Value = textBox2.Text;
+            dataGridView2.Rows[index].Cells[2].Value = comboBox1.Text;
 
             // 제품코드 할당
             dataGridView2.Rows[index].Cells[3].Value = textBox3.Text;
@@ -258,7 +258,7 @@ namespace SuJinChemicalMES
 
             // 텍스트박스1부터 텍스트박스5까지 초기화
             textBox1.Text = "";
-            textBox2.Text = "";
+            comboBox1.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
             textBox5.Text = "";
