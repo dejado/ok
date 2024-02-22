@@ -141,7 +141,15 @@ namespace SuJinChemicalMES
                     SetPictureBoxImage(pictureBoxList[secondCharacterAsInt - 1], chemicalType);
                     InitializePictureBoxEvents(secondCharacterAsInt - 1);
                 }
-            }
+                        // Set default image for unselected PictureBoxes
+                        foreach (PictureBox pictureBox in pictureBoxList)
+                        {
+                            if (!pictureBoxList.Contains(pictureBox))
+                            {
+                                pictureBox.Image = Properties.Resources.tamk02;
+                            }
+                        }
+                    }
         }
     }
     catch (Exception ex)

@@ -343,7 +343,8 @@ namespace SuJinChemicalMES
                 MessageBox.Show("빈 칸을 채워주세요.");
             }
             BindDataGridView();
-
+            comboBox1.Text = "";
+            textBox1.Text = "";
         }
 
         public void DeleteInput(string LotNum)
