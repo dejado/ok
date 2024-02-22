@@ -484,6 +484,7 @@
     <None Include="Resources\tankam4_2.png" />
     <None Include="Resources\tankam4_3.png" />
     <None Include="Resources\tankam4_4.png" />
+    <None Include="Properties\Resources\tankzak5_6.png" />
     <Content Include="Resources\SeojinChemical_Logo_sq.png" />
     <None Include="Resources\SeojinChemical_Logo_sq1.png" />
     <None Include="Resources\SujinChe_Logo_sq.png" />
@@ -495,6 +496,7 @@
     <Content Include="tankis4.png" />
     <Content Include="tankjs4.png" />
     <Content Include="tankys4.png" />
+    <Content Include="tankzak5_6.png" />
     <Content Include="zak4.png" />
     <Content Include="zam4.png" />
     <Content Include="zbs4.png" />
