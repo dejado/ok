@@ -193,7 +193,7 @@ namespace SuJinChemicalMES
                                 FROM accumulated_data a
                                 JOIN accumulated_data b ON a.lot_no = b.lot_no AND b.progress = '발주서등록'
                                 WHERE a.progress = '입고'
-                                AND STR_TO_DATE(a.registration_date, '%Y-%m-%d') <= STR_TO_DATE(@baseday_dt, '%Y-%m-%d') 
+                                AND a.registration_date <= STR_TO_DATE(@baseday_dt, '%Y-%m-%d') 
                                 AND NOT EXISTS (
                                     SELECT 1 
                                     FROM accumulated_data c 
@@ -212,12 +212,12 @@ namespace SuJinChemicalMES
                                 (SELECT supplier, SUM(CASE WHEN quantity IS NOT NULL THEN quantity ELSE 0 END) AS out_quantity
                                 FROM accumulated_data
                                 WHERE progress = '생산완료'
-                                AND STR_TO_DATE(registration_date, '%Y-%m-%d') < STR_TO_DATE(@baseday_dt, '%Y-%m-%d') 
+                                AND registration_date < STR_TO_DATE(@baseday_dt, '%Y-%m-%d')
                                 GROUP BY supplier) E,
                                 (SELECT supplier, SUM(CASE WHEN quantity IS NOT NULL THEN quantity ELSE 0 END) AS day_quantity
                                 FROM accumulated_data
                                 WHERE progress = '생산완료'
-                                AND registration_date = @baseday_dt
+                                AND registration_date = STR_TO_DATE(@baseday_dt, '%Y-%m-%d')
                                 GROUP BY supplier) F)
                             WHERE D.supplier = E.supplier
                             AND E.supplier = F.supplier;";
