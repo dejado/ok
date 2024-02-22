@@ -100,10 +100,10 @@ namespace SuJinChemicalMES
                         }
 
                         // 중복 데이터가 존재하지 않으면 알림창을 띄움
-                        if (!hasResult)
+                      /*  if (!hasResult)
                         {
                             MessageBox.Show("조건에 해당하는 데이터가 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        }*/
                     }
                 }
 
@@ -307,10 +307,10 @@ namespace SuJinChemicalMES
                         }
 
                         // 중복 데이터가 존재하지 않으면 알림창을 띄움
-                        if (!hasResult)
+                      /*  if (!hasResult)
                         {
                             MessageBox.Show("조건에 해당하는 데이터가 없습니다.", "알림", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        }*/
                     }
                 }
             }

@@ -302,7 +302,7 @@ namespace SuJinChemicalMES
                     connection.Open();
 
                     int 양품_총용량 = 40000;
-                    int 부자재_총용량 = 30000;
+                    int 부자재_총용량 = 20000;
                     int 반품_총용량 = 3000;
                     string query = @"
                   SELECT

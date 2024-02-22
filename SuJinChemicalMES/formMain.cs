@@ -227,18 +227,20 @@ namespace SuJinChemicalMES
             //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
             MySqlCommand com = new MySqlCommand(Query, con);
             com.Parameters.AddWithValue("@baseday_dt", CalendarPickDay_st);
-            MySqlDataReader reader = com.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(com.ExecuteReader());
 
-            while (reader.Read())
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                string supplier = reader.GetString(0);
-                int in_Quantity = reader.GetInt32(1);
-                int out_Quantity = reader.GetInt32(2);
-                int day_Quantity = reader.GetInt32(3);
-                //double completeRate = (completeQuantity * 100.0 / planQuantity);
+                DataRow row = dt.Rows[i];
+
+                string supplier = row["supplier"].ToString();
+                int in_Quantity = Convert.ToInt32(row["in_quantity"]);
+                int out_Quantity = Convert.ToInt32(row["out_quantity"]);
+                int day_Quantity = Convert.ToInt32(row["day_quantity"]);
 
                 int notcomplete = in_Quantity - out_Quantity;
-                double completeRate = Math.Min((day_Quantity * 100.0 / (notcomplete) ), 100);// 최대 100%
+                double completeRate = Math.Min((day_Quantity * 100.0 / notcomplete), 100);
 
                 if (in_Quantity == 0 || day_Quantity == 0)
                 {
@@ -248,24 +250,10 @@ namespace SuJinChemicalMES
                 Achieve_ct.Series["IncomingSum_s"].Points.AddXY(supplier, notcomplete);
                 Achieve_ct.Series["PruductSum_s"].Points.AddXY(supplier, day_Quantity);
                 Achieve_ct.Series["CompleteRate_s"].Points.AddXY(supplier, completeRate);
-
-                Achieve_ct.Series["CompleteRate_s"].Color = Color.Red;
-                Achieve_ct.Series["CompleteRate_s"].BorderWidth = 2;
-
-                Achieve_ct.ChartAreas[0].AxisY2.Minimum = 0;
-                Achieve_ct.ChartAreas[0].AxisY2.Maximum = 100;
-
-                Achieve_ct.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.LightGray;
-                Achieve_ct.ChartAreas[0].AxisY2.MajorGrid.LineColor = Color.LightGray;
-                Achieve_ct.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.DimGray;
-
-                Achieve_ct.ChartAreas[0].AxisY.Title = "수량(개)";
-                Achieve_ct.ChartAreas[0].AxisY2.Title = "생산 달성률(%)";
             }
-            reader.Close();
-            con.Close();
+
         }
-       
+
         //************************************************************************************************************//
 
         private void Main_tlpn_Paint(object sender, PaintEventArgs e)
