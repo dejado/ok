@@ -41,14 +41,12 @@ namespace SuJinChemicalMES
             CalendarPick_gv.ColumnHeadersHeight = 50;
 
             CalendarPick_gv.Columns.Add("order_number", "주문번호");
-            CalendarPick_gv.Columns.Add("supplier", "회사명");
+            CalendarPick_gv.Columns.Add("due_date", "납기일");
+            CalendarPick_gv.Columns.Add("lot_no", "Lot No.");
+            CalendarPick_gv.Columns.Add("company", "회사명");
             CalendarPick_gv.Columns.Add("product_code", "제품코드");
-            CalendarPick_gv.Columns.Add("Lot_No.", "Lot_No.");
-            CalendarPick_gv.Columns.Add("lot_no", "납기일");
-            CalendarPick_gv.Columns.Add("due_date_request", "등록자");
-            CalendarPick_gv.Columns.Add("registrant", "생산예정량");
-            CalendarPick_gv.Columns.Add("production_plan_quantity", "생산주문량");
-            CalendarPick_gv.Columns.Add("beth_batch", "투입베스");
+            CalendarPick_gv.Columns.Add("product_code", "제품이름");
+            CalendarPick_gv.Columns.Add("quantity", "제품수량");
 
             CalendarPick_tlpn.Controls.Add(CalendarPick_gv, 0, 1);
             CalendarPick_gv.Dock = DockStyle.Fill;
@@ -75,7 +73,7 @@ namespace SuJinChemicalMES
                 con.Open();
                 //SQL 서버 연결
 
-                string Query = "SELECT order_number, supplier, product_code, lot_no, due_date, registrant, production_plan_quantity, work_order_quantity, beth_batch FROM accumulated_data WHERE  scheduled_production_date = @CalendarPickday";
+                string Query = "SELECT order_number, due_date, lot_no, company, product_code, product_name, quantity FROM accumulated_data WHERE  registration_date = @CalendarPickday AND progress = '생산완료'";
                 //ExcuteReader를 이용하여 연결모드로 데이터 가져오기
                 MySqlCommand com = new MySqlCommand(Query, con);
 
